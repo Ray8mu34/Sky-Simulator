@@ -4,7 +4,7 @@
 
 **v0.1.0 是公开预览版。** 已完成本机 Windows 范围内的功能与科学参考检查；尚不承诺跨设备稳定性或全时空精度。Firefox 有一次未复现的交互超时，详见下方限制。
 
-[下载 v0.1.0 预览版](https://github.com/Ray8mu34/Sky-Simulator/releases/tag/v0.1.0) · [项目介绍 PDF](media/Sky-Simulator-Overview.pdf) · [发布说明](docs/RELEASE-NOTES-v0.1.0.md) · [科学模型](docs/SCIENCE-MODEL.md)
+[在线体验](https://sky.zjuaaa.cn/) · [下载 v0.1.0 预览版](https://github.com/Ray8mu34/Sky-Simulator/releases/tag/v0.1.0) · [项目介绍 PDF](media/Sky-Simulator-Overview.pdf) · [发布说明](docs/RELEASE-NOTES-v0.1.0.md) · [科学模型](docs/SCIENCE-MODEL.md)
 
 ![真实应用地表视图](media/screenshots/overview-ground.png)
 
@@ -58,6 +58,8 @@ pnpm exec vite preview --host 127.0.0.1 --port 4173 --strictPort
 `dist/` 是 Web 包；`dist-portable/三维全景夜空.html` 是便携文件。`pnpm build` 包含类型检查。最小 GitHub Actions CI 仅执行固定依赖安装、类型检查与 Web 构建，不代替真实浏览器或设备验收。
 
 发布文件、校验清单与静态部署注意事项见 [发布指南](docs/PUBLISHING.md)，已有检查范围见 [验证摘要](docs/VALIDATION.md)。永久科学夹具保留在 `tests/fixtures/` 与 `qa/`；完整资产溯源审计需要单独恢复上游原件，详见 [夹具说明](qa/README.md)。
+
+现已部署到 [sky.zjuaaa.cn](https://sky.zjuaaa.cn/)，公网HTTPS、四视图与桌面Chrome断网重开已检查，维护与回滚规则见 [部署记录](docs/DEPLOYMENT.md)。
 
 ## 已知限制
 

@@ -1,6 +1,6 @@
 # 构建与发布
 
-仓库：<https://github.com/Ray8mu34/Sky-Simulator>。v0.1.0 以 **GitHub prerelease / 公开预览版** 发布，不自动部署网站。
+仓库：<https://github.com/Ray8mu34/Sky-Simulator>。v0.1.0 以 **GitHub prerelease / 公开预览版** 发布，CI不自动部署网站。2026-10-05已按用户授权独立部署至 <https://sky.zjuaaa.cn/>，见[部署与维护](DEPLOYMENT.md)。
 
 ## 构建输入
 
