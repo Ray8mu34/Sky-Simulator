@@ -1,0 +1,855 @@
+{
+  "schemaVersion": 1,
+  "purpose": "independent scalar contract golden, not measured atmospheric accuracy",
+  "generatedAtUtc": "2026-10-04T22:22:32.339924+00:00",
+  "scriptSha256": "6d94a0663f14353437951bedf9e0ff913e19e2b7f7b2810af087d9b275a78368",
+  "aeVersion": "2.1.19",
+  "sources": [
+    {
+      "file": "node_modules/astronomy-engine/astronomy.js",
+      "bytes": 421280,
+      "sha256": "729c0ce37cc1a8096034a689039a5f04585ee8184177c638e8c74dec4fa3185a"
+    },
+    {
+      "file": "node_modules/astronomy-engine/esm/astronomy.js",
+      "bytes": 412025,
+      "sha256": "068f1445ed0c636c94818fe6d20d7d125120e605e0bab9fc4675c3d531be5ad7"
+    },
+    {
+      "file": "node_modules/astronomy-engine/package.json",
+      "bytes": 1078,
+      "sha256": "d035702763839ae11f41600cf4b8210005672658dcb19cea4a09591078af4931"
+    },
+    {
+      "file": "qa/science-reference-prep/m5c/astronomy-v2.1.19-source.raw",
+      "bytes": 422727,
+      "sha256": "e043bba40da82c981d2952407c68975b60cd9d94675c91e1c0d3c8c148595fb3"
+    },
+    {
+      "file": "qa/science-reference-prep/m5c/astronomy-v2.1.19-readme.raw",
+      "bytes": 174193,
+      "sha256": "73c2de22668374bafd2d238ef43bccd96017550d47ba05afaedd969a00490b1f"
+    },
+    {
+      "file": "qa/science-reference-prep/m5b/compiler/runs/20261004T214924405Z/official-source/sofa/20231011/c/src/nut00b.c",
+      "bytes": 19466,
+      "sha256": "49dd03e83670c8838d6b9ec2f4ae85159cc39d1c2ef020a114f0fcb8ac20e44e"
+    },
+    {
+      "file": "qa/science-reference-prep/m5b/compiler/runs/20261004T214924405Z/official-source/sofa/20231011/c/src/nut06a.c",
+      "bytes": 8047,
+      "sha256": "babb778f53c324ee0e61ebad535b1f9500584acd7085005e055acd29df1abd0a"
+    },
+    {
+      "file": "qa/science-reference-prep/m5b/compiler/runs/20261004T214924405Z/official-source/sofa/20231011/c/src/p06e.c",
+      "bytes": 14196,
+      "sha256": "c2fe87726e64836ea456655f585f19d86e8e4f9a86b0fc5e8076faf2913e77b6"
+    },
+    {
+      "file": "qa/science-reference-prep/m5b/compiler/runs/20261004T214924405Z/official-source/sofa/20231011/c/src/pnm06a.c",
+      "bytes": 7033,
+      "sha256": "c483f2704d098ba98cec2f089a8e9d333b43a19acc5c71c1332bc7127becebe7"
+    },
+    {
+      "file": "qa/science-reference-prep/m5b/compiler/runs/20261004T214924405Z/official-source/sofa/20231011/c/src/ecm06.c",
+      "bytes": 7455,
+      "sha256": "386fda1594fcbfa05ea1544655359b501714fce40c6c82460947d2cb2e6bc690"
+    },
+    {
+      "file": "qa/science-reference-prep/m5b/compiler/runs/20261004T214924405Z/official-source/sofa/20231011/c/src/obl06.c",
+      "bytes": 6620,
+      "sha256": "091c24e3a92fc4bf684394df3d9ecb4d0bb142568c039e1f4e800cf170ccbc4f"
+    }
+  ],
+  "rows": [
+    {
+      "geometricAltitudeDeg": -90,
+      "rawCorrectionDeg": 0.0,
+      "rawPolicyApparentAltitudeDeg": -90.0,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": -89.999,
+      "rawCorrectionDeg": 7.264950796450698e-06,
+      "rawPolicyApparentAltitudeDeg": -89.9989927350492,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": -45,
+      "rawCorrectionDeg": 0.3269227858387205,
+      "rawPolicyApparentAltitudeDeg": -44.67307721416128,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": -18,
+      "rawCorrectionDeg": 0.5230764573419527,
+      "rawPolicyApparentAltitudeDeg": -17.476923542658046,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": -6,
+      "rawCorrectionDeg": 0.6102558668989448,
+      "rawPolicyApparentAltitudeDeg": -5.389744133101055,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": -5.11,
+      "rawCorrectionDeg": 0.616721673107755,
+      "rawPolicyApparentAltitudeDeg": -4.493278326892245,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": -1.000001,
+      "rawCorrectionDeg": 0.6465806136160741,
+      "rawPolicyApparentAltitudeDeg": -0.3534203863839258,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": -1,
+      "rawCorrectionDeg": 0.6465806208810249,
+      "rawPolicyApparentAltitudeDeg": -0.35341937911897514,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": -0.999999,
+      "rawCorrectionDeg": 0.6465804532655449,
+      "rawPolicyApparentAltitudeDeg": -0.35341854673445505,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": -0.5,
+      "rawCorrectionDeg": 0.5614632682445471,
+      "rawPolicyApparentAltitudeDeg": 0.061463268244547065,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": 0,
+      "rawCorrectionDeg": 0.4830321230741662,
+      "rawPolicyApparentAltitudeDeg": 0.4830321230741662,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": 1,
+      "rawCorrectionDeg": 0.36239811324859406,
+      "rawPolicyApparentAltitudeDeg": 1.362398113248594,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": 5,
+      "rawCorrectionDeg": 0.16123544340190651,
+      "rawPolicyApparentAltitudeDeg": 5.161235443401907,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": 10,
+      "rawCorrectionDeg": 0.09012801338558875,
+      "rawPolicyApparentAltitudeDeg": 10.09012801338559,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": 30,
+      "rawCorrectionDeg": 0.029099750246328184,
+      "rawPolicyApparentAltitudeDeg": 30.029099750246328,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": 45,
+      "rawCorrectionDeg": 0.016878460981225234,
+      "rawPolicyApparentAltitudeDeg": 45.016878460981225,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": 60,
+      "rawCorrectionDeg": 0.009752471282616549,
+      "rawPolicyApparentAltitudeDeg": 60.00975247128262,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": 85,
+      "rawCorrectionDeg": 0.0014531387060251935,
+      "rawPolicyApparentAltitudeDeg": 85.00145313870603,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": 89,
+      "rawCorrectionDeg": 0.00026425385497841006,
+      "rawPolicyApparentAltitudeDeg": 89.00026425385498,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": 89.89,
+      "rawCorrectionDeg": 4.68483115124438e-07,
+      "rawPolicyApparentAltitudeDeg": 89.89000046848311,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": 89.9,
+      "rawCorrectionDeg": -2.4951907588806716e-06,
+      "rawPolicyApparentAltitudeDeg": 89.89999750480925,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": 89.999,
+      "rawCorrectionDeg": -3.1835637546121855e-05,
+      "rawPolicyApparentAltitudeDeg": 89.99896816436245,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": 90,
+      "rawCorrectionDeg": -3.213200672439883e-05,
+      "rawPolicyApparentAltitudeDeg": 89.99996786799328,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": -90.000001,
+      "rawCorrectionDeg": 0.0,
+      "rawPolicyApparentAltitudeDeg": -90.000001,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    },
+    {
+      "geometricAltitudeDeg": 90.000001,
+      "rawCorrectionDeg": 0.0,
+      "rawPolicyApparentAltitudeDeg": 90.000001,
+      "policy": "raw-ae-normal-no-positive-clamp-no-zenith-endpoint-adaptation"
+    }
+  ],
+  "environments": [
+    {
+      "id": "unit-scale",
+      "pressureHpa": 1010,
+      "temperatureC": 10
+    },
+    {
+      "id": "zero-pressure",
+      "pressureHpa": 0,
+      "temperatureC": 15
+    },
+    {
+      "id": "1013.25-15C",
+      "pressureHpa": 1013.25,
+      "temperatureC": 15
+    },
+    {
+      "id": "max-allowed-density",
+      "pressureHpa": 1200,
+      "temperatureC": -100
+    }
+  ],
+  "scaledRows": [
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": -90,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": -89.999,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 7.264950796450698e-06
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": -45,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.3269227858387205
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": -18,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.5230764573419527
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": -6,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.6102558668989448
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": -5.11,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.616721673107755
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": -1.000001,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.6465806136160741
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": -1,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.6465806208810249
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": -0.999999,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.6465804532655449
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": -0.5,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.5614632682445471
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": 0,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.4830321230741662
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": 1,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.36239811324859406
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": 5,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.16123544340190651
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": 10,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.09012801338558875
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": 30,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.029099750246328184
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": 45,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.016878460981225234
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": 60,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.009752471282616549
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": 85,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.0014531387060251935
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": 89,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.00026425385497841006
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": 89.89,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 4.68483115124438e-07
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": 89.9,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": -2.4951907588806716e-06
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": 89.999,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": -3.1835637546121855e-05
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": 90,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": -3.213200672439883e-05
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": -90.000001,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "geometricAltitudeDeg": 90.000001,
+      "densityScale": 1.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": -90,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": -89.999,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": -45,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": -18,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": -6,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": -5.11,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": -1.000001,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": -1,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": -0.999999,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": -0.5,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": 0,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": 1,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": 5,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": 10,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": 30,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": 45,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": 60,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": 85,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": 89,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": 89.89,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": 89.9,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": -0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": 89.999,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": -0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": 90,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": -0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": -90.000001,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "geometricAltitudeDeg": 90.000001,
+      "densityScale": 0.0,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": -90,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": -89.999,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 7.161794639179519e-06
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": -45,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.32228075876153955
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": -18,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.5156492140184633
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": -6,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.6015907496882071
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": -5.11,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.6079647469170464
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": -1.000001,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.637399715722139
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": -1,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.6373997228839337
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": -0.999999,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.6373995576484518
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": -0.5,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.5534909646703341
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": 0,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.47617347543140254
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": 1,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.3572523665240168
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": 5,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.15894603646395708
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": 10,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.08884827181763691
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": 30,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.028686558402767615
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": 45,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.01663880110956783
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": 60,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.009613994438161697
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": 85,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.0014325053653329472
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": 89,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.00026050167371973094
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": 89.89,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 4.618310510903252e-07
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": 89.9,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": -2.4597611603112718e-06
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": 89.999,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": -3.138359841667029e-05
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": 90,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": -3.167575940325799e-05
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": -90.000001,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "geometricAltitudeDeg": 90.000001,
+      "densityScale": 0.9858008457095708,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": -90,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": -89.999,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 1.4119940997394019e-05
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": -45,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 0.635397344879697
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": -18,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 1.0166357518075153
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": -6,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 1.1860750437754344
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": -5.11,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 1.198641791263055
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": -1.000001,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 1.2566747346421263
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": -1,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 1.2566747487620673
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": -0.999999,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 1.2566744229896356
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": -0.5,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 1.0912432089271915
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": 0,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 0.9388067818690942
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": 1,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 0.7043461297958137
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": 5,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 0.31337238355913377
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": 10,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 0.17517011014563003
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": 30,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 0.05655740390117925
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": 45,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 0.03280447175198357
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": 60,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 0.018954611386576888
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": 85,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 0.0028242769104684694
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": 89,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 0.0005135958859421281
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": 89.89,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 9.105297653308483e-07
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": 89.9,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": -4.849578101733394e-06
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": 89.999,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": -6.187479259808265e-05
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": 90,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": -6.245080686548298e-05
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": -90.000001,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "geometricAltitudeDeg": 90.000001,
+      "densityScale": 1.9435700795513076,
+      "scaledRawCorrectionDeg": 0.0
+    }
+  ],
+  "endpointPolicyStatus": "raw only; final application adapter pending root/science decision",
+  "formula": "hEff=max(h,-1); R=(1.02/60)*cot((hEff+10.3/(hEff+5.11))*pi/180); below -1 multiply (h+90)/89; outside [-90,90] R=0",
+  "priorNutationBound": {
+    "scope": "prior coefficient triangle bound relative to SOFA Nut00b; no AE numeric call/comparison",
+    "julianCenturiesAbsoluteLimit": 1.01,
+    "sofaTerms": 77,
+    "auditedAeTerms": 5,
+    "omittedLongitudeBoundArcsec": 0.34330273699999997,
+    "omittedObliquityBoundArcsec": 0.109173996,
+    "combinedComponentTriangleBoundArcsec": 0.45247673299999996,
+    "oneArcsecThresholdStatus": "predeclared project gate, not upstream 1arcsec guarantee; full2000A/model/precession differences still explicit",
+    "sourceNut00bSha256": "49dd03e83670c8838d6b9ec2f4ae85159cc39d1c2ef020a114f0fcb8ac20e44e"
+  },
+  "productionComparisonPerformed": false,
+  "failures": []
+}

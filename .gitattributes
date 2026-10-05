@@ -1,0 +1,3 @@
+# Preserve exact bytes of hash-locked scientific fixtures and release provenance
+# across Windows and Linux clones. This does not disable textual diffs.
+* -text

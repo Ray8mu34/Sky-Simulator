@@ -1,0 +1,26 @@
+node_modules/
+__pycache__/
+*.py[cod]
+dist/
+dist-portable/
+.cache/
+test-results/
+playwright-report/
+*.log
+# Large upstream originals are reproducible from acquisition manifests.
+assets/source/
+# User reference material is retained locally and excluded from redistribution.
+三维全景夜空_实施与Codex交付包/
+# Temporary PDF review renders; application QA evidence remains available.
+qa/requirements-*.png
+qa/requirements-pdf.txt
+releases/
+.qa-browsers/
+_local-archive/
+tmp/
+output/
+# QA outputs are local. Only the curated immutable fixture list is force-added.
+qa/
+# Downloaded HKO daily extracts remain local research/verification material.
+assets/lunar-hko-checked-rows.json
+assets/lunar-hko-mismatches.json

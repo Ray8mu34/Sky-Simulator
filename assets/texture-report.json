@@ -1,0 +1,46 @@
+{
+  "coordinateFrame": "geographic equirectangular; north at top, Greenwich at u=0.5, east increases right",
+  "uvEquation": {
+    "u": "(longitudeEastDegrees+180)/360",
+    "vImage": "(90-latitudeNorthDegrees)/180"
+  },
+  "dayColorSpace": "sRGB",
+  "nightColorSpace": "sRGB",
+  "cloudColorSpace": "NoColorSpace / linear mask in RGB.r",
+  "cloudRole": "NASA Blue Marble 2002 static cloud composite, not current weather data",
+  "textureGpuBytesRgba8WithMipmaps": 16777214,
+  "files": {
+    "assets/runtime/earth-clouds-1k.webp": {
+      "bytes": 358566,
+      "sha256": "f34296e67f4d54773ba45cdbf713fff80d2e8c1ae8321d29e82c080a0be6d04a",
+      "dimensions": [
+        1024,
+        512
+      ]
+    },
+    "assets/runtime/earth-day-1k.webp": {
+      "bytes": 62728,
+      "sha256": "9c16d3d51a4d22ca97a67e06579368ea8e101efb09d388576c913cfcf52f5c63",
+      "dimensions": [
+        1024,
+        512
+      ]
+    },
+    "assets/runtime/earth-day-2k.webp": {
+      "bytes": 219370,
+      "sha256": "f2fde0f1ca1958b262b2cbdbd98ab1b69e4f750c674f188e98d06fef940dddf7",
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    "assets/runtime/earth-night-1k.webp": {
+      "bytes": 21586,
+      "sha256": "2d2f796280c944499cc4e3b2fda5ae0e4dfbe71a50b9540a65868fcb3d94297e",
+      "dimensions": [
+        1024,
+        512
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "status": 200,
+  "requestedAtUtc": "2026-10-04T17:32:05.6625465Z",
+  "retrievedAtUtc": "2026-10-04T17:32:07.5666603Z",
+  "acquisition": "Invoke-WebRequest normal HTTPS certificate validation; original HTTP response body saved to file",
+  "sha256": "bca6ebb366b04afcf78e5f5ec417baaceda9aa7769470d2126a9a8790044bd2d",
+  "sourceUrl": "https://simbad.cds.unistra.fr/simbad/sim-basic?Ident=Deneb",
+  "bytes": 79144
+}

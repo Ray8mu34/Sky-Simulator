@@ -1,0 +1,39 @@
+{
+  "purpose": "Predeclared southern-hemisphere ordinary civil-day Moon reference.",
+  "definitionSource": "https://aa.usno.navy.mil/faq/RST_defs",
+  "retrievedAtUtc": "2026-10-04T20:04:22.9983120+00:00",
+  "returnedDate": {
+    "tzHours": 10.0,
+    "day": 14,
+    "year": 2026,
+    "isdst": false,
+    "month": 9
+  },
+  "httpStatus": 200,
+  "sourceUrl": "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-09-14&coords=-33.8688,151.2093&tz=10&dst=false",
+  "bytes": 1267,
+  "status": "retrieved-reference-not-production-validated",
+  "requestedAtUtc": "2026-10-04T20:04:15.5232050+00:00",
+  "units": {
+    "moondataTime": "local HH:mm or null",
+    "civilZone": "explicit fixed UTC offset, not historical IANA",
+    "timescale": "source Universal Time plus explicit fixed display offset",
+    "calendar": "Gregorian modern civil date"
+  },
+  "sha256": "273f790c668814759f38349f1d5e4ce5e8cbc2efc46ac6b39b75bb9aaea36b84",
+  "request": {
+    "latitudeDeg": -33.8688,
+    "heightMeters": 0,
+    "dst": false,
+    "displayZone": {
+      "offsetMinutes": 600,
+      "kind": "fixed"
+    },
+    "dateLocal": "2026-09-14",
+    "longitudeDegEast": 151.2093
+  },
+  "apiVersion": "4.0.1",
+  "definition": "Moon upper limb at level unobstructed horizontal horizon, sea-level standard refraction34arcmin; lunar parallax already accounted by source, no phase-dependent limb rule. Returned local times rounded to minute. Source oneday geographic model/ephemeris differs from project AE and is independent.",
+  "acquisition": "Original HTTP response bytes saved by PowerShell Invoke-WebRequest; normal certificate validation; no proxy or system configuration changes.",
+  "rawFile": "usno-moon-sydney-2026-09-14.json"
+}

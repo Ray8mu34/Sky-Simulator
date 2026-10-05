@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#020407" />
+  <meta name="description" content="离线天文学教学星空：真实星表、时间地点与统一天文内核。" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23020407'/%3E%3Ccircle cx='16' cy='17' r='9' fill='%23244559'/%3E%3Ccircle cx='25' cy='5' r='1' fill='%23e7e5dc'/%3E%3C/svg%3E" />
+  <title>三维全景夜空</title>
+</head>
+<body>
+  <div id="app">
+    <main id="sky-stage" aria-label="三维星空"></main>
+    <aside id="controls" aria-label="星空控制"></aside>
+    <div id="runtime-status" role="status" aria-live="polite">正在加载本地星空资源…</div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

@@ -1,0 +1,1081 @@
+{
+  "schemaVersion": 1,
+  "generator": "lunar-typescript@1.8.6",
+  "generatorRevision": "a376ec2b8fd1b3069e24c92801bab8707fccd49d",
+  "calendarZone": "UTC+08:00",
+  "gregorianStartInclusive": "1901-01-01",
+  "gregorianEndExclusive": "2101-01-01",
+  "verifiedGregorianYears": [
+    1901,
+    2100
+  ],
+  "months": 2476,
+  "recordBytes": 8,
+  "recordLayout": "int32LE civilUnixDay, uint16LE lunarYear, uint8 month|leapBit128, uint8 length29or30",
+  "hkoComparison": {
+    "checkedDays": 73049,
+    "matchingDays": 73019,
+    "mismatchDays": 30,
+    "mismatchRanges": [
+      {
+        "start": "2057-09-28",
+        "end": "2057-10-27",
+        "days": 30
+      }
+    ],
+    "textTableMissingDates": [
+      "2069-12-30"
+    ],
+    "pdfSupplementDates": [
+      "2069-12-30"
+    ],
+    "pdfSupplementProof": "qa/m3-review/fixtures/hko-2069e.metadata.json",
+    "pdfSupplementSha256": "77e5623b62c7bb9ac4644ba77987334f3389ebe7346c1538ccf917e250b31b96",
+    "warnedNewMoonDates": [
+      "2057-09-28",
+      "2089-09-04",
+      "2097-08-07"
+    ],
+    "uncertainGregorianYears": [
+      2057,
+      2089,
+      2097
+    ],
+    "policy": "Runtime retains the fixed MIT generator convention. HKO tables are independent QA only; all mismatches retained. Flag every day of warned/differing Gregorian years as uncertain."
+  },
+  "recordFirst": {
+    "civilDate": "1900-12-22",
+    "civilDay": -25212,
+    "year": 1900,
+    "month": 11,
+    "isLeapMonth": false,
+    "monthLengthDays": 29
+  },
+  "recordLast": {
+    "civilDate": "2101-01-29",
+    "civilDay": 47875,
+    "year": 2101,
+    "month": 1,
+    "isLeapMonth": false,
+    "monthLengthDays": 30
+  },
+  "yearlyChecks": {
+    "1901": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1902": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1903": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1904": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1905": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1906": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1907": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1908": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1909": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1910": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1911": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1912": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1913": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1914": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1915": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1916": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1917": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1918": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1919": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1920": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1921": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1922": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1923": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1924": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1925": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1926": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1927": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1928": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1929": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1930": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1931": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1932": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1933": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1934": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1935": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1936": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1937": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1938": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1939": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1940": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1941": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1942": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1943": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1944": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1945": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1946": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1947": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1948": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1949": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1950": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1951": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1952": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1953": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1954": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1955": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1956": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1957": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1958": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1959": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1960": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1961": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1962": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1963": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1964": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1965": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1966": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1967": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1968": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1969": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1970": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1971": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1972": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1973": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1974": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1975": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1976": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1977": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1978": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1979": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1980": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1981": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1982": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1983": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1984": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1985": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1986": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1987": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1988": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1989": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1990": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1991": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1992": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1993": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1994": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1995": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1996": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1997": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "1998": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "1999": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2000": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2001": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2002": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2003": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2004": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2005": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2006": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2007": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2008": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2009": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2010": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2011": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2012": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2013": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2014": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2015": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2016": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2017": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2018": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2019": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2020": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2021": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2022": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2023": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2024": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2025": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2026": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2027": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2028": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2029": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2030": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2031": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2032": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2033": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2034": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2035": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2036": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2037": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2038": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2039": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2040": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2041": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2042": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2043": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2044": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2045": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2046": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2047": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2048": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2049": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2050": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2051": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2052": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2053": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2054": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2055": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2056": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2057": {
+      "checkedDays": 365,
+      "mismatchDays": 30,
+      "monthStartRows": 13
+    },
+    "2058": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2059": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2060": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2061": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2062": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2063": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2064": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2065": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2066": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2067": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2068": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2069": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2070": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2071": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2072": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2073": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2074": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2075": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2076": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2077": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2078": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2079": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2080": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2081": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2082": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2083": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2084": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2085": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2086": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2087": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2088": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2089": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2090": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2091": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2092": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2093": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2094": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2095": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2096": {
+      "checkedDays": 366,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2097": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2098": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    },
+    "2099": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 12
+    },
+    "2100": {
+      "checkedDays": 365,
+      "mismatchDays": 0,
+      "monthStartRows": 13
+    }
+  },
+  "outputs": [
+    {
+      "path": "assets/runtime/lunar-months.bin",
+      "sha256": "a5a31dd8760bc423607edf937dbdaa833b75a99ad7e6c81899edc96e28b70dc5",
+      "bytes": 19808
+    },
+    {
+      "path": "assets/runtime/lunar-months.b64.txt",
+      "sha256": "1b6dc5f1e30a0323b4b32e0462f2e96392b92010f7a8a5a25bc6311882b1a5c3",
+      "bytes": 26413
+    },
+    {
+      "path": "assets/runtime/lunar-meta.json",
+      "sha256": "f100fb34d92b96dc2d3f8c560a5d90112314c730263749d018740b2665e9588e",
+      "bytes": 1648
+    }
+  ]
+}

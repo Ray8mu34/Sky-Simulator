@@ -1,0 +1,116 @@
+{
+  "sourceFile": "assets/runtime/star-meta.json",
+  "sourceSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1",
+  "scope": "Exact subset of actual runtime metadata for event targets. This source copy is not an independent astrometric reference.",
+  "stars": [
+    {
+      "index": 0,
+      "id": "hip:11767",
+      "hygId": 11734,
+      "hip": 11767,
+      "raHours": 2.52975,
+      "decDeg": 89.264109,
+      "magnitude": 1.97,
+      "colorIndex": 0.636,
+      "nameEn": "Polaris",
+      "nameZh": "北极星",
+      "aliases": [
+        "HIP 11767",
+        "1Alp UMi",
+        "Polaris",
+        "勾陈一"
+      ],
+      "pmRaMasYr": 44.22,
+      "pmRaCosDecMasYr": 44.22,
+      "pmDecMasYr": -11.74,
+      "qualityFlags": 0,
+      "distancePc": 132.626,
+      "radialVelocityKmS": -17,
+      "spaceVelocityEqjPcYr": [
+        -0.00001171,
+        0.00002692,
+        -0.00001748
+      ],
+      "variableName": "Alp",
+      "variableMagnitudeRange": [
+        1.993,
+        1.953
+      ],
+      "component": 1,
+      "componentPrimaryHygId": 11734,
+      "constellationId": "UMi"
+    },
+    {
+      "index": 1,
+      "id": "hip:30438",
+      "hygId": 30365,
+      "hip": 30438,
+      "raHours": 6.399195,
+      "decDeg": -52.69566,
+      "magnitude": -0.62,
+      "colorIndex": 0.164,
+      "nameEn": "Canopus",
+      "nameZh": "老人",
+      "aliases": [
+        "HIP 30438",
+        "Alp Car",
+        "Canopus"
+      ],
+      "pmRaMasYr": 19.99,
+      "pmRaCosDecMasYr": 19.99,
+      "pmDecMasYr": 23.67,
+      "qualityFlags": 0,
+      "distancePc": 94.7867,
+      "radialVelocityKmS": 21,
+      "spaceVelocityEqjPcYr": [
+        -0.0000114,
+        0.00002059,
+        -0.00001049
+      ],
+      "variableName": null,
+      "variableMagnitudeRange": [
+        -0.547,
+        -0.667
+      ],
+      "component": 1,
+      "componentPrimaryHygId": 30365,
+      "constellationId": "Car"
+    },
+    {
+      "index": 2,
+      "id": "hip:32349",
+      "hygId": 32263,
+      "hip": 32349,
+      "raHours": 6.752481,
+      "decDeg": -16.716116,
+      "magnitude": -1.44,
+      "colorIndex": 0.009,
+      "nameEn": "Sirius",
+      "nameZh": "天狼",
+      "aliases": [
+        "HIP 32349",
+        "9Alp CMa",
+        "Sirius"
+      ],
+      "pmRaMasYr": -546.01,
+      "pmRaCosDecMasYr": -546.01,
+      "pmDecMasYr": -1223.08,
+      "qualityFlags": 0,
+      "distancePc": 2.6371,
+      "radialVelocityKmS": -9.4,
+      "spaceVelocityEqjPcYr": [
+        0.00000953,
+        -0.00001207,
+        -0.00001221
+      ],
+      "variableName": null,
+      "variableMagnitudeRange": [
+        -1.333,
+        -1.523
+      ],
+      "component": 1,
+      "componentPrimaryHygId": 32263,
+      "constellationId": "CMa"
+    }
+  ]
+}

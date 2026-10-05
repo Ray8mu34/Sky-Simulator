@@ -1,0 +1,9 @@
+{
+  "status": 200,
+  "requestedAtUtc": "2026-10-04T17:32:09.9135822Z",
+  "retrievedAtUtc": "2026-10-04T17:32:12.6488804Z",
+  "acquisition": "Invoke-WebRequest normal HTTPS certificate validation; original HTTP response body saved to file",
+  "sha256": "44bc9cd8f73767e9ff2f22ffe652bfd9add6f0aaac001e9b39a96aa31aabe0f9",
+  "sourceUrl": "https://simbad.cds.unistra.fr/simbad/sim-basic?Ident=alf+Ori",
+  "bytes": 105785
+}

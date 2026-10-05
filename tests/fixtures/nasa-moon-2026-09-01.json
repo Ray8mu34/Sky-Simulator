@@ -1,0 +1,55 @@
+{
+    "image": {
+        "id": 1171663,
+        "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005587/frames/730x730_1x1_30p/moon.5833.jpg",
+        "filename": "moon.5833.jpg",
+        "media_type": "Image",
+        "alt_text": "An image of the moon, as it would appear on 2026-09-01 00:00:00+00:00. (Frame: 5833)",
+        "width": 730,
+        "height": 730,
+        "pixels": 532900
+    },
+    "image_highres": {
+        "id": 1171664,
+        "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005587/frames/5760x3240_16x9_30p/fancy/comp.5833.tif",
+        "filename": "comp.5833.tif",
+        "media_type": "Image",
+        "alt_text": "An image of the moon, as it would appear on 2026-09-01 00:00:00+00:00. (Frame: 5833)",
+        "width": 5760,
+        "height": 3240,
+        "pixels": 18662400
+    },
+    "su_image": {
+        "id": 1189183,
+        "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005588/frames/730x730_1x1_30p/moon.5833.jpg",
+        "filename": "moon.5833.jpg",
+        "media_type": "Image",
+        "alt_text": "An image of the moon, as it would appear on 2026-09-01 00:00:00+00:00. (Frame: 5833)",
+        "width": 730,
+        "height": 730,
+        "pixels": 532900
+    },
+    "su_image_highres": {
+        "id": 1189184,
+        "url": "https://svs.gsfc.nasa.gov/vis/a000000/a005500/a005588/frames/5760x3240_16x9_30p/fancy/comp.5833.tif",
+        "filename": "comp.5833.tif",
+        "media_type": "Image",
+        "alt_text": "An image of the moon, as it would appear on 2026-09-01 00:00:00+00:00. (Frame: 5833)",
+        "width": 5760,
+        "height": 3240,
+        "pixels": 18662400
+    },
+    "time": "2026-09-01T00:00",
+    "phase": 84.17,
+    "obscuration": 0.0,
+    "age": 19.266,
+    "diameter": 1897.3,
+    "distance": 377761.0,
+    "j2000_ra": 1.4382,
+    "j2000_dec": 13.7441,
+    "subsolar_lon": -51.137,
+    "subsolar_lat": -0.236,
+    "subearth_lon": -4.481,
+    "subearth_lat": -5.607,
+    "posangle": 339.1
+}

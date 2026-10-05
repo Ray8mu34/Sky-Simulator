@@ -1,0 +1,53 @@
+{
+  "name": "panoramic-night-sky",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.0.9",
+  "engines": { "node": ">=24.0.0", "pnpm": ">=11.0.0" },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173 --strictPort",
+    "preview": "vite preview --host 127.0.0.1 --port 5173 --strictPort",
+    "typecheck": "tsc --noEmit",
+    "build": "pnpm typecheck && node scripts/build-web.mjs",
+    "build:portable": "node scripts/build-portable.mjs",
+    "test:science": "node scripts/qa-tests.mjs science",
+    "test:data": "node scripts/qa-tests.mjs data",
+    "test:platform": "node scripts/qa-tests.mjs platform",
+    "test:state": "node scripts/qa-tests.mjs state",
+    "test:objects": "node scripts/qa-tests.mjs object",
+    "qa:visual": "node scripts/qa-browser.mjs visual",
+    "qa:offline": "node scripts/qa-browser.mjs offline",
+    "qa:pwa": "node scripts/qa-browser.mjs pwa",
+    "qa:interaction": "node scripts/qa-browser.mjs interaction",
+    "qa:m2": "node scripts/qa-browser.mjs m2",
+    "qa:m3": "node scripts/qa-browser.mjs m3",
+    "qa:m3b": "node scripts/qa-browser.mjs m3b",
+    "qa:m4a": "node scripts/qa-browser.mjs m4a",
+    "qa:m4b": "node scripts/qa-browser.mjs m4b",
+    "qa:m5a": "node scripts/qa-browser.mjs m5a",
+    "qa:m5b": "node scripts/qa-browser.mjs m5b",
+    "qa:m5c": "node scripts/qa-refraction-platform.mjs",
+    "qa:m5c-offline": "node scripts/qa-m5c-offline.mjs",
+    "qa:m6-quality": "node scripts/qa-runtime-quality-main.mjs",
+    "qa:lifecycle": "node scripts/qa-lifecycle.mjs",
+    "qa:day-budget": "node scripts/qa-day-event-budget.mjs",
+    "qa:updates": "node scripts/qa-updates.mjs",
+    "qa:performance": "node scripts/qa-browser.mjs performance",
+    "qa:recording": "node scripts/qa-browser.mjs recording"
+  },
+  "dependencies": {
+    "astronomy-engine": "2.1.19",
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "24.10.1",
+    "@types/three": "0.186.0",
+    "esbuild": "0.28.2",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vite": "8.3.2"
+  },
+  "pnpm": { "onlyBuiltDependencies": ["esbuild"] }
+}

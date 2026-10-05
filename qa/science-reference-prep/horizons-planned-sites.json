@@ -1,0 +1,26 @@
+[
+  {
+    "heightKm": 0,
+    "lat": 0,
+    "lon": 0,
+    "id": "equator"
+  },
+  {
+    "heightKm": 0.02,
+    "lat": 30.25,
+    "lon": 120.17,
+    "id": "hangzhou"
+  },
+  {
+    "heightKm": 0,
+    "lat": -33.87,
+    "lon": 151.21,
+    "id": "south"
+  },
+  {
+    "heightKm": 0,
+    "lat": 40,
+    "lon": -75,
+    "id": "west"
+  }
+]

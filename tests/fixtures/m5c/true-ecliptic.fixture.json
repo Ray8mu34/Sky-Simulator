@@ -1,0 +1,1261 @@
+{
+  "schemaVersion": 1,
+  "purpose": "independent small SOFA true-ecliptic golden, not product precision verdict",
+  "planSha256": "fc2ccc2f0c0209ef7006f8ce5fd485790bddd7dd5f920b44dfa2340777a674e9",
+  "sourceVersions": {
+    "sofa": "2023-10-11",
+    "auditedAe": "2.1.19"
+  },
+  "dates": [
+    {
+      "id": "modern-1900-mar15",
+      "year": 1900,
+      "ttJd": [
+        2415093.5,
+        -1.981939814814815e-05
+      ],
+      "scope": "modern-predeclared-1arcsec-axis-contract",
+      "referenceContext": {
+        "epochIndex": 0,
+        "siteIndex": 0,
+        "siteId": "equator",
+        "rawReferenceId": "horizons-equator-sun-batch1",
+        "rawSha256": "411e3829114de5305f6224b4a1f0431e193ad8f8944c8521879f08aef4f5327c",
+        "jdUtLabel": 2415093.5,
+        "tdbMinusUtSeconds": -1.712396,
+        "dut1Seconds": null,
+        "calendarUtLabel": "1900-03-15T00:00:00",
+        "motionYearsSinceJ2000": -99.79876796714579,
+        "referenceTimePolicy": "Horizons-before-1962-UT-is-UT1",
+        "ut1Jd": [
+          2415093.5,
+          0.0
+        ],
+        "ttJd": [
+          2415093.5,
+          -1.981939814814815e-05
+        ],
+        "dut1SecondsUsed": 0.0,
+        "tdbMinusTtSecondsSofa": 0.0015986517200921866,
+        "tdbToTtCorrectionApplied": false,
+        "ttMinusUt1Seconds": -1.712396,
+        "tdbTtConversions": [
+          {
+            "exitCode": 0,
+            "stdout": "{\"tdbMinusTtSeconds\":0.0015986517200921866,\"ut1DayFraction\":0,\"observerKm\":[0,0],\"warnings\":[\"dtdb-model-outside-stated-1950-2050-accuracy-interval\"]}\n",
+            "stderr": "",
+            "parsed": {
+              "tdbMinusTtSeconds": 0.0015986517200921866,
+              "ut1DayFraction": 0,
+              "observerKm": [
+                0,
+                0
+              ],
+              "warnings": [
+                "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+              ]
+            }
+          },
+          {
+            "exitCode": 0,
+            "stdout": "{\"tdbMinusTtSeconds\":0.0015986517200921866,\"ut1DayFraction\":0,\"observerKm\":[0,0],\"warnings\":[\"dtdb-model-outside-stated-1950-2050-accuracy-interval\"]}\n",
+            "stderr": "",
+            "parsed": {
+              "tdbMinusTtSeconds": 0.0015986517200921866,
+              "ut1DayFraction": 0,
+              "observerKm": [
+                0,
+                0
+              ],
+              "warnings": [
+                "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+              ]
+            }
+          }
+        ],
+        "warnings": [
+          "pre1962-Horizons-TT-TDB-distinction-not-maintained-up-to-2ms",
+          "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+        ]
+      },
+      "modernAxisGateArcsec": 1.0,
+      "expected": {
+        "id": "modern-1900-mar15",
+        "ttJd": [
+          2415093.5,
+          -1.981939814814815e-05
+        ],
+        "trueObliquityRad": 0.40931136428539194,
+        "nutationLongitudeRad": 8.385077479626053e-05,
+        "nutationObliquityRad": -7.839898571627508e-06,
+        "basisColumnsEqj": [
+          [
+            0.9997061758249712,
+            0.022229568110659563,
+            0.00966479792985823
+          ],
+          [
+            -0.024239670828297345,
+            0.917122565358461,
+            0.3978676142493266
+          ],
+          [
+            -1.937904112169278e-05,
+            -0.39798498264624094,
+            0.9173919299909522
+          ]
+        ],
+        "meanEclipticBasisColumnsEqj": [
+          [
+            0.9997041397953506,
+            0.022306469470110366,
+            0.009698159403563915
+          ],
+          [
+            -0.024323496880396665,
+            0.9171206981678313,
+            0.39786680244983863
+          ],
+          [
+            -1.937904112169326e-05,
+            -0.39798498264624094,
+            0.9173919299909522
+          ]
+        ],
+        "longitudeSamples": [
+          {
+            "longitudeDeg": 0,
+            "directionEqj": [
+              0.9997061758249712,
+              0.022229568110659563,
+              0.00966479792985823
+            ]
+          },
+          {
+            "longitudeDeg": 30,
+            "directionEqj": [
+              0.8536511091704692,
+              0.4778126533782181,
+              0.20730376765436376
+            ]
+          },
+          {
+            "longitudeDeg": 60,
+            "directionEqj": [
+              0.47886091719580764,
+              0.8053662240397111,
+              0.3493958602479534
+            ]
+          },
+          {
+            "longitudeDeg": 90,
+            "directionEqj": [
+              -0.024239670828297283,
+              0.917122565358461,
+              0.3978676142493266
+            ]
+          },
+          {
+            "longitudeDeg": 120,
+            "directionEqj": [
+              -0.5208452586291634,
+              0.7831366559290518,
+              0.33973106231809524
+            ]
+          },
+          {
+            "longitudeDeg": 150,
+            "directionEqj": [
+              -0.8778907799987664,
+              0.43930991198024283,
+              0.19056384659496278
+            ]
+          },
+          {
+            "longitudeDeg": 180,
+            "directionEqj": [
+              -0.9997061758249712,
+              -0.022229568110659452,
+              -0.009664797929858181
+            ]
+          },
+          {
+            "longitudeDeg": 210,
+            "directionEqj": [
+              -0.8536511091704693,
+              -0.4778126533782179,
+              -0.20730376765436367
+            ]
+          },
+          {
+            "longitudeDeg": 240,
+            "directionEqj": [
+              -0.478860917195808,
+              -0.8053662240397111,
+              -0.3493958602479534
+            ]
+          },
+          {
+            "longitudeDeg": 270,
+            "directionEqj": [
+              0.02423967082829716,
+              -0.917122565358461,
+              -0.3978676142493266
+            ]
+          },
+          {
+            "longitudeDeg": 300,
+            "directionEqj": [
+              0.5208452586291638,
+              -0.7831366559290517,
+              -0.3397310623180952
+            ]
+          },
+          {
+            "longitudeDeg": 330,
+            "directionEqj": [
+              0.8778907799987661,
+              -0.4393099119802433,
+              -0.190563846594963
+            ]
+          }
+        ],
+        "framePolicy": "mean-J2000; inverse of Pnm06a*transpose(Bp06.rb); true obliquity Obl06+Nut06a.deps",
+        "warnings": [],
+        "sofaStatus": "used low-level routines have no status return"
+      },
+      "basisChecks": {
+        "norms": [
+          0.9999999999999999,
+          0.9999999999999999,
+          1.0
+        ],
+        "maxOrthogonalityError": 6.678600679215982e-17,
+        "determinant": 0.9999999999999997
+      },
+      "warnings": [
+        "pre1962-Horizons-TT-TDB-distinction-not-maintained-up-to-2ms",
+        "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+      ]
+    },
+    {
+      "id": "modern-2000-mar15",
+      "year": 2000,
+      "ttJd": [
+        2451618.5,
+        0.0007428703839239395
+      ],
+      "scope": "modern-predeclared-1arcsec-axis-contract",
+      "referenceContext": {
+        "epochIndex": 8,
+        "siteIndex": 0,
+        "siteId": "equator",
+        "rawReferenceId": "horizons-equator-sun-batch1",
+        "rawSha256": "411e3829114de5305f6224b4a1f0431e193ad8f8944c8521879f08aef4f5327c",
+        "jdUtLabel": 2451618.5,
+        "tdbMinusUtSeconds": 64.185547,
+        "dut1Seconds": 0.28942,
+        "calendarUtLabel": "2000-03-15T00:00:00",
+        "motionYearsSinceJ2000": 0.20123203285420946,
+        "referenceTimePolicy": "Horizons-UTC-plus-its-returned-DUT1",
+        "ut1Jd": [
+          2451618.5,
+          3.3497685185185185e-06
+        ],
+        "ttJd": [
+          2451618.5,
+          0.0007428703839239395
+        ],
+        "dut1SecondsUsed": 0.28942,
+        "tdbMinusTtSecondsSofa": 0.0015458289716355053,
+        "tdbToTtCorrectionApplied": true,
+        "ttMinusUt1Seconds": 63.89458117102837,
+        "tdbTtConversions": [
+          {
+            "exitCode": 0,
+            "stdout": "{\"tdbMinusTtSeconds\":0.0015458289718064146,\"ut1DayFraction\":3.3497685185185185e-06,\"observerKm\":[0,0],\"warnings\":[]}\n",
+            "stderr": "",
+            "parsed": {
+              "tdbMinusTtSeconds": 0.0015458289718064146,
+              "ut1DayFraction": 3.3497685185185185e-06,
+              "observerKm": [
+                0,
+                0
+              ],
+              "warnings": []
+            }
+          },
+          {
+            "exitCode": 0,
+            "stdout": "{\"tdbMinusTtSeconds\":0.0015458289716355053,\"ut1DayFraction\":3.3497685185185185e-06,\"observerKm\":[0,0],\"warnings\":[]}\n",
+            "stderr": "",
+            "parsed": {
+              "tdbMinusTtSeconds": 0.0015458289716355053,
+              "ut1DayFraction": 3.3497685185185185e-06,
+              "observerKm": [
+                0,
+                0
+              ],
+              "warnings": []
+            }
+          }
+        ],
+        "warnings": []
+      },
+      "modernAxisGateArcsec": 1.0,
+      "expected": {
+        "id": "modern-2000-mar15",
+        "ttJd": [
+          2451618.5,
+          0.0007428703839239395
+        ],
+        "trueObliquityRad": 0.40907162622579396,
+        "nutationLongitudeRad": -6.991638576177705e-05,
+        "nutationObliquityRad": -2.051743044915352e-05,
+        "basisColumnsEqj": [
+          [
+            0.9999999997825355,
+            1.9150309454791566e-05,
+            8.25800478573299e-06
+          ],
+          [
+            -2.08549110922441e-05,
+            0.9174823245268774,
+            0.3977765500200209
+          ],
+          [
+            4.097059997439439e-08,
+            -0.39777655010573865,
+            0.9174823247267356
+          ]
+        ],
+        "meanEclipticBasisColumnsEqj": [
+          [
+            0.9999999987964848,
+            -4.499673867098609e-05,
+            -1.9553093929981232e-05
+          ],
+          [
+            4.906147464833911e-05,
+            0.9174823236233329,
+            0.39777654962516495
+          ],
+          [
+            4.097059997439584e-08,
+            -0.3977765501057387,
+            0.9174823247267357
+          ]
+        ],
+        "longitudeSamples": [
+          {
+            "longitudeDeg": 0,
+            "directionEqj": [
+              0.9999999997825355,
+              1.9150309454791566e-05,
+              8.25800478573299e-06
+            ]
+          },
+          {
+            "longitudeDeg": 30,
+            "directionEqj": [
+              0.8660149761405628,
+              0.4587577469179168,
+              0.19889542665193943
+            ]
+          },
+          {
+            "longitudeDeg": 60,
+            "directionEqj": [
+              0.4999819390084683,
+              0.7945725757182018,
+              0.3444887263494624
+            ]
+          },
+          {
+            "longitudeDeg": 90,
+            "directionEqj": [
+              -2.0854911092182866e-05,
+              0.9174823245268774,
+              0.3977765500200209
+            ]
+          },
+          {
+            "longitudeDeg": 120,
+            "directionEqj": [
+              -0.5000180607740671,
+              0.7945534254087471,
+              0.34448046834467666
+            ]
+          },
+          {
+            "longitudeDeg": 150,
+            "directionEqj": [
+              -0.866035831051655,
+              0.45872457760896046,
+              0.19888112336808142
+            ]
+          },
+          {
+            "longitudeDeg": 180,
+            "directionEqj": [
+              -0.9999999997825355,
+              -1.9150309454679205e-05,
+              -8.258004785684278e-06
+            ]
+          },
+          {
+            "longitudeDeg": 210,
+            "directionEqj": [
+              -0.8660149761405629,
+              -0.4587577469179166,
+              -0.19889542665193935
+            ]
+          },
+          {
+            "longitudeDeg": 240,
+            "directionEqj": [
+              -0.49998193900846866,
+              -0.7945725757182017,
+              -0.34448872634946237
+            ]
+          },
+          {
+            "longitudeDeg": 270,
+            "directionEqj": [
+              2.0854911092060402e-05,
+              -0.9174823245268774,
+              -0.3977765500200209
+            ]
+          },
+          {
+            "longitudeDeg": 300,
+            "directionEqj": [
+              0.5000180607740674,
+              -0.794553425408747,
+              -0.34448046834467666
+            ]
+          },
+          {
+            "longitudeDeg": 330,
+            "directionEqj": [
+              0.8660358310516547,
+              -0.4587245776089609,
+              -0.1988811233680816
+            ]
+          }
+        ],
+        "framePolicy": "mean-J2000; inverse of Pnm06a*transpose(Bp06.rb); true obliquity Obl06+Nut06a.deps",
+        "warnings": [],
+        "sofaStatus": "used low-level routines have no status return"
+      },
+      "basisChecks": {
+        "norms": [
+          1.0,
+          0.9999999999999999,
+          1.0
+        ],
+        "maxOrthogonalityError": 6.609126160412028e-17,
+        "determinant": 0.9999999999999999
+      },
+      "warnings": []
+    },
+    {
+      "id": "modern-2026-mar15",
+      "year": 2026,
+      "ttJd": [
+        2461114.5,
+        0.0008007407839040275
+      ],
+      "scope": "modern-predeclared-1arcsec-axis-contract",
+      "referenceContext": {
+        "epochIndex": 12,
+        "siteIndex": 0,
+        "siteId": "equator",
+        "rawReferenceId": "horizons-equator-sun-batch2",
+        "rawSha256": "f577fdcd39219e89a3d15b57e46b95b6984c33b55fccd92fd41fb4425c45eb19",
+        "jdUtLabel": 2461114.5,
+        "tdbMinusUtSeconds": 69.185537,
+        "dut1Seconds": 0.06196,
+        "calendarUtLabel": "2026-03-15T00:00:00",
+        "motionYearsSinceJ2000": 26.199863107460644,
+        "referenceTimePolicy": "Horizons-UTC-plus-its-returned-DUT1",
+        "ut1Jd": [
+          2461114.5,
+          7.171296296296297e-07
+        ],
+        "ttJd": [
+          2461114.5,
+          0.0008007407839040275
+        ],
+        "dut1SecondsUsed": 0.06196,
+        "tdbMinusTtSecondsSofa": 0.0015332706920274546,
+        "tdbToTtCorrectionApplied": true,
+        "ttMinusUt1Seconds": 69.12204372930798,
+        "tdbTtConversions": [
+          {
+            "exitCode": 0,
+            "stdout": "{\"tdbMinusTtSeconds\":0.0015332706922021903,\"ut1DayFraction\":7.1712962962962965e-07,\"observerKm\":[0,0],\"warnings\":[]}\n",
+            "stderr": "",
+            "parsed": {
+              "tdbMinusTtSeconds": 0.0015332706922021903,
+              "ut1DayFraction": 7.171296296296297e-07,
+              "observerKm": [
+                0,
+                0
+              ],
+              "warnings": []
+            }
+          },
+          {
+            "exitCode": 0,
+            "stdout": "{\"tdbMinusTtSeconds\":0.0015332706920274546,\"ut1DayFraction\":7.1712962962962965e-07,\"observerKm\":[0,0],\"warnings\":[]}\n",
+            "stderr": "",
+            "parsed": {
+              "tdbMinusTtSeconds": 0.0015332706920274546,
+              "ut1DayFraction": 7.171296296296297e-07,
+              "observerKm": [
+                0,
+                0
+              ],
+              "warnings": []
+            }
+          }
+        ],
+        "warnings": []
+      },
+      "modernAxisGateArcsec": 1.0,
+      "expected": {
+        "id": "modern-2026-mar15",
+        "ttJd": [
+          2461114.5,
+          0.0008007407839040275
+        ],
+        "trueObliquityRad": 0.40907686019165845,
+        "nutationLongitudeRad": 3.302691180306297e-05,
+        "nutationObliquityRad": 4.375179022160213e-05,
+        "basisColumnsEqj": [
+          [
+            0.9999793854467434,
+            -0.005889115641393161,
+            -0.002558710322762978
+          ],
+          [
+            0.00642095416682143,
+            0.9174868861580205,
+            0.39771420024390247
+          ],
+          [
+            5.398249151650908e-06,
+            -0.3977224309050492,
+            0.9175057863173601
+          ]
+        ],
+        "meanEclipticBasisColumnsEqj": [
+          [
+            0.9999795969656529,
+            -0.005858813879717206,
+            -0.002545575049555594
+          ],
+          [
+            0.006387927932357491,
+            0.9174870801569367,
+            0.39771428453329394
+          ],
+          [
+            5.3982491516508825e-06,
+            -0.3977224309050493,
+            0.9175057863173601
+          ]
+        ],
+        "longitudeSamples": [
+          {
+            "longitudeDeg": 0,
+            "directionEqj": [
+              0.9999793854467434,
+              -0.005889115641393161,
+              -0.002558710322762978
+            ]
+          },
+          {
+            "longitudeDeg": 30,
+            "directionEqj": [
+              0.8692180281410415,
+              0.45364331932773944,
+              0.196641191981513
+            ]
+          },
+          {
+            "longitudeDeg": 60,
+            "directionEqj": [
+              0.5055504021483747,
+              0.7916223932312304,
+              0.34315124569564925
+            ]
+          },
+          {
+            "longitudeDeg": 90,
+            "directionEqj": [
+              0.006420954166821492,
+              0.9174868861580205,
+              0.39771420024390247
+            ]
+          },
+          {
+            "longitudeDeg": 120,
+            "directionEqj": [
+              -0.49442898329836854,
+              0.7975115088726237,
+              0.34570995601841226
+            ]
+          },
+          {
+            "longitudeDeg": 150,
+            "directionEqj": [
+              -0.8627970739742201,
+              0.463843566830281,
+              0.20107300826238944
+            ]
+          },
+          {
+            "longitudeDeg": 180,
+            "directionEqj": [
+              -0.9999793854467434,
+              0.005889115641393274,
+              0.0025587103227630264
+            ]
+          },
+          {
+            "longitudeDeg": 210,
+            "directionEqj": [
+              -0.8692180281410417,
+              -0.4536433193277392,
+              -0.19664119198151292
+            ]
+          },
+          {
+            "longitudeDeg": 240,
+            "directionEqj": [
+              -0.505550402148375,
+              -0.7916223932312303,
+              -0.3431512456956492
+            ]
+          },
+          {
+            "longitudeDeg": 270,
+            "directionEqj": [
+              -0.006420954166821614,
+              -0.9174868861580205,
+              -0.39771420024390247
+            ]
+          },
+          {
+            "longitudeDeg": 300,
+            "directionEqj": [
+              0.4944289832983689,
+              -0.7975115088726236,
+              -0.3457099560184122
+            ]
+          },
+          {
+            "longitudeDeg": 330,
+            "directionEqj": [
+              0.8627970739742198,
+              -0.46384356683028144,
+              -0.20107300826238964
+            ]
+          }
+        ],
+        "framePolicy": "mean-J2000; inverse of Pnm06a*transpose(Bp06.rb); true obliquity Obl06+Nut06a.deps",
+        "warnings": [],
+        "sofaStatus": "used low-level routines have no status return"
+      },
+      "basisChecks": {
+        "norms": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "maxOrthogonalityError": 9.738443011956608e-17,
+        "determinant": 1.0
+      },
+      "warnings": []
+    },
+    {
+      "id": "modern-2100-mar15",
+      "year": 2100,
+      "ttJd": [
+        2488142.5,
+        0.0008007407639318291
+      ],
+      "scope": "modern-predeclared-1arcsec-axis-contract",
+      "referenceContext": {
+        "epochIndex": 20,
+        "siteIndex": 0,
+        "siteId": "equator",
+        "rawReferenceId": "horizons-equator-sun-batch2",
+        "rawSha256": "f577fdcd39219e89a3d15b57e46b95b6984c33b55fccd92fd41fb4425c45eb19",
+        "jdUtLabel": 2488142.5,
+        "tdbMinusUtSeconds": 69.185555,
+        "dut1Seconds": -0.09767,
+        "calendarUtLabel": "2100-03-15T00:00:00",
+        "motionYearsSinceJ2000": 100.19849418206708,
+        "referenceTimePolicy": "Horizons-UTC-plus-its-returned-DUT1",
+        "ut1Jd": [
+          2488142.5,
+          -1.1304398148148148e-06
+        ],
+        "ttJd": [
+          2488142.5,
+          0.0008007407639318291
+        ],
+        "dut1SecondsUsed": -0.09767,
+        "tdbMinusTtSecondsSofa": 0.0015529962899652916,
+        "tdbToTtCorrectionApplied": true,
+        "ttMinusUt1Seconds": 69.28167200371003,
+        "tdbTtConversions": [
+          {
+            "exitCode": 0,
+            "stdout": "{\"tdbMinusTtSeconds\":0.0015529962901471945,\"ut1DayFraction\":0.99999886956018513,\"observerKm\":[0,0],\"warnings\":[\"dtdb-model-outside-stated-1950-2050-accuracy-interval\"]}\n",
+            "stderr": "",
+            "parsed": {
+              "tdbMinusTtSeconds": 0.0015529962901471945,
+              "ut1DayFraction": 0.9999988695601851,
+              "observerKm": [
+                0,
+                0
+              ],
+              "warnings": [
+                "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+              ]
+            }
+          },
+          {
+            "exitCode": 0,
+            "stdout": "{\"tdbMinusTtSeconds\":0.0015529962899652916,\"ut1DayFraction\":0.99999886956018513,\"observerKm\":[0,0],\"warnings\":[\"dtdb-model-outside-stated-1950-2050-accuracy-interval\"]}\n",
+            "stderr": "",
+            "parsed": {
+              "tdbMinusTtSeconds": 0.0015529962899652916,
+              "ut1DayFraction": 0.9999988695601851,
+              "observerKm": [
+                0,
+                0
+              ],
+              "warnings": [
+                "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+              ]
+            }
+          }
+        ],
+        "warnings": [
+          "future-Horizons-DUT1-model-not-measurement",
+          "future-leap-seconds-unknown-Horizons-fixed-model",
+          "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+        ]
+      },
+      "modernAxisGateArcsec": 1.0,
+      "expected": {
+        "id": "modern-2100-mar15",
+        "ttJd": [
+          2488142.5,
+          0.0008007407639318291
+        ],
+        "trueObliquityRad": 0.4089110258768031,
+        "nutationLongitudeRad": 1.884035486218411e-05,
+        "nutationObliquityRad": 4.593819148913529e-05,
+        "basisColumnsEqj": [
+          [
+            0.9997010423941638,
+            -0.02242659420136088,
+            -0.009740313575513894
+          ],
+          [
+            0.02445046790085102,
+            0.9172983651399345,
+            0.3974492218271823
+          ],
+          [
+            2.1341305204322994e-05,
+            -0.39756855658380574,
+            0.917572472538501
+          ]
+        ],
+        "meanEclipticBasisColumnsEqj": [
+          [
+            0.9997015028722293,
+            -0.02240931197066791,
+            -0.009732825489406707
+          ],
+          [
+            0.024431633174117878,
+            0.9172987875021259,
+            0.3974494052676073
+          ],
+          [
+            2.1341305204323512e-05,
+            -0.3975685565838057,
+            0.9175724725385009
+          ]
+        ],
+        "longitudeSamples": [
+          {
+            "longitudeDeg": 0,
+            "directionEqj": [
+              0.9997010423941638,
+              -0.02242659420136088,
+              -0.009740313575513894
+            ]
+          },
+          {
+            "longitudeDeg": 30,
+            "directionEqj": [
+              0.8779917328535555,
+              0.43922718227122387,
+              0.19028925191636964
+            ]
+          },
+          {
+            "longitudeDeg": 60,
+            "directionEqj": [
+              0.521025247533635,
+              0.7831903899604368,
+              0.3393309660289395
+            ]
+          },
+          {
+            "longitudeDeg": 90,
+            "directionEqj": [
+              0.02445046790085108,
+              0.9172983651399345,
+              0.3974492218271823
+            ]
+          },
+          {
+            "longitudeDeg": 120,
+            "directionEqj": [
+              -0.47867579486052875,
+              0.8056169841617977,
+              0.3490712796044534
+            ]
+          },
+          {
+            "longitudeDeg": 150,
+            "directionEqj": [
+              -0.8535412649527044,
+              0.4780711828687105,
+              0.20715996991081256
+            ]
+          },
+          {
+            "longitudeDeg": 180,
+            "directionEqj": [
+              -0.9997010423941638,
+              0.02242659420136099,
+              0.009740313575513943
+            ]
+          },
+          {
+            "longitudeDeg": 210,
+            "directionEqj": [
+              -0.8779917328535556,
+              -0.43922718227122365,
+              -0.19028925191636956
+            ]
+          },
+          {
+            "longitudeDeg": 240,
+            "directionEqj": [
+              -0.5210252475336353,
+              -0.7831903899604367,
+              -0.3393309660289394
+            ]
+          },
+          {
+            "longitudeDeg": 270,
+            "directionEqj": [
+              -0.024450467900851203,
+              -0.9172983651399345,
+              -0.3974492218271823
+            ]
+          },
+          {
+            "longitudeDeg": 300,
+            "directionEqj": [
+              0.4786757948605291,
+              -0.8056169841617976,
+              -0.3490712796044534
+            ]
+          },
+          {
+            "longitudeDeg": 330,
+            "directionEqj": [
+              0.8535412649527041,
+              -0.4780711828687109,
+              -0.20715996991081276
+            ]
+          }
+        ],
+        "framePolicy": "mean-J2000; inverse of Pnm06a*transpose(Bp06.rb); true obliquity Obl06+Nut06a.deps",
+        "warnings": [],
+        "sofaStatus": "used low-level routines have no status return"
+      },
+      "basisChecks": {
+        "norms": [
+          0.9999999999999998,
+          0.9999999999999999,
+          1.0000000000000002
+        ],
+        "maxOrthogonalityError": 1.254411325653888e-16,
+        "determinant": 0.9999999999999998
+      },
+      "warnings": [
+        "future-Horizons-DUT1-model-not-measurement",
+        "future-leap-seconds-unknown-Horizons-fixed-model",
+        "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+      ]
+    },
+    {
+      "id": "extended-minus2000-mar15",
+      "year": -2000,
+      "ttJd": [
+        990648.5,
+        0.0
+      ],
+      "scope": "numerical-axis-handedness-only-not-precision-validated",
+      "referenceContext": null,
+      "modernAxisGateArcsec": null,
+      "timePolicy": "explicit proleptic Gregorian March15 00:00 TT input, not an inferred UT/UTC/DeltaT",
+      "warnings": [
+        "extended-epoch-no-absolute-ecliptic-accuracy-claim"
+      ],
+      "expected": {
+        "id": "extended-minus2000-mar15",
+        "ttJd": [
+          990648.5,
+          0
+        ],
+        "trueObliquityRad": 0.41757056201249143,
+        "nutationLongitudeRad": -7.876049289023389e-05,
+        "nutationObliquityRad": 4.275354856059457e-06,
+        "basisColumnsEqj": [
+          [
+            0.567816026322335,
+            0.7523202374993373,
+            0.3340646950823356
+          ],
+          [
+            -0.8231551547709848,
+            0.5185872593645039,
+            0.23126358467940497
+          ],
+          [
+            0.000742580277770799,
+            -0.4063022454697405,
+            0.913738438449854
+          ]
+        ],
+        "meanEclipticBasisColumnsEqj": [
+          [
+            0.5678808566668405,
+            0.7522793909778231,
+            0.33404647961229994
+          ],
+          [
+            -0.8231104307478226,
+            0.5186465108687051,
+            0.2312898950621308
+          ],
+          [
+            0.0007425802777709368,
+            -0.4063022454697405,
+            0.913738438449854
+          ]
+        ],
+        "longitudeSamples": [
+          {
+            "longitudeDeg": 0,
+            "directionEqj": [
+              0.567816026322335,
+              0.7523202374993373,
+              0.3340646950823356
+            ]
+          },
+          {
+            "longitudeDeg": 30,
+            "directionEqj": [
+              0.08016552608558332,
+              0.9108220671378203,
+              0.4049403047885075
+            ]
+          },
+          {
+            "longitudeDeg": 60,
+            "directionEqj": [
+              -0.4289652621266166,
+              0.8252698594382788,
+              0.36731248684378626
+            ]
+          },
+          {
+            "longitudeDeg": 90,
+            "directionEqj": [
+              -0.8231551547709848,
+              0.5185872593645039,
+              0.231263584679405
+            ]
+          },
+          {
+            "longitudeDeg": 120,
+            "directionEqj": [
+              -0.9967812884489515,
+              0.07294962193894147,
+              0.03324779176145071
+            ]
+          },
+          {
+            "longitudeDeg": 150,
+            "directionEqj": [
+              -0.9033206808565679,
+              -0.39223480777331654,
+              -0.17367672010910262
+            ]
+          },
+          {
+            "longitudeDeg": 180,
+            "directionEqj": [
+              -0.5678160263223351,
+              -0.7523202374993372,
+              -0.33406469508233555
+            ]
+          },
+          {
+            "longitudeDeg": 210,
+            "directionEqj": [
+              -0.08016552608558357,
+              -0.9108220671378203,
+              -0.4049403047885075
+            ]
+          },
+          {
+            "longitudeDeg": 240,
+            "directionEqj": [
+              0.4289652621266163,
+              -0.8252698594382788,
+              -0.3673124868437863
+            ]
+          },
+          {
+            "longitudeDeg": 270,
+            "directionEqj": [
+              0.8231551547709847,
+              -0.518587259364504,
+              -0.23126358467940503
+            ]
+          },
+          {
+            "longitudeDeg": 300,
+            "directionEqj": [
+              0.9967812884489518,
+              -0.0729496219389412,
+              -0.03324779176145054
+            ]
+          },
+          {
+            "longitudeDeg": 330,
+            "directionEqj": [
+              0.9033206808565681,
+              0.39223480777331604,
+              0.1736767201091024
+            ]
+          }
+        ],
+        "framePolicy": "mean-J2000; inverse of Pnm06a*transpose(Bp06.rb); true obliquity Obl06+Nut06a.deps",
+        "warnings": [],
+        "sofaStatus": "used low-level routines have no status return"
+      },
+      "basisChecks": {
+        "norms": [
+          0.9999999999999999,
+          0.9999999999999998,
+          0.9999999999999999
+        ],
+        "maxOrthogonalityError": 1.491862189340054e-16,
+        "determinant": 0.9999999999999996
+      }
+    },
+    {
+      "id": "extended-4000-mar15",
+      "year": 4000,
+      "ttJd": [
+        3182103.5,
+        0.0
+      ],
+      "scope": "numerical-axis-handedness-only-not-precision-validated",
+      "referenceContext": null,
+      "modernAxisGateArcsec": null,
+      "timePolicy": "explicit proleptic Gregorian March15 00:00 TT input, not an inferred UT/UTC/DeltaT",
+      "warnings": [
+        "extended-epoch-no-absolute-ecliptic-accuracy-claim"
+      ],
+      "expected": {
+        "id": "extended-4000-mar15",
+        "ttJd": [
+          3182103.5,
+          0
+        ],
+        "trueObliquityRad": 0.40466390363231286,
+        "nutationLongitudeRad": 5.6375516386240884e-05,
+        "nutationObliquityRad": 3.684292977021806e-05,
+        "basisColumnsEqj": [
+          [
+            0.8824137156287891,
+            -0.4322054060732173,
+            -0.18586156523412584
+          ],
+          [
+            0.47047362846942664,
+            0.8112862671460521,
+            0.3470866716758743
+          ],
+          [
+            0.0007741995904436971,
+            -0.3937170045874442,
+            0.9192313750703273
+          ]
+        ],
+        "meanEclipticBasisColumnsEqj": [
+          [
+            0.8824402374202832,
+            -0.43215966870417677,
+            -0.18584199774843715
+          ],
+          [
+            0.47042388119293854,
+            0.8113106316597769,
+            0.34709714916602996
+          ],
+          [
+            0.0007741995904436888,
+            -0.3937170045874441,
+            0.9192313750703272
+          ]
+        ],
+        "longitudeSamples": [
+          {
+            "longitudeDeg": 0,
+            "directionEqj": [
+              0.8824137156287891,
+              -0.4322054060732173,
+              -0.18586156523412584
+            ]
+          },
+          {
+            "longitudeDeg": 30,
+            "directionEqj": [
+              0.9994295086170621,
+              0.03134227226065073,
+              0.012582498758045513
+            ]
+          },
+          {
+            "longitudeDeg": 60,
+            "directionEqj": [
+              0.8486489718795598,
+              0.48649181405332104,
+              0.20765509236923296
+            ]
+          },
+          {
+            "longitudeDeg": 90,
+            "directionEqj": [
+              0.4704736284694267,
+              0.8112862671460521,
+              0.3470866716758743
+            ]
+          },
+          {
+            "longitudeDeg": 120,
+            "directionEqj": [
+              -0.033764743749229206,
+              0.9186972201265383,
+              0.39351665760335885
+            ]
+          },
+          {
+            "longitudeDeg": 150,
+            "directionEqj": [
+              -0.5289558801476357,
+              0.7799439948854013,
+              0.33450417291782875
+            ]
+          },
+          {
+            "longitudeDeg": 180,
+            "directionEqj": [
+              -0.8824137156287891,
+              0.4322054060732174,
+              0.1858615652341259
+            ]
+          },
+          {
+            "longitudeDeg": 210,
+            "directionEqj": [
+              -0.9994295086170621,
+              -0.03134227226065046,
+              -0.012582498758045402
+            ]
+          },
+          {
+            "longitudeDeg": 240,
+            "directionEqj": [
+              -0.84864897187956,
+              -0.4864918140533208,
+              -0.2076550923692329
+            ]
+          },
+          {
+            "longitudeDeg": 270,
+            "directionEqj": [
+              -0.4704736284694268,
+              -0.811286267146052,
+              -0.34708667167587426
+            ]
+          },
+          {
+            "longitudeDeg": 300,
+            "directionEqj": [
+              0.03376474374922955,
+              -0.9186972201265385,
+              -0.39351665760335885
+            ]
+          },
+          {
+            "longitudeDeg": 330,
+            "directionEqj": [
+              0.5289558801476352,
+              -0.7799439948854016,
+              -0.33450417291782886
+            ]
+          }
+        ],
+        "framePolicy": "mean-J2000; inverse of Pnm06a*transpose(Bp06.rb); true obliquity Obl06+Nut06a.deps",
+        "warnings": [],
+        "sofaStatus": "used low-level routines have no status return"
+      },
+      "basisChecks": {
+        "norms": [
+          0.9999999999999997,
+          0.9999999999999999,
+          1.0
+        ],
+        "maxOrthogonalityError": 8.098990228466718e-17,
+        "determinant": 0.9999999999999997
+      }
+    }
+  ],
+  "modernDates": 4,
+  "extendedDiagnosticDates": 2,
+  "axisDirections": 18,
+  "longitudeDirections": 72,
+  "productionComparisonPerformed": false,
+  "failures": []
+}

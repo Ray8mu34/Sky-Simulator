@@ -1,0 +1,223 @@
+{
+  "generatedAtUtc": "2026-10-04T16:13:21.461Z",
+  "engineVersion": "2.1.19",
+  "environment": {
+    "node": "v24.14.0",
+    "icu": "78.2",
+    "tz": "2025c"
+  },
+  "nasaGeocentricComparison": {
+    "returnedTime": "2026-09-01T00:00",
+    "actual": {
+      "utDaysJ2000": 9739.5,
+      "perspective": "geocentric",
+      "phaseNameZh": "亏凸月",
+      "phaseLongitudeDeg": 226.82789742313315,
+      "phaseAngleDeg": 46.87828505953756,
+      "phaseNameDefinition": "四个关键黄经差±1°称“附近”；其余按0–90°蛾眉、90–180°盈凸、180–270°亏凸、270–360°残月；名称不定义精确照亮比例。",
+      "illuminatedFraction": 0.8417752270330097,
+      "angularDiameterDeg": 0.5270118732309553,
+      "bodyFixedToEqj": [
+        [
+          -0.8705520378836117,
+          0.49189472628632025,
+          0.013368903784404406
+        ],
+        [
+          -0.46011948659214663,
+          -0.8040842610989678,
+          -0.3764818177696056
+        ],
+        [
+          -0.17443969558237046,
+          -0.3338983068310367,
+          0.9263275410460907
+        ]
+      ],
+      "northEqjUnit": [
+        0.013368903784404406,
+        -0.3764818177696056,
+        0.9263275410460907
+      ],
+      "observerDirectionEqjUnit": [
+        -0.9033118809386342,
+        -0.35717951488607746,
+        -0.23759301315664344
+      ],
+      "sunDirectionEqjUnit": [
+        -0.9293111225384383,
+        0.33890607475019807,
+        0.1467089295978985
+      ],
+      "brightLimbPositionAngleDeg": 64.15189042812307,
+      "brightLimbReference": "J2000天北为0°，朝天东为正；不是屏幕角度。",
+      "libration": {
+        "longitudeDeg": -4.482499132744008,
+        "latitudeDeg": -5.585021710364168,
+        "perspective": "geocentric"
+      },
+      "subObserver": {
+        "longitudeDegEast": -4.4836126928341855,
+        "latitudeDeg": -5.606375884507365
+      },
+      "subSolar": {
+        "longitudeDegEast": -51.13482956334951,
+        "latitudeDeg": -0.23579136519280666
+      },
+      "notes": [
+        "月面朝向采用 IAU 2015 极轴/本初子午线模型；天平动字段为独立地心近似，不额外叠加旋转。",
+        "黄经月相事件角与月球处相位角不同；照亮比例由当前观察口径的太阳—月球—观察者几何求得。",
+        "标准图形相位由物理观察者方向定义，虚拟外部相机的位置不改变科学相位。"
+      ]
+    },
+    "polePositionAngleDeg": 339.10060623860636,
+    "reference": {
+      "illuminatedFraction": 0.8417,
+      "subObserver": {
+        "longitudeDegEast": -4.481,
+        "latitudeDeg": -5.607
+      },
+      "subSolar": {
+        "longitudeDegEast": -51.137,
+        "latitudeDeg": -0.236
+      },
+      "angularDiameterDeg": 0.5270277777777778,
+      "polePositionAngleDeg": 339.1
+    }
+  },
+  "quarterSequence": {
+    "seedUtDaysJ2000": 9739.5,
+    "events": [
+      {
+        "phaseLongitudeDeg": 270,
+        "utDaysJ2000": 9742.827572048296,
+        "labelZh": "下弦月"
+      },
+      {
+        "phaseLongitudeDeg": 0,
+        "utDaysJ2000": 9749.644079488131,
+        "labelZh": "新月"
+      },
+      {
+        "phaseLongitudeDeg": 90,
+        "utDaysJ2000": 9757.364174478165,
+        "labelZh": "上弦月"
+      },
+      {
+        "phaseLongitudeDeg": 180,
+        "utDaysJ2000": 9765.201067522961,
+        "labelZh": "满月"
+      }
+    ],
+    "complete": true,
+    "definition": "从明确种子UT起搜索四个相邻地心黄经差事件：0°新月、90°上弦、180°满月、270°下弦。",
+    "notes": [
+      "事件时刻由星历搜索；不由照亮比例线性推算日期或农历。",
+      "事件可保存为派生UT时刻；高倍播放或切换视图不会生成另一个时钟。"
+    ]
+  },
+  "quarterSequenceCostMs": 2.920099999999991,
+  "quarterErrors": [
+    {
+      "labelZh": "下弦月",
+      "actualUtc": "2026-09-04T07:51:42.224Z",
+      "errorSeconds": 42.22497276496142
+    },
+    {
+      "labelZh": "新月",
+      "actualUtc": "2026-09-11T03:27:28.467Z",
+      "errorSeconds": 28.46777457743883
+    },
+    {
+      "labelZh": "上弦月",
+      "actualUtc": "2026-09-18T20:44:24.674Z",
+      "errorSeconds": 24.67491346760653
+    },
+    {
+      "labelZh": "满月",
+      "actualUtc": "2026-09-26T16:49:32.233Z",
+      "errorSeconds": 32.233983906917274
+    }
+  ],
+  "ordinarySolarErrors": [
+    {
+      "event": "Begin Civil Twilight",
+      "sourceLocalTime": "05:19",
+      "actualUtc": "2026-09-13T21:18:56.913Z",
+      "errorSeconds": -3.0866394576150924
+    },
+    {
+      "event": "Rise",
+      "sourceLocalTime": "05:43",
+      "actualUtc": "2026-09-13T21:43:01.762Z",
+      "errorSeconds": 1.7621201695874333
+    },
+    {
+      "event": "Set",
+      "sourceLocalTime": "18:07",
+      "actualUtc": "2026-09-14T10:06:31.879Z",
+      "errorSeconds": -28.12028900370933
+    },
+    {
+      "event": "End Civil Twilight",
+      "sourceLocalTime": "18:31",
+      "actualUtc": "2026-09-14T10:30:34.248Z",
+      "errorSeconds": -25.75157574028708
+    }
+  ],
+  "eventSamples": [
+    {
+      "name": "Hangzhou",
+      "totalMs": 22.138800000000003,
+      "largestChunkMs": 0.4544999999999959,
+      "chunks": 127,
+      "state": "normal",
+      "min": -56.521665047880106,
+      "max": 63.17056838610861
+    },
+    {
+      "name": "70N summer",
+      "totalMs": 13.540199999999999,
+      "largestChunkMs": 0.35559999999998126,
+      "chunks": 119,
+      "state": "continuous-daylight",
+      "min": 3.4348117686080286,
+      "max": 43.43620573826786
+    },
+    {
+      "name": "70N winter",
+      "totalMs": 14.829399999999964,
+      "largestChunkMs": 0.19050000000004275,
+      "chunks": 125,
+      "state": "no-sunrise",
+      "min": -43.439312517451896,
+      "max": -3.439527623635371
+    },
+    {
+      "name": "year -2000",
+      "totalMs": 13.96569999999997,
+      "largestChunkMs": 0.21709999999995944,
+      "chunks": 127,
+      "state": "normal",
+      "min": -36.180404619082836,
+      "max": 83.8142000668177
+    },
+    {
+      "name": "year 4000",
+      "totalMs": 13.825799999999958,
+      "largestChunkMs": 0.19839999999999236,
+      "chunks": 127,
+      "state": "normal",
+      "min": -82.79337998555368,
+      "max": 37.16746183486354
+    }
+  ],
+  "cacheInitial": {
+    "cacheEntries": 0,
+    "maxEntries": 16,
+    "computations": 0,
+    "cacheHits": 0,
+    "cacheEvictions": 0
+  },
+  "note": "Finite local probes on this Node runtime, not browser/hardware performance certification; neither 30-minute acceptance nor full-modern-range validation."
+}

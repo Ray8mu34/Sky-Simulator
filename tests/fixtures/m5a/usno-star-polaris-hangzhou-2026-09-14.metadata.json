@@ -1,0 +1,43 @@
+{
+  "rawFile": "usno-star-polaris-hangzhou-2026-09-14.html",
+  "interfaceSource": {
+    "rawFile": "../usno-mrst-form.html",
+    "verifiedForm": "GET /calculated/mrst; body,date,reps,lat,lon,label,tz,tz_sign,height,submit",
+    "sha256": "610f27b063f6e7c808a79fb994a6be726f5cf3ed2cfab61ea94578d0789f815a"
+  },
+  "request": {
+    "body": -14,
+    "locationLabel": "M5A_Hangzhou",
+    "dateLocal": "2026-09-14",
+    "repetitions": 1,
+    "heightMeters": 0,
+    "latitudeDeg": 30.25,
+    "canonicalCatalogId": "hip:11767",
+    "tzSign": 1,
+    "longitudeDegEast": 120.17,
+    "displayZone": {
+      "kind": "fixed",
+      "offsetMinutes": 480
+    },
+    "name": "Polaris"
+  },
+  "sourceUrl": "https://aa.usno.navy.mil/calculated/mrst?body=-14&date=2026-09-14&reps=1&lat=30.25&lon=120.17&label=M5A_Hangzhou&tz=8&tz_sign=1&height=0&submit=Get%20Data",
+  "sha256": "d40af63d8043f81342f2da86b8cf2008bff4ced1caa061a70e7ac8cd84bd2a49",
+  "purpose": "Predeclared continually-above classification reference, actual symbols retained.",
+  "definition": "Point target rise/set; level unobstructed horizon and no geometric dip. Source uses integrated polytropic-atmosphere refraction (Hohenkerk/Sinclair), different from project constant near-horizon34arcmin-density approximation; report that model difference rather than hiding it. Local fixed-zone times rounded to minute. Stars/source astrometric corrections must be kept separate from project current tangent proper-motion model.",
+  "apiVersion": "No JSON API version claimed for this HTML table service.",
+  "bytes": 8972,
+  "definitionSource": "https://aa.usno.navy.mil/data/mrst",
+  "status": "retrieved-table-pending-parse-not-production-validated",
+  "httpStatus": 200,
+  "retrievedAtUtc": "2026-10-04T20:08:53.4982526+00:00",
+  "units": {
+    "calendar": "modern Gregorian",
+    "altitude": "source apparent centre altitude, not project geometric altitude",
+    "eventTime": "source local clock HH:mm",
+    "dateRange": "service1800-2050",
+    "azimuth": "degrees true north east-positive"
+  },
+  "requestedAtUtc": "2026-10-04T20:08:47.0209777+00:00",
+  "acquisition": "Original official form GET HTML response bytes saved by Invoke-WebRequest, normal certificate validation; no proxy or system changes."
+}

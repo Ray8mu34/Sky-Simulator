@@ -1,0 +1,13 @@
+{
+  "retrievedAt": "2026-10-04T15:38:47.5714710+00:00",
+  "requestedAt": "2026-10-04T15:38:41.4073285+00:00",
+  "apiVersion": "4.0.1",
+  "bytes": 1234,
+  "sha256": "00f3df26e1dc08af344715ca69036610288d44bfc9a6db16457242ebeb7dbf1c",
+  "convention": "Latitude 70N longitude 0E, local UTC+0 civil day, sea-level standard upper-limb rise/set and civil geometric twilight.",
+  "sourceTerms": "https://aa.usno.navy.mil/data/api.html",
+  "httpStatus": 200,
+  "sourceUrl": "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-06-21&coords=70,0&tz=0",
+  "rawFile": "usno-solar70n-summer.json",
+  "status": "retrieved-reference-not-production-validated"
+}

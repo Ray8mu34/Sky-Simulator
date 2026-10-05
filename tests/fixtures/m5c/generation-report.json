@@ -1,0 +1,220 @@
+{
+  "status": "independent-small-goldens-prepared-not-production-validated",
+  "runAtUtc": "2026-10-04T22:27:36.163685+00:00",
+  "planSha256": "fc2ccc2f0c0209ef7006f8ce5fd485790bddd7dd5f920b44dfa2340777a674e9",
+  "compilerRunRoot": "qa/science-reference-prep/m5c/compiler/runs/20261004T222509084Z",
+  "driverSha256": "7213291cf4b98d34976139c5496061ebd50ce1fdaa7884d112704198ebaba62f",
+  "executableSha256": "7675c59bb56e36962fac037fdd38c749a3733ae1d52739f33142b9653e2aff8d",
+  "generatorSha256": "2aa2349c30a2170b2f10d7c1a4e8c1b86230eeea6343276eaebe19a33d2dc846",
+  "modernDates": 4,
+  "extendedDates": 2,
+  "axisDirections": 18,
+  "longitudeDirections": 72,
+  "rawRefractionRows": 25,
+  "scaledRawRows": 100,
+  "adaptedPolicyRows": 200,
+  "nativeExecutions": [
+    {
+      "args": [
+        "qa/science-reference-prep/m5c/compiler/runs/20261004T222509084Z/qa-ecliptic-reference.exe",
+        "modern-1900-mar15",
+        "2415093.5",
+        "-1.9819398148148149e-05"
+      ],
+      "exitCode": 0,
+      "stdoutFile": "modern-1900-mar15.native.json",
+      "stdoutSha256": "0b2924e929bb8eefffdeaeada96f06c2dcedf9e3ec777adbfed6ab3632f6c36f",
+      "stderrFile": "modern-1900-mar15.stderr.log",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "args": [
+        "qa/science-reference-prep/m5c/compiler/runs/20261004T222509084Z/qa-ecliptic-reference.exe",
+        "modern-2000-mar15",
+        "2451618.5",
+        "0.00074287038392393948"
+      ],
+      "exitCode": 0,
+      "stdoutFile": "modern-2000-mar15.native.json",
+      "stdoutSha256": "9ce8d05fa50eb754eeebd25b05d574f5e4bfb4e6ffa92bb8f6e07a45c793a60b",
+      "stderrFile": "modern-2000-mar15.stderr.log",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "args": [
+        "qa/science-reference-prep/m5c/compiler/runs/20261004T222509084Z/qa-ecliptic-reference.exe",
+        "modern-2026-mar15",
+        "2461114.5",
+        "0.0008007407839040275"
+      ],
+      "exitCode": 0,
+      "stdoutFile": "modern-2026-mar15.native.json",
+      "stdoutSha256": "3d7d749040506ecc83bf39a72be6c64756b9926e2cffff1bdf123aa43b786d68",
+      "stderrFile": "modern-2026-mar15.stderr.log",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "args": [
+        "qa/science-reference-prep/m5c/compiler/runs/20261004T222509084Z/qa-ecliptic-reference.exe",
+        "modern-2100-mar15",
+        "2488142.5",
+        "0.00080074076393182913"
+      ],
+      "exitCode": 0,
+      "stdoutFile": "modern-2100-mar15.native.json",
+      "stdoutSha256": "dabf623b5689faad3e4d43c508ad9c0a3cc9a946a3c8a0f35a182ca463c5f07b",
+      "stderrFile": "modern-2100-mar15.stderr.log",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "args": [
+        "qa/science-reference-prep/m5c/compiler/runs/20261004T222509084Z/qa-ecliptic-reference.exe",
+        "extended-minus2000-mar15",
+        "990648.5",
+        "0"
+      ],
+      "exitCode": 0,
+      "stdoutFile": "extended-minus2000-mar15.native.json",
+      "stdoutSha256": "33d418ee284ca125859034aec0297e1936857cf1802e1be35fb2fb2b259c3957",
+      "stderrFile": "extended-minus2000-mar15.stderr.log",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "args": [
+        "qa/science-reference-prep/m5c/compiler/runs/20261004T222509084Z/qa-ecliptic-reference.exe",
+        "extended-4000-mar15",
+        "3182103.5",
+        "0"
+      ],
+      "exitCode": 0,
+      "stdoutFile": "extended-4000-mar15.native.json",
+      "stdoutSha256": "14fef39201ede9a94084b696a782cb37ead085140b0a00b9542120c757664a89",
+      "stderrFile": "extended-4000-mar15.stderr.log",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "productionComparisonPerformed": false,
+  "failures": [],
+  "artifacts": [
+    {
+      "file": "build-m5c-ecliptic.ps1",
+      "sha256": "47ecc711616616b6b0592d5aea44e45fe58adf30f142acf728be047a45c73bdb",
+      "bytes": 6056
+    },
+    {
+      "file": "ecliptic-plan.json",
+      "sha256": "fc2ccc2f0c0209ef7006f8ce5fd485790bddd7dd5f920b44dfa2340777a674e9",
+      "bytes": 12302
+    },
+    {
+      "file": "extended-4000-mar15.native.json",
+      "sha256": "14fef39201ede9a94084b696a782cb37ead085140b0a00b9542120c757664a89",
+      "bytes": 2006
+    },
+    {
+      "file": "extended-4000-mar15.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "extended-minus2000-mar15.native.json",
+      "sha256": "33d418ee284ca125859034aec0297e1936857cf1802e1be35fb2fb2b259c3957",
+      "bytes": 2001
+    },
+    {
+      "file": "extended-minus2000-mar15.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "generate-m5c-goldens.py",
+      "sha256": "2aa2349c30a2170b2f10d7c1a4e8c1b86230eeea6343276eaebe19a33d2dc846",
+      "bytes": 9275
+    },
+    {
+      "file": "modern-1900-mar15.native.json",
+      "sha256": "0b2924e929bb8eefffdeaeada96f06c2dcedf9e3ec777adbfed6ab3632f6c36f",
+      "bytes": 2029
+    },
+    {
+      "file": "modern-1900-mar15.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "modern-2000-mar15.native.json",
+      "sha256": "9ce8d05fa50eb754eeebd25b05d574f5e4bfb4e6ffa92bb8f6e07a45c793a60b",
+      "bytes": 2053
+    },
+    {
+      "file": "modern-2000-mar15.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "modern-2026-mar15.native.json",
+      "sha256": "3d7d749040506ecc83bf39a72be6c64756b9926e2cffff1bdf123aa43b786d68",
+      "bytes": 2034
+    },
+    {
+      "file": "modern-2026-mar15.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "modern-2100-mar15.native.json",
+      "sha256": "dabf623b5689faad3e4d43c508ad9c0a3cc9a946a3c8a0f35a182ca463c5f07b",
+      "bytes": 2029
+    },
+    {
+      "file": "modern-2100-mar15.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "native-executions.json",
+      "sha256": "b59c40780fe2f9e4b85f32d4d3be68174f8b3d1e02160252ffea25d71f96e8d4",
+      "bytes": 3379
+    },
+    {
+      "file": "nutation-prior-bound.json",
+      "sha256": "55525a61191d2c67e15d62a23f20fd9ab831be4a07eb617358f1a1f4ef630d24",
+      "bytes": 598
+    },
+    {
+      "file": "official-ae-source-metadata.json",
+      "sha256": "6675728ddf8cee006426f1e12817fda4d0bd83dfb5651850ca18e7a1627f43ff",
+      "bytes": 912
+    },
+    {
+      "file": "prepare-m5c-scalars.py",
+      "sha256": "6d94a0663f14353437951bedf9e0ff913e19e2b7f7b2810af087d9b275a78368",
+      "bytes": 4627
+    },
+    {
+      "file": "qa-ecliptic-reference.c",
+      "sha256": "7213291cf4b98d34976139c5496061ebd50ce1fdaa7884d112704198ebaba62f",
+      "bytes": 2954
+    },
+    {
+      "file": "refraction-adapted-policy.fixture.json",
+      "sha256": "6d1d1f69643b1772075e7864187179b83f66342210ac6b939a193131ddfb694c",
+      "bytes": 51273
+    },
+    {
+      "file": "refraction-raw-policy.fixture.json",
+      "sha256": "f62a9e72c689040e6bac4cf8816ba02d07f7b66587f8681b0fdb82b174e96bc0",
+      "bytes": 27732
+    },
+    {
+      "file": "SOFA-LICENSE.txt",
+      "sha256": "7e6f42ebacdff175083a46063cf1fb6fc5749c9d52c906e2580aeb7fb5a12ae9",
+      "bytes": 4360
+    },
+    {
+      "file": "true-ecliptic.fixture.json",
+      "sha256": "7de292a07dbb223bc12024f825a3b26fa1704f4aa75a804511b98a952cb0f4af",
+      "bytes": 36954
+    }
+  ]
+}

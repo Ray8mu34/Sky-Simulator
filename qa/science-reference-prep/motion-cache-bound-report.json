@@ -1,0 +1,1013 @@
+{
+  "schemaVersion": 1,
+  "purpose": "source-scalar analytic motion/cache bound; not production precision acceptance",
+  "runAtUtc": "2026-10-04T21:14:03.347539+00:00",
+  "scriptSha256": "3e4a4f2cc6bffa55a49413615bf723c3e8df6ad7fb977c0d4087e32adbdc3d8a",
+  "hygSourceSha256": "d9f69fd86bbf90a4e4d52b4c5c53eacfa6dfc0bfdef85bfd94f095e0bebe4ebd",
+  "coreIdentitySha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1",
+  "sourceExceptions": [
+    "hip:17851",
+    "hyg:119623"
+  ],
+  "constants": {
+    "julianYearDays": 365.25,
+    "masToRadians": 4.8481368110953594e-09,
+    "kmSToPcJulianYear": 1.022712165045695e-06
+  },
+  "domain": {
+    "gregorianStartInclusive": "-2000-01-01T00:00:00",
+    "gregorianEndExclusive": "4001-01-01T00:00:00",
+    "startJdUtLabel": 990574.5,
+    "endJdUtLabel": 3182395.5,
+    "startMotionYears": -3999.91923340178,
+    "endMotionYearsConservativelyIncluded": 2000.95961670089
+  },
+  "counts": {
+    "linear-space": 8296,
+    "tangent": 625
+  },
+  "angularBoundNote": "angular speed=|p0 cross v|/|p0+t*v|^2; interval-global maximum times 15/365.25 or 30/365.25; endpoint included conservatively",
+  "cacheEndpointSafety": {
+    "extraDaysOnEachSide": 15,
+    "relativeNumericMargin": 1e-09,
+    "reason": "Math.round(UT_days/30)*30 can place cache center outside product date interval",
+    "worst15DayPaddedBoundArcsec": 0.30176890391427197
+  },
+  "roundingNote": "float64 scalar arithmetic, cross/closest-position norm plus independent squared-norm check and final nextafter; not a formal interval-arithmetic proof",
+  "topLinearSpace": [
+    {
+      "id": "hip:57939",
+      "hygId": 57767,
+      "nameEn": "Groombridge 1830",
+      "motionModel": "linear-space",
+      "fallbackReasons": [],
+      "distancePcRaw": 9.0917,
+      "rvKmSRaw": -99.1,
+      "pmRaCosDecMasYr": 4003.69,
+      "pmDecMasYr": -5813.0,
+      "p0": [
+        -7.18837017465764,
+        0.22059152580381416,
+        5.5621652709026925
+      ],
+      "vPerJulianYear": [
+        -8.19601733263957e-05,
+        -0.00017404180809821993,
+        -0.00026468446942264393
+      ],
+      "vectorUnits": "pc",
+      "unclampedClosestYears": 8606.390437491513,
+      "clampedClosestYears": 2000.95961670089,
+      "closestYearsIsBoundary": true,
+      "minNormSquared": 79.40011165104752,
+      "maxAngularRateRadPerJulianYear": 3.562443618457532e-05,
+      "maxAngularRateArcsecPerJulianYear": 7.348067427273477,
+      "max15DayStaleDirectionArcsecBound": 0.30176868284490665,
+      "max30DayStaleDirectionArcsecBound": 0.6035373656898133,
+      "endpointPadded15DayCacheArcsecBound": 0.30176890391427197
+    },
+    {
+      "id": "hip:104214",
+      "hygId": 103879,
+      "nameEn": null,
+      "motionModel": "linear-space",
+      "fallbackReasons": [],
+      "distancePcRaw": 3.4865,
+      "rvKmSRaw": -64.8,
+      "pmRaCosDecMasYr": 4155.1,
+      "pmDecMasYr": 3258.9,
+      "p0": [
+        1.9795922452112715,
+        -1.8640446410459421,
+        2.1822544235004546
+      ],
+      "vPerJulianYear": [
+        -1.4581951204216635e-05,
+        0.0001102011451976328,
+        1.4799929841028046e-06
+      ],
+      "vectorUnits": "pc",
+      "unclampedClosestYears": 18695.224551514246,
+      "clampedClosestYears": 2000.95961670089,
+      "closestYearsIsBoundary": true,
+      "minNormSquared": 11.280496912791083,
+      "maxAngularRateRadPerJulianYear": 2.75875745888647e-05,
+      "maxAngularRateArcsecPerJulianYear": 5.690345727399497,
+      "max15DayStaleDirectionArcsecBound": 0.23368976293221752,
+      "max30DayStaleDirectionArcsecBound": 0.46737952586443504,
+      "endpointPadded15DayCacheArcsecBound": 0.2336901142388169
+    },
+    {
+      "id": "hip:104217",
+      "hygId": 103883,
+      "nameEn": null,
+      "motionModel": "linear-space",
+      "fallbackReasons": [],
+      "distancePcRaw": 3.498,
+      "rvKmSRaw": -64.3,
+      "pmRaCosDecMasYr": 4107.4,
+      "pmDecMasYr": 3143.72,
+      "p0": [
+        1.986507225198642,
+        -1.8701939706548425,
+        2.1891019977058783
+      ],
+      "vPerJulianYear": [
+        -1.3890512998565862e-05,
+        0.00010874591397493364,
+        4.2926511625030877e-07
+      ],
+      "vectorUnits": "pc",
+      "unclampedClosestYears": 19139.16258248422,
+      "clampedClosestYears": 2000.95961670089,
+      "closestYearsIsBoundary": true,
+      "minNormSquared": 11.363564473742363,
+      "maxAngularRateRadPerJulianYear": 2.700174962589032e-05,
+      "maxAngularRateArcsecPerJulianYear": 5.569510654916874,
+      "max15DayStaleDirectionArcsecBound": 0.22872733695757183,
+      "max30DayStaleDirectionArcsecBound": 0.45745467391514366,
+      "endpointPadded15DayCacheArcsecBound": 0.22872767772086394
+    },
+    {
+      "id": "hip:108870",
+      "hygId": 108526,
+      "nameEn": null,
+      "motionModel": "linear-space",
+      "fallbackReasons": [],
+      "distancePcRaw": 3.6224,
+      "rvKmSRaw": -40.4,
+      "pmRaCosDecMasYr": 3959.97,
+      "pmDecMasYr": -2538.84,
+      "p0": [
+        1.7326276493808004,
+        -0.9670518223633614,
+        -3.030609503295478
+      ],
+      "vPerJulianYear": [
+        -1.8441405999158133e-05,
+        8.993653871644082e-05,
+        1.0144291853275684e-05
+      ],
+      "vectorUnits": "pc",
+      "unclampedClosestYears": 17542.92777870939,
+      "clampedClosestYears": 2000.95961670089,
+      "closestYearsIsBoundary": true,
+      "minNormSquared": 12.556978475606687,
+      "maxAngularRateRadPerJulianYear": 2.3831122085302557e-05,
+      "maxAngularRateArcsecPerJulianYear": 4.915521779575831,
+      "max15DayStaleDirectionArcsecBound": 0.20186947760065013,
+      "max30DayStaleDirectionArcsecBound": 0.40373895520130026,
+      "endpointPadded15DayCacheArcsecBound": 0.2018696528885412
+    },
+    {
+      "id": "hip:19849",
+      "hygId": 19799,
+      "nameEn": "Keid",
+      "motionModel": "linear-space",
+      "fallbackReasons": [],
+      "distancePcRaw": 4.9845,
+      "rvKmSRaw": -42.7,
+      "pmRaCosDecMasYr": -2239.33,
+      "pmDecMasYr": -3419.86,
+      "p0": [
+        2.1796876905513423,
+        4.433236236045381,
+        -0.6637908534117762
+      ],
+      "vPerJulianYear": [
+        2.4609875366988024e-05,
+        -7.259315189455821e-05,
+        -7.609111155094882e-05
+      ],
+      "vectorUnits": "pc",
+      "unclampedClosestYears": 18659.849729768328,
+      "clampedClosestYears": 2000.95961670089,
+      "closestYearsIsBoundary": true,
+      "minNormSquared": 24.02083968873479,
+      "maxAngularRateRadPerJulianYear": 2.0498337712206513e-05,
+      "maxAngularRateArcsecPerJulianYear": 4.228085656595825,
+      "max15DayStaleDirectionArcsecBound": 0.17363801464459241,
+      "max30DayStaleDirectionArcsecBound": 0.34727602928918483,
+      "endpointPadded15DayCacheArcsecBound": 0.17363813019761792
+    },
+    {
+      "id": "hip:71681",
+      "hygId": 71453,
+      "nameEn": "Toliman",
+      "motionModel": "linear-space",
+      "fallbackReasons": [],
+      "distancePcRaw": 1.3248,
+      "rvKmSRaw": -26.2,
+      "pmRaCosDecMasYr": -3678.19,
+      "pmDecMasYr": 481.84,
+      "p0": [
+        -0.49520080692614926,
+        -0.4141283651712591,
+        -1.1568789469863607
+      ],
+      "vPerJulianYear": [
+        -7.212758307468364e-06,
+        2.4764730479002375e-05,
+        2.4906737441909456e-05
+      ],
+      "vectorUnits": "pc",
+      "unclampedClosestYears": 27610.7657763048,
+      "clampedClosestYears": 2000.95961670089,
+      "closestYearsIsBoundary": true,
+      "minNormSquared": 1.618182117146065,
+      "maxAngularRateRadPerJulianYear": 1.950639766867841e-05,
+      "maxAngularRateArcsecPerJulianYear": 4.0234833357087645,
+      "max15DayStaleDirectionArcsecBound": 0.16523545526524702,
+      "max30DayStaleDirectionArcsecBound": 0.33047091053049404,
+      "endpointPadded15DayCacheArcsecBound": 0.16523573157735194
+    },
+    {
+      "id": "hip:71683",
+      "hygId": 71456,
+      "nameEn": "Rigil Kentaurus",
+      "motionModel": "linear-space",
+      "fallbackReasons": [],
+      "distancePcRaw": 1.3248,
+      "rvKmSRaw": -26.2,
+      "pmRaCosDecMasYr": -3678.19,
+      "pmDecMasYr": 481.84,
+      "p0": [
+        -0.4952223431275678,
+        -0.4142386987312997,
+        -1.1568302258069856
+      ],
+      "vPerJulianYear": [
+        -7.214033057507824e-06,
+        2.4765145112834463e-05,
+        2.4905955968105972e-05
+      ],
+      "vectorUnits": "pc",
+      "unclampedClosestYears": 27610.765776304797,
+      "clampedClosestYears": 2000.95961670089,
+      "closestYearsIsBoundary": true,
+      "minNormSquared": 1.618182117146065,
+      "maxAngularRateRadPerJulianYear": 1.950639766867841e-05,
+      "maxAngularRateArcsecPerJulianYear": 4.0234833357087645,
+      "max15DayStaleDirectionArcsecBound": 0.16523545526524702,
+      "max30DayStaleDirectionArcsecBound": 0.33047091053049404,
+      "endpointPadded15DayCacheArcsecBound": 0.1652357315773519
+    },
+    {
+      "id": "hip:5336",
+      "hygId": 5325,
+      "nameEn": null,
+      "motionModel": "linear-space",
+      "fallbackReasons": [],
+      "distancePcRaw": 7.554,
+      "rvKmSRaw": -98.1,
+      "pmRaCosDecMasYr": 3421.44,
+      "pmDecMasYr": -1599.27,
+      "p0": [
+        4.150317669309521,
+        1.273804224138753,
+        6.181844550163281
+      ],
+      "vPerJulianYear": [
+        -4.606596376469244e-05,
+        0.00011693321282529847,
+        -0.00011576477249159993
+      ],
+      "vectorUnits": "pc",
+      "unclampedClosestYears": 25957.460026545297,
+      "clampedClosestYears": 2000.95961670089,
+      "closestYearsIsBoundary": true,
+      "minNormSquared": 54.14684851709669,
+      "maxAngularRateRadPerJulianYear": 1.9296343991441824e-05,
+      "maxAngularRateArcsecPerJulianYear": 3.98015665467207,
+      "max15DayStaleDirectionArcsecBound": 0.163456125448545,
+      "max30DayStaleDirectionArcsecBound": 0.32691225089709,
+      "endpointPadded15DayCacheArcsecBound": 0.16345629904020512
+    },
+    {
+      "id": "hip:15510",
+      "hygId": 15471,
+      "nameEn": "82 G. Eri",
+      "motionModel": "linear-space",
+      "fallbackReasons": [],
+      "distancePcRaw": 6.0434,
+      "rvKmSRaw": 86.7,
+      "pmRaCosDecMasYr": 3038.08,
+      "pmDecMasYr": 726.34,
+      "p0": [
+        2.83903421281786,
+        3.3809310495667475,
+        -4.126969049620455
+      ],
+      "vPerJulianYear": [
+        -1.7167437466834547e-05,
+        0.0001179760333570752,
+        -4.500475165602203e-05
+      ],
+      "vectorUnits": "pc",
+      "unclampedClosestYears": -32999.55902501188,
+      "clampedClosestYears": -3999.91923340178,
+      "closestYearsIsBoundary": true,
+      "minNormSquared": 32.495670642906255,
+      "maxAngularRateRadPerJulianYear": 1.7020852975332374e-05,
+      "maxAngularRateArcsecPerJulianYear": 3.510802941117246,
+      "max15DayStaleDirectionArcsecBound": 0.14418081893705326,
+      "max30DayStaleDirectionArcsecBound": 0.2883616378741065,
+      "endpointPadded15DayCacheArcsecBound": 0.14418099069477422
+    },
+    {
+      "id": "hip:12114",
+      "hygId": 12082,
+      "nameEn": "268 G. Cet",
+      "motionModel": "linear-space",
+      "fallbackReasons": [],
+      "distancePcRaw": 7.1803,
+      "rvKmSRaw": 26.0,
+      "pmRaCosDecMasYr": 1806.27,
+      "pmDecMasYr": 1442.5,
+      "p0": [
+        5.538285481308515,
+        4.488073848183978,
+        0.8609849887044415
+      ],
+      "vPerJulianYear": [
+        -2.375622271026553e-05,
+        6.168103027265557e-05,
+        5.3041120525900406e-05
+      ],
+      "vectorUnits": "pc",
+      "unclampedClosestYears": -26583.229978276657,
+      "clampedClosestYears": -3999.91923340178,
+      "closestYearsIsBoundary": true,
+      "minNormSquared": 50.14422750680804,
+      "maxAngularRateRadPerJulianYear": 1.1522551507145478e-05,
+      "maxAngularRateArcsecPerJulianYear": 2.37669685409355,
+      "max15DayStaleDirectionArcsecBound": 0.09760562029131624,
+      "max30DayStaleDirectionArcsecBound": 0.19521124058263248,
+      "endpointPadded15DayCacheArcsecBound": 0.09760564632079292
+    },
+    {
+      "id": "hip:2021",
+      "hygId": 2016,
+      "nameEn": null,
+      "motionModel": "linear-space",
+      "fallbackReasons": [],
+      "distancePcRaw": 7.4588,
+      "rvKmSRaw": 22.9,
+      "pmRaCosDecMasYr": 2220.12,
+      "pmDecMasYr": 324.37,
+      "p0": [
+        1.6352831909635974,
+        0.1839680083722007,
+        -7.275005298777966
+      ],
+      "vPerJulianYear": [
+        7.528473376184279e-06,
+        8.163576651123849e-05,
+        -2.025515370486007e-05
+      ],
+      "vectorUnits": "pc",
+      "unclampedClosestYears": -24495.497515749368,
+      "clampedClosestYears": -3999.91923340178,
+      "closestYearsIsBoundary": true,
+      "minNormSquared": 54.35033536342662,
+      "maxAngularRateRadPerJulianYear": 1.113457341902599e-05,
+      "maxAngularRateArcsecPerJulianYear": 2.296670628919465,
+      "max15DayStaleDirectionArcsecBound": 0.09431912233755506,
+      "max30DayStaleDirectionArcsecBound": 0.18863824467511012,
+      "endpointPadded15DayCacheArcsecBound": 0.09431914326526651
+    },
+    {
+      "id": "hip:69673",
+      "hygId": 69451,
+      "nameEn": "Arcturus",
+      "motionModel": "linear-space",
+      "fallbackReasons": [],
+      "distancePcRaw": 11.2575,
+      "rvKmSRaw": -5.0,
+      "pmRaCosDecMasYr": -1093.45,
+      "pmDecMasYr": -1999.4,
+      "p0": [
+        -8.823467258180973,
+        -5.93257819514166,
+        3.698952250616125
+      ],
+      "vPerJulianYear": [
+        -5.90455871789719e-05,
+        3.221331732462606e-05,
+        -0.00010474444275022664
+      ],
+      "vectorUnits": "pc",
+      "unclampedClosestYears": 3715.0136947032975,
+      "clampedClosestYears": 2000.95961670089,
+      "closestYearsIsBoundary": true,
+      "minNormSquared": 126.56297352662759,
+      "maxAngularRateRadPerJulianYear": 1.1062951879614439e-05,
+      "maxAngularRateArcsecPerJulianYear": 2.2818976259696226,
+      "max15DayStaleDirectionArcsecBound": 0.09371242817123708,
+      "max30DayStaleDirectionArcsecBound": 0.18742485634247416,
+      "endpointPadded15DayCacheArcsecBound": 0.09371242988022217
+    },
+    {
+      "id": "hip:10138",
+      "hygId": 10116,
+      "nameEn": null,
+      "motionModel": "linear-space",
+      "fallbackReasons": [],
+      "distancePcRaw": 10.7828,
+      "rvKmSRaw": 53.1,
+      "pmRaCosDecMasYr": 2092.84,
+      "pmDecMasYr": 654.32,
+      "p0": [
+        5.73810966438779,
+        3.6703932189837043,
+        -8.358892686085753
+      ],
+      "vPerJulianYear": [
+        -7.71647256041693e-06,
+        0.0001249380107780116,
+        -2.0490423024800812e-05
+      ],
+      "vectorUnits": "pc",
+      "unclampedClosestYears": -36395.93885342914,
+      "clampedClosestYears": -3999.91923340178,
+      "closestYearsIsBoundary": true,
+      "minNormSquared": 111.84171528893494,
+      "maxAngularRateRadPerJulianYear": 1.1051507493162028e-05,
+      "maxAngularRateArcsecPerJulianYear": 2.2795370518153995,
+      "max15DayStaleDirectionArcsecBound": 0.09361548467414373,
+      "max30DayStaleDirectionArcsecBound": 0.18723096934828745,
+      "endpointPadded15DayCacheArcsecBound": 0.0936155206015713
+    },
+    {
+      "id": "hip:114622",
+      "hygId": 114260,
+      "nameEn": null,
+      "motionModel": "linear-space",
+      "fallbackReasons": [],
+      "distancePcRaw": 6.5462,
+      "rvKmSRaw": -18.2,
+      "pmRaCosDecMasYr": 2074.37,
+      "pmDecMasYr": 294.97,
+      "p0": [
+        3.475633830082846,
+        -0.7187272881317451,
+        5.500557699404528
+      ],
+      "vPerJulianYear": [
+        -4.2539138767221455e-06,
+        6.810655535519314e-05,
+        -1.0564692306277748e-05
+      ],
+      "vectorUnits": "pc",
+      "unclampedClosestYears": 25553.98166681602,
+      "clampedClosestYears": 2000.95961670089,
+      "closestYearsIsBoundary": true,
+      "minNormSquared": 42.38420459445914,
+      "maxAngularRateRadPerJulianYear": 1.0270285800445217e-05,
+      "maxAngularRateArcsecPerJulianYear": 2.1183985107311374,
+      "max15DayStaleDirectionArcsecBound": 0.08699788545097074,
+      "max30DayStaleDirectionArcsecBound": 0.1739957709019415,
+      "endpointPadded15DayCacheArcsecBound": 0.08699790447175819
+    },
+    {
+      "id": "hip:73184",
+      "hygId": 72957,
+      "nameEn": null,
+      "motionModel": "linear-space",
+      "fallbackReasons": [],
+      "distancePcRaw": 5.8404,
+      "rvKmSRaw": 29.1,
+      "pmRaCosDecMasYr": 1034.18,
+      "pmDecMasYr": -1725.6,
+      "p0": [
+        -3.8869293918164365,
+        -3.80190968635924,
+        -2.1324949706391543
+      ],
+      "vPerJulianYear": [
+        1.3423012261646942e-05,
+        -2.783241427914187e-05,
+        -5.63535565825899e-05
+      ],
+      "vectorUnits": "pc",
+      "unclampedClosestYears": -42080.58442167986,
+      "clampedClosestYears": -3999.91923340178,
+      "closestYearsIsBoundary": true,
+      "minNormSquared": 32.78586066590043,
+      "maxAngularRateRadPerJulianYear": 1.0147336529520531e-05,
+      "maxAngularRateArcsecPerJulianYear": 2.0930384031856355,
+      "max15DayStaleDirectionArcsecBound": 0.08595640259489265,
+      "max30DayStaleDirectionArcsecBound": 0.1719128051897853,
+      "endpointPadded15DayCacheArcsecBound": 0.08595643655234489
+    }
+  ],
+  "topTangent": [
+    {
+      "id": "hyg:119491",
+      "hygId": 119491,
+      "nameEn": null,
+      "motionModel": "tangent",
+      "fallbackReasons": [
+        "rv-zero-meaning-unknown"
+      ],
+      "distancePcRaw": 28.9017,
+      "rvKmSRaw": 0.0,
+      "pmRaCosDecMasYr": 1302.72,
+      "pmDecMasYr": -681.04,
+      "p0": [
+        0.278664332300676,
+        -0.12336012129309176,
+        -0.952432921720985
+      ],
+      "vPerJulianYear": [
+        -3.1897665064726185e-07,
+        7.0481485659635536e-06,
+        -1.006210364536168e-06
+      ],
+      "vectorUnits": "dimensionless",
+      "unclampedClosestYears": 7.817325761277729e-13,
+      "clampedClosestYears": 7.817325761277729e-13,
+      "closestYearsIsBoundary": false,
+      "minNormSquared": 1.0,
+      "maxAngularRateRadPerJulianYear": 7.126752669291411e-06,
+      "maxAngularRateArcsecPerJulianYear": 1.4699982585023696,
+      "max15DayStaleDirectionArcsecBound": 0.060369538336852976,
+      "max30DayStaleDirectionArcsecBound": 0.12073907667370595,
+      "endpointPadded15DayCacheArcsecBound": 0.06036953839722252
+    },
+    {
+      "id": "hyg:119106",
+      "hygId": 119106,
+      "nameEn": null,
+      "motionModel": "tangent",
+      "fallbackReasons": [
+        "rv-zero-meaning-unknown"
+      ],
+      "distancePcRaw": 10.7956,
+      "rvKmSRaw": 0.0,
+      "pmRaCosDecMasYr": -467.97,
+      "pmDecMasYr": 391.28,
+      "p0": [
+        -0.28679650557090036,
+        -0.8019773882182429,
+        0.5240038484390799
+      ],
+      "vPerJulianYear": [
+        -1.8015745018887514e-06,
+        1.6999376451467716e-06,
+        1.6156871436026803e-06
+      ],
+      "vectorUnits": "dimensionless",
+      "unclampedClosestYears": 1.2106138244278536e-11,
+      "clampedClosestYears": 1.2106138244278536e-11,
+      "closestYearsIsBoundary": false,
+      "minNormSquared": 1.0,
+      "maxAngularRateRadPerJulianYear": 2.957347397457026e-06,
+      "maxAngularRateArcsecPerJulianYear": 0.6099966879418282,
+      "max15DayStaleDirectionArcsecBound": 0.025051198683442636,
+      "max30DayStaleDirectionArcsecBound": 0.05010239736688527,
+      "endpointPadded15DayCacheArcsecBound": 0.025051198708493837
+    },
+    {
+      "id": "hyg:119390",
+      "hygId": 119390,
+      "nameEn": null,
+      "motionModel": "tangent",
+      "fallbackReasons": [
+        "rv-zero-meaning-unknown"
+      ],
+      "distancePcRaw": 18.7336,
+      "rvKmSRaw": 0.0,
+      "pmRaCosDecMasYr": 435.76,
+      "pmDecMasYr": -335.58,
+      "p0": [
+        0.21284300941478285,
+        -0.19613742421121796,
+        -0.9571979754298728
+      ],
+      "vPerJulianYear": [
+        2.8643458790333615e-07,
+        2.6088932193603433e-06,
+        -4.7089108833018295e-07
+      ],
+      "vectorUnits": "dimensionless",
+      "unclampedClosestYears": -1.8614192111556634e-12,
+      "clampedClosestYears": -1.8614192111556634e-12,
+      "closestYearsIsBoundary": false,
+      "minNormSquared": 1.0,
+      "maxAngularRateRadPerJulianYear": 2.666478392982121e-06,
+      "maxAngularRateArcsecPerJulianYear": 0.550000649090526,
+      "max15DayStaleDirectionArcsecBound": 0.022587295650534953,
+      "max30DayStaleDirectionArcsecBound": 0.045174591301069905,
+      "endpointPadded15DayCacheArcsecBound": 0.02258729567312225
+    },
+    {
+      "id": "hyg:118351",
+      "hygId": 118351,
+      "nameEn": null,
+      "motionModel": "tangent",
+      "fallbackReasons": [
+        "rv-zero-meaning-unknown"
+      ],
+      "distancePcRaw": 15.868,
+      "rvKmSRaw": 0.0,
+      "pmRaCosDecMasYr": 529.27,
+      "pmDecMasYr": 27.74,
+      "p0": [
+        0.21534277875059415,
+        0.9227103902523639,
+        0.31973899255533883
+      ],
+      "vPerJulianYear": [
+        -2.508597371862163e-06,
+        5.413017953080267e-07,
+        1.2742749235756618e-07
+      ],
+      "vectorUnits": "dimensionless",
+      "unclampedClosestYears": -1.302980828887734e-11,
+      "clampedClosestYears": -1.302980828887734e-11,
+      "closestYearsIsBoundary": false,
+      "minNormSquared": 1.0,
+      "maxAngularRateRadPerJulianYear": 2.5694953149453263e-06,
+      "maxAngularRateArcsecPerJulianYear": 0.5299964532900195,
+      "max15DayStaleDirectionArcsecBound": 0.021765768102259532,
+      "max30DayStaleDirectionArcsecBound": 0.043531536204519064,
+      "endpointPadded15DayCacheArcsecBound": 0.021765768124025302
+    },
+    {
+      "id": "hyg:118586",
+      "hygId": 118586,
+      "nameEn": null,
+      "motionModel": "tangent",
+      "fallbackReasons": [
+        "rv-zero-meaning-unknown"
+      ],
+      "distancePcRaw": 16.4312,
+      "rvKmSRaw": 0.0,
+      "pmRaCosDecMasYr": -433.88,
+      "pmDecMasYr": -248.49,
+      "p0": [
+        -0.528766528032047,
+        0.52576089535426,
+        0.6663193226593548
+      ],
+      "vPerJulianYear": [
+        9.139334340501e-07,
+        2.0576306675141557e-06,
+        -8.983145361845605e-07
+      ],
+      "vectorUnits": "dimensionless",
+      "unclampedClosestYears": -0.0,
+      "clampedClosestYears": -0.0,
+      "closestYearsIsBoundary": false,
+      "minNormSquared": 1.0,
+      "maxAngularRateRadPerJulianYear": 2.4240642094816385e-06,
+      "maxAngularRateArcsecPerJulianYear": 0.499999134499251,
+      "max15DayStaleDirectionArcsecBound": 0.02053384535931216,
+      "max30DayStaleDirectionArcsecBound": 0.04106769071862432,
+      "endpointPadded15DayCacheArcsecBound": 0.020533845379846004
+    },
+    {
+      "id": "hyg:119398",
+      "hygId": 119398,
+      "nameEn": null,
+      "motionModel": "tangent",
+      "fallbackReasons": [
+        "rv-zero-meaning-unknown"
+      ],
+      "distancePcRaw": 20.9205,
+      "rvKmSRaw": 0.0,
+      "pmRaCosDecMasYr": 157.33,
+      "pmDecMasYr": 432.26,
+      "p0": [
+        0.5916238847903913,
+        -0.5197852023514333,
+        0.6162828265999349
+      ],
+      "vPerJulianYear": [
+        -4.6680689747968683e-07,
+        1.4254491090527806e-06,
+        1.6503809936355922e-06
+      ],
+      "vectorUnits": "dimensionless",
+      "unclampedClosestYears": 2.1288348500522773e-11,
+      "clampedClosestYears": 2.1288348500522773e-11,
+      "closestYearsIsBoundary": false,
+      "minNormSquared": 1.0,
+      "maxAngularRateRadPerJulianYear": 2.2301505030350714e-06,
+      "maxAngularRateArcsecPerJulianYear": 0.4600015614103935,
+      "max15DayStaleDirectionArcsecBound": 0.018891234554841624,
+      "max30DayStaleDirectionArcsecBound": 0.03778246910968325,
+      "endpointPadded15DayCacheArcsecBound": 0.01889123457373286
+    },
+    {
+      "id": "hyg:118505",
+      "hygId": 118505,
+      "nameEn": null,
+      "motionModel": "tangent",
+      "fallbackReasons": [
+        "rv-zero-meaning-unknown"
+      ],
+      "distancePcRaw": 16.6722,
+      "rvKmSRaw": 0.0,
+      "pmRaCosDecMasYr": -66.78,
+      "pmDecMasYr": -343.57,
+      "p0": [
+        -0.45485200669413867,
+        0.8575734838498639,
+        -0.24016113716403498
+      ],
+      "vPerJulianYear": [
+        4.7345801014775636e-07,
+        -2.0169612984094442e-07,
+        -1.6169251334058342e-06
+      ],
+      "vectorUnits": "dimensionless",
+      "unclampedClosestYears": -1.8386319639228836e-11,
+      "clampedClosestYears": -1.8386319639228836e-11,
+      "closestYearsIsBoundary": false,
+      "minNormSquared": 0.9999999999999999,
+      "maxAngularRateRadPerJulianYear": 1.696847283406896e-06,
+      "maxAngularRateArcsecPerJulianYear": 0.34999987614283523,
+      "max15DayStaleDirectionArcsecBound": 0.014373711545906992,
+      "max30DayStaleDirectionArcsecBound": 0.028747423091813985,
+      "endpointPadded15DayCacheArcsecBound": 0.014373711560280705
+    },
+    {
+      "id": "hyg:119397",
+      "hygId": 119397,
+      "nameEn": null,
+      "motionModel": "tangent",
+      "fallbackReasons": [
+        "rv-zero-meaning-unknown"
+      ],
+      "distancePcRaw": 18.4809,
+      "rvKmSRaw": 0.0,
+      "pmRaCosDecMasYr": 24.58,
+      "pmDecMasYr": -298.99,
+      "p0": [
+        0.7389384519658473,
+        -0.6509837836552437,
+        0.17375292119622054
+      ],
+      "vPerJulianYear": [
+        2.67759678261141e-07,
+        -7.707357043227879e-08,
+        -1.4274958081014395e-06
+      ],
+      "vectorUnits": "dimensionless",
+      "unclampedClosestYears": -2.8154283376580725e-11,
+      "clampedClosestYears": -2.8154283376580725e-11,
+      "closestYearsIsBoundary": false,
+      "minNormSquared": 0.9999999999999999,
+      "maxAngularRateRadPerJulianYear": 1.4544345508509043e-06,
+      "maxAngularRateArcsecPerJulianYear": 0.2999986608303444,
+      "max15DayStaleDirectionArcsecBound": 0.012320273545394023,
+      "max30DayStaleDirectionArcsecBound": 0.024640547090788046,
+      "endpointPadded15DayCacheArcsecBound": 0.012320273557714298
+    },
+    {
+      "id": "hip:89805",
+      "hygId": 89527,
+      "nameEn": null,
+      "motionModel": "tangent",
+      "fallbackReasons": [
+        "rv-zero-meaning-unknown"
+      ],
+      "distancePcRaw": 23.0468,
+      "rvKmSRaw": 0.0,
+      "pmRaCosDecMasYr": 38.89,
+      "pmDecMasYr": -276.16,
+      "p0": [
+        0.03772704478749614,
+        -0.43852992809113245,
+        -0.8979243688975083
+      ],
+      "vPerJulianYear": [
+        8.48049719866485e-08,
+        1.2139328627435636e-06,
+        -5.892995761767249e-07
+      ],
+      "vectorUnits": "dimensionless",
+      "unclampedClosestYears": 3.0994971289894e-11,
+      "clampedClosestYears": 3.0994971289894e-11,
+      "closestYearsIsBoundary": false,
+      "minNormSquared": 1.0,
+      "maxAngularRateRadPerJulianYear": 1.352072065018913e-06,
+      "maxAngularRateArcsecPerJulianYear": 0.27888488252323756,
+      "max15DayStaleDirectionArcsecBound": 0.011453177927032345,
+      "max30DayStaleDirectionArcsecBound": 0.02290635585406469,
+      "endpointPadded15DayCacheArcsecBound": 0.011453177938485524
+    },
+    {
+      "id": "hip:23818",
+      "hygId": 23763,
+      "nameEn": null,
+      "motionModel": "tangent",
+      "fallbackReasons": [
+        "rv-zero-meaning-unknown"
+      ],
+      "distancePcRaw": 38.432,
+      "rvKmSRaw": 0.0,
+      "pmRaCosDecMasYr": -41.74,
+      "pmDecMasYr": 269.68,
+      "p0": [
+        0.21554649875502563,
+        0.9183123693103195,
+        -0.33202725678190526
+      ],
+      "vPerJulianYear": [
+        2.962049530335585e-07,
+        3.7638020967644517e-07,
+        1.233273878230853e-06
+      ],
+      "vectorUnits": "dimensionless",
+      "unclampedClosestYears": 1.512244378144739e-11,
+      "clampedClosestYears": 1.512244378144739e-11,
+      "closestYearsIsBoundary": false,
+      "minNormSquared": 1.0,
+      "maxAngularRateRadPerJulianYear": 1.32301318782704e-06,
+      "maxAngularRateArcsecPerJulianYear": 0.2728910588494977,
+      "max15DayStaleDirectionArcsecBound": 0.011207025004086149,
+      "max30DayStaleDirectionArcsecBound": 0.022414050008172298,
+      "endpointPadded15DayCacheArcsecBound": 0.011207025015293175
+    },
+    {
+      "id": "hip:62904",
+      "hygId": 62707,
+      "nameEn": null,
+      "motionModel": "tangent",
+      "fallbackReasons": [
+        "rv-zero-meaning-unknown"
+      ],
+      "distancePcRaw": 44.8029,
+      "rvKmSRaw": 0.0,
+      "pmRaCosDecMasYr": -150.31,
+      "pmDecMasYr": -176.84,
+      "p0": [
+        -0.917147888739285,
+        -0.21822159957269402,
+        0.33349525283129117
+      ],
+      "vPerJulianYear": [
+        -4.468349228826667e-07,
+        6.427494395851528e-07,
+        -8.082630652690443e-07
+      ],
+      "vectorUnits": "dimensionless",
+      "unclampedClosestYears": 2.090691933524118e-11,
+      "clampedClosestYears": 2.090691933524118e-11,
+      "closestYearsIsBoundary": false,
+      "minNormSquared": 0.9999999999999999,
+      "maxAngularRateRadPerJulianYear": 1.1252010811729157e-06,
+      "maxAngularRateArcsecPerJulianYear": 0.23208938299715481,
+      "max15DayStaleDirectionArcsecBound": 0.009531391498856462,
+      "max30DayStaleDirectionArcsecBound": 0.019062782997712923,
+      "endpointPadded15DayCacheArcsecBound": 0.009531391508387855
+    },
+    {
+      "id": "hip:25580",
+      "hygId": 25516,
+      "nameEn": null,
+      "motionModel": "tangent",
+      "fallbackReasons": [
+        "rv-zero-meaning-unknown"
+      ],
+      "distancePcRaw": 33.8524,
+      "rvKmSRaw": 0.0,
+      "pmRaCosDecMasYr": 20.14,
+      "pmDecMasYr": -209.31,
+      "p0": [
+        0.1156438156688866,
+        0.8232540585329329,
+        0.55576907345281
+      ],
+      "vPerJulianYear": [
+        -1.8240039894145068e-08,
+        5.720734509327242e-07,
+        -8.436101698411691e-07
+      ],
+      "vectorUnits": "dimensionless",
+      "unclampedClosestYears": 6.725506027090988e-11,
+      "clampedClosestYears": 6.725506027090988e-11,
+      "closestYearsIsBoundary": false,
+      "minNormSquared": 0.9999999999999999,
+      "maxAngularRateRadPerJulianYear": 1.019450269006224e-06,
+      "maxAngularRateArcsecPerJulianYear": 0.21027671221511907,
+      "max15DayStaleDirectionArcsecBound": 0.008635593930805712,
+      "max30DayStaleDirectionArcsecBound": 0.017271187861611425,
+      "endpointPadded15DayCacheArcsecBound": 0.008635593939441306
+    },
+    {
+      "id": "hip:59021",
+      "hygId": 58844,
+      "nameEn": null,
+      "motionModel": "tangent",
+      "fallbackReasons": [
+        "rv-zero-meaning-unknown"
+      ],
+      "distancePcRaw": 51.6529,
+      "rvKmSRaw": 0.0,
+      "pmRaCosDecMasYr": -77.55,
+      "pmDecMasYr": -194.27,
+      "p0": [
+        -0.8387430118153794,
+        -0.022280995771167603,
+        -0.5440714267063761
+      ],
+      "vPerJulianYear": [
+        5.022675158116409e-07,
+        3.894482551095987e-07,
+        -7.902467263845217e-07
+      ],
+      "vectorUnits": "dimensionless",
+      "unclampedClosestYears": -9.651744234899549e-12,
+      "clampedClosestYears": -9.651744234899549e-12,
+      "closestYearsIsBoundary": false,
+      "minNormSquared": 1.0,
+      "maxAngularRateRadPerJulianYear": 1.0141166054300466e-06,
+      "maxAngularRateArcsecPerJulianYear": 0.20917656513099164,
+      "max15DayStaleDirectionArcsecBound": 0.008590413352402121,
+      "max30DayStaleDirectionArcsecBound": 0.017180826704804242,
+      "endpointPadded15DayCacheArcsecBound": 0.008590413360992536
+    },
+    {
+      "id": "hyg:118632",
+      "hygId": 118632,
+      "nameEn": null,
+      "motionModel": "tangent",
+      "fallbackReasons": [
+        "rv-zero-meaning-unknown"
+      ],
+      "distancePcRaw": 18.5563,
+      "rvKmSRaw": 0.0,
+      "pmRaCosDecMasYr": -187.82,
+      "pmDecMasYr": 68.73,
+      "p0": [
+        -0.6050031806206884,
+        0.46128185492041307,
+        -0.6489916808095723
+      ],
+      "vPerJulianYear": [
+        3.801277236891272e-07,
+        8.552300629626753e-07,
+        2.535065283854925e-07
+      ],
+      "vectorUnits": "dimensionless",
+      "unclampedClosestYears": -5.6307831350677436e-11,
+      "clampedClosestYears": -5.6307831350677436e-11,
+      "closestYearsIsBoundary": false,
+      "minNormSquared": 1.0,
+      "maxAngularRateRadPerJulianYear": 9.696293657095393e-07,
+      "maxAngularRateArcsecPerJulianYear": 0.20000041324957307,
+      "max15DayStaleDirectionArcsecBound": 0.008213569332631338,
+      "max30DayStaleDirectionArcsecBound": 0.016427138665262676,
+      "endpointPadded15DayCacheArcsecBound": 0.008213569340844908
+    },
+    {
+      "id": "hip:24332",
+      "hygId": 24275,
+      "nameEn": null,
+      "motionModel": "tangent",
+      "fallbackReasons": [
+        "rv-zero-meaning-unknown"
+      ],
+      "distancePcRaw": 26.1165,
+      "rvKmSRaw": 0.0,
+      "pmRaCosDecMasYr": -144.76,
+      "pmDecMasYr": -135.1,
+      "p0": [
+        0.16092223705149092,
+        0.7786232688950453,
+        0.6065062561569649
+      ],
+      "vPerJulianYear": [
+        7.676939057886308e-07,
+        2.4698357477424947e-07,
+        -5.207632663935315e-07
+      ],
+      "vectorUnits": "dimensionless",
+      "unclampedClosestYears": -2.872313234675248e-11,
+      "clampedClosestYears": -2.872313234675248e-11,
+      "closestYearsIsBoundary": false,
+      "minNormSquared": 1.0,
+      "maxAngularRateRadPerJulianYear": 9.599735406864769e-07,
+      "maxAngularRateArcsecPerJulianYear": 0.19800875637203522,
+      "max15DayStaleDirectionArcsecBound": 0.008131776442383378,
+      "max30DayStaleDirectionArcsecBound": 0.016263552884766757,
+      "endpointPadded15DayCacheArcsecBound": 0.008131776450515155
+    }
+  ],
+  "failures": [],
+  "excludedEffects": [
+    "measurement uncertainty",
+    "source astrometry errors",
+    "annual aberration",
+    "parallax",
+    "precession-nutation",
+    "Earth rotation",
+    "binary acceleration"
+  ],
+  "allRecordsFile": "motion-cache-bound-records.json",
+  "allRecordsSha256": "49189cee810a3e3b927991540f46bf3c0e7c52970cb433aae2a0023f67a7bd24"
+}

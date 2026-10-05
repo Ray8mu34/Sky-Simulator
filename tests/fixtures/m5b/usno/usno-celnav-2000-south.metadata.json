@@ -1,0 +1,20 @@
+{
+  "id": "usno-celnav-2000-south",
+  "sourceUrl": "https://aa.usno.navy.mil/api/celnav?date=2000-09-15&time=12%3A00%3A00&coords=-33.87%2C151.21",
+  "requestParameters": {
+    "time": "12:00:00",
+    "date": "2000-09-15",
+    "id": "2000-south",
+    "coords": "-33.87,151.21"
+  },
+  "requestedAtUtc": "2026-10-04T19:51:32.8809282+00:00",
+  "convention": "UT1 and sea-level celestial-navigation table. Hc is geocentric altitude; corrections are separate, not already applied. Stars selected by source Hc>=1deg; 2100 is an explicit range probe, not expected valid data.",
+  "rawFile": "usno-celnav-2000-south.raw",
+  "acquisition": "Original HTTP response body; PowerShell Invoke-WebRequest; normal certificate validation; no global proxy or TLS changes.",
+  "status": "retrieved-reference-not-production-validated",
+  "httpStatus": 200,
+  "contentType": "application/json",
+  "retrievedAtUtc": "2026-10-04T19:51:39.2584205+00:00",
+  "bytes": 13114,
+  "sha256": "8dd3f8a9a74a0bd195aacaae8a01e6c567a63e47c56314ca7e5f59c140903f29"
+}

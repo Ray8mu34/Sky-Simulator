@@ -1,0 +1,683 @@
+{
+  "buildId": "2966df95ea4fbc32",
+  "moduleName": "index-DrZppIQ6.js",
+  "moduleSha256": "ea9a85063d60ea6c8cc01bd8b3d915f63957a2e8acb81a5e633cb753889bef26",
+  "viewport": [
+    1920,
+    1080
+  ],
+  "pixelSource": "Unmodified production application; real page screenshots",
+  "scope": "Promotional media only; no new accuracy/performance acceptance claims",
+  "captures": [
+    {
+      "file": "overview-ground.png",
+      "title": "地表：当地地平与北天星图",
+      "fullSidebarVisible": true,
+      "sha256": "ebc77903048efbc3d6401a5daabcadf44ef73aef813f7aad88f9226c6cc15a70",
+      "state": {
+        "schemaVersion": 1,
+        "time": {
+          "utDaysJ2000": 9753.083333333334,
+          "rateSimSecondsPerRealSecond": 600,
+          "running": false,
+          "mode": "simulation",
+          "calendar": "proleptic-gregorian",
+          "eraNumbering": "astronomical"
+        },
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": 30.25,
+          "longitudeDegEast": 120.17,
+          "heightMeters": 20,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 480
+          }
+        },
+        "viewMode": "ground",
+        "presentation": "explanation",
+        "density": "teaching",
+        "layers": {
+          "constellationLines": true,
+          "constellationLabels": true,
+          "brightStarNamesZh": true,
+          "secondaryNames": false,
+          "milkyWay": true,
+          "sunMoon": true,
+          "ecliptic": false,
+          "celestialEquator": false,
+          "celestialPoles": false,
+          "horizon": true,
+          "meridian": false,
+          "atmosphere": true,
+          "terrain": true,
+          "earthDay": true,
+          "earthNightLights": true,
+          "earthClouds": true,
+          "backHemisphere": false
+        },
+        "environment": {
+          "artificialSkyBrightness": 0,
+          "darkSkyLimitingMagnitude": 6.5,
+          "refraction": "none",
+          "moonlightEnabled": true,
+          "pressureHpa": 1013.25,
+          "temperatureC": 15
+        },
+        "selected": null,
+        "cameras": {
+          "ground": {
+            "kind": "ground",
+            "azimuthDegNorthEast": 0,
+            "altitudeDeg": 25,
+            "verticalFovDeg": 65
+          },
+          "space": {
+            "kind": "external",
+            "orientationQuaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceDisplayUnits": 9.5,
+            "verticalFovDeg": 45,
+            "referenceLock": "inertial"
+          },
+          "globe": {
+            "kind": "external",
+            "orientationQuaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceDisplayUnits": 3.1,
+            "verticalFovDeg": 45,
+            "referenceLock": "inertial"
+          },
+          "horizon": {
+            "kind": "external",
+            "orientationQuaternion": [
+              -0.25881904510252074,
+              0,
+              0,
+              0.9659258262890683
+            ],
+            "distanceDisplayUnits": 3.1,
+            "verticalFovDeg": 45,
+            "referenceLock": "local-horizon"
+          }
+        },
+        "illustration": {
+          "bodySizeScale": 1,
+          "distanceCompressed": false
+        }
+      },
+      "utc": "2026-09-14T14:00:00.000Z",
+      "sunAltitudeDeg": -46.69702617059929,
+      "moonAltitudeDeg": -29.63387052508964,
+      "moonIlluminatedFraction": 0.12769440644653873,
+      "scopeNote": "3D · 示意：忽略肉眼可见性"
+    },
+    {
+      "file": "overview-earth.png",
+      "title": "太空：地球受光、云层与背光城市夜灯",
+      "fullSidebarVisible": false,
+      "sha256": "aa5a8e19e9de979482aeb220c65173c2e4dab6a36bf3922a4b56d501a27f6c0a",
+      "state": {
+        "schemaVersion": 1,
+        "time": {
+          "utDaysJ2000": 9753.083333333334,
+          "rateSimSecondsPerRealSecond": 600,
+          "running": false,
+          "mode": "simulation",
+          "calendar": "proleptic-gregorian",
+          "eraNumbering": "astronomical"
+        },
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": 30.25,
+          "longitudeDegEast": 120.17,
+          "heightMeters": 20,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 480
+          }
+        },
+        "viewMode": "space",
+        "presentation": "explanation",
+        "density": "teaching",
+        "layers": {
+          "constellationLines": true,
+          "constellationLabels": true,
+          "brightStarNamesZh": true,
+          "secondaryNames": false,
+          "milkyWay": true,
+          "sunMoon": true,
+          "ecliptic": false,
+          "celestialEquator": false,
+          "celestialPoles": false,
+          "horizon": true,
+          "meridian": false,
+          "atmosphere": true,
+          "terrain": true,
+          "earthDay": true,
+          "earthNightLights": true,
+          "earthClouds": true,
+          "backHemisphere": false
+        },
+        "environment": {
+          "artificialSkyBrightness": 0,
+          "darkSkyLimitingMagnitude": 6.5,
+          "refraction": "none",
+          "moonlightEnabled": true,
+          "pressureHpa": 1013.25,
+          "temperatureC": 15
+        },
+        "selected": null,
+        "cameras": {
+          "ground": {
+            "kind": "ground",
+            "azimuthDegNorthEast": 0,
+            "altitudeDeg": 25,
+            "verticalFovDeg": 65
+          },
+          "space": {
+            "kind": "external",
+            "orientationQuaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceDisplayUnits": 4.93089327596783,
+            "verticalFovDeg": 45,
+            "referenceLock": "inertial"
+          },
+          "globe": {
+            "kind": "external",
+            "orientationQuaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceDisplayUnits": 3.1,
+            "verticalFovDeg": 45,
+            "referenceLock": "inertial"
+          },
+          "horizon": {
+            "kind": "external",
+            "orientationQuaternion": [
+              -0.25881904510252074,
+              0,
+              0,
+              0.9659258262890683
+            ],
+            "distanceDisplayUnits": 3.1,
+            "verticalFovDeg": 45,
+            "referenceLock": "local-horizon"
+          }
+        },
+        "illustration": {
+          "bodySizeScale": 1,
+          "distanceCompressed": false
+        }
+      },
+      "utc": "2026-09-14T14:00:00.000Z",
+      "sunAltitudeDeg": -46.69702617059929,
+      "moonAltitudeDeg": -29.63387052508964,
+      "moonIlluminatedFraction": 0.13066553204508558,
+      "scopeNote": "3D · 几何方向示意：忽略当地可见性"
+    },
+    {
+      "file": "overview-celestial.png",
+      "title": "天球：恒星方向、黄道与天赤道",
+      "fullSidebarVisible": false,
+      "sha256": "7ff086e675751ebfeed71ca5ce42ddd9490b4b9cac319e5fbcf21846c820570a",
+      "state": {
+        "schemaVersion": 1,
+        "time": {
+          "utDaysJ2000": 9753.083333333334,
+          "rateSimSecondsPerRealSecond": 600,
+          "running": false,
+          "mode": "simulation",
+          "calendar": "proleptic-gregorian",
+          "eraNumbering": "astronomical"
+        },
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": 30.25,
+          "longitudeDegEast": 120.17,
+          "heightMeters": 20,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 480
+          }
+        },
+        "viewMode": "globe",
+        "presentation": "explanation",
+        "density": "teaching",
+        "layers": {
+          "constellationLines": true,
+          "constellationLabels": true,
+          "brightStarNamesZh": true,
+          "secondaryNames": false,
+          "milkyWay": true,
+          "sunMoon": true,
+          "ecliptic": true,
+          "celestialEquator": true,
+          "celestialPoles": false,
+          "horizon": false,
+          "meridian": false,
+          "atmosphere": true,
+          "terrain": true,
+          "earthDay": true,
+          "earthNightLights": true,
+          "earthClouds": true,
+          "backHemisphere": false
+        },
+        "environment": {
+          "artificialSkyBrightness": 0,
+          "darkSkyLimitingMagnitude": 6.5,
+          "refraction": "none",
+          "moonlightEnabled": true,
+          "pressureHpa": 1013.25,
+          "temperatureC": 15
+        },
+        "selected": null,
+        "cameras": {
+          "ground": {
+            "kind": "ground",
+            "azimuthDegNorthEast": 0,
+            "altitudeDeg": 25,
+            "verticalFovDeg": 65
+          },
+          "space": {
+            "kind": "external",
+            "orientationQuaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceDisplayUnits": 9.5,
+            "verticalFovDeg": 45,
+            "referenceLock": "inertial"
+          },
+          "globe": {
+            "kind": "external",
+            "orientationQuaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceDisplayUnits": 3.0757899083618496,
+            "verticalFovDeg": 45,
+            "referenceLock": "inertial"
+          },
+          "horizon": {
+            "kind": "external",
+            "orientationQuaternion": [
+              -0.25881904510252074,
+              0,
+              0,
+              0.9659258262890683
+            ],
+            "distanceDisplayUnits": 3.1,
+            "verticalFovDeg": 45,
+            "referenceLock": "local-horizon"
+          }
+        },
+        "illustration": {
+          "bodySizeScale": 1,
+          "distanceCompressed": false
+        }
+      },
+      "utc": "2026-09-14T14:00:00.000Z",
+      "sunAltitudeDeg": -46.69702617059929,
+      "moonAltitudeDeg": -29.63387052508964,
+      "moonIlluminatedFraction": 0.13066553204508558,
+      "scopeNote": "3D · 几何方向示意：忽略当地可见性"
+    },
+    {
+      "file": "overview-horizon.png",
+      "title": "地平天球：当地水平面与天球参考线",
+      "fullSidebarVisible": true,
+      "sha256": "41c1d707431f186913e320cd8eedfdbe5af138f4cd0bd2691aa50b3680a836ee",
+      "state": {
+        "schemaVersion": 1,
+        "time": {
+          "utDaysJ2000": 9753.083333333334,
+          "rateSimSecondsPerRealSecond": 600,
+          "running": false,
+          "mode": "simulation",
+          "calendar": "proleptic-gregorian",
+          "eraNumbering": "astronomical"
+        },
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": 30.25,
+          "longitudeDegEast": 120.17,
+          "heightMeters": 20,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 480
+          }
+        },
+        "viewMode": "horizon",
+        "presentation": "explanation",
+        "density": "teaching",
+        "layers": {
+          "constellationLines": true,
+          "constellationLabels": true,
+          "brightStarNamesZh": true,
+          "secondaryNames": false,
+          "milkyWay": true,
+          "sunMoon": true,
+          "ecliptic": false,
+          "celestialEquator": true,
+          "celestialPoles": false,
+          "horizon": true,
+          "meridian": true,
+          "atmosphere": true,
+          "terrain": true,
+          "earthDay": true,
+          "earthNightLights": true,
+          "earthClouds": true,
+          "backHemisphere": false
+        },
+        "environment": {
+          "artificialSkyBrightness": 0,
+          "darkSkyLimitingMagnitude": 6.5,
+          "refraction": "none",
+          "moonlightEnabled": true,
+          "pressureHpa": 1013.25,
+          "temperatureC": 15
+        },
+        "selected": null,
+        "cameras": {
+          "ground": {
+            "kind": "ground",
+            "azimuthDegNorthEast": 0,
+            "altitudeDeg": 25,
+            "verticalFovDeg": 65
+          },
+          "space": {
+            "kind": "external",
+            "orientationQuaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceDisplayUnits": 9.5,
+            "verticalFovDeg": 45,
+            "referenceLock": "inertial"
+          },
+          "globe": {
+            "kind": "external",
+            "orientationQuaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceDisplayUnits": 3.1,
+            "verticalFovDeg": 45,
+            "referenceLock": "inertial"
+          },
+          "horizon": {
+            "kind": "external",
+            "orientationQuaternion": [
+              -0.25881904510252074,
+              0,
+              0,
+              0.9659258262890683
+            ],
+            "distanceDisplayUnits": 3.1,
+            "verticalFovDeg": 45,
+            "referenceLock": "local-horizon"
+          }
+        },
+        "illustration": {
+          "bodySizeScale": 1,
+          "distanceCompressed": false
+        }
+      },
+      "utc": "2026-09-14T14:00:00.000Z",
+      "sunAltitudeDeg": -46.69702617059929,
+      "moonAltitudeDeg": -29.63387052508964,
+      "moonIlluminatedFraction": 0.13066553204508558,
+      "scopeNote": "3D · 几何方向示意：忽略当地可见性"
+    },
+    {
+      "file": "feature-moon.png",
+      "title": "月相：20×教学月盘与同快照科学放大镜",
+      "fullSidebarVisible": false,
+      "sha256": "73084a59cdf52184c785ea9ebbd2b12dcaeccd24cbc61e088159e80e9160d470",
+      "state": {
+        "schemaVersion": 1,
+        "time": {
+          "utDaysJ2000": 9580.041853787045,
+          "rateSimSecondsPerRealSecond": 600,
+          "running": false,
+          "mode": "simulation",
+          "calendar": "proleptic-gregorian",
+          "eraNumbering": "astronomical"
+        },
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": 30.25,
+          "longitudeDegEast": 120.17,
+          "heightMeters": 20,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 480
+          }
+        },
+        "viewMode": "ground",
+        "presentation": "explanation",
+        "density": "teaching",
+        "layers": {
+          "constellationLines": false,
+          "constellationLabels": false,
+          "brightStarNamesZh": false,
+          "secondaryNames": false,
+          "milkyWay": false,
+          "sunMoon": true,
+          "ecliptic": false,
+          "celestialEquator": false,
+          "celestialPoles": false,
+          "horizon": false,
+          "meridian": false,
+          "atmosphere": false,
+          "terrain": false,
+          "earthNightLights": true,
+          "earthClouds": true,
+          "backHemisphere": false,
+          "earthDay": true
+        },
+        "environment": {
+          "artificialSkyBrightness": 0,
+          "darkSkyLimitingMagnitude": 6.5,
+          "refraction": "none",
+          "moonlightEnabled": true,
+          "pressureHpa": 1013.25,
+          "temperatureC": 15
+        },
+        "selected": "body:Moon",
+        "cameras": {
+          "ground": {
+            "kind": "ground",
+            "azimuthDegNorthEast": 279.2411444525461,
+            "altitudeDeg": 48.928513376374134,
+            "verticalFovDeg": 20
+          },
+          "space": {
+            "kind": "external",
+            "orientationQuaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceDisplayUnits": 9.5,
+            "verticalFovDeg": 45,
+            "referenceLock": "inertial"
+          },
+          "globe": {
+            "kind": "external",
+            "orientationQuaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceDisplayUnits": 3.1,
+            "verticalFovDeg": 45,
+            "referenceLock": "inertial"
+          },
+          "horizon": {
+            "kind": "external",
+            "orientationQuaternion": [
+              -0.25881904510252074,
+              0,
+              0,
+              0.9659258262890683
+            ],
+            "distanceDisplayUnits": 3.1,
+            "verticalFovDeg": 45,
+            "referenceLock": "local-horizon"
+          }
+        },
+        "illustration": {
+          "bodySizeScale": 20,
+          "distanceCompressed": false
+        }
+      },
+      "utc": "2026-03-25T13:00:16.167Z",
+      "sunAltitudeDeg": -35.45104703935176,
+      "moonAltitudeDeg": 48.928513376374134,
+      "moonIlluminatedFraction": 0.46582995379408443,
+      "scopeNote": "3D · 示意：忽略肉眼可见性 · 日月放大 20×"
+    },
+    {
+      "file": "feature-milky-way.png",
+      "title": "银河：暗夜场景中的低饱和积分背景",
+      "fullSidebarVisible": false,
+      "sha256": "ea9ef7c6a658e3215bf22608d9684ff30942838b6637c46117e34c68c8f11eb2",
+      "state": {
+        "schemaVersion": 1,
+        "time": {
+          "utDaysJ2000": 9722.083333333334,
+          "rateSimSecondsPerRealSecond": 600,
+          "running": false,
+          "mode": "simulation",
+          "calendar": "proleptic-gregorian",
+          "eraNumbering": "astronomical"
+        },
+        "observer": {
+          "name": "杭州银河教学",
+          "latitudeDeg": 30.25,
+          "longitudeDegEast": 120.17,
+          "heightMeters": 20,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 480
+          }
+        },
+        "viewMode": "ground",
+        "presentation": "observation",
+        "density": "teaching",
+        "layers": {
+          "constellationLines": false,
+          "constellationLabels": false,
+          "brightStarNamesZh": false,
+          "secondaryNames": false,
+          "milkyWay": true,
+          "sunMoon": true,
+          "ecliptic": false,
+          "celestialEquator": false,
+          "celestialPoles": false,
+          "horizon": true,
+          "meridian": false,
+          "atmosphere": true,
+          "terrain": true,
+          "earthDay": true,
+          "earthNightLights": true,
+          "earthClouds": true,
+          "backHemisphere": false
+        },
+        "environment": {
+          "artificialSkyBrightness": 0,
+          "darkSkyLimitingMagnitude": 6.5,
+          "refraction": "none",
+          "moonlightEnabled": true,
+          "pressureHpa": 1013.25,
+          "temperatureC": 15
+        },
+        "selected": null,
+        "cameras": {
+          "ground": {
+            "kind": "ground",
+            "azimuthDegNorthEast": 202,
+            "altitudeDeg": 26,
+            "verticalFovDeg": 65
+          },
+          "space": {
+            "kind": "external",
+            "orientationQuaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceDisplayUnits": 9.5,
+            "verticalFovDeg": 45,
+            "referenceLock": "inertial"
+          },
+          "globe": {
+            "kind": "external",
+            "orientationQuaternion": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceDisplayUnits": 3.1,
+            "verticalFovDeg": 45,
+            "referenceLock": "inertial"
+          },
+          "horizon": {
+            "kind": "external",
+            "orientationQuaternion": [
+              -0.25881904510252074,
+              0,
+              0,
+              0.9659258262890683
+            ],
+            "distanceDisplayUnits": 3.1,
+            "verticalFovDeg": 45,
+            "referenceLock": "local-horizon"
+          }
+        },
+        "illustration": {
+          "bodySizeScale": 1,
+          "distanceCompressed": false
+        }
+      },
+      "utc": "2026-08-14T14:00:00.000Z",
+      "sunAltitudeDeg": -36.4299149433236,
+      "moonAltitudeDeg": -29.29879214212388,
+      "moonIlluminatedFraction": 0.0436299034120648,
+      "scopeNote": "3D · 观察：日光、月光与光污染影响可见性"
+    }
+  ],
+  "errors": [],
+  "browserClosed": true,
+  "contextClosed": true,
+  "browserVersion": "154.0.8037.97"
+}

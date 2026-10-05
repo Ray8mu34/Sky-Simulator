@@ -1,0 +1,448 @@
+[
+  {
+    "id": "V01",
+    "title": "地表夜空：视频风格基线",
+    "group": "visual",
+    "inputs": {
+      "time": {
+        "kind": "utc-iso",
+        "value": "2026-09-14T14:00:00Z"
+      },
+      "observer": {
+        "name": "杭州教学预设",
+        "latitudeDeg": 30.25,
+        "longitudeDegEast": 120.17,
+        "heightMeters": 20,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 480
+        }
+      },
+      "viewMode": "ground",
+      "presentation": "explanation",
+      "viewportCssPx": [
+        1152,
+        720
+      ],
+      "density": "reference",
+      "groundCamera": {
+        "kind": "ground",
+        "azimuthDegNorthEast": 0,
+        "altitudeDeg": 25,
+        "verticalFovDeg": 65
+      }
+    },
+    "assertions": [
+      {
+        "status": "not-run",
+        "requirement": "科学时间、地点与视野以此输入为准，不宣称原片使用相同输入。"
+      },
+      {
+        "status": "not-run",
+        "requirement": "地景位于低处；亮星细而锐；细线与标签不抢主体；不得出现随机假星。"
+      },
+      {
+        "status": "not-run",
+        "requirement": "保留同尺寸截图与短时拖动录屏；像素基线需首次人工审查后才能建立。"
+      }
+    ],
+    "referenceFrame": "references/06s-ground-night.jpg"
+  },
+  {
+    "id": "V02",
+    "title": "地球近景：受光与薄大气",
+    "group": "visual",
+    "inputs": {
+      "time": {
+        "kind": "utc-iso",
+        "value": "2026-09-14T14:00:00Z"
+      },
+      "observer": {
+        "name": "杭州教学预设",
+        "latitudeDeg": 30.25,
+        "longitudeDegEast": 120.17,
+        "heightMeters": 20,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 480
+        }
+      },
+      "viewMode": "space",
+      "presentation": "explanation",
+      "viewportCssPx": [
+        1152,
+        720
+      ],
+      "density": "reference",
+      "groundCamera": {
+        "kind": "ground",
+        "azimuthDegNorthEast": 0,
+        "altitudeDeg": 25,
+        "verticalFovDeg": 65
+      }
+    },
+    "assertions": [
+      {
+        "status": "not-run",
+        "requirement": "将地球画面直径调整至可用舞台高度的45%—55%，将最终相机四元数保存为基线。"
+      },
+      {
+        "status": "not-run",
+        "requirement": "本初子午线、太阳受光方向与观测地点标记和科学内核一致。"
+      },
+      {
+        "status": "not-run",
+        "requirement": "云层轻薄，夜灯不出现在日照区域，背景恒星无平移视差。"
+      }
+    ],
+    "referenceFrame": "references/24s-earth-close.jpg",
+    "cameraCalibration": {
+      "kind": "fit-earth",
+      "diameterFractionOfStageHeight": 0.5,
+      "orientation": "calibrate-once-and-save; not a fabricated known original camera"
+    }
+  },
+  {
+    "id": "V03",
+    "title": "外部天球：前后半球层级",
+    "group": "visual",
+    "inputs": {
+      "time": {
+        "kind": "utc-iso",
+        "value": "2026-09-14T14:00:00Z"
+      },
+      "observer": {
+        "name": "杭州教学预设",
+        "latitudeDeg": 30.25,
+        "longitudeDegEast": 120.17,
+        "heightMeters": 20,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 480
+        }
+      },
+      "viewMode": "globe",
+      "presentation": "explanation",
+      "viewportCssPx": [
+        1152,
+        720
+      ],
+      "density": "reference",
+      "groundCamera": {
+        "kind": "ground",
+        "azimuthDegNorthEast": 0,
+        "altitudeDeg": 25,
+        "verticalFovDeg": 65
+      }
+    },
+    "assertions": [
+      {
+        "status": "not-run",
+        "requirement": "球壳约占舞台高度78%—88%；地球位于中心。"
+      },
+      {
+        "status": "not-run",
+        "requirement": "前后半球严格来自同一方向星表；不将背面标签与前面等强度叠加。"
+      },
+      {
+        "status": "not-run",
+        "requirement": "从外面看到的图样不得为迎合内部视图而人为镜像。"
+      }
+    ],
+    "referenceFrame": "references/35s-globe-labels.jpg"
+  },
+  {
+    "id": "V04",
+    "title": "地平天球：天顶与地轴分离",
+    "group": "visual",
+    "inputs": {
+      "time": {
+        "kind": "utc-iso",
+        "value": "2026-09-14T14:00:00Z"
+      },
+      "observer": {
+        "name": "杭州教学预设",
+        "latitudeDeg": 30.25,
+        "longitudeDegEast": 120.17,
+        "heightMeters": 20,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 480
+        }
+      },
+      "viewMode": "horizon",
+      "presentation": "explanation",
+      "viewportCssPx": [
+        1152,
+        720
+      ],
+      "density": "reference",
+      "groundCamera": {
+        "kind": "ground",
+        "azimuthDegNorthEast": 0,
+        "altitudeDeg": 25,
+        "verticalFovDeg": 65
+      }
+    },
+    "assertions": [
+      {
+        "status": "not-run",
+        "requirement": "当地地平面法向与科学快照中的当地天顶一致。"
+      },
+      {
+        "status": "not-run",
+        "requirement": "地轴和天顶独立标注；在此非极点地点不能重合。"
+      },
+      {
+        "status": "not-run",
+        "requirement": "切换地平锁定与惯性锁定，只有参考系变化，天空真值与UTC不变。"
+      }
+    ],
+    "referenceFrame": "references/40s-horizon-pole.jpg"
+  },
+  {
+    "id": "S05",
+    "title": "高纬夏至：极昼",
+    "group": "science-events",
+    "inputs": {
+      "time": {
+        "kind": "utc-iso",
+        "value": "2026-06-21T12:00:00Z"
+      },
+      "observer": {
+        "name": "北纬70°",
+        "latitudeDeg": 70,
+        "longitudeDegEast": 0,
+        "heightMeters": 0,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 0
+        }
+      },
+      "viewMode": "ground",
+      "presentation": "explanation",
+      "viewportCssPx": [
+        1152,
+        720
+      ],
+      "density": "reference",
+      "groundCamera": {
+        "kind": "ground",
+        "azimuthDegNorthEast": 0,
+        "altitudeDeg": 25,
+        "verticalFovDeg": 65
+      }
+    },
+    "assertions": [
+      {
+        "status": "not-run",
+        "requirement": "以明确的太阳上边缘/折射口径搜索完整当地日。"
+      },
+      {
+        "status": "not-run",
+        "requirement": "验证连续日照；没有升落事件时不是空白、异常或错误时间。"
+      },
+      {
+        "status": "not-run",
+        "requirement": "天空日照不随午夜强行切成黑夜。"
+      }
+    ]
+  },
+  {
+    "id": "S06",
+    "title": "高纬冬至：无日出但可能有晨昏",
+    "group": "science-events",
+    "inputs": {
+      "time": {
+        "kind": "utc-iso",
+        "value": "2026-12-21T12:00:00Z"
+      },
+      "observer": {
+        "name": "北纬70°",
+        "latitudeDeg": 70,
+        "longitudeDegEast": 0,
+        "heightMeters": 0,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 0
+        }
+      },
+      "viewMode": "ground",
+      "presentation": "explanation",
+      "viewportCssPx": [
+        1152,
+        720
+      ],
+      "density": "reference",
+      "groundCamera": {
+        "kind": "ground",
+        "azimuthDegNorthEast": 0,
+        "altitudeDeg": 25,
+        "verticalFovDeg": 65
+      }
+    },
+    "assertions": [
+      {
+        "status": "not-run",
+        "requirement": "验证全天无日出；同时报告晨昏而不把整天全称作天文黑夜。"
+      },
+      {
+        "status": "not-run",
+        "requirement": "全天极值与事件分类一致。"
+      }
+    ]
+  },
+  {
+    "id": "S07",
+    "title": "南半球极昼极夜对调",
+    "group": "science-events",
+    "inputs": {
+      "time": {
+        "kind": "utc-iso",
+        "value": "2026-12-21T12:00:00Z"
+      },
+      "observer": {
+        "name": "南纬70°",
+        "latitudeDeg": -70,
+        "longitudeDegEast": 0,
+        "heightMeters": 0,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 0
+        }
+      },
+      "viewMode": "ground",
+      "presentation": "explanation",
+      "viewportCssPx": [
+        1152,
+        720
+      ],
+      "density": "reference",
+      "groundCamera": {
+        "kind": "ground",
+        "azimuthDegNorthEast": 0,
+        "altitudeDeg": 25,
+        "verticalFovDeg": 65
+      }
+    },
+    "assertions": [
+      {
+        "status": "not-run",
+        "requirement": "12月夏季连续日照；与北半球同日结果不同。"
+      },
+      {
+        "status": "not-run",
+        "requirement": "改到6月21日后单独验证无日出及晨昏状态。"
+      }
+    ]
+  },
+  {
+    "id": "S09",
+    "title": "新月、上下弦、满月",
+    "group": "science-moon",
+    "inputs": {
+      "time": {
+        "kind": "utc-iso",
+        "value": "2026-09-14T14:00:00Z"
+      },
+      "observer": {
+        "name": "杭州教学预设",
+        "latitudeDeg": 30.25,
+        "longitudeDegEast": 120.17,
+        "heightMeters": 20,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 480
+        }
+      },
+      "viewMode": "ground",
+      "presentation": "explanation",
+      "viewportCssPx": [
+        1152,
+        720
+      ],
+      "density": "reference",
+      "groundCamera": {
+        "kind": "ground",
+        "azimuthDegNorthEast": 0,
+        "altitudeDeg": 25,
+        "verticalFovDeg": 65
+      }
+    },
+    "assertions": [
+      {
+        "status": "not-run",
+        "requirement": "从种子日期搜索四个相邻月相事件，再与独立参考记录比对。"
+      },
+      {
+        "status": "not-run",
+        "requirement": "太阳—月球—观察者几何产生照亮比例与亮边方向，不轮播贴图。"
+      },
+      {
+        "status": "not-run",
+        "requirement": "上下弦的朝向不同；南北半球地表相机投影正确。"
+      },
+      {
+        "status": "not-run",
+        "requirement": "新月照亮比例近零、满月近一，但不把月相事件角与相位角混名。"
+      }
+    ],
+    "timeSelection": {
+      "kind": "search-four-lunar-quarters",
+      "seedUtc": "2026-09-01T00:00:00Z",
+      "derivedTimesMustBeSaved": true
+    }
+  },
+  {
+    "id": "S16",
+    "title": "农历：民用日期而非照亮比例",
+    "group": "science-calendar",
+    "inputs": {
+      "time": {
+        "kind": "utc-iso",
+        "value": "2026-09-14T14:00:00Z"
+      },
+      "observer": {
+        "name": "杭州教学预设",
+        "latitudeDeg": 30.25,
+        "longitudeDegEast": 120.17,
+        "heightMeters": 20,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 480
+        }
+      },
+      "viewMode": "ground",
+      "presentation": "explanation",
+      "viewportCssPx": [
+        1152,
+        720
+      ],
+      "density": "reference",
+      "groundCamera": {
+        "kind": "ground",
+        "azimuthDegNorthEast": 0,
+        "altitudeDeg": 25,
+        "verticalFovDeg": 65
+      }
+    },
+    "assertions": [
+      {
+        "status": "not-run",
+        "requirement": "读取本地历法夹具核对1901—2100年边界、月初、闰月。"
+      },
+      {
+        "status": "not-run",
+        "requirement": "农历默认以UTC+8民用日期显示；仅更改所在地时区不偷偷改变其日界约定。"
+      },
+      {
+        "status": "not-run",
+        "requirement": "不支持的年份显示未验证，而非用月相乘30造日期。"
+      }
+    ],
+    "fixtureRequirement": {
+      "source": "Hong Kong Observatory calendar conversion; generated tables are not included in this specification pack",
+      "mustStore": "source date, generator version, checked rows, failures"
+    }
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "status": 200,
+  "requestedAtUtc": "2026-10-04T17:32:02.5624669Z",
+  "retrievedAtUtc": "2026-10-04T17:32:05.6368089Z",
+  "acquisition": "Invoke-WebRequest normal HTTPS certificate validation; original HTTP response body saved to file",
+  "sha256": "15674928ad948c6774b3c734faa57012d68580f5817e98e017d2a3b64f65966e",
+  "sourceUrl": "https://simbad.cds.unistra.fr/simbad/sim-basic?Ident=sgr+A",
+  "bytes": 289828
+}

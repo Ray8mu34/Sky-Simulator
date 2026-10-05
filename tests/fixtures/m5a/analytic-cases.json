@@ -1,0 +1,2349 @@
+{
+  "status": "prepared-independent-analytic-cases-not-production-validated",
+  "preparedAt": "2026-10-04T20:33:42.693Z",
+  "scope": "Independent closed-form scalar ENU orbital inputs and expectations only. No production module or unimplemented M5A API imported, no production tests, no GPU. Uniform hour-angle controlled model is for injected generic solver, not an astrometric oracle.",
+  "sourceSha256": "41ad3396e80cd48779a69a8cb1e501a950f0344ae818560f5029385a7e3d1e8c",
+  "caseCount": 63,
+  "countsByCategory": {
+    "classification-matrix": 49,
+    "standard-horizon-versus-geometric": 1,
+    "grazing": 3,
+    "subsample-window": 4,
+    "single-crossing": 2,
+    "multiple-same-direction": 2,
+    "half-open-boundaries": 2
+  },
+  "rows": [
+    {
+      "input": {
+        "name": "classification-lat-90-dec-90",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -90,
+        "declinationDeg": -90
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 90,
+        "maximumGeometricAltitudeDeg": 90,
+        "clearanceRangeDeg": {
+          "minimum": 90.56666666666666,
+          "maximum": 90.56666666666666
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 1,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-90-dec-60",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -90,
+        "declinationDeg": -60
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 59.99999999999999,
+        "maximumGeometricAltitudeDeg": 59.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": 60.56666666666666,
+          "maximum": 60.56666666666666
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0.8660254037844386,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-90-dec-30",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -90,
+        "declinationDeg": -30
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 29.99999999999999,
+        "maximumGeometricAltitudeDeg": 29.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": 30.566666666666656,
+          "maximum": 30.566666666666656
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0.49999999999999994,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-90-dec0",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -90,
+        "declinationDeg": 0
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 0,
+        "maximumGeometricAltitudeDeg": 0,
+        "clearanceRangeDeg": {
+          "minimum": 0.5666666666666667,
+          "maximum": 0.5666666666666667
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-90-dec30",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -90,
+        "declinationDeg": 30
+      },
+      "expected": {
+        "state": "always-below",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -29.99999999999999,
+        "maximumGeometricAltitudeDeg": -29.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": -29.433333333333323,
+          "maximum": -29.433333333333323
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -0.49999999999999994,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-90-dec60",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -90,
+        "declinationDeg": 60
+      },
+      "expected": {
+        "state": "always-below",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -59.99999999999999,
+        "maximumGeometricAltitudeDeg": -59.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": -59.43333333333332,
+          "maximum": -59.43333333333332
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -0.8660254037844386,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-90-dec90",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -90,
+        "declinationDeg": 90
+      },
+      "expected": {
+        "state": "always-below",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -90,
+        "maximumGeometricAltitudeDeg": -90,
+        "clearanceRangeDeg": {
+          "minimum": -89.43333333333334,
+          "maximum": -89.43333333333334
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -1,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-70-dec-90",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -70,
+        "declinationDeg": -90
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 70,
+        "maximumGeometricAltitudeDeg": 70,
+        "clearanceRangeDeg": {
+          "minimum": 70.56666666666666,
+          "maximum": 70.56666666666666
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0.9396926207859083,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-70-dec-60",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -70,
+        "declinationDeg": -60
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 39.99999999999999,
+        "maximumGeometricAltitudeDeg": 80,
+        "clearanceRangeDeg": {
+          "minimum": 40.56666666666666,
+          "maximum": 80.56666666666666
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0.8137976813493736,
+          "B": 0.17101007166283444,
+          "thresholdSine": -0.009890037858741147,
+          "q": -4.816603555561964
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-70-dec-30",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -70,
+        "declinationDeg": -30
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 9.99999999999999,
+        "maximumGeometricAltitudeDeg": 50.00000000000001,
+        "clearanceRangeDeg": {
+          "minimum": 10.566666666666656,
+          "maximum": 50.56666666666668
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0.4698463103929541,
+          "B": 0.29619813272602397,
+          "thresholdSine": -0.009890037858741147,
+          "q": -1.6196467676433317
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-70-dec0",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -70,
+        "declinationDeg": 0
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 12201.080066398434
+          },
+          {
+            "kind": "rise",
+            "seconds": 54489.92432707034
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -20.000000000000007,
+        "maximumGeometricAltitudeDeg": 20.000000000000007,
+        "clearanceRangeDeg": {
+          "minimum": -19.43333333333334,
+          "maximum": 20.566666666666674
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0,
+          "B": 0.3420201433256688,
+          "thresholdSine": -0.009890037858741147,
+          "q": -0.028916536209166874
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-70-dec30",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -70,
+        "declinationDeg": 30
+      },
+      "expected": {
+        "state": "always-below",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -50.00000000000001,
+        "maximumGeometricAltitudeDeg": -9.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": -49.43333333333334,
+          "maximum": -9.433333333333323
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -0.4698463103929541,
+          "B": 0.29619813272602397,
+          "thresholdSine": -0.009890037858741147,
+          "q": 1.5528668877857554
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-70-dec60",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -70,
+        "declinationDeg": 60
+      },
+      "expected": {
+        "state": "always-below",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -80,
+        "maximumGeometricAltitudeDeg": -39.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": -79.43333333333334,
+          "maximum": -39.43333333333332
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -0.8137976813493736,
+          "B": 0.17101007166283444,
+          "thresholdSine": -0.009890037858741147,
+          "q": 4.700937410725297
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-70-dec90",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -70,
+        "declinationDeg": 90
+      },
+      "expected": {
+        "state": "always-below",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -70,
+        "maximumGeometricAltitudeDeg": -70,
+        "clearanceRangeDeg": {
+          "minimum": -69.43333333333334,
+          "maximum": -69.43333333333334
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -0.9396926207859083,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-33-dec-90",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -33,
+        "declinationDeg": -90
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 32.99999999999999,
+        "maximumGeometricAltitudeDeg": 32.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": 33.56666666666666,
+          "maximum": 33.56666666666666
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0.5446390350150271,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-33-dec-60",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -33,
+        "declinationDeg": -60
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 2.9999999999999916,
+        "maximumGeometricAltitudeDeg": 63.000000000000014,
+        "clearanceRangeDeg": {
+          "minimum": 3.5666666666666584,
+          "maximum": 63.566666666666684
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0.4716712402156558,
+          "B": 0.41933528397271214,
+          "thresholdSine": -0.009890037858741147,
+          "q": -1.1483919824541502
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-33-dec-30",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -33,
+        "declinationDeg": -30
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 17276.96683373188
+          },
+          {
+            "kind": "rise",
+            "seconds": 49414.037559736884
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -27.000000000000007,
+        "maximumGeometricAltitudeDeg": 87,
+        "clearanceRangeDeg": {
+          "minimum": -26.43333333333334,
+          "maximum": 87.56666666666666
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0.2723195175075135,
+          "B": 0.7263100172470603,
+          "thresholdSine": -0.009890037858741147,
+          "q": -0.38855247575397095
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-33-dec0",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -33,
+        "declinationDeg": 0
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 11966.199320467282
+          },
+          {
+            "kind": "rise",
+            "seconds": 54724.80507300149
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -57,
+        "maximumGeometricAltitudeDeg": 57,
+        "clearanceRangeDeg": {
+          "minimum": -56.43333333333333,
+          "maximum": 57.56666666666667
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0,
+          "B": 0.838670567945424,
+          "thresholdSine": -0.009890037858741147,
+          "q": -0.011792518107520777
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-33-dec30",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -33,
+        "declinationDeg": 30
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 6734.868950511092
+          },
+          {
+            "kind": "rise",
+            "seconds": 59956.13544295768
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -87,
+        "maximumGeometricAltitudeDeg": 27.000000000000007,
+        "clearanceRangeDeg": {
+          "minimum": -86.43333333333334,
+          "maximum": 27.566666666666674
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -0.2723195175075135,
+          "B": 0.7263100172470603,
+          "thresholdSine": -0.009890037858741147,
+          "q": 0.36131882173876834
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-33-dec60",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -33,
+        "declinationDeg": 60
+      },
+      "expected": {
+        "state": "always-below",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -63.000000000000014,
+        "maximumGeometricAltitudeDeg": -2.9999999999999916,
+        "clearanceRangeDeg": {
+          "minimum": -62.433333333333344,
+          "maximum": -2.4333333333333247
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -0.4716712402156558,
+          "B": 0.41933528397271214,
+          "thresholdSine": -0.009890037858741147,
+          "q": 1.1012219100240672
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat-33-dec90",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": -33,
+        "declinationDeg": 90
+      },
+      "expected": {
+        "state": "always-below",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -32.99999999999999,
+        "maximumGeometricAltitudeDeg": -32.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": -32.43333333333332,
+          "maximum": -32.43333333333332
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -0.5446390350150271,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat0-dec-90",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 0,
+        "declinationDeg": -90
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 0,
+        "maximumGeometricAltitudeDeg": 0,
+        "clearanceRangeDeg": {
+          "minimum": 0.5666666666666667,
+          "maximum": 0.5666666666666667
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat0-dec-60",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 0,
+        "declinationDeg": -60
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 12075.750162608552
+          },
+          {
+            "kind": "rise",
+            "seconds": 54615.25423086021
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -30.00000000000001,
+        "maximumGeometricAltitudeDeg": 30.00000000000001,
+        "clearanceRangeDeg": {
+          "minimum": -29.433333333333344,
+          "maximum": 30.566666666666677
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0,
+          "B": 0.5000000000000001,
+          "thresholdSine": -0.009890037858741147,
+          "q": -0.01978007571748229
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat0-dec-30",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 0,
+        "declinationDeg": -30
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 11961.09091068098
+          },
+          {
+            "kind": "rise",
+            "seconds": 54729.913482787786
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -60.00000000000001,
+        "maximumGeometricAltitudeDeg": 60.00000000000001,
+        "clearanceRangeDeg": {
+          "minimum": -59.43333333333334,
+          "maximum": 60.56666666666668
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0,
+          "B": 0.8660254037844387,
+          "thresholdSine": -0.009890037858741147,
+          "q": -0.011420032040079582
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat0-dec0",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 0,
+        "declinationDeg": 0
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 11940.108232706605
+          },
+          {
+            "kind": "rise",
+            "seconds": 54750.89616076216
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -90,
+        "maximumGeometricAltitudeDeg": 89.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": -89.43333333333334,
+          "maximum": 90.56666666666665
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0,
+          "B": 1,
+          "thresholdSine": -0.009890037858741147,
+          "q": -0.009890037858741147
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat0-dec30",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 0,
+        "declinationDeg": 30
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 11961.09091068098
+          },
+          {
+            "kind": "rise",
+            "seconds": 54729.913482787786
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -60.00000000000001,
+        "maximumGeometricAltitudeDeg": 60.00000000000001,
+        "clearanceRangeDeg": {
+          "minimum": -59.43333333333334,
+          "maximum": 60.56666666666668
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0,
+          "B": 0.8660254037844387,
+          "thresholdSine": -0.009890037858741147,
+          "q": -0.011420032040079582
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat0-dec60",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 0,
+        "declinationDeg": 60
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 12075.750162608552
+          },
+          {
+            "kind": "rise",
+            "seconds": 54615.25423086021
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -30.00000000000001,
+        "maximumGeometricAltitudeDeg": 30.00000000000001,
+        "clearanceRangeDeg": {
+          "minimum": -29.433333333333344,
+          "maximum": 30.566666666666677
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0,
+          "B": 0.5000000000000001,
+          "thresholdSine": -0.009890037858741147,
+          "q": -0.01978007571748229
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat0-dec90",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 0,
+        "declinationDeg": 90
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 0,
+        "maximumGeometricAltitudeDeg": 0,
+        "clearanceRangeDeg": {
+          "minimum": 0.5666666666666667,
+          "maximum": 0.5666666666666667
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat30-dec-90",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 30,
+        "declinationDeg": -90
+      },
+      "expected": {
+        "state": "always-below",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -29.99999999999999,
+        "maximumGeometricAltitudeDeg": -29.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": -29.433333333333323,
+          "maximum": -29.433333333333323
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -0.49999999999999994,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat30-dec-60",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 30,
+        "declinationDeg": -60
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "rise",
+            "seconds": 73490.97858470146
+          },
+          {
+            "kind": "set",
+            "seconds": 79364.11630876732
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -60.00000000000001,
+        "maximumGeometricAltitudeDeg": 1.2722218725854067e-14,
+        "clearanceRangeDeg": {
+          "minimum": -59.43333333333334,
+          "maximum": 0.5666666666666794
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -0.43301270189221924,
+          "B": 0.43301270189221946,
+          "thresholdSine": -0.009890037858741147,
+          "q": 0.9771599359198403
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat30-dec-30",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 30,
+        "declinationDeg": -30
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 7335.485233222345
+          },
+          {
+            "kind": "rise",
+            "seconds": 59355.519160246426
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -90,
+        "maximumGeometricAltitudeDeg": 30.000000000000018,
+        "clearanceRangeDeg": {
+          "minimum": -89.43333333333334,
+          "maximum": 30.566666666666684
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -0.24999999999999994,
+          "B": 0.7500000000000001,
+          "thresholdSine": -0.009890037858741147,
+          "q": 0.320146616188345
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat30-dec0",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 30,
+        "declinationDeg": 0
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 11961.09091068098
+          },
+          {
+            "kind": "rise",
+            "seconds": 54729.913482787786
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -60.00000000000001,
+        "maximumGeometricAltitudeDeg": 60.00000000000001,
+        "clearanceRangeDeg": {
+          "minimum": -59.43333333333334,
+          "maximum": 60.56666666666668
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0,
+          "B": 0.8660254037844387,
+          "thresholdSine": -0.009890037858741147,
+          "q": -0.011420032040079582
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat30-dec30",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 30,
+        "declinationDeg": 30
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 16657.100640136076
+          },
+          {
+            "kind": "rise",
+            "seconds": 50033.90375333269
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -30.000000000000018,
+        "maximumGeometricAltitudeDeg": 89.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": -29.43333333333335,
+          "maximum": 90.56666666666665
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0.24999999999999994,
+          "B": 0.7500000000000001,
+          "thresholdSine": -0.009890037858741147,
+          "q": -0.3465200504783214
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat30-dec60",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 30,
+        "declinationDeg": 60
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -1.2722218725854067e-14,
+        "maximumGeometricAltitudeDeg": 60.00000000000001,
+        "clearanceRangeDeg": {
+          "minimum": 0.5666666666666539,
+          "maximum": 60.56666666666668
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0.43301270189221924,
+          "B": 0.43301270189221946,
+          "thresholdSine": -0.009890037858741147,
+          "q": -1.0228400640801587
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat30-dec90",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 30,
+        "declinationDeg": 90
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 29.99999999999999,
+        "maximumGeometricAltitudeDeg": 29.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": 30.566666666666656,
+          "maximum": 30.566666666666656
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0.49999999999999994,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat70-dec-90",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 70,
+        "declinationDeg": -90
+      },
+      "expected": {
+        "state": "always-below",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -70,
+        "maximumGeometricAltitudeDeg": -70,
+        "clearanceRangeDeg": {
+          "minimum": -69.43333333333334,
+          "maximum": -69.43333333333334
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -0.9396926207859083,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat70-dec-60",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 70,
+        "declinationDeg": -60
+      },
+      "expected": {
+        "state": "always-below",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -80,
+        "maximumGeometricAltitudeDeg": -39.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": -79.43333333333334,
+          "maximum": -39.43333333333332
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -0.8137976813493736,
+          "B": 0.17101007166283444,
+          "thresholdSine": -0.009890037858741147,
+          "q": 4.700937410725297
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat70-dec-30",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 70,
+        "declinationDeg": -30
+      },
+      "expected": {
+        "state": "always-below",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -50.00000000000001,
+        "maximumGeometricAltitudeDeg": -9.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": -49.43333333333334,
+          "maximum": -9.433333333333323
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -0.4698463103929541,
+          "B": 0.29619813272602397,
+          "thresholdSine": -0.009890037858741147,
+          "q": 1.5528668877857554
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat70-dec0",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 70,
+        "declinationDeg": 0
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 12201.080066398434
+          },
+          {
+            "kind": "rise",
+            "seconds": 54489.92432707034
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -20.000000000000007,
+        "maximumGeometricAltitudeDeg": 20.000000000000007,
+        "clearanceRangeDeg": {
+          "minimum": -19.43333333333334,
+          "maximum": 20.566666666666674
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0,
+          "B": 0.3420201433256688,
+          "thresholdSine": -0.009890037858741147,
+          "q": -0.028916536209166874
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat70-dec30",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 70,
+        "declinationDeg": 30
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 9.99999999999999,
+        "maximumGeometricAltitudeDeg": 50.00000000000001,
+        "clearanceRangeDeg": {
+          "minimum": 10.566666666666656,
+          "maximum": 50.56666666666668
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0.4698463103929541,
+          "B": 0.29619813272602397,
+          "thresholdSine": -0.009890037858741147,
+          "q": -1.6196467676433317
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat70-dec60",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 70,
+        "declinationDeg": 60
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 39.99999999999999,
+        "maximumGeometricAltitudeDeg": 80,
+        "clearanceRangeDeg": {
+          "minimum": 40.56666666666666,
+          "maximum": 80.56666666666666
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0.8137976813493736,
+          "B": 0.17101007166283444,
+          "thresholdSine": -0.009890037858741147,
+          "q": -4.816603555561964
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat70-dec90",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 70,
+        "declinationDeg": 90
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 70,
+        "maximumGeometricAltitudeDeg": 70,
+        "clearanceRangeDeg": {
+          "minimum": 70.56666666666666,
+          "maximum": 70.56666666666666
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0.9396926207859083,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat90-dec-90",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 90,
+        "declinationDeg": -90
+      },
+      "expected": {
+        "state": "always-below",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -90,
+        "maximumGeometricAltitudeDeg": -90,
+        "clearanceRangeDeg": {
+          "minimum": -89.43333333333334,
+          "maximum": -89.43333333333334
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -1,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat90-dec-60",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 90,
+        "declinationDeg": -60
+      },
+      "expected": {
+        "state": "always-below",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -59.99999999999999,
+        "maximumGeometricAltitudeDeg": -59.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": -59.43333333333332,
+          "maximum": -59.43333333333332
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -0.8660254037844386,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat90-dec-30",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 90,
+        "declinationDeg": -30
+      },
+      "expected": {
+        "state": "always-below",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -29.99999999999999,
+        "maximumGeometricAltitudeDeg": -29.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": -29.433333333333323,
+          "maximum": -29.433333333333323
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -0.49999999999999994,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat90-dec0",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 90,
+        "declinationDeg": 0
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 0,
+        "maximumGeometricAltitudeDeg": 0,
+        "clearanceRangeDeg": {
+          "minimum": 0.5666666666666667,
+          "maximum": 0.5666666666666667
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat90-dec30",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 90,
+        "declinationDeg": 30
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 29.99999999999999,
+        "maximumGeometricAltitudeDeg": 29.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": 30.566666666666656,
+          "maximum": 30.566666666666656
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0.49999999999999994,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat90-dec60",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 90,
+        "declinationDeg": 60
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 59.99999999999999,
+        "maximumGeometricAltitudeDeg": 59.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": 60.56666666666666,
+          "maximum": 60.56666666666666
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0.8660254037844386,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "classification-lat90-dec90",
+        "category": "classification-matrix",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 90,
+        "declinationDeg": 90
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": 90,
+        "maximumGeometricAltitudeDeg": 90,
+        "clearanceRangeDeg": {
+          "minimum": 90.56666666666666,
+          "maximum": 90.56666666666666
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 1,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "geometrically-below-for-part-of-day-but-standard-event-always-above",
+        "category": "standard-horizon-versus-geometric",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 70,
+        "declinationDeg": 19.6
+      },
+      "expected": {
+        "state": "always-above",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -0.4000000000000053,
+        "maximumGeometricAltitudeDeg": 39.6,
+        "clearanceRangeDeg": {
+          "minimum": 0.16666666666666136,
+          "maximum": 40.16666666666667
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": 0.31522136472536405,
+          "B": 0.3222026250233257,
+          "thresholdSine": -0.009890037858741147,
+          "q": -1.0090277897660485
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "north-pole-all-day-exact-threshold",
+        "category": "grazing",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 0.71,
+        "latitudeDeg": 90,
+        "declinationDeg": -0.5666666666666667
+      },
+      "expected": {
+        "state": "grazing",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -0.5666666666666667,
+        "maximumGeometricAltitudeDeg": -0.5666666666666667,
+        "clearanceRangeDeg": {
+          "minimum": 0,
+          "maximum": 0
+        },
+        "stationaryCandidatesSeconds": [
+          33345.502196734386,
+          76427.54744673439
+        ],
+        "formula": {
+          "A": -0.009890037858741147,
+          "B": 0,
+          "thresholdSine": -0.009890037858741147,
+          "q": null
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "upper-tangent-no-sign-change",
+        "category": "grazing",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": -0.25,
+        "latitudeDeg": 70,
+        "declinationDeg": -20.566666666666666
+      },
+      "expected": {
+        "state": "grazing",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -40.56666666666667,
+        "maximumGeometricAltitudeDeg": -0.5666666666666605,
+        "clearanceRangeDeg": {
+          "minimum": -40,
+          "maximum": 6.106226635438361e-15
+        },
+        "stationaryCandidatesSeconds": [
+          3428.360230023105,
+          46510.40548002311
+        ],
+        "formula": {
+          "A": -0.33011120943839606,
+          "B": 0.320221171579655,
+          "thresholdSine": -0.009890037858741147,
+          "q": 0.9999999999999997
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "lower-tangent-no-sign-change",
+        "category": "grazing",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 2.891592653589793,
+        "latitudeDeg": 70,
+        "declinationDeg": 19.433333333333334
+      },
+      "expected": {
+        "state": "grazing",
+        "crossings": [],
+        "minimumGeometricAltitudeDeg": -0.5666666666666733,
+        "maximumGeometricAltitudeDeg": 39.43333333333334,
+        "clearanceRangeDeg": {
+          "minimum": -6.661338147750939e-15,
+          "maximum": 40.00000000000001
+        },
+        "stationaryCandidatesSeconds": [
+          3428.360230023105,
+          46510.40548002311
+        ],
+        "formula": {
+          "A": 0.31264496303573,
+          "B": 0.32253500089447124,
+          "thresholdSine": -0.009890037858741147,
+          "q": -0.9999999999999997
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "upper-64second-window-center-45",
+        "category": "subsample-window",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": -0.003281452136062196,
+        "latitudeDeg": 70,
+        "declinationDeg": -20.566616666666665
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "rise",
+            "seconds": 12.98529453581238
+          },
+          {
+            "kind": "set",
+            "seconds": 77.01470546418763
+          },
+          {
+            "kind": "rise",
+            "seconds": 86177.07579453582
+          },
+          {
+            "kind": "set",
+            "seconds": 86241.10520546419
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -40.56661666666667,
+        "maximumGeometricAltitudeDeg": -0.5666166666666574,
+        "clearanceRangeDeg": {
+          "minimum": -39.99995,
+          "maximum": 0.000050000000009209344
+        },
+        "stationaryCandidatesSeconds": [
+          45,
+          43127.04525,
+          86209.0905
+        ],
+        "formula": {
+          "A": -0.33011044166755005,
+          "B": 0.32022127643075887,
+          "thresholdSine": -0.009890037858741147,
+          "q": 0.9999972749407544
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "lower-short-dip-center-45",
+        "category": "subsample-window",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": 3.138311201453731,
+        "latitudeDeg": 70,
+        "declinationDeg": 19.433283333333332
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 13.100336032266569
+          },
+          {
+            "kind": "rise",
+            "seconds": 76.89966396773451
+          },
+          {
+            "kind": "set",
+            "seconds": 86177.19083603226
+          },
+          {
+            "kind": "rise",
+            "seconds": 86240.99016396776
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -0.5667166666666753,
+        "maximumGeometricAltitudeDeg": 39.433283333333335,
+        "clearanceRangeDeg": {
+          "minimum": -0.00005000000000865423,
+          "maximum": 39.999950000000005
+        },
+        "stationaryCandidatesSeconds": [
+          45.00000000000053,
+          43127.04525,
+          86209.0905
+        ],
+        "formula": {
+          "A": 0.31264418971719243,
+          "B": 0.322535100197876,
+          "thresholdSine": -0.009890037858741147,
+          "q": -0.9999972944899892
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "upper-64second-window-center-86355",
+        "category": "subsample-window",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": -6.2971066491033545,
+        "latitudeDeg": 70,
+        "declinationDeg": -20.566616666666665
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "rise",
+            "seconds": 158.8947945358097
+          },
+          {
+            "kind": "set",
+            "seconds": 222.9242054641939
+          },
+          {
+            "kind": "rise",
+            "seconds": 86322.98529453581
+          },
+          {
+            "kind": "set",
+            "seconds": 86387.0147054642
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -40.56661666666667,
+        "maximumGeometricAltitudeDeg": -0.5666166666666574,
+        "clearanceRangeDeg": {
+          "minimum": -39.99995,
+          "maximum": 0.000050000000009209344
+        },
+        "stationaryCandidatesSeconds": [
+          190.9095000000018,
+          43272.954750000004,
+          86355
+        ],
+        "formula": {
+          "A": -0.33011044166755005,
+          "B": 0.32022127643075887,
+          "thresholdSine": -0.009890037858741147,
+          "q": 0.9999972749407544
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "lower-short-dip-center-86355",
+        "category": "subsample-window",
+        "durationSeconds": 86400,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0.5666666666666667,
+        "hourAngleAtStartRad": -3.1555139955135614,
+        "latitudeDeg": 70,
+        "declinationDeg": 19.433283333333332
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 159.00983603226783
+          },
+          {
+            "kind": "rise",
+            "seconds": 222.80916396773577
+          },
+          {
+            "kind": "set",
+            "seconds": 86323.10033603228
+          },
+          {
+            "kind": "rise",
+            "seconds": 86386.89966396774
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -0.5667166666666753,
+        "maximumGeometricAltitudeDeg": 39.433283333333335,
+        "clearanceRangeDeg": {
+          "minimum": -0.00005000000000865423,
+          "maximum": 39.999950000000005
+        },
+        "stationaryCandidatesSeconds": [
+          190.9095000000018,
+          43272.954750000004,
+          86355
+        ],
+        "formula": {
+          "A": 0.31264418971719243,
+          "B": 0.322535100197876,
+          "thresholdSine": -0.009890037858741147,
+          "q": -0.9999972944899892
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "23hour-day-only-set",
+        "category": "single-crossing",
+        "durationSeconds": 82800,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0,
+        "hourAngleAtStartRad": -1.5270436316474005,
+        "latitudeDeg": 0,
+        "declinationDeg": 0
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 42482.04525
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -89.99999999999991,
+        "maximumGeometricAltitudeDeg": 89.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": -89.99999999999991,
+          "maximum": 89.99999999999999
+        },
+        "stationaryCandidatesSeconds": [
+          20941.022625,
+          64023.06787499999
+        ],
+        "formula": {
+          "A": 0,
+          "B": 1,
+          "thresholdSine": 0,
+          "q": 0
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "23hour-day-only-rise",
+        "category": "single-crossing",
+        "durationSeconds": 82800,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0,
+        "hourAngleAtStartRad": 1.6145490219423926,
+        "latitudeDeg": 0,
+        "declinationDeg": 0
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "rise",
+            "seconds": 42482.04525
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -90,
+        "maximumGeometricAltitudeDeg": 89.99999999999989,
+        "clearanceRangeDeg": {
+          "minimum": -90,
+          "maximum": 89.99999999999989
+        },
+        "stationaryCandidatesSeconds": [
+          20941.022625,
+          64023.06787499999
+        ],
+        "formula": {
+          "A": 0,
+          "B": 1,
+          "thresholdSine": 0,
+          "q": 0
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "25hour-day-two-rises-one-set",
+        "category": "multiple-same-direction",
+        "durationSeconds": 90000,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0,
+        "hourAngleAtStartRad": -1.6145490219423926,
+        "latitudeDeg": 0,
+        "declinationDeg": 0
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "rise",
+            "seconds": 600.000000000001
+          },
+          {
+            "kind": "set",
+            "seconds": 43682.04525
+          },
+          {
+            "kind": "rise",
+            "seconds": 86764.0905
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -89.99999999999999,
+        "maximumGeometricAltitudeDeg": 90,
+        "clearanceRangeDeg": {
+          "minimum": -89.99999999999999,
+          "maximum": 90
+        },
+        "stationaryCandidatesSeconds": [
+          22141.022625,
+          65223.06787500001
+        ],
+        "formula": {
+          "A": 0,
+          "B": 1,
+          "thresholdSine": 0,
+          "q": 0
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "25hour-day-two-sets-one-rise",
+        "category": "multiple-same-direction",
+        "durationSeconds": 90000,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0,
+        "hourAngleAtStartRad": 1.5270436316474005,
+        "latitudeDeg": 0,
+        "declinationDeg": 0
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 600.000000000001
+          },
+          {
+            "kind": "rise",
+            "seconds": 43682.04525
+          },
+          {
+            "kind": "set",
+            "seconds": 86764.0905
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -90,
+        "maximumGeometricAltitudeDeg": 89.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": -90,
+          "maximum": 89.99999999999999
+        },
+        "stationaryCandidatesSeconds": [
+          22141.022625,
+          65223.06787500001
+        ],
+        "formula": {
+          "A": 0,
+          "B": 1,
+          "thresholdSine": 0,
+          "q": 0
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "inclusive-start-rise-exclusive-end-rise",
+        "category": "half-open-boundaries",
+        "durationSeconds": 86164.0905,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0,
+        "hourAngleAtStartRad": -1.5707963267948966,
+        "latitudeDeg": 0,
+        "declinationDeg": 0
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "rise",
+            "seconds": 0
+          },
+          {
+            "kind": "set",
+            "seconds": 43082.04525
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -90,
+        "maximumGeometricAltitudeDeg": 90,
+        "clearanceRangeDeg": {
+          "minimum": -90,
+          "maximum": 90
+        },
+        "stationaryCandidatesSeconds": [
+          21541.022625,
+          64623.067875
+        ],
+        "formula": {
+          "A": 0,
+          "B": 1,
+          "thresholdSine": 0,
+          "q": 0
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    },
+    {
+      "input": {
+        "name": "inclusive-start-set-exclusive-end-set",
+        "category": "half-open-boundaries",
+        "durationSeconds": 86164.0905,
+        "periodSeconds": 86164.0905,
+        "refractionDeg": 0,
+        "hourAngleAtStartRad": 1.5707963267948966,
+        "latitudeDeg": 0,
+        "declinationDeg": 0
+      },
+      "expected": {
+        "state": "events",
+        "crossings": [
+          {
+            "kind": "set",
+            "seconds": 0
+          },
+          {
+            "kind": "rise",
+            "seconds": 43082.04525
+          }
+        ],
+        "minimumGeometricAltitudeDeg": -90,
+        "maximumGeometricAltitudeDeg": 89.99999999999999,
+        "clearanceRangeDeg": {
+          "minimum": -90,
+          "maximum": 89.99999999999999
+        },
+        "stationaryCandidatesSeconds": [
+          21541.022625,
+          64623.067875
+        ],
+        "formula": {
+          "A": 0,
+          "B": 1,
+          "thresholdSine": 0,
+          "q": 0
+        },
+        "scope": "Exact controlled constant true-equator declination + uniform hour-angle track; not a fixed EQJ star over a real precessing/nutating day or external astrometric truth."
+      }
+    }
+  ]
+}

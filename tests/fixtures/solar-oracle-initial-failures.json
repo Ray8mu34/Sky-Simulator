@@ -1,0 +1,1720 @@
+{
+  "status": "failed-independent-numerical-oracle",
+  "scope": "Search algorithms only: AE low-level topocentric equatorial positions shared, independent scalar altitude and dense derivative/bisection extrema/roots. External astronomical reference tested separately.",
+  "cases": 14,
+  "rows": [
+    {
+      "name": "70N-summer",
+      "input": {
+        "utc": "2026-06-21T12:00:00.000Z",
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": 70,
+          "longitudeDegEast": 0,
+          "heightMeters": 0,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        }
+      },
+      "expected": {
+        "start": "2026-06-21T00:00:00.000Z",
+        "end": "2026-06-22T00:00:00.000Z",
+        "minimum": {
+          "ut": 9668.5,
+          "value": 3.4348117686080193
+        },
+        "maximum": {
+          "ut": 9668.001259698129,
+          "value": 43.43620573824703
+        },
+        "clearanceMinimum": {
+          "ut": 9668.5,
+          "value": 4.263675724084662
+        },
+        "riseSet": [],
+        "twilight": {
+          "civil": [],
+          "nautical": [],
+          "astronomical": []
+        }
+      },
+      "actual": {
+        "dateLocal": "2026-06-21",
+        "definition": "upper-limb-density-34arcmin-v2：太阳上边缘、34′标准折射按当地海拔大气密度缩放、当地水平地平、眼高相对地面0m；晨昏用中心几何−6/−12/−18°。",
+        "riseUtDaysJ2000": null,
+        "setUtDaysJ2000": null,
+        "minimumGeometricAltitudeDeg": 3.4348117686080286,
+        "maximumGeometricAltitudeDeg": 43.43620573826802,
+        "state": "continuous-daylight",
+        "twilightSummary": "全天未进入民用暮光以下。",
+        "bounds": {
+          "startUtDaysJ2000": 9667.5,
+          "endUtDaysJ2000": 9668.5,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        },
+        "extremaTimes": {
+          "minimumUtDaysJ2000": 9668.5,
+          "maximumUtDaysJ2000": 9668.00125990275
+        },
+        "riseSetClearanceRangeDeg": {
+          "minimum": 4.263675724084671,
+          "maximum": 44.26508404797704
+        },
+        "riseSetCrossings": [],
+        "twilight": {
+          "civil": {
+            "thresholdGeometricAltitudeDeg": -6,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-6°，此日没有该级晨昏阈值穿越。"
+          },
+          "nautical": {
+            "thresholdGeometricAltitudeDeg": -12,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-12°，此日没有该级晨昏阈值穿越。"
+          },
+          "astronomical": {
+            "thresholdGeometricAltitudeDeg": -18,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-18°，此日没有该级晨昏阈值穿越。"
+          }
+        },
+        "noEventReason": "太阳上边缘按同一标准折射口径全天在当地水平地平线上方；此日没有升落穿越。",
+        "notes": [
+          "升落预报的标准折射口径独立于画面折射开关与用户气压/温度；不模拟真实地形或当天大气。",
+          "日界端点纳入高度范围；内点极值连续细化，不从离散采样直接判断无事件。",
+          "独立参考仅覆盖已列出的固定地点与日期；不声称整个现代区间验证完毕。"
+        ]
+      },
+      "altitudeMinimumError": 9.325873406851315e-15,
+      "altitudeMaximumError": 2.098943241435336e-11,
+      "sampled10minClearance": 4.264579532618608,
+      "failures": []
+    },
+    {
+      "name": "70N-winter",
+      "input": {
+        "utc": "2026-12-21T12:00:00.000Z",
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": 70,
+          "longitudeDegEast": 0,
+          "heightMeters": 0,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        }
+      },
+      "expected": {
+        "start": "2026-12-21T00:00:00.000Z",
+        "end": "2026-12-22T00:00:00.000Z",
+        "minimum": {
+          "ut": 9851.498826430117,
+          "value": -43.43931251744516
+        },
+        "maximum": {
+          "ut": 9850.99865146245,
+          "value": -3.4395276236339862
+        },
+        "clearanceMinimum": {
+          "ut": 9851.498826430117,
+          "value": -42.60179120482944
+        },
+        "riseSet": [],
+        "twilight": {
+          "civil": [
+            {
+              "ut": 9850.91279347764,
+              "direction": "up"
+            },
+            {
+              "ut": 9851.08450876909,
+              "direction": "down"
+            }
+          ],
+          "nautical": [
+            {
+              "ut": 9850.837240770345,
+              "direction": "up"
+            },
+            {
+              "ut": 9851.160061137305,
+              "direction": "down"
+            }
+          ],
+          "astronomical": [
+            {
+              "ut": 9850.781665547867,
+              "direction": "up"
+            },
+            {
+              "ut": 9851.215635003442,
+              "direction": "down"
+            }
+          ]
+        }
+      },
+      "actual": {
+        "dateLocal": "2026-12-21",
+        "definition": "upper-limb-density-34arcmin-v2：太阳上边缘、34′标准折射按当地海拔大气密度缩放、当地水平地平、眼高相对地面0m；晨昏用中心几何−6/−12/−18°。",
+        "riseUtDaysJ2000": null,
+        "setUtDaysJ2000": null,
+        "minimumGeometricAltitudeDeg": -43.439312517448826,
+        "maximumGeometricAltitudeDeg": -3.439527623630582,
+        "state": "no-sunrise",
+        "twilightSummary": "此民用日包含太阳中心低于−18°的天文黑夜。",
+        "bounds": {
+          "startUtDaysJ2000": 9850.5,
+          "endUtDaysJ2000": 9851.5,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        },
+        "extremaTimes": {
+          "minimumUtDaysJ2000": 9851.498826420251,
+          "maximumUtDaysJ2000": 9850.998651304395
+        },
+        "riseSetClearanceRangeDeg": {
+          "minimum": -42.60179120483329,
+          "maximum": -2.6020086959140425
+        },
+        "riseSetCrossings": [],
+        "twilight": {
+          "civil": {
+            "thresholdGeometricAltitudeDeg": -6,
+            "dawnUtDaysJ2000": 9850.912793643234,
+            "duskUtDaysJ2000": 9851.084508763088,
+            "crossings": [
+              {
+                "kind": "dawn",
+                "utDaysJ2000": 9850.912793643234
+              },
+              {
+                "kind": "dusk",
+                "utDaysJ2000": 9851.084508763088
+              }
+            ],
+            "state": "events",
+            "noEventReason": null
+          },
+          "nautical": {
+            "thresholdGeometricAltitudeDeg": -12,
+            "dawnUtDaysJ2000": 9850.8372406514,
+            "duskUtDaysJ2000": 9851.160061048417,
+            "crossings": [
+              {
+                "kind": "dawn",
+                "utDaysJ2000": 9850.8372406514
+              },
+              {
+                "kind": "dusk",
+                "utDaysJ2000": 9851.160061048417
+              }
+            ],
+            "state": "events",
+            "noEventReason": null
+          },
+          "astronomical": {
+            "thresholdGeometricAltitudeDeg": -18,
+            "dawnUtDaysJ2000": 9850.781665719185,
+            "duskUtDaysJ2000": 9851.215635000024,
+            "crossings": [
+              {
+                "kind": "dawn",
+                "utDaysJ2000": 9850.781665719185
+              },
+              {
+                "kind": "dusk",
+                "utDaysJ2000": 9851.215635000024
+              }
+            ],
+            "state": "events",
+            "noEventReason": null
+          }
+        },
+        "noEventReason": "太阳上边缘按同一标准折射口径全天低于当地水平地平；可能仍有晨昏光，不代表全天漆黑。",
+        "notes": [
+          "升落预报的标准折射口径独立于画面折射开关与用户气压/温度；不模拟真实地形或当天大气。",
+          "日界端点纳入高度范围；内点极值连续细化，不从离散采样直接判断无事件。",
+          "独立参考仅覆盖已列出的固定地点与日期；不声称整个现代区间验证完毕。"
+        ]
+      },
+      "altitudeMinimumError": -3.666400516522117e-12,
+      "altitudeMaximumError": 3.40438788271058e-12,
+      "sampled10minClearance": -42.5978124311526,
+      "failures": []
+    },
+    {
+      "name": "70S-summer",
+      "input": {
+        "utc": "2026-12-21T12:00:00.000Z",
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": -70,
+          "longitudeDegEast": 0,
+          "heightMeters": 0,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        }
+      },
+      "expected": {
+        "start": "2026-12-21T00:00:00.000Z",
+        "end": "2026-12-22T00:00:00.000Z",
+        "minimum": {
+          "ut": 9850.5,
+          "value": 3.432988750615736
+        },
+        "maximum": {
+          "ut": 9850.998658244134,
+          "value": 43.43526184236002
+        },
+        "clearanceMinimum": {
+          "ut": 9850.5,
+          "value": 4.270498862195607
+        },
+        "riseSet": [],
+        "twilight": {
+          "civil": [],
+          "nautical": [],
+          "astronomical": []
+        }
+      },
+      "actual": {
+        "dateLocal": "2026-12-21",
+        "definition": "upper-limb-density-34arcmin-v2：太阳上边缘、34′标准折射按当地海拔大气密度缩放、当地水平地平、眼高相对地面0m；晨昏用中心几何−6/−12/−18°。",
+        "riseUtDaysJ2000": null,
+        "setUtDaysJ2000": null,
+        "minimumGeometricAltitudeDeg": 3.4329887506157206,
+        "maximumGeometricAltitudeDeg": 43.4352618423653,
+        "state": "continuous-daylight",
+        "twilightSummary": "全天未进入民用暮光以下。",
+        "bounds": {
+          "startUtDaysJ2000": 9850.5,
+          "endUtDaysJ2000": 9851.5,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        },
+        "extremaTimes": {
+          "minimumUtDaysJ2000": 9850.5,
+          "maximumUtDaysJ2000": 9850.998658362154
+        },
+        "riseSetClearanceRangeDeg": {
+          "minimum": 4.270498862195592,
+          "maximum": 44.27278951245929
+        },
+        "riseSetCrossings": [],
+        "twilight": {
+          "civil": {
+            "thresholdGeometricAltitudeDeg": -6,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-6°，此日没有该级晨昏阈值穿越。"
+          },
+          "nautical": {
+            "thresholdGeometricAltitudeDeg": -12,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-12°，此日没有该级晨昏阈值穿越。"
+          },
+          "astronomical": {
+            "thresholdGeometricAltitudeDeg": -18,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-18°，此日没有该级晨昏阈值穿越。"
+          }
+        },
+        "noEventReason": "太阳上边缘按同一标准折射口径全天在当地水平地平线上方；此日没有升落穿越。",
+        "notes": [
+          "升落预报的标准折射口径独立于画面折射开关与用户气压/温度；不模拟真实地形或当天大气。",
+          "日界端点纳入高度范围；内点极值连续细化，不从离散采样直接判断无事件。",
+          "独立参考仅覆盖已列出的固定地点与日期；不声称整个现代区间验证完毕。"
+        ]
+      },
+      "altitudeMinimumError": -1.554312234475219e-14,
+      "altitudeMaximumError": 5.279332526697544e-12,
+      "sampled10minClearance": 4.270498862195607,
+      "failures": []
+    },
+    {
+      "name": "70S-winter",
+      "input": {
+        "utc": "2026-06-21T12:00:00.000Z",
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": -70,
+          "longitudeDegEast": 0,
+          "heightMeters": 0,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        }
+      },
+      "expected": {
+        "start": "2026-06-21T00:00:00.000Z",
+        "end": "2026-06-22T00:00:00.000Z",
+        "minimum": {
+          "ut": 9667.501187811955,
+          "value": -43.439333706611244
+        },
+        "maximum": {
+          "ut": 9668.001262410802,
+          "value": -3.440335285253606
+        },
+        "clearanceMinimum": {
+          "ut": 9667.501187811955,
+          "value": -42.61046275725275
+        },
+        "riseSet": [],
+        "twilight": {
+          "civil": [
+            {
+              "ut": 9667.915434943572,
+              "direction": "up"
+            },
+            {
+              "ut": 9668.087089878034,
+              "direction": "down"
+            }
+          ],
+          "nautical": [
+            {
+              "ut": 9667.839891391546,
+              "direction": "up"
+            },
+            {
+              "ut": 9668.162633769141,
+              "direction": "down"
+            }
+          ],
+          "astronomical": [
+            {
+              "ut": 9667.784326341598,
+              "direction": "up"
+            },
+            {
+              "ut": 9668.218199158173,
+              "direction": "down"
+            }
+          ]
+        }
+      },
+      "actual": {
+        "dateLocal": "2026-06-21",
+        "definition": "upper-limb-density-34arcmin-v2：太阳上边缘、34′标准折射按当地海拔大气密度缩放、当地水平地平、眼高相对地面0m；晨昏用中心几何−6/−12/−18°。",
+        "riseUtDaysJ2000": null,
+        "setUtDaysJ2000": null,
+        "minimumGeometricAltitudeDeg": -43.439333706657976,
+        "maximumGeometricAltitudeDeg": -3.44033528525361,
+        "state": "no-sunrise",
+        "twilightSummary": "此民用日包含太阳中心低于−18°的天文黑夜。",
+        "bounds": {
+          "startUtDaysJ2000": 9667.5,
+          "endUtDaysJ2000": 9668.5,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        },
+        "extremaTimes": {
+          "minimumUtDaysJ2000": 9667.501187483138,
+          "maximumUtDaysJ2000": 9668.001262408838
+        },
+        "riseSetClearanceRangeDeg": {
+          "minimum": -42.61046275729458,
+          "maximum": -2.611465168700448
+        },
+        "riseSetCrossings": [],
+        "twilight": {
+          "civil": {
+            "thresholdGeometricAltitudeDeg": -6,
+            "dawnUtDaysJ2000": 9667.915435079272,
+            "duskUtDaysJ2000": 9668.087089825849,
+            "crossings": [
+              {
+                "kind": "dawn",
+                "utDaysJ2000": 9667.915435079272
+              },
+              {
+                "kind": "dusk",
+                "utDaysJ2000": 9668.087089825849
+              }
+            ],
+            "state": "events",
+            "noEventReason": null
+          },
+          "nautical": {
+            "thresholdGeometricAltitudeDeg": -12,
+            "dawnUtDaysJ2000": 9667.839891381853,
+            "duskUtDaysJ2000": 9668.162633759554,
+            "crossings": [
+              {
+                "kind": "dawn",
+                "utDaysJ2000": 9667.839891381853
+              },
+              {
+                "kind": "dusk",
+                "utDaysJ2000": 9668.162633759554
+              }
+            ],
+            "state": "events",
+            "noEventReason": null
+          },
+          "astronomical": {
+            "thresholdGeometricAltitudeDeg": -18,
+            "dawnUtDaysJ2000": 9667.784326519859,
+            "duskUtDaysJ2000": 9668.218198993165,
+            "crossings": [
+              {
+                "kind": "dawn",
+                "utDaysJ2000": 9667.784326519859
+              },
+              {
+                "kind": "dusk",
+                "utDaysJ2000": 9668.218198993165
+              }
+            ],
+            "state": "events",
+            "noEventReason": null
+          }
+        },
+        "noEventReason": "太阳上边缘按同一标准折射口径全天低于当地水平地平；可能仍有晨昏光，不代表全天漆黑。",
+        "notes": [
+          "升落预报的标准折射口径独立于画面折射开关与用户气压/温度；不模拟真实地形或当天大气。",
+          "日界端点纳入高度范围；内点极值连续细化，不从离散采样直接判断无事件。",
+          "独立参考仅覆盖已列出的固定地点与日期；不声称整个现代区间验证完毕。"
+        ]
+      },
+      "altitudeMinimumError": -4.673239573094179e-11,
+      "altitudeMaximumError": -3.9968028886505635e-15,
+      "sampled10minClearance": -42.60977374260285,
+      "failures": []
+    },
+    {
+      "name": "northpole-solstice-edge",
+      "input": {
+        "utc": "2026-06-21T12:00:00.000Z",
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": 90,
+          "longitudeDegEast": 0,
+          "heightMeters": 0,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": -480
+          }
+        }
+      },
+      "expected": {
+        "start": "2026-06-21T08:00:00.000Z",
+        "end": "2026-06-22T08:00:00.000Z",
+        "minimum": {
+          "ut": 9668.833333333334,
+          "value": 23.432497259168866
+        },
+        "maximum": {
+          "ut": 9667.851431274426,
+          "value": 23.435821803584222
+        },
+        "clearanceMinimum": {
+          "ut": 9668.833333333334,
+          "value": 24.26136014248162
+        },
+        "riseSet": [],
+        "twilight": {
+          "civil": [],
+          "nautical": [],
+          "astronomical": []
+        }
+      },
+      "actual": {
+        "dateLocal": "2026-06-21",
+        "definition": "upper-limb-density-34arcmin-v2：太阳上边缘、34′标准折射按当地海拔大气密度缩放、当地水平地平、眼高相对地面0m；晨昏用中心几何−6/−12/−18°。",
+        "riseUtDaysJ2000": null,
+        "setUtDaysJ2000": null,
+        "minimumGeometricAltitudeDeg": 23.43249725916887,
+        "maximumGeometricAltitudeDeg": 23.43582067399538,
+        "state": "continuous-daylight",
+        "twilightSummary": "全天未进入民用暮光以下。",
+        "bounds": {
+          "startUtDaysJ2000": 9667.833333333334,
+          "endUtDaysJ2000": 9668.833333333334,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": -480
+          }
+        },
+        "extremaTimes": {
+          "minimumUtDaysJ2000": 9668.833333333334,
+          "maximumUtDaysJ2000": 9667.833333333334
+        },
+        "riseSetClearanceRangeDeg": {
+          "minimum": 24.261360142481625,
+          "maximum": 24.26469835592949
+        },
+        "riseSetCrossings": [],
+        "twilight": {
+          "civil": {
+            "thresholdGeometricAltitudeDeg": -6,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-6°，此日没有该级晨昏阈值穿越。"
+          },
+          "nautical": {
+            "thresholdGeometricAltitudeDeg": -12,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-12°，此日没有该级晨昏阈值穿越。"
+          },
+          "astronomical": {
+            "thresholdGeometricAltitudeDeg": -18,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-18°，此日没有该级晨昏阈值穿越。"
+          }
+        },
+        "noEventReason": "太阳上边缘按同一标准折射口径全天在当地水平地平线上方；此日没有升落穿越。",
+        "notes": [
+          "升落预报的标准折射口径独立于画面折射开关与用户气压/温度；不模拟真实地形或当天大气。",
+          "日界端点纳入高度范围；内点极值连续细化，不从离散采样直接判断无事件。",
+          "独立参考仅覆盖已列出的固定地点与日期；不声称整个现代区间验证完毕。"
+        ]
+      },
+      "altitudeMinimumError": 3.552713678800501e-15,
+      "altitudeMaximumError": -0.0000011295888420193023,
+      "sampled10minClearance": 24.26140709445786,
+      "failures": [
+        "maximum altitude differs > 1e-6 deg"
+      ]
+    },
+    {
+      "name": "southpole-solstice",
+      "input": {
+        "utc": "2026-12-21T12:00:00.000Z",
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": -90,
+          "longitudeDegEast": 0,
+          "heightMeters": 0,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        }
+      },
+      "expected": {
+        "start": "2026-12-21T00:00:00.000Z",
+        "end": "2026-12-22T00:00:00.000Z",
+        "minimum": {
+          "ut": 9850.5,
+          "value": 23.432372472986685
+        },
+        "maximum": {
+          "ut": 9851.366696167548,
+          "value": 23.435316104592324
+        },
+        "clearanceMinimum": {
+          "ut": 9850.5,
+          "value": 24.269886561161584
+        },
+        "riseSet": [],
+        "twilight": {
+          "civil": [],
+          "nautical": [],
+          "astronomical": []
+        }
+      },
+      "actual": {
+        "dateLocal": "2026-12-21",
+        "definition": "upper-limb-density-34arcmin-v2：太阳上边缘、34′标准折射按当地海拔大气密度缩放、当地水平地平、眼高相对地面0m；晨昏用中心几何−6/−12/−18°。",
+        "riseUtDaysJ2000": null,
+        "setUtDaysJ2000": null,
+        "minimumGeometricAltitudeDeg": 23.4323724729867,
+        "maximumGeometricAltitudeDeg": 23.435316104603416,
+        "state": "continuous-daylight",
+        "twilightSummary": "全天未进入民用暮光以下。",
+        "bounds": {
+          "startUtDaysJ2000": 9850.5,
+          "endUtDaysJ2000": 9851.5,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        },
+        "extremaTimes": {
+          "minimumUtDaysJ2000": 9850.5,
+          "maximumUtDaysJ2000": 9851.366698510059
+        },
+        "riseSetClearanceRangeDeg": {
+          "minimum": 24.2698865611616,
+          "maximum": 24.272847620421093
+        },
+        "riseSetCrossings": [],
+        "twilight": {
+          "civil": {
+            "thresholdGeometricAltitudeDeg": -6,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-6°，此日没有该级晨昏阈值穿越。"
+          },
+          "nautical": {
+            "thresholdGeometricAltitudeDeg": -12,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-12°，此日没有该级晨昏阈值穿越。"
+          },
+          "astronomical": {
+            "thresholdGeometricAltitudeDeg": -18,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-18°，此日没有该级晨昏阈值穿越。"
+          }
+        },
+        "noEventReason": "太阳上边缘按同一标准折射口径全天在当地水平地平线上方；此日没有升落穿越。",
+        "notes": [
+          "升落预报的标准折射口径独立于画面折射开关与用户气压/温度；不模拟真实地形或当天大气。",
+          "日界端点纳入高度范围；内点极值连续细化，不从离散采样直接判断无事件。",
+          "独立参考仅覆盖已列出的固定地点与日期；不声称整个现代区间验证完毕。"
+        ]
+      },
+      "altitudeMinimumError": 1.4210854715202004e-14,
+      "altitudeMaximumError": 1.1091572105215164e-11,
+      "sampled10minClearance": 24.269886561161584,
+      "failures": []
+    },
+    {
+      "name": "equator-equinox",
+      "input": {
+        "utc": "2026-09-22T12:00:00.000Z",
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": 0,
+          "longitudeDegEast": 0,
+          "heightMeters": 0,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        }
+      },
+      "expected": {
+        "start": "2026-09-22T00:00:00.000Z",
+        "end": "2026-09-23T00:00:00.000Z",
+        "minimum": {
+          "ut": 9761.494825914811,
+          "value": -89.99641702539563
+        },
+        "maximum": {
+          "ut": 9760.99494866297,
+          "value": 89.80194867206437
+        },
+        "clearanceMinimum": {
+          "ut": 9761.494825914811,
+          "value": -89.16426028896986
+        },
+        "riseSet": [
+          {
+            "ut": 9760.742705790357,
+            "direction": "up"
+          },
+          {
+            "ut": 9761.247191196495,
+            "direction": "down"
+          }
+        ],
+        "twilight": {
+          "civil": [
+            {
+              "ut": 9760.728353712442,
+              "direction": "up"
+            },
+            {
+              "ut": 9761.261542935328,
+              "direction": "down"
+            }
+          ],
+          "nautical": [
+            {
+              "ut": 9760.71169077569,
+              "direction": "up"
+            },
+            {
+              "ut": 9761.278205532995,
+              "direction": "down"
+            }
+          ],
+          "astronomical": [
+            {
+              "ut": 9760.69502783894,
+              "direction": "up"
+            },
+            {
+              "ut": 9761.294868469748,
+              "direction": "down"
+            }
+          ]
+        }
+      },
+      "actual": {
+        "dateLocal": "2026-09-22",
+        "definition": "upper-limb-density-34arcmin-v2：太阳上边缘、34′标准折射按当地海拔大气密度缩放、当地水平地平、眼高相对地面0m；晨昏用中心几何−6/−12/−18°。",
+        "riseUtDaysJ2000": 9760.742705654242,
+        "setUtDaysJ2000": 9761.247191232846,
+        "minimumGeometricAltitudeDeg": -89.99641739469942,
+        "maximumGeometricAltitudeDeg": 89.80194870174402,
+        "state": "normal",
+        "twilightSummary": "此民用日包含太阳中心低于−18°的天文黑夜。",
+        "bounds": {
+          "startUtDaysJ2000": 9760.5,
+          "endUtDaysJ2000": 9761.5,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        },
+        "extremaTimes": {
+          "minimumUtDaysJ2000": 9761.494825763857,
+          "maximumUtDaysJ2000": 9760.994948969303
+        },
+        "riseSetClearanceRangeDeg": {
+          "minimum": -89.16426065828495,
+          "maximum": 90.63409059409584
+        },
+        "riseSetCrossings": [
+          {
+            "kind": "rise",
+            "utDaysJ2000": 9760.742705654242
+          },
+          {
+            "kind": "set",
+            "utDaysJ2000": 9761.247191232846
+          }
+        ],
+        "twilight": {
+          "civil": {
+            "thresholdGeometricAltitudeDeg": -6,
+            "dawnUtDaysJ2000": 9760.728353699604,
+            "duskUtDaysJ2000": 9761.261542909064,
+            "crossings": [
+              {
+                "kind": "dawn",
+                "utDaysJ2000": 9760.728353699604
+              },
+              {
+                "kind": "dusk",
+                "utDaysJ2000": 9761.261542909064
+              }
+            ],
+            "state": "events",
+            "noEventReason": null
+          },
+          "nautical": {
+            "thresholdGeometricAltitudeDeg": -12,
+            "dawnUtDaysJ2000": 9760.711691210348,
+            "duskUtDaysJ2000": 9761.278205616942,
+            "crossings": [
+              {
+                "kind": "dawn",
+                "utDaysJ2000": 9760.711691210348
+              },
+              {
+                "kind": "dusk",
+                "utDaysJ2000": 9761.278205616942
+              }
+            ],
+            "state": "events",
+            "noEventReason": null
+          },
+          "astronomical": {
+            "thresholdGeometricAltitudeDeg": -18,
+            "dawnUtDaysJ2000": 9760.69502771821,
+            "duskUtDaysJ2000": 9761.294868411112,
+            "crossings": [
+              {
+                "kind": "dawn",
+                "utDaysJ2000": 9760.69502771821
+              },
+              {
+                "kind": "dusk",
+                "utDaysJ2000": 9761.294868411112
+              }
+            ],
+            "state": "events",
+            "noEventReason": null
+          }
+        },
+        "noEventReason": null,
+        "notes": [
+          "升落预报的标准折射口径独立于画面折射开关与用户气压/温度；不模拟真实地形或当天大气。",
+          "日界端点纳入高度范围；内点极值连续细化，不从离散采样直接判断无事件。",
+          "独立参考仅覆盖已列出的固定地点与日期；不声称整个现代区间验证完毕。"
+        ]
+      },
+      "altitudeMinimumError": -3.69303791103448e-7,
+      "altitudeMaximumError": 2.967965428979369e-8,
+      "sampled10minClearance": -88.530426130384,
+      "failures": []
+    },
+    {
+      "name": "89N-internal-maximum-near-start",
+      "input": {
+        "utc": "2026-09-22T12:00:00.000Z",
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": 89,
+          "longitudeDegEast": 173.2252168327434,
+          "heightMeters": 0,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        }
+      },
+      "expected": {
+        "start": "2026-09-22T00:00:00.000Z",
+        "end": "2026-09-23T00:00:00.000Z",
+        "minimum": {
+          "ut": 9761.023616197708,
+          "value": -0.813616158646273
+        },
+        "maximum": {
+          "ut": 9760.504036797422,
+          "value": 1.3846184148259966
+        },
+        "clearanceMinimum": {
+          "ut": 9761.023614163205,
+          "value": 0.01851644031855315
+        },
+        "riseSet": [],
+        "twilight": {
+          "civil": [],
+          "nautical": [],
+          "astronomical": []
+        }
+      },
+      "actual": {
+        "dateLocal": "2026-09-22",
+        "definition": "upper-limb-density-34arcmin-v2：太阳上边缘、34′标准折射按当地海拔大气密度缩放、当地水平地平、眼高相对地面0m；晨昏用中心几何−6/−12/−18°。",
+        "riseUtDaysJ2000": null,
+        "setUtDaysJ2000": null,
+        "minimumGeometricAltitudeDeg": -0.8136161586466244,
+        "maximumGeometricAltitudeDeg": 1.384297308177139,
+        "state": "continuous-daylight",
+        "twilightSummary": "全天未进入民用暮光以下。",
+        "bounds": {
+          "startUtDaysJ2000": 9760.5,
+          "endUtDaysJ2000": 9761.5,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        },
+        "extremaTimes": {
+          "minimumUtDaysJ2000": 9761.023616349872,
+          "maximumUtDaysJ2000": 9760.5
+        },
+        "riseSetClearanceRangeDeg": {
+          "minimum": 0.018516440317276173,
+          "maximum": 2.2163912014389826
+        },
+        "riseSetCrossings": [],
+        "twilight": {
+          "civil": {
+            "thresholdGeometricAltitudeDeg": -6,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-6°，此日没有该级晨昏阈值穿越。"
+          },
+          "nautical": {
+            "thresholdGeometricAltitudeDeg": -12,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-12°，此日没有该级晨昏阈值穿越。"
+          },
+          "astronomical": {
+            "thresholdGeometricAltitudeDeg": -18,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-18°，此日没有该级晨昏阈值穿越。"
+          }
+        },
+        "noEventReason": "太阳上边缘按同一标准折射口径全天在当地水平地平线上方；此日没有升落穿越。",
+        "notes": [
+          "升落预报的标准折射口径独立于画面折射开关与用户气压/温度；不模拟真实地形或当天大气。",
+          "日界端点纳入高度范围；内点极值连续细化，不从离散采样直接判断无事件。",
+          "独立参考仅覆盖已列出的固定地点与日期；不声称整个现代区间验证完毕。"
+        ]
+      },
+      "altitudeMinimumError": -3.5138558729386205e-13,
+      "altitudeMaximumError": -0.0003211066488575387,
+      "sampled10minClearance": 0.01866894902364402,
+      "failures": [
+        "maximum altitude differs > 1e-6 deg"
+      ]
+    },
+    {
+      "name": "89N-internal-minimum-near-start",
+      "input": {
+        "utc": "2026-03-20T12:00:00.000Z",
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": 89,
+          "longitudeDegEast": -3.103939908060511,
+          "heightMeters": 0,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        }
+      },
+      "expected": {
+        "start": "2026-03-20T00:00:00.000Z",
+        "end": "2026-03-21T00:00:00.000Z",
+        "minimum": {
+          "ut": 9574.50386725532,
+          "value": -1.2420491810060559
+        },
+        "maximum": {
+          "ut": 9575.023800659514,
+          "value": 0.9595894082370874
+        },
+        "clearanceMinimum": {
+          "ut": 9574.503869289823,
+          "value": -0.407793399870355
+        },
+        "riseSet": [
+          {
+            "ut": 9574.651526387628,
+            "direction": "up"
+          },
+          {
+            "ut": 9575.478352356586,
+            "direction": "down"
+          }
+        ],
+        "twilight": {
+          "civil": [],
+          "nautical": [],
+          "astronomical": []
+        }
+      },
+      "actual": {
+        "dateLocal": "2026-03-20",
+        "definition": "upper-limb-density-34arcmin-v2：太阳上边缘、34′标准折射按当地海拔大气密度缩放、当地水平地平、眼高相对地面0m；晨昏用中心几何−6/−12/−18°。",
+        "riseUtDaysJ2000": 9574.651526202228,
+        "setUtDaysJ2000": 9575.47835230887,
+        "minimumGeometricAltitudeDeg": -1.241754512086203,
+        "maximumGeometricAltitudeDeg": 0.9595894082447387,
+        "state": "normal",
+        "twilightSummary": "全天未进入民用暮光以下。",
+        "bounds": {
+          "startUtDaysJ2000": 9574.5,
+          "endUtDaysJ2000": 9575.5,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        },
+        "extremaTimes": {
+          "minimumUtDaysJ2000": 9574.5,
+          "maximumUtDaysJ2000": 9575.023801277946
+        },
+        "riseSetClearanceRangeDeg": {
+          "minimum": -0.4074984431965021,
+          "maximum": 1.7938069799656435
+        },
+        "riseSetCrossings": [
+          {
+            "kind": "rise",
+            "utDaysJ2000": 9574.651526202228
+          },
+          {
+            "kind": "set",
+            "utDaysJ2000": 9575.47835230887
+          }
+        ],
+        "twilight": {
+          "civil": {
+            "thresholdGeometricAltitudeDeg": -6,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-6°，此日没有该级晨昏阈值穿越。"
+          },
+          "nautical": {
+            "thresholdGeometricAltitudeDeg": -12,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-12°，此日没有该级晨昏阈值穿越。"
+          },
+          "astronomical": {
+            "thresholdGeometricAltitudeDeg": -18,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-18°，此日没有该级晨昏阈值穿越。"
+          }
+        },
+        "noEventReason": null,
+        "notes": [
+          "升落预报的标准折射口径独立于画面折射开关与用户气压/温度；不模拟真实地形或当天大气。",
+          "日界端点纳入高度范围；内点极值连续细化，不从离散采样直接判断无事件。",
+          "独立参考仅覆盖已列出的固定地点与日期；不声称整个现代区间验证完毕。"
+        ]
+      },
+      "altitudeMinimumError": 0.0002946689198528585,
+      "altitudeMaximumError": 7.651324018809191e-12,
+      "sampled10minClearance": -0.4076069373080471,
+      "failures": [
+        "minimum altitude differs > 1e-6 deg"
+      ]
+    },
+    {
+      "name": "rise-set-short-positive-peak-near-start",
+      "input": {
+        "utc": "2026-09-27T12:00:00.000Z",
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": 89.27058079838753,
+          "longitudeDegEast": 171.53869493987952,
+          "heightMeters": 0,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        }
+      },
+      "expected": {
+        "start": "2026-09-27T00:00:00.000Z",
+        "end": "2026-09-28T00:00:00.000Z",
+        "minimum": {
+          "ut": 9766.03075188565,
+          "value": -2.491006341413204
+        },
+        "maximum": {
+          "ut": 9765.503829956055,
+          "value": -0.8324180724713839
+        },
+        "clearanceMinimum": {
+          "ut": 9766.030749172973,
+          "value": -1.658499251424861
+        },
+        "riseSet": [
+          {
+            "ut": 9765.501966179745,
+            "direction": "up"
+          },
+          {
+            "ut": 9765.505698479548,
+            "direction": "down"
+          }
+        ],
+        "twilight": {
+          "civil": [],
+          "nautical": [],
+          "astronomical": []
+        }
+      },
+      "actual": {
+        "dateLocal": "2026-09-27",
+        "definition": "upper-limb-density-34arcmin-v2：太阳上边缘、34′标准折射按当地海拔大气密度缩放、当地水平地平、眼高相对地面0m；晨昏用中心几何−6/−12/−18°。",
+        "riseUtDaysJ2000": 9765.501966234187,
+        "setUtDaysJ2000": 9765.505698520219,
+        "minimumGeometricAltitudeDeg": -2.491006341417858,
+        "maximumGeometricAltitudeDeg": -0.8326284095898728,
+        "state": "normal",
+        "twilightSummary": "全天未进入民用暮光以下。",
+        "bounds": {
+          "startUtDaysJ2000": 9765.5,
+          "endUtDaysJ2000": 9766.5,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        },
+        "extremaTimes": {
+          "minimumUtDaysJ2000": 9766.030752431832,
+          "maximumUtDaysJ2000": 9765.5
+        },
+        "riseSetClearanceRangeDeg": {
+          "minimum": -1.6584992514304935,
+          "maximum": -0.00016065152339739264
+        },
+        "riseSetCrossings": [
+          {
+            "kind": "rise",
+            "utDaysJ2000": 9765.501966234187
+          },
+          {
+            "kind": "set",
+            "utDaysJ2000": 9765.505698520219
+          }
+        ],
+        "twilight": {
+          "civil": {
+            "thresholdGeometricAltitudeDeg": -6,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-6°，此日没有该级晨昏阈值穿越。"
+          },
+          "nautical": {
+            "thresholdGeometricAltitudeDeg": -12,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-12°，此日没有该级晨昏阈值穿越。"
+          },
+          "astronomical": {
+            "thresholdGeometricAltitudeDeg": -18,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-18°，此日没有该级晨昏阈值穿越。"
+          }
+        },
+        "noEventReason": null,
+        "notes": [
+          "升落预报的标准折射口径独立于画面折射开关与用户气压/温度；不模拟真实地形或当天大气。",
+          "日界端点纳入高度范围；内点极值连续细化，不从离散采样直接判断无事件。",
+          "独立参考仅覆盖已列出的固定地点与日期；不声称整个现代区间验证完毕。"
+        ]
+      },
+      "altitudeMinimumError": -4.654054919228656e-12,
+      "altitudeMaximumError": -0.00021033711848894576,
+      "sampled10minClearance": -1.6583723815067264,
+      "failures": [
+        "maximum altitude differs > 1e-6 deg"
+      ]
+    },
+    {
+      "name": "rise-set-short-dip",
+      "input": {
+        "utc": "2026-06-21T12:00:00.000Z",
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": 65.73600247502327,
+          "longitudeDegEast": 0,
+          "heightMeters": 0,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        }
+      },
+      "expected": {
+        "start": "2026-06-21T00:00:00.000Z",
+        "end": "2026-06-22T00:00:00.000Z",
+        "minimum": {
+          "ut": 9668.5,
+          "value": -0.8290631428023681
+        },
+        "maximum": {
+          "ut": 9668.001260376299,
+          "value": 47.700331230581035
+        },
+        "clearanceMinimum": {
+          "ut": 9668.5,
+          "value": -0.0002000071275124471
+        },
+        "riseSet": [
+          {
+            "ut": 9668.499835374696,
+            "direction": "down"
+          }
+        ],
+        "twilight": {
+          "civil": [],
+          "nautical": [],
+          "astronomical": []
+        }
+      },
+      "actual": {
+        "dateLocal": "2026-06-21",
+        "definition": "upper-limb-density-34arcmin-v2：太阳上边缘、34′标准折射按当地海拔大气密度缩放、当地水平地平、眼高相对地面0m；晨昏用中心几何−6/−12/−18°。",
+        "riseUtDaysJ2000": null,
+        "setUtDaysJ2000": 9668.499835327666,
+        "minimumGeometricAltitudeDeg": -0.8290631428023687,
+        "maximumGeometricAltitudeDeg": 47.70033123061478,
+        "state": "normal",
+        "twilightSummary": "全天未进入民用暮光以下。",
+        "bounds": {
+          "startUtDaysJ2000": 9667.5,
+          "endUtDaysJ2000": 9668.5,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        },
+        "extremaTimes": {
+          "minimumUtDaysJ2000": 9668.5,
+          "maximumUtDaysJ2000": 9668.001260151119
+        },
+        "riseSetClearanceRangeDeg": {
+          "minimum": -0.0002000071275130022,
+          "maximum": 48.52921011446302
+        },
+        "riseSetCrossings": [
+          {
+            "kind": "set",
+            "utDaysJ2000": 9668.499835327666
+          }
+        ],
+        "twilight": {
+          "civil": {
+            "thresholdGeometricAltitudeDeg": -6,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-6°，此日没有该级晨昏阈值穿越。"
+          },
+          "nautical": {
+            "thresholdGeometricAltitudeDeg": -12,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-12°，此日没有该级晨昏阈值穿越。"
+          },
+          "astronomical": {
+            "thresholdGeometricAltitudeDeg": -18,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-18°，此日没有该级晨昏阈值穿越。"
+          }
+        },
+        "noEventReason": "该当地民用日仅包含一个方向的升落穿越；另一个事件可能在相邻民用日。",
+        "notes": [
+          "升落预报的标准折射口径独立于画面折射开关与用户气压/温度；不模拟真实地形或当天大气。",
+          "日界端点纳入高度范围；内点极值连续细化，不从离散采样直接判断无事件。",
+          "独立参考仅覆盖已列出的固定地点与日期；不声称整个现代区间验证完毕。"
+        ]
+      },
+      "altitudeMinimumError": -5.551115123125783e-16,
+      "altitudeMaximumError": 3.374367452124716e-11,
+      "sampled10minClearance": 0.0006766733801537583,
+      "failures": []
+    },
+    {
+      "name": "civil-short-dip",
+      "input": {
+        "utc": "2026-06-21T12:00:00.000Z",
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": 60.56469850242138,
+          "longitudeDegEast": 0,
+          "heightMeters": 0,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        }
+      },
+      "expected": {
+        "start": "2026-06-21T00:00:00.000Z",
+        "end": "2026-06-22T00:00:00.000Z",
+        "minimum": {
+          "ut": 9668.5,
+          "value": -6.0002000360147925
+        },
+        "maximum": {
+          "ut": 9668.001260376299,
+          "value": 52.87180226517142
+        },
+        "clearanceMinimum": {
+          "ut": 9668.5,
+          "value": -5.171337892336295
+        },
+        "riseSet": [
+          {
+            "ut": 9667.603547668525,
+            "direction": "up"
+          },
+          {
+            "ut": 9668.398965963304,
+            "direction": "down"
+          }
+        ],
+        "twilight": {
+          "civil": [
+            {
+              "ut": 9667.500767136818,
+              "direction": "down"
+            },
+            {
+              "ut": 9667.501598273386,
+              "direction": "up"
+            },
+            {
+              "ut": 9668.499861484166,
+              "direction": "down"
+            }
+          ],
+          "nautical": [],
+          "astronomical": []
+        }
+      },
+      "actual": {
+        "dateLocal": "2026-06-21",
+        "definition": "upper-limb-density-34arcmin-v2：太阳上边缘、34′标准折射按当地海拔大气密度缩放、当地水平地平、眼高相对地面0m；晨昏用中心几何−6/−12/−18°。",
+        "riseUtDaysJ2000": 9667.603547584036,
+        "setUtDaysJ2000": 9668.39896605694,
+        "minimumGeometricAltitudeDeg": -6.000200036014789,
+        "maximumGeometricAltitudeDeg": 52.87180226517062,
+        "state": "normal",
+        "twilightSummary": "可进入民用暮光，未进入航海暮光以下。",
+        "bounds": {
+          "startUtDaysJ2000": 9667.5,
+          "endUtDaysJ2000": 9668.5,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        },
+        "extremaTimes": {
+          "minimumUtDaysJ2000": 9668.5,
+          "maximumUtDaysJ2000": 9668.001260363253
+        },
+        "riseSetClearanceRangeDeg": {
+          "minimum": -5.171337892336291,
+          "maximum": 53.70068178408682
+        },
+        "riseSetCrossings": [
+          {
+            "kind": "rise",
+            "utDaysJ2000": 9667.603547584036
+          },
+          {
+            "kind": "set",
+            "utDaysJ2000": 9668.39896605694
+          }
+        ],
+        "twilight": {
+          "civil": {
+            "thresholdGeometricAltitudeDeg": -6,
+            "dawnUtDaysJ2000": 9667.501598258852,
+            "duskUtDaysJ2000": 9667.500767080306,
+            "crossings": [
+              {
+                "kind": "dusk",
+                "utDaysJ2000": 9667.500767080306
+              },
+              {
+                "kind": "dawn",
+                "utDaysJ2000": 9667.501598258852
+              },
+              {
+                "kind": "dusk",
+                "utDaysJ2000": 9668.499861641738
+              }
+            ],
+            "state": "events",
+            "noEventReason": null
+          },
+          "nautical": {
+            "thresholdGeometricAltitudeDeg": -12,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-12°，此日没有该级晨昏阈值穿越。"
+          },
+          "astronomical": {
+            "thresholdGeometricAltitudeDeg": -18,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-18°，此日没有该级晨昏阈值穿越。"
+          }
+        },
+        "noEventReason": null,
+        "notes": [
+          "升落预报的标准折射口径独立于画面折射开关与用户气压/温度；不模拟真实地形或当天大气。",
+          "日界端点纳入高度范围；内点极值连续细化，不从离散采样直接判断无事件。",
+          "独立参考仅覆盖已列出的固定地点与日期；不声称整个现代区间验证完毕。"
+        ]
+      },
+      "altitudeMinimumError": 3.552713678800501e-15,
+      "altitudeMaximumError": -7.958078640513122e-13,
+      "sampled10minClearance": -5.170494218483229,
+      "failures": []
+    },
+    {
+      "name": "to-midnight-sun-single-crossing",
+      "input": {
+        "utc": "2026-05-16T12:00:00.000Z",
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": 70,
+          "longitudeDegEast": 0,
+          "heightMeters": 0,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        }
+      },
+      "expected": {
+        "start": "2026-05-16T00:00:00.000Z",
+        "end": "2026-05-17T00:00:00.000Z",
+        "minimum": {
+          "ut": 9631.5,
+          "value": -0.9467048715228464
+        },
+        "maximum": {
+          "ut": 9631.997712877379,
+          "value": 39.166213684882536
+        },
+        "clearanceMinimum": {
+          "ut": 9631.5,
+          "value": -0.1164796631171523
+        },
+        "riseSet": [
+          {
+            "ut": 9631.51522878012,
+            "direction": "up"
+          }
+        ],
+        "twilight": {
+          "civil": [],
+          "nautical": [],
+          "astronomical": []
+        }
+      },
+      "actual": {
+        "dateLocal": "2026-05-16",
+        "definition": "upper-limb-density-34arcmin-v2：太阳上边缘、34′标准折射按当地海拔大气密度缩放、当地水平地平、眼高相对地面0m；晨昏用中心几何−6/−12/−18°。",
+        "riseUtDaysJ2000": 9631.515228794991,
+        "setUtDaysJ2000": null,
+        "minimumGeometricAltitudeDeg": -0.9467048715228543,
+        "maximumGeometricAltitudeDeg": 39.166213684925054,
+        "state": "normal",
+        "twilightSummary": "全天未进入民用暮光以下。",
+        "bounds": {
+          "startUtDaysJ2000": 9631.5,
+          "endUtDaysJ2000": 9632.5,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        },
+        "extremaTimes": {
+          "minimumUtDaysJ2000": 9631.5,
+          "maximumUtDaysJ2000": 9631.997712598577
+        },
+        "riseSetClearanceRangeDeg": {
+          "minimum": -0.11647966311716007,
+          "maximum": 39.99641841955376
+        },
+        "riseSetCrossings": [
+          {
+            "kind": "rise",
+            "utDaysJ2000": 9631.515228794991
+          }
+        ],
+        "twilight": {
+          "civil": {
+            "thresholdGeometricAltitudeDeg": -6,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-6°，此日没有该级晨昏阈值穿越。"
+          },
+          "nautical": {
+            "thresholdGeometricAltitudeDeg": -12,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-12°，此日没有该级晨昏阈值穿越。"
+          },
+          "astronomical": {
+            "thresholdGeometricAltitudeDeg": -18,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-18°，此日没有该级晨昏阈值穿越。"
+          }
+        },
+        "noEventReason": "该当地民用日仅包含一个方向的升落穿越；另一个事件可能在相邻民用日。",
+        "notes": [
+          "升落预报的标准折射口径独立于画面折射开关与用户气压/温度；不模拟真实地形或当天大气。",
+          "日界端点纳入高度范围；内点极值连续细化，不从离散采样直接判断无事件。",
+          "独立参考仅覆盖已列出的固定地点与日期；不声称整个现代区间验证完毕。"
+        ]
+      },
+      "altitudeMinimumError": -7.882583474838611e-15,
+      "altitudeMaximumError": 4.2518877307884395e-11,
+      "sampled10minClearance": -0.1164796631171523,
+      "failures": []
+    },
+    {
+      "name": "from-midnight-sun-single-crossing",
+      "input": {
+        "utc": "2026-07-27T12:00:00.000Z",
+        "observer": {
+          "name": "杭州教学预设",
+          "latitudeDeg": 70,
+          "longitudeDegEast": 0,
+          "heightMeters": 0,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        }
+      },
+      "expected": {
+        "start": "2026-07-27T00:00:00.000Z",
+        "end": "2026-07-28T00:00:00.000Z",
+        "minimum": {
+          "ut": 9704.5,
+          "value": -0.9710336362412779
+        },
+        "maximum": {
+          "ut": 9704.004310099604,
+          "value": 39.13546695554901
+        },
+        "clearanceMinimum": {
+          "ut": 9704.5,
+          "value": -0.14196058003457201
+        },
+        "riseSet": [
+          {
+            "ut": 9704.48455590205,
+            "direction": "down"
+          }
+        ],
+        "twilight": {
+          "civil": [],
+          "nautical": [],
+          "astronomical": []
+        }
+      },
+      "actual": {
+        "dateLocal": "2026-07-27",
+        "definition": "upper-limb-density-34arcmin-v2：太阳上边缘、34′标准折射按当地海拔大气密度缩放、当地水平地平、眼高相对地面0m；晨昏用中心几何−6/−12/−18°。",
+        "riseUtDaysJ2000": null,
+        "setUtDaysJ2000": 9704.484555745905,
+        "minimumGeometricAltitudeDeg": -0.9710336362412733,
+        "maximumGeometricAltitudeDeg": 39.135466955582906,
+        "state": "normal",
+        "twilightSummary": "全天未进入民用暮光以下。",
+        "bounds": {
+          "startUtDaysJ2000": 9703.5,
+          "endUtDaysJ2000": 9704.5,
+          "displayZone": {
+            "kind": "fixed",
+            "offsetMinutes": 0
+          }
+        },
+        "extremaTimes": {
+          "minimumUtDaysJ2000": 9704.5,
+          "maximumUtDaysJ2000": 9704.004310338762
+        },
+        "riseSetClearanceRangeDeg": {
+          "minimum": -0.14196058003456735,
+          "maximum": 39.96453355030169
+        },
+        "riseSetCrossings": [
+          {
+            "kind": "set",
+            "utDaysJ2000": 9704.484555745905
+          }
+        ],
+        "twilight": {
+          "civil": {
+            "thresholdGeometricAltitudeDeg": -6,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-6°，此日没有该级晨昏阈值穿越。"
+          },
+          "nautical": {
+            "thresholdGeometricAltitudeDeg": -12,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-12°，此日没有该级晨昏阈值穿越。"
+          },
+          "astronomical": {
+            "thresholdGeometricAltitudeDeg": -18,
+            "dawnUtDaysJ2000": null,
+            "duskUtDaysJ2000": null,
+            "crossings": [],
+            "state": "always-above",
+            "noEventReason": "太阳中心全天高于-18°，此日没有该级晨昏阈值穿越。"
+          }
+        },
+        "noEventReason": "该当地民用日仅包含一个方向的升落穿越；另一个事件可能在相邻民用日。",
+        "notes": [
+          "升落预报的标准折射口径独立于画面折射开关与用户气压/温度；不模拟真实地形或当天大气。",
+          "日界端点纳入高度范围；内点极值连续细化，不从离散采样直接判断无事件。",
+          "独立参考仅覆盖已列出的固定地点与日期；不声称整个现代区间验证完毕。"
+        ]
+      },
+      "altitudeMinimumError": 4.6629367034256575e-15,
+      "altitudeMaximumError": 3.389288849575678e-11,
+      "sampled10minClearance": -0.09964980676960034,
+      "failures": []
+    }
+  ],
+  "runAt": "2026-10-04T16:07:17.990Z"
+}

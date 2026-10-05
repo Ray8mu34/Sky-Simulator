@@ -1,0 +1,8 @@
+{
+  "sourceUrl": "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-09-14&coords=30.25,120.17&tz=8&dst=false",
+  "retrievedAtUtc": "2026-10-04T15:55:23.929Z",
+  "rawFile": "usno-hangzhou-2026-09-14.json",
+  "sha256": "ebcaf91bee08f6ddcef6c35332fd8ac0ed5c7f27cc845b727ef8d7751809e327",
+  "acquisition": "Original HTTP response saved by PowerShell Invoke-WebRequest with normal certificate validation.",
+  "definition": "USNO geometric solar centre −50 arcmin (nominal 16 arcmin radius +34 arcmin refraction); civil centre −6deg. Sea-level reference; minute rounding."
+}

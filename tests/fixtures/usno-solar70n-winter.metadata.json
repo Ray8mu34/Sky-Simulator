@@ -1,0 +1,13 @@
+{
+  "retrievedAt": "2026-10-04T15:38:54.8177051+00:00",
+  "requestedAt": "2026-10-04T15:38:47.5950849+00:00",
+  "apiVersion": "4.0.1",
+  "bytes": 1171,
+  "sha256": "0df33dc6bdb72b63063f358da6114b4876890fd348910cf6d6fc80905aa82b23",
+  "convention": "Latitude 70N longitude 0E, local UTC+0 civil day, sea-level standard upper-limb rise/set and civil geometric twilight.",
+  "sourceTerms": "https://aa.usno.navy.mil/data/api.html",
+  "httpStatus": 200,
+  "sourceUrl": "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-12-21&coords=70,0&tz=0",
+  "rawFile": "usno-solar70n-winter.json",
+  "status": "retrieved-reference-not-production-validated"
+}

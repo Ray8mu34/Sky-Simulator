@@ -1,0 +1,122 @@
+{
+  "generatedAtUtc": "2026-10-04T13:36:32.241Z",
+  "engineVersion": "2.1.19",
+  "environment": {
+    "node": "v24.14.0",
+    "icu": "78.2",
+    "tz": "2025c",
+    "intlDefaultZone": "Asia/Shanghai"
+  },
+  "references": [
+    {
+      "body": "Sun",
+      "rawSha256": "7aaa9e57a24027643b1cb52a0affac382e01646d3639ca9ee05f964d8fe49ec5"
+    },
+    {
+      "body": "Moon",
+      "rawSha256": "56c4b04e3fedd610e2067ef1424a62cd34a9181efaff597638e26f8c9e9d0e97"
+    }
+  ],
+  "coverage": {
+    "allPoints": 8,
+    "aboveFiveDegreesPoints": 3,
+    "claim": "Limited local regression points and analytic invariants; not full modern-range validation."
+  },
+  "deltaTDiagnostic": {
+    "utc": "2100-12-31T23:59:59Z",
+    "horizonsAssumedTtMinusUtcSeconds": 69.184,
+    "productionDirectionErrorArcmin": 1.3828064179012804,
+    "alignedDirectionErrorArcmin": 0.026700143505648442,
+    "productionModelRestored": true
+  },
+  "rows": [
+    {
+      "body": "Sun",
+      "utc": "1900-01-01T00:00:00Z",
+      "referenceAltitudeDeg": 11.052918039,
+      "aboveFiveDegrees": true,
+      "directionErrorArcmin": 0.017498086449671935,
+      "altitudeErrorArcmin": 0.012258940887370784,
+      "diameterErrorDeg": 0.0000018398788067530703,
+      "illuminatedFractionError": null,
+      "engineDeltaTSeconds": -2.758963988162577
+    },
+    {
+      "body": "Sun",
+      "utc": "2000-01-01T12:00:00Z",
+      "referenceAltitudeDeg": -35.929147031,
+      "aboveFiveDegrees": false,
+      "directionErrorArcmin": 0.0147030265665473,
+      "altitudeErrorArcmin": 0.06444493100744353,
+      "diameterErrorDeg": 0.0000074703634160844246,
+      "illuminatedFractionError": null,
+      "engineDeltaTSeconds": 63.847089569816944
+    },
+    {
+      "body": "Sun",
+      "utc": "2026-09-14T14:00:00Z",
+      "referenceAltitudeDeg": -46.697110813,
+      "aboveFiveDegrees": false,
+      "directionErrorArcmin": 0.02162933657617293,
+      "altitudeErrorArcmin": 0.005078544042902422,
+      "diameterErrorDeg": 0.0000029538154886488144,
+      "illuminatedFractionError": null,
+      "engineDeltaTSeconds": 75.48439792008139
+    },
+    {
+      "body": "Sun",
+      "utc": "2100-12-31T23:59:59Z",
+      "referenceAltitudeDeg": 11.136432172,
+      "aboveFiveDegrees": true,
+      "directionErrorArcmin": 0.07936958612038554,
+      "altitudeErrorArcmin": 0.03207526956231277,
+      "diameterErrorDeg": 6.014692365274854e-7,
+      "illuminatedFractionError": null,
+      "engineDeltaTSeconds": 205.00776199623942
+    },
+    {
+      "body": "Moon",
+      "utc": "1900-01-01T00:00:00Z",
+      "referenceAltitudeDeg": 16.378282431,
+      "aboveFiveDegrees": true,
+      "directionErrorArcmin": 0.04270356392613876,
+      "altitudeErrorArcmin": 0.025301078211086292,
+      "diameterErrorDeg": 0.000005244598790921096,
+      "illuminatedFractionError": 0.000011602000658479227,
+      "engineDeltaTSeconds": -2.758963988162577
+    },
+    {
+      "body": "Moon",
+      "utc": "2000-01-01T12:00:00Z",
+      "referenceAltitudeDeg": -70.871312235,
+      "aboveFiveDegrees": false,
+      "directionErrorArcmin": 0.010338805944772694,
+      "altitudeErrorArcmin": 0.008561299378015974,
+      "diameterErrorDeg": 0.000028406539199721248,
+      "illuminatedFractionError": 0.00006290646675410905,
+      "engineDeltaTSeconds": 63.847089569816944
+    },
+    {
+      "body": "Moon",
+      "utc": "2026-09-14T14:00:00Z",
+      "referenceAltitudeDeg": -29.634319264,
+      "aboveFiveDegrees": false,
+      "directionErrorArcmin": 0.04788938432839142,
+      "altitudeErrorArcmin": 0.02692433462144095,
+      "diameterErrorDeg": 0.000046486652840904696,
+      "illuminatedFractionError": 0.000049793553461213724,
+      "engineDeltaTSeconds": 75.48439792008139
+    },
+    {
+      "body": "Moon",
+      "utc": "2100-12-31T23:59:59Z",
+      "referenceAltitudeDeg": -1.739026628,
+      "aboveFiveDegrees": false,
+      "directionErrorArcmin": 1.3828064179012804,
+      "altitudeErrorArcmin": 0.9068445312007523,
+      "diameterErrorDeg": 0.000016212932895665055,
+      "illuminatedFractionError": 0.00002179383094372961,
+      "engineDeltaTSeconds": 205.00776199623942
+    }
+  ]
+}

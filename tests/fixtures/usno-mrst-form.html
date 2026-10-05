@@ -1,0 +1,1259 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rise/Set/Transit Times for Major Solar System Bodies and Bright Stars</title>
+    <meta name="description" content="This data service calculates rise, set, and transit times for the Sun, Moon, planets and bright stars.">
+    <meta name="keywords" content="rise times, set times, rise/set times, transit times, azimuth at rise, azimuth at set, altitude at transit">
+
+    <link rel="stylesheet" href="/uswds/css/uswds.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/aa.css">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <script src="/uswds/js/uswds-init.min.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>   
+</head>
+
+<body>
+    
+
+<a class="usa-skipnav" href="#main-content">Skip to main content</a>
+
+
+
+<div class="site-banner usa-banner">
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img class="usa-banner__header-flag" src="/uswds/img/us_flag_small.png" alt="U.S. flag">
+                </div>
+                <div class="grid-col-fill tablet:grid-col-auto">
+                    <p class="usa-banner__header-text">An official website of the United States government</p>
+                    <p class="usa-banner__header-action" aria-hidden="true">Here’s how you know</p>
+                </div>
+                <button class="usa-accordion__button usa-banner__button" aria-expanded="false" aria-controls="gov-banner">
+            <span class="usa-banner__button-text">Here’s how you know</span>
+            </button>
+            </div>
+        </header>
+        <div class="usa-banner__content usa-accordion__content" id="gov-banner">
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img" src="/uswds/img/icon-dot-gov.svg" alt="Dot gov">
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>The .gov means it’s official.</strong>
+                            <br> Federal government websites often end in .gov or .mil. Before sharing sensitive information, make sure you’re on a federal government site.
+                        </p>
+                    </div>
+                </div>
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img" src="/uswds/img/icon-https.svg" alt="Https">
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>The site is secure.</strong>
+                            <br> The <strong>https://</strong> ensures that you are connecting to the official website and that any information you provide is encrypted and transmitted securely.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="usa-overlay"></div>
+<header class="usa-header site-header site-header-dark" role="banner">
+    <div class="usa-navbar site-header-navbar">
+        <div class="usa-logo site-logo" id="logo">
+            <em class="usa-logo__text">
+                <a class="margin-right-05" href="/" title="Home" aria-label="USNO Astronomical Applications Home">
+                <span aria-hidden="true" class="site-title-short">AA Dept</span>
+                <span class="site-title">Astronomical Applications Department</span>
+                </a>
+            </em>
+        </div>
+        <div class="urania-logo-container">
+            <a href="https://www.cnmoc.usff.navy.mil/usno/">
+                <img class="urania-logo" src="/graphics/urania_logo_circle.png" alt="Urania Logo">
+            </a>
+        </div>
+        <button class="usa-menu-btn">Menu</button>
+    </div>
+
+</header>
+<nav class="site-nav-secondary sticky">
+    <ul>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/index"><span>Main</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item is-current" >
+        <a class="usa-current" href="/data/index"><span>Data Services</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/faq/index"><span>Information Center</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/publications/index"><span>Publications</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/software/index"><span>Software</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/about/index"><span>About Us</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/sitemap/"><span>Site Map</span></a>
+        </li>
+        
+    </ul>
+</nav>
+    
+
+<nav role="navigation" aria-label="Mobile Navigation" class="usa-nav site-nav sidenav-mobile">
+    <div class="usa-nav__inner"><button class="usa-nav__close"><img src="/uswds/img/close.svg" role="img" alt="close"></button>
+    <ul class="usa-nav__primary">
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/index"><span>Main</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item is-current" >
+        <a class="usa-current" href="/data/index"><span>Data Services</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/faq/index"><span>Information Center</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/publications/index"><span>Publications</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/software/index"><span>Software</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/about/index"><span>About Us</span></a>
+        </li>
+        
+        <li class="usa-nav__primary-item " >
+        <a class="" href="/sitemap/"><span>Site Map</span></a>
+        </li>
+        
+    </ul>
+</nav>
+
+
+<main class="usa-layout-docs usa-section" id="main-content">
+    <div class="grid-container">
+        <div class="grid-row grid-gap">
+            <aside class="usa-layout-docs__sidenav desktop:grid-col-3">
+                <nav aria-label="Secondary navigation">
+                    <ul class="usa-sidenav"> 
+                         
+
+
+
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/index">
+            <span><strong>Data Services</strong></span></a>
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <strong><span>Rise/Set/Transit/Twilight Data</span></strong>
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/RS_OneDay">
+            <span>Complete Sun and Moon Data for One Day</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/RS_OneYear">
+            <span>Table of Sunrise/Sunset, Moonrise/Moonset, or Twilight Times for an Entire Year</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="usa-current" 
+            href="/data/mrst">
+            <span>Rise/Set/Transit Times for Major Solar System Objects and Bright Stars</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/Dur_OneYear">
+            <span>Duration of Daylight and Darkness Table for One Year</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <strong><span>Phases of the Moon</span></strong>
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/MoonPhases">
+            <span>Dates of Primary Phases of the Moon</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/MoonFraction">
+            <span>Fraction of the Moon Illuminated</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <strong><span>Eclipses and Transits</span></strong>
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a href="http://astro.ukho.gov.uk/eclbin/query_usno.cgi"><span>Eclipses Online Portal</span></a>
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/UpcomingEclipses">
+            <span>Eclipses of the Sun and Moon</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/Eclipse2017">
+            <span>2017 August 21 Total Solar Eclipse</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/Eclipse2023">
+            <span>2023 October 14 Annular Solar Eclipse</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/Eclipse2024">
+            <span>2024 April 8 Total Solar Eclipse</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/SolarEclipses">
+            <span>Solar Eclipse Computer</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/LunarEclipse">
+            <span>Lunar Eclipse Computer</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/UpcomingTransits">
+            <span>Transits of Mercury and Venus</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/Transit">
+            <span>Transit Computer</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <strong><span>Positions of Selected Celestial Objects</span></strong>
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/AltAz">
+            <span>Altitude and Azimuth of the Sun or Moon During One Day</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/ssconf">
+            <span>Topocentric Configuration of Major Solar System Bodies</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/geocentric">
+            <span>Geocentric Positions of Major Solar System Objects and Bright Stars</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/topocentric">
+            <span>Topocentric Positions of Major Solar System Objects and Bright Stars</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <strong><span>Dates and Times</span></strong>
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/Earth_Seasons">
+            <span>Earth&#39;s Seasons - Equinoxes, Solstices, Perihelion, and Aphelion</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/JulianDate">
+            <span>Julian Date Converter</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/siderealtime">
+            <span>Sidereal Time</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/daylight_time">
+            <span>Daylight Saving Time</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <strong><span>Celestial Navigation</span></strong>
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/celnav">
+            <span>Celestial Navigation Data for Assumed Position and Time</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+
+ 
+    
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/Nav_Star_Chart">
+            <span>Navigational Star Chart</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <strong><span>Documentation</span></strong>
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/api">
+            <span>API Documentation</span></a>
+        
+        
+    </li>
+    
+
+ 
+    
+    
+    <li class="usa-sidenav__item">
+        
+            <a class="" 
+            href="/data/help">
+            <span>Printing and Exporting Data</span></a>
+        
+        
+    </li>
+    
+
+
+
+
+
+     
+                     </ul>
+                </nav>
+            </aside>
+            <div class="usa-layout-docs__main desktop:grid-col-9 usa-prose">
+                <div>
+                
+
+<h1>Rise/Set/Transit Times for Major Solar System Bodies and Bright Stars</h1>
+
+<p class="usa-intro">This data service provides the times of
+    <a href="/faq/RST_defs">rise, set, and transit</a> for
+        the major solar system bodies and selected bright stars. The output table also
+        includes 
+
+<a href="/faq/asa_glossary#azimuth" target="_blank" rel="noreferrer">azimuth</a>
+
+ at rise and set, as well as
+        
+
+<a href="/faq/asa_glossary#altitude" target="_blank" rel="noreferrer">altitude</a>
+
+ at transit.</p>
+        <p>Data will be provided for the years 1800 through 2050. 
+      </p>       
+        
+        
+<p>Use the buttons under <b>Location</b> to find coordinates of cities or towns in the U.S. or its territories, 
+or to convert between Degrees-Minutes-Seconds (DMS) and Decimal Degrees.</p>
+
+        
+        <p>Be sure to read the <a href="/data/mrst#notes">Notes section</a> (at the 
+        bottom of this page) for definitions and additional details on the data.</p>
+        
+        <hr>
+        
+        <a name="formb"></a>
+        
+   <!-- The Modal -->
+   <div id="usa-location-modal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+         <div class="usa-alert usa-alert--slim" id="location-message" style="display: none">
+            <div class="usa-alert__body">
+               <p class="usa-alert__text"></p>
+            </div>    
+         </div>
+           <form method="GET" action="JavaScript:getUSPlacesInfo()">
+
+            <span class="close">&times;</span>
+            <div class="center">
+              
+
+
+<fieldset class="usa-fieldset">
+    <legend class="usa-legend">US Location</legend>
+    <span class="usa-hint" id="usLocationHint">For example: Washington, DC</span>
+    <div class="usa-us-location">
+        <div class="usa-form-group usa-form-group--city">
+            <label class="usa-label usa-label--city" for="city">City</label>
+            <input class="usa-input usa-input--city" id="city" name="city" type="text" aria-describedby="usLocationHint" maxlength="32">
+        </div>
+        <div class="usa-form-group usa-form-group--state">
+            <label class="usa-label" for="state">State or Territory</label>
+            <select name="state" class="usa-select" id="state">
+                    <option value>- Select -</option>
+                    
+                    <option value="AL">Alabama</option>
+                    
+                    <option value="AK">Alaska</option>
+                    
+                    <option value="AS">American Samoa</option>
+                    
+                    <option value="AZ">Arizona</option>
+                    
+                    <option value="AR">Arkansas</option>
+                    
+                    <option value="CA">California</option>
+                    
+                    <option value="CO">Colorado</option>
+                    
+                    <option value="CT">Connecticut</option>
+                    
+                    <option value="DE">Delaware</option>
+                    
+                    <option value="DC">District of Columbia</option>
+                    
+                    <option value="FL">Florida</option>
+                    
+                    <option value="GA">Georgia</option>
+                    
+                    <option value="GU">Guam</option>
+                    
+                    <option value="HI">Hawaii</option>
+                    
+                    <option value="ID">Idaho</option>
+                    
+                    <option value="IL">Illinois</option>
+                    
+                    <option value="IN">Indiana</option>
+                    
+                    <option value="IA">Iowa</option>
+                    
+                    <option value="KS">Kansas</option>
+                    
+                    <option value="KY">Kentucky</option>
+                    
+                    <option value="LA">Louisiana</option>
+                    
+                    <option value="ME">Maine</option>
+                    
+                    <option value="MD">Maryland</option>
+                    
+                    <option value="MA">Massachusetts</option>
+                    
+                    <option value="MI">Michigan</option>
+                    
+                    <option value="MN">Minnesota</option>
+                    
+                    <option value="MS">Mississippi</option>
+                    
+                    <option value="MO">Missouri</option>
+                    
+                    <option value="MT">Montana</option>
+                    
+                    <option value="NE">Nebraska</option>
+                    
+                    <option value="NV">Nevada</option>
+                    
+                    <option value="NH">New Hampshire</option>
+                    
+                    <option value="NJ">New Jersey</option>
+                    
+                    <option value="NM">New Mexico</option>
+                    
+                    <option value="NY">New York</option>
+                    
+                    <option value="NC">North Carolina</option>
+                    
+                    <option value="ND">North Dakota</option>
+                    
+                    <option value="MP">N. Mariana Islands</option>
+                    
+                    <option value="OH">Ohio</option>
+                    
+                    <option value="OK">Oklahoma</option>
+                    
+                    <option value="OR">Oregon</option>
+                    
+                    <option value="PA">Pennsylvania</option>
+                    
+                    <option value="PR">Puerto Rico</option>
+                    
+                    <option value="RI">Rhode Island</option>
+                    
+                    <option value="SC">South Carolina</option>
+                    
+                    <option value="SD">South Dakota</option>
+                    
+                    <option value="TN">Tennessee</option>
+                    
+                    <option value="TX">Texas</option>
+                    
+                    <option value="UT">Utah</option>
+                    
+                    <option value="VT">Vermont</option>
+                    
+                    <option value="VI">Virgin Islands</option>
+                    
+                    <option value="VA">Virginia</option>
+                    
+                    <option value="WA">Washington</option>
+                    
+                    <option value="WV">West Virginia</option>
+                    
+                    <option value="WI">Wisconsin</option>
+                    
+                    <option value="WY">Wyoming</option>
+                    
+                    </select>
+        </div>
+    </div>
+</fieldset>
+
+              <br>
+              <button type="button" class="usa-button" id="import-usa-loc-data">Import Data</button>
+              
+              <p>The place name you enter above must be a city or town in the U.S. The place's location will be retrieved from a list of over 22,000 places. Either upper- or lower-case letters or a combination can be used. Spell out place name prefixes, as in "East Orange", "Fort Lauderdale", "Mount Vernon", etc. The only exception is "St.", which is entered as an abbreviation with a period, as in "St. Louis". You need only enter as many characters as will unambiguously identify the place. </p>
+            </div>
+           </form>
+        </div>
+     
+        </div>
+         <!-- The Modal -->
+ <div id="dms-location-modal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+           <div class="usa-alert usa-alert--slim" id="dms-message" style="display: none">
+            <div class="usa-alert__body">
+               <p class="usa-alert__text"></p>
+            </div>
+          </div>
+           <form>
+            <span class="close">&times;</span>
+            <div class="center">
+              
+<fieldset class="usa-fieldset">
+    <legend class="usa-legend">Location</legend>
+    <span class="usa-hint" id="dmsLocationHint">Coordinates in DMS. For example: Latitude: 38° 15' 42", Longitude: -77° 56' 34"</span>
+    <div class="input-location" style="display: block;">
+        <div style="display: inline-block;">
+            <label class="usa-label usa-label--latitude" for='latitude'>Latitude (North Positive)</label>
+            <div class="usa-form-group usa-form-group--latd">
+                <label class="usa-label usa-label--latdeg" for="latdeg">°</label>
+                <input class="usa-input usa-input--latdeg" id="latdeg" name="latdeg" type="number" aria-describedby="dmsLocationHint" aria-label="Latitude Degrees" maxlength="3" value='0' min="-90" max="90">
+            </div>
+            <div class="usa-form-group usa-form-group--latm">
+                <label class="usa-label usa-label--latmin" for="latmin">'</label>
+                <input class="usa-input usa-input--latmin" id="latmin" name="latmin" type="number" aria-describedby="dmsLocationHint" aria-label="Latitude Minutes" maxlength="2"  value='0' min="0" max="59">
+            </div>
+            <div class="usa-form-group usa-form-group--lats">
+                <label class="usa-label usa-label--latsec" for="latsec">"</label>
+                <input class="usa-input usa-input--latsec" id="latsec" name="latsec" type="number" aria-describedby="dmsLocationHint" aria-label="Latitude Seconds" maxlength="4"  value='0' min="0.0" max="59.9">
+            </div>
+        </div>
+        <div>
+            <label class="usa-label usa-label--longitude">Longitude (East Positive)</label>
+            <div class="usa-form-group usa-form-group--lond">
+                <label class="usa-label usa-label--londeg" for="londeg">°</label>
+                <input class="usa-input usa-input--londeg" id="londeg" name="londeg" type="number" aria-describedby="dmsLocationHint" aria-label="Longitude Degrees" maxlength="4"  value='0' min="-180" max="180">
+            </div>
+            <div class="usa-form-group usa-form-group--lonm">
+                <label class="usa-label usa-label--lonmin" for="lonmin">'</label>
+                <input class="usa-input usa-input--lonmin" id="lonmin" name="lonmin" type="number" aria-describedby="dmsLocationHint" aria-label="Longitude Minutes" maxlength="2"  value='0' min="0" max="59">
+            </div>
+            <div class="usa-form-group usa-form-group--lons">
+                <label class="usa-label usa-label--lonsec" for="lonsec">"</label>
+                <input class="usa-input usa-input--lonsec" id="lonsec" name="lonsec" type="number" aria-describedby="dmsLocationHint" aria-label="Longitude Seconds" maxlength="4"  value='0' min="0.0" max="59.9">
+            </div>
+        </div>
+    </div>
+</fieldset>
+
+              <br>
+              <button type="button" class="usa-button" id="import-dms-loc-data">Import Data</button>
+              
+            </div>
+           </form>
+
+        </div>
+     
+        </div>
+        <form method="get" target="_self" action="/calculated/mrst">
+        <p>   
+   <legend class="usa-legend" for="body"><label for="celestial_object">Celestial Object of Interest</label></legend>
+   <select name="body" class="body usa-select">
+       
+           <option selected value='10'>Sun</option>      
+       
+           <option  value='11'>Moon</option>      
+       
+           <option  value='1'>Mercury</option>      
+       
+           <option  value='2'>Venus</option>      
+       
+           <option  value='4'>Mars</option>      
+       
+           <option  value='5'>Jupiter</option>      
+       
+           <option  value='6'>Saturn</option>      
+       
+           <option  value='7'>Uranus</option>      
+       
+           <option  value='8'>Neptune</option>      
+       
+           <option  value='9'>Pluto</option>      
+       
+           <option  value='-1'>Achernar</option>      
+       
+           <option  value='-2'>Adhara</option>      
+       
+           <option  value='-3'>Aldebaran</option>      
+       
+           <option  value='-4'>Altair</option>      
+       
+           <option  value='-5'>Antares</option>      
+       
+           <option  value='-6'>Arcturus</option>      
+       
+           <option  value='-7'>Betelgeuse</option>      
+       
+           <option  value='-8'>Canopus</option>      
+       
+           <option  value='-9'>Capella</option>      
+       
+           <option  value='-10'>Deneb</option>      
+       
+           <option  value='-11'>Fomalhaut</option>      
+       
+           <option  value='-12'>Hadar</option>      
+       
+           <option  value='-13'>Mimosa</option>      
+       
+           <option  value='-14'>Polaris</option>      
+       
+           <option  value='-15'>Pollux</option>      
+       
+           <option  value='-16'>Procyon</option>      
+       
+           <option  value='-17'>Regulus</option>      
+       
+           <option  value='-18'>Rigel</option>      
+       
+           <option  value='-19'>Rigil Kent.</option>      
+       
+           <option  value='-20'>Sirius</option>      
+       
+           <option  value='-21'>Spica</option>      
+       
+           <option  value='-22'>Vega</option>      
+       
+    </select>
+</p>
+        <p>   
+<fieldset class="usa-fieldset">
+  <legend class="usa-legend"><label>Date</label></legend>
+  <span class="usa-hint" id="dateHint">Format: MM/DD/YYYY</span>
+  <div class="usa-form-group--date">    
+    <input data-provide="datepicker" id="date" name="date" data-date-format="YYYY-MM-DD" type="date" value=2026-10-04 min="1800-01-01" max="2050-12-31">
+  </div>
+</fieldset>
+</p>  
+        <p><legend class="usa-legend" for="rep_int">Number of days:</legend>
+            <span class="usa-hint" id="repIntHint">(1 to 9999)</span>
+            <input class="usa-input" type="text" name="reps" id="rep_int" aria-describedby="repIntHint" size="4" maxlength="4" value="5"></p>
+        <p>   
+
+
+<fieldset class="usa-fieldset">
+    <legend class="usa-legend">Location</legend>
+    <span class="usa-hint" id="locationHint">Coordinates in decimal degrees,  North and East are positive. For example: 38.9072, -77.0369 </span>
+    <div class="input-location">
+        <div class="usa-form-group usa-form-group--lat">
+        <label class="usa-label" for="lat">Latitude</label>
+        <input aria-describedby="locationHint" class="usa-input usa-input--inline" id="lat" max="90.0" min="-90.0" name="lat" step="0.0001" type="number" value="0.0000">
+        </div>
+        <div class="usa-form-group usa-form-group--lon">
+        <label class="usa-label" for="lon">Longitude</label>
+        <input aria-describedby="locationHint" class="usa-input usa-input--inline" id="lon" max="180.0" min="-180.0" name="lon" step="0.0001" type="number" value="0.0000">
+        </div>
+        
+        <div><button type="button" class="usa-button usa-button--outline" id="get-usa-loc-info" aria-label="Use this button if you want to input City and State Name rather than geographic coordinates for location." style="display: block;">Need USA Location?</button>
+       
+        <button type="button" class="usa-button usa-button--outline" id="get-dms-loc-info" aria-label="Use this button if you want to input degree minutes seconds rather than decimal degrees for location." style="display: block;">Prefer DMS Input?</button></div>
+       
+    </div>
+    <br>
+    <legend class="usa-legend">Location Label</legend>
+    <span class="usa-hint" id="locLabelHint">Custom label for printed output. For example: Washington, DC</span>
+    <div class="input-loc-label" style="vertical-align: middle;">
+        <input aria-describedby="locLabelHint" aria-label="location label" class="usa-input" id="label" name="label" type="text" value=""><!--&nbsp;<button type="button" class="usa-button usa-button--outline" id="get-usa-loc-coords" onclick="JavaScript:getUSPlacesCoords()" style="display: block;">Update Location Coordinates</button>-->
+    </div>
+    <br>
+    
+<span>Need coordinates?&nbsp; Try
+    
+
+<a href='http://geonames.nga.mil/gns/html/' target="_blank" rel="noreferrer">NGA's GEOnet Names Server (GNS)</a>
+
+
+    <br>Need U.S. coordinates?&nbsp; Try the
+    
+
+<a href='https://www.usgs.gov/core-science-systems/ngp/board-on-geographic-names' target="_blank" rel="noreferrer">USGS Geographic Names Information System (GNIS)</a>
+
+.</span>
+
+</fieldset>
+</p>
+        <p>   
+
+
+<fieldset class="usa-fieldset">
+  <legend class="usa-legend">Time Zone</legend>
+  <span class="usa-hint" id="tzHint">Example: 5 hours West of Greenwich (UTC-5) is Eastern Standard Time</span>
+  <div class="input-timezone">
+    <div class="usa-form-group usa-form-group--zone">
+      <label class="usa-label" for="tz">hours</label>
+      <input aria-describedby="tzHint" class="usa-input usa-input--inline" id="tz" max="14" min="0" name="tz" step="0.25" type="number" value="0.00">      
+    </div>
+    <div class="usa-form-group usa-form-group--sign">
+        <fieldset class="usa-fieldset usa-input--inline">
+            <label class="usa-label" for="tz_sign">direction</label>
+            
+            <div class="usa-radio"> 
+          <input aria-describedby="tzHint" class="usa-radio__input" id="tz_sign-0" name="tz_sign" type="radio" value="1"><label class="usa-radio__label" for="tz_sign-0">East of Greenwich (UTC)</label>    
+            </div>
+            
+            <div class="usa-radio"> 
+          <input aria-describedby="tzHint" checked class="usa-radio__input" id="tz_sign-1" name="tz_sign" type="radio" value="-1"><label class="usa-radio__label" for="tz_sign-1">West of Greenwich (UTC)</label>    
+            </div>
+            
+
+        </fieldset>
+    </div>
+  </div>
+  
+<span>Need a time zone?&nbsp; Try the <a href="/faq/world_tzones">time zone
+        map</a>.</span>
+
+</fieldset>
+</p>
+        <p>   
+<fieldset class="usa-fieldset">
+    <legend class="usa-legend">Height</legend>
+    <span class="usa-hint" id="heightHint">(-90 to 10999 meters) </span>
+    <div class="usa-form-group usa-form-group--year">
+        <input aria-describedby="heightHint" class="usa-input usa-input--inline" id="height" max="10999" min="-90" name="height" type="number" value="0"> meters
+    </div>
+</fieldset>
+</p>
+        <p><input class="usa-button" id="submit" name="submit" type="submit" value="Get Data"></p>
+        </form>
+        <hr>
+        
+        <a name="notes"></a>
+        <h3>Notes</h3>
+        
+        <p>The altitude and azimuth values are for the center of the apparent disk of the object.
+        The altitude values include the effect of atmospheric
+        <a href="/data/mrst#refract">refraction</a>
+        when the object is above the 
+
+<a href="/faq/asa_glossary#horizon" target="_blank" rel="noreferrer">horizon</a>
+
+.
+        The azimuth values are computed with respect to <span style="color: red"><strong><em>true
+        north</em></strong></span> (not magnetic). For instructions on using a true azimuth (bearing)
+        with a compass, see 
+
+<a href='http://www.ngdc.noaa.gov/geomag/faqgeom.shtml' target="_blank" rel="noreferrer">NOAA's
+        Geomagnetism FAQs</a>
+
+.  To determine the magnetic declination for a specific location and date,
+        see
+        
+
+<a href='http://www.ngdc.noaa.gov/geomag/declination.shtml' target="_blank" rel="noreferrer">NOAA's
+        Geophysical Data Center - Magnetic Declination calculator</a>
+
+.</p>
+        
+        <h4>Height</h4>
+        <p>The user can specify the height of the observer, which can range from the surface of the Earth
+        to a maximum of 10,999 m (the top of the troposphere). It is assumed that the observer's horizon
+        is flat (i.e., no geometric 'dip' is applied) and unobstructed. However, since the light at
+        altitude passes through less atmosphere than it does at sea level, the refraction of the light
+        does vary with height. In most circumstances these changes are small, usually less than a minute
+        in rise/set time.
+        Since the rise/set times are printed only to the nearest minute, most users will not see any
+        differences.
+        However, at high latitudes, the times can vary by several minutes (e.g., see Barrow, Alaska
+        around January 22-25).</p>
+        
+        <a name="refract"></a>
+        <h4>Refraction</h4>
+        <p>This data service incorporates a model that determines the angular refraction by numerically
+        integrating a ray passing through a simple polytropic atmosphere. The model is based on the
+        method described by Hohenkerk and Sinclair <a href="/data/mrst#footnotes">[1]</a> and by
+        Hohenkerk <a href="/data/mrst#footnotes">[2]</a>.</p>
+        
+        <h4>Precision</h4>
+        <p>Rise and set times are tabulated to a precision of one minute only (i.e., no
+        seconds are tabulated). This is because the observed times of rise and set are affected
+        by random changes in local atmospheric conditions and other local variables which cannot
+        be accurately modeled. Thus, tabulating the times to a higher precision is not practical
+        or normally useful. </p>
+        
+        <h4>Output Table Symbols and Blanks</h4>
+        <p>Blanks or extra lines may occur in the table.</p> 
+
+         <p>An extra line will occur when two of the same phenomenon occur on a given 
+         day. Such an event may occasionally occur for the rise, set, or twilight of solar system 
+         bodies at high latitudes, or for transits of any solar system body (except the Sun) 
+         at any latitude.</p> 
+
+         <p>Blanks indicate that a particular phenomenon did not occur on the given day. 
+         Blanks may occur for a couple of reasons: in the tables in high latitude 
+         situations where the object may rise and then be continuously above the horizon 
+         for an extended period of time, or conversely finally set after being above the 
+         horizon for an extended period of
+        time. Blanks may also occur in a rise/set table as the time of rise/set changes across a day
+        boundary (e.g., Sun sets later and later in the day as summer approaches). Blanks may also
+        occur in the moonrise/moonset table because the time between successive moonrises or moonsets
+        is about 25 hours or about one hour longer than the 24 hour day. Consequently, these gaps in
+        the moonrise/moonset table occur approximately once every 25 days.</p>
+        
+        <p>The following symbols may appear in the output table:</p>
+        
+        
+        <!--(Table)=========================================================-->
+        <table border="0" cellspacing="5" summary="This table provides a legend
+        for the various symbols that can appear in the rise/set output table.">
+        
+        <caption><strong>Rise/Set Table Symbols</strong> <br></caption>
+        
+        <tr>
+        <th id="sym">Symbol </th>
+        <th id="def">Definition </th></tr>
+        
+        <tr>
+        <td headers="sym">***** </td>
+        <td headers="def">There is no event because the object is continually above the horizon. </td></tr>
+        
+        <tr>
+        <td headers="sym">---- </td>
+        <td headers="def">There is no event because the object is continually below the horizon. </td></tr>
+        
+        <tr>
+        <td headers="sym">N </td>
+        <td headers="def">Altitude at local transit is measured
+         from the northern horizon. </td></tr>
+        
+        <tr>
+        <td headers="sym">S </td>
+        <td headers="def">Altitude at local transit is measured
+         from the southern horizon. </td></tr>
+        
+        <tr>
+        <td headers="sym">????? </td>
+        <td headers="def">Phenomenon is indeterminate. </td></tr>
+        </table>
+        
+        <p>For Sun calculations for high latitudes, one may also see these symbols
+         in the twilight columns: </p>
+        
+        <!--(Table)=========================================================-->
+        <table border=0 cellspacing=5 summary="This table provides a legend for the
+           various symbols that can appear in the twilight output table.">
+        
+        <caption><strong>Twilight Symbols</strong> <br></caption>
+        
+        <tr>
+        <th id="tsym">Symbol </th>
+        <th id="tdef">Definition </th></tr>
+        
+        <tr>
+        <td headers="tsym">///// </td>
+        <td headers="tdef">There is no event because the Sun is
+         continually above the twilight zenith distance. </td></tr>
+        
+        <tr>
+        <td headers="tsym">---- </td>
+        <td headers="tdef">There is no event because the Sun is continually below the twilight zenith distance. </td></tr>
+        </table>
+        
+        
+<h4 id="time-zones">Time Zones</h4>
+<p>
+  When using the
+
+"Need USA Location" button, the service will fill the 
+Time Zone hours field and set the Time Zone direction button according to the current standard
+time zone of the US place entered.
+
+</p>
+<p>
+  The railroads introduced standardized 
+  <a href="/faq/us_tzones">time zones</a> to the USA in 
+  1883. Since then, time zone boundaries have evolved considerably, with many cities and
+  counties shifting from one zone to another. This service makes no attempt to track such historical changes.
+ 
+</p>
+<p>
+  For locations that require it, you may enter the time zone in decimal hours.
+  For example, for locations in India, 
+  you may enter 5.5&nbsp;hours east of Greenwich for 
+  the time zone. The time zone field can accommodate up to five characters. 
+</p>
+
+
+        
+        <a name ="footnotes"></a>
+        <hr>
+        <ol>
+           <li>Hohenkerk, C.Y. &amp; Sinclair, A.T. 1985, "The computation of angular atmospheric refraction
+           at large zenith angles," 
+
+<a href='http://astro.ukho.gov.uk/data/tn/naotn63.pdf' target="_blank" rel="noreferrer">NAO
+        Technical Note No. 63</a>
+
+ (Taunton, UK: H.M. Nautical Almanac Office)<br></li>
+        
+           <li>Hohenkerk, C.Y.  2013, "Positions" in <i><a href="/publications/exp_supp">The
+           Explanatory Supplement to the Astronomical Almanac, 3rd edition</a></i>, ed. Urban, S.E. and Seidelmann, P. K.
+           (Mill Valley, CA: University Science Books) section 7.2.7.1, p. 277</li>
+        </ol>
+
+        
+                </div>
+            </div>
+        </div> 
+    </div>
+</main>
+ 
+
+<footer class="usa-footer usa-footer--slim">
+    <div class="usa-footer">
+      <div class="usa-footer grid-row">
+        <div class="mobile-lg:grid-col-12 bg-gold padding-y-1 line-height-sans-3 font-lang-4">
+          <nav class="usa-footer__nav" aria-label="Footer navigation">
+            <ul class="grid-row grid-gap">
+              <li class="mobile-lg:grid-col-6 desktop:grid-col-3 usa-footer">
+                <p class="usa-footer">This is an official 
+
+<a href='https://www.navy.mil' target="_blank" rel="noreferrer">U.S. Navy</a>
+
+ Web site</p>
+              </li>
+              <li class="mobile-lg:grid-col-6 desktop:grid-col-7 usa-footer">
+                <p class="usa-footer">
+                  Hyperlinks do not constitute endorsement by the U.S. Navy of non-U.S.Government sites or the information, products, or services contained therein.
+                </p>
+              </li>
+              <li class="mobile-lg:grid-col-6 desktop:grid-col-2 usa-footer">
+                <p><a class="usa-footer" href="/about/PrivacyNotice">Privacy and Security Notice</a></p>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer> 
+
+
+
+<script src="/js/aa.js"></script>
+<script src="/uswds/js/uswds.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+{
+  "rawFile": "usno-moon-hangzhou-2026-09-06.json",
+  "sha256": "4d9463a8252655db6718720686d8de29c27ed774763d9d350e4b55e2863dd963",
+  "units": {
+    "civilZone": "explicit fixed UTC offset, not historical IANA",
+    "timescale": "source Universal Time plus explicit fixed display offset",
+    "moondataTime": "local HH:mm or null",
+    "calendar": "Gregorian modern civil date"
+  },
+  "definitionSource": "https://aa.usno.navy.mil/faq/RST_defs",
+  "status": "retrieved-reference-not-production-validated",
+  "bytes": 1188,
+  "sourceUrl": "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-09-06&coords=30.25,120.17&tz=8&dst=false",
+  "apiVersion": "4.0.1",
+  "purpose": "Coverage addition adjacent to retained September5 moonrise23:53, intended one-direction next civil day; no production error known when selected, both source days retained.",
+  "request": {
+    "heightMeters": 0,
+    "dst": false,
+    "dateLocal": "2026-09-06",
+    "longitudeDegEast": 120.17,
+    "latitudeDeg": 30.25,
+    "displayZone": {
+      "kind": "fixed",
+      "offsetMinutes": 480
+    }
+  },
+  "retrievedAtUtc": "2026-10-04T20:11:54.5231212+00:00",
+  "acquisition": "Original HTTP response bytes saved by PowerShell Invoke-WebRequest; normal certificate validation; no proxy or system configuration changes.",
+  "requestedAtUtc": "2026-10-04T20:11:47.9107892+00:00",
+  "returnedDate": {
+    "month": 9,
+    "tzHours": 8.0,
+    "day": 6,
+    "year": 2026,
+    "isdst": false
+  },
+  "definition": "Moon upper limb at level unobstructed horizontal horizon, sea-level standard refraction34arcmin; lunar parallax already accounted by source, no phase-dependent limb rule. Returned local times rounded to minute. Source oneday geographic model/ephemeris differs from project AE and is independent.",
+  "httpStatus": 200
+}

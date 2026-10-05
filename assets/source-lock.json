@@ -1,0 +1,2279 @@
+{
+  "revisions": {
+    "hyg": "c7f7f883fe678cc7680169a50ccd7dcc49b060ce",
+    "cultures": "014fbb5e59233d133c22f9811af96b67d05a95c9",
+    "stellarium": "982747cf68d4e3e5e829d9988647bf7e76a32a2d",
+    "stellarium244": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+    "lunarTypescript": "a376ec2b8fd1b3069e24c92801bab8707fccd49d"
+  },
+  "files": [
+    {
+      "id": "creativecommons/CC-BY-SA-4.0.txt",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt",
+      "revision": "snapshot",
+      "path": "assets/source/creativecommons/CC-BY-SA-4.0.txt",
+      "retrievedAt": "2026-10-04T13:38:37.404073+00:00",
+      "sourceSha256": "28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5",
+      "bytes": 20138
+    },
+    {
+      "id": "cultures/README.md",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium-skycultures/014fbb5e59233d133c22f9811af96b67d05a95c9/README.md",
+      "revision": "014fbb5e59233d133c22f9811af96b67d05a95c9",
+      "path": "assets/source/cultures/README.md",
+      "retrievedAt": "2026-10-04T13:23:22.830414+00:00",
+      "sourceSha256": "06567e236a45a5a7f6aa76ef248e7fd7db46b0a11c3dacfc7166ebd76f6d07d1",
+      "bytes": 11440
+    },
+    {
+      "id": "cultures/chinese/description.md",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium-skycultures/014fbb5e59233d133c22f9811af96b67d05a95c9/chinese/description.md",
+      "revision": "014fbb5e59233d133c22f9811af96b67d05a95c9",
+      "path": "assets/source/cultures/chinese/description.md",
+      "retrievedAt": "2026-10-04T13:23:25.114131+00:00",
+      "sourceSha256": "4bdcb56a2f8caa4c6a2e3bf0ebf65d336b53f771c7a1b76dd2fba4ac1ed6a185",
+      "bytes": 14589
+    },
+    {
+      "id": "cultures/chinese/index.json",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium-skycultures/014fbb5e59233d133c22f9811af96b67d05a95c9/chinese/index.json",
+      "revision": "014fbb5e59233d133c22f9811af96b67d05a95c9",
+      "path": "assets/source/cultures/chinese/index.json",
+      "retrievedAt": "2026-10-04T13:23:25.117802+00:00",
+      "sourceSha256": "8c08ccd82cd80d4e93ab39fd07855fb4c29a7e02eda50ae8192513afda35fe5e",
+      "bytes": 240478
+    },
+    {
+      "id": "cultures/chinese/po/zh_CN.po",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium-skycultures/014fbb5e59233d133c22f9811af96b67d05a95c9/chinese/po/zh_CN.po",
+      "revision": "014fbb5e59233d133c22f9811af96b67d05a95c9",
+      "path": "assets/source/cultures/chinese/po/zh_CN.po",
+      "retrievedAt": "2026-10-04T13:23:27.173608+00:00",
+      "sourceSha256": "3538f0e9f2efdfdb3b4b153c26ea39d7735398d776e1c5433136cdef2020342a",
+      "bytes": 69436
+    },
+    {
+      "id": "cultures/chinese_contemporary/description.md",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium-skycultures/014fbb5e59233d133c22f9811af96b67d05a95c9/chinese_contemporary/description.md",
+      "revision": "014fbb5e59233d133c22f9811af96b67d05a95c9",
+      "path": "assets/source/cultures/chinese_contemporary/description.md",
+      "retrievedAt": "2026-10-04T13:23:28.706959+00:00",
+      "sourceSha256": "6683d1eec605e2de4f562f71257ef2fbb40c611c833755db6f0f58c31142a4f4",
+      "bytes": 1774
+    },
+    {
+      "id": "cultures/chinese_contemporary/index.json",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium-skycultures/014fbb5e59233d133c22f9811af96b67d05a95c9/chinese_contemporary/index.json",
+      "revision": "014fbb5e59233d133c22f9811af96b67d05a95c9",
+      "path": "assets/source/cultures/chinese_contemporary/index.json",
+      "retrievedAt": "2026-10-04T13:23:28.819513+00:00",
+      "sourceSha256": "c6ba9e2c83b52c5a04f64471368d4ce02904582f7eaaa560bda99965eb631197",
+      "bytes": 268540
+    },
+    {
+      "id": "cultures/western/description.md",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium-skycultures/014fbb5e59233d133c22f9811af96b67d05a95c9/western/description.md",
+      "revision": "014fbb5e59233d133c22f9811af96b67d05a95c9",
+      "path": "assets/source/cultures/western/description.md",
+      "retrievedAt": "2026-10-04T13:23:30.458558+00:00",
+      "sourceSha256": "dfac2bb33ce1bbd0082601b2fad90182c085b15bbdeeb3b49490dc7ad7b804e1",
+      "bytes": 9727
+    },
+    {
+      "id": "cultures/western/index.json",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium-skycultures/014fbb5e59233d133c22f9811af96b67d05a95c9/western/index.json",
+      "revision": "014fbb5e59233d133c22f9811af96b67d05a95c9",
+      "path": "assets/source/cultures/western/index.json",
+      "retrievedAt": "2026-10-04T13:23:32.096845+00:00",
+      "sourceSha256": "a861accd345249a185a5ecfc2a516f34291c0aa52f4bb8d8337ffc53e9cef6b9",
+      "bytes": 107520
+    },
+    {
+      "id": "cultures/western/po/zh_CN.po",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium-skycultures/014fbb5e59233d133c22f9811af96b67d05a95c9/western/po/zh_CN.po",
+      "revision": "014fbb5e59233d133c22f9811af96b67d05a95c9",
+      "path": "assets/source/cultures/western/po/zh_CN.po",
+      "retrievedAt": "2026-10-04T13:23:32.363767+00:00",
+      "sourceSha256": "cf123d9a204d90193ff78c320ae50077b5e7ee7ddcb31244eac899c5f92b2248",
+      "bytes": 19829
+    },
+    {
+      "id": "esa/hipparcos-ReadMe.html",
+      "sourceUrl": "https://cdsarc.cds.unistra.fr/viz-bin/ReadMe/I/239?format=html&tex=true",
+      "revision": "snapshot",
+      "path": "assets/source/esa/hipparcos-ReadMe.html",
+      "retrievedAt": "2026-10-04T13:26:12.085795+00:00",
+      "sourceSha256": "cf6bab754601607b19653bf2a927cb4733bcad82df42c95642e627eac76dccb1",
+      "bytes": 78509
+    },
+    {
+      "id": "hko/2069e.pdf",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/pdf/files/2069e.pdf",
+      "revision": "official PDF supplement for missing TXT2069-12-30",
+      "path": "assets/source/hko/2069e.pdf",
+      "retrievedAt": "2026-10-04T15:56:30.911188+00:00",
+      "sourceSha256": "77e5623b62c7bb9ac4644ba77987334f3389ebe7346c1538ccf917e250b31b96",
+      "bytes": 210026
+    },
+    {
+      "id": "hko/T1901e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1901e.txt",
+      "revision": "HKO Gregorian–Lunar 1901 official text snapshot",
+      "path": "assets/source/hko/T1901e.txt",
+      "retrievedAt": "2026-10-04T15:49:54.618883+00:00",
+      "sourceSha256": "b4cc9e6df809b9e1c67c8ab4c46b5869d54eb32791daa9ef384838f3014f877f",
+      "bytes": 26120
+    },
+    {
+      "id": "hko/T1902e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1902e.txt",
+      "revision": "HKO Gregorian–Lunar 1902 official text snapshot",
+      "path": "assets/source/hko/T1902e.txt",
+      "retrievedAt": "2026-10-04T15:49:54.620439+00:00",
+      "sourceSha256": "55009d2d56bc1de56400c16104a5777b8a02ae55645dc9ee3e45c3ef05432377",
+      "bytes": 26119
+    },
+    {
+      "id": "hko/T1903e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1903e.txt",
+      "revision": "HKO Gregorian–Lunar 1903 official text snapshot",
+      "path": "assets/source/hko/T1903e.txt",
+      "retrievedAt": "2026-10-04T15:49:54.766641+00:00",
+      "sourceSha256": "36c125b3d6cb2b3e18c9cce765f7e817fa52ebaf8c04fedbc242df61d336638d",
+      "bytes": 26119
+    },
+    {
+      "id": "hko/T1904e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1904e.txt",
+      "revision": "HKO Gregorian–Lunar 1904 official text snapshot",
+      "path": "assets/source/hko/T1904e.txt",
+      "retrievedAt": "2026-10-04T15:49:54.890827+00:00",
+      "sourceSha256": "781b5bb7d48323e9d33c5d2a1f03574b1a8568a2bb03c8f9b1f6aa9f66630212",
+      "bytes": 26195
+    },
+    {
+      "id": "hko/T1905e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1905e.txt",
+      "revision": "HKO Gregorian–Lunar 1905 official text snapshot",
+      "path": "assets/source/hko/T1905e.txt",
+      "retrievedAt": "2026-10-04T15:49:55.055152+00:00",
+      "sourceSha256": "7f150ba024ce91f29bbe24d7f20a7ffe9698a93c469dbbd8342b6198c12807d6",
+      "bytes": 26120
+    },
+    {
+      "id": "hko/T1906e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1906e.txt",
+      "revision": "HKO Gregorian–Lunar 1906 official text snapshot",
+      "path": "assets/source/hko/T1906e.txt",
+      "retrievedAt": "2026-10-04T15:49:55.848948+00:00",
+      "sourceSha256": "6ad294c9e7399ae09fc0de1f8e6b4ade20ac699dc82293da56ae6775c3e8fa79",
+      "bytes": 26119
+    },
+    {
+      "id": "hko/T1907e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1907e.txt",
+      "revision": "HKO Gregorian–Lunar 1907 official text snapshot",
+      "path": "assets/source/hko/T1907e.txt",
+      "retrievedAt": "2026-10-04T15:49:55.834879+00:00",
+      "sourceSha256": "c3ccc4e67fa6d610ed8bb61b3c35ab9cc465978b88cb6410138559570af0549b",
+      "bytes": 26119
+    },
+    {
+      "id": "hko/T1908e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1908e.txt",
+      "revision": "HKO Gregorian–Lunar 1908 official text snapshot",
+      "path": "assets/source/hko/T1908e.txt",
+      "retrievedAt": "2026-10-04T15:49:55.971204+00:00",
+      "sourceSha256": "0dbf27e6de3fa09473d680bd834364411369070d0f753762d69cf393bf2d7ad2",
+      "bytes": 26194
+    },
+    {
+      "id": "hko/T1909e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1909e.txt",
+      "revision": "HKO Gregorian–Lunar 1909 official text snapshot",
+      "path": "assets/source/hko/T1909e.txt",
+      "retrievedAt": "2026-10-04T15:49:56.101236+00:00",
+      "sourceSha256": "e74db2835d728951cb066ef1c884b29edcb9f9be32ca348af2a7860d1c4276c6",
+      "bytes": 26123
+    },
+    {
+      "id": "hko/T1910e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1910e.txt",
+      "revision": "HKO Gregorian–Lunar 1910 official text snapshot",
+      "path": "assets/source/hko/T1910e.txt",
+      "retrievedAt": "2026-10-04T15:49:56.220393+00:00",
+      "sourceSha256": "50f8589ba3b583e261782a849735c0ef103af7d4ba67a38d3bafcc72dfa7c548",
+      "bytes": 26120
+    },
+    {
+      "id": "hko/T1911e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1911e.txt",
+      "revision": "HKO Gregorian–Lunar 1911 official text snapshot",
+      "path": "assets/source/hko/T1911e.txt",
+      "retrievedAt": "2026-10-04T15:49:57.035062+00:00",
+      "sourceSha256": "1b048383789c1c9110c67b4d4f37e0cdec602e1b50ada13195443c17e99f3a86",
+      "bytes": 26120
+    },
+    {
+      "id": "hko/T1912e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1912e.txt",
+      "revision": "HKO Gregorian–Lunar 1912 official text snapshot",
+      "path": "assets/source/hko/T1912e.txt",
+      "retrievedAt": "2026-10-04T15:49:57.026731+00:00",
+      "sourceSha256": "01ee6ee99d45d7f54b0b9f768517c27bdf4d91bd2fc7219e0ed409ccf13b348a",
+      "bytes": 26192
+    },
+    {
+      "id": "hko/T1913e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1913e.txt",
+      "revision": "HKO Gregorian–Lunar 1913 official text snapshot",
+      "path": "assets/source/hko/T1913e.txt",
+      "retrievedAt": "2026-10-04T15:49:57.180818+00:00",
+      "sourceSha256": "fbcc05057b596c445506bf5bea0e03c5994a7c1644590178dae08ead8986bf07",
+      "bytes": 26120
+    },
+    {
+      "id": "hko/T1914e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1914e.txt",
+      "revision": "HKO Gregorian–Lunar 1914 official text snapshot",
+      "path": "assets/source/hko/T1914e.txt",
+      "retrievedAt": "2026-10-04T15:49:57.317692+00:00",
+      "sourceSha256": "39b8d003217aaa38cfa353f8f828d895701ff8e69a683778cfe6cac29e04712b",
+      "bytes": 26105
+    },
+    {
+      "id": "hko/T1915e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1915e.txt",
+      "revision": "HKO Gregorian–Lunar 1915 official text snapshot",
+      "path": "assets/source/hko/T1915e.txt",
+      "retrievedAt": "2026-10-04T15:49:57.458885+00:00",
+      "sourceSha256": "320500cee761646c57a1fa8effced334003af687417b79dbebf1f732d7a9f946",
+      "bytes": 26119
+    },
+    {
+      "id": "hko/T1916e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1916e.txt",
+      "revision": "HKO Gregorian–Lunar 1916 official text snapshot",
+      "path": "assets/source/hko/T1916e.txt",
+      "retrievedAt": "2026-10-04T15:49:58.234232+00:00",
+      "sourceSha256": "7408a1aa4572d47aeb7d35e307c83896c1411a9796c1b938bb04b01fe31d7a11",
+      "bytes": 26195
+    },
+    {
+      "id": "hko/T1917e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1917e.txt",
+      "revision": "HKO Gregorian–Lunar 1917 official text snapshot",
+      "path": "assets/source/hko/T1917e.txt",
+      "retrievedAt": "2026-10-04T15:49:58.286811+00:00",
+      "sourceSha256": "a1d9879a9ae7e9f69b6a12639e49910452a7f677396bcc0921db4d0dff8ecb0e",
+      "bytes": 26119
+    },
+    {
+      "id": "hko/T1918e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1918e.txt",
+      "revision": "HKO Gregorian–Lunar 1918 official text snapshot",
+      "path": "assets/source/hko/T1918e.txt",
+      "retrievedAt": "2026-10-04T15:49:59.527442+00:00",
+      "sourceSha256": "55be037a289187df75a01e3576eb289511d244b968fe4a6fd01ea641ae3d2523",
+      "bytes": 26120
+    },
+    {
+      "id": "hko/T1919e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1919e.txt",
+      "revision": "HKO Gregorian–Lunar 1919 official text snapshot",
+      "path": "assets/source/hko/T1919e.txt",
+      "retrievedAt": "2026-10-04T15:49:58.644905+00:00",
+      "sourceSha256": "204ba7d9549cbd380a574bc8987fafc4cdf1f68397f57a770133afaafb68bdc4",
+      "bytes": 26120
+    },
+    {
+      "id": "hko/T1920e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1920e.txt",
+      "revision": "HKO Gregorian–Lunar 1920 official text snapshot",
+      "path": "assets/source/hko/T1920e.txt",
+      "retrievedAt": "2026-10-04T15:49:58.713647+00:00",
+      "sourceSha256": "36a26ce262fdac3d1e3c1caae6c6f50ce2a3669b55dce418856586fff01e7fe4",
+      "bytes": 26182
+    },
+    {
+      "id": "hko/T1921e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1921e.txt",
+      "revision": "HKO Gregorian–Lunar 1921 official text snapshot",
+      "path": "assets/source/hko/T1921e.txt",
+      "retrievedAt": "2026-10-04T15:49:59.445713+00:00",
+      "sourceSha256": "3d556f6c851f9b02f44be261455da05a586caf4e7c4b9b87c4f6d025747e9288",
+      "bytes": 26124
+    },
+    {
+      "id": "hko/T1922e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1922e.txt",
+      "revision": "HKO Gregorian–Lunar 1922 official text snapshot",
+      "path": "assets/source/hko/T1922e.txt",
+      "retrievedAt": "2026-10-04T15:49:59.461714+00:00",
+      "sourceSha256": "716e51084e03c5013f71f310b851ed8cfa024e848be53d55c5fa27a79c5cfa6f",
+      "bytes": 26119
+    },
+    {
+      "id": "hko/T1923e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1923e.txt",
+      "revision": "HKO Gregorian–Lunar 1923 official text snapshot",
+      "path": "assets/source/hko/T1923e.txt",
+      "retrievedAt": "2026-10-04T15:49:59.907598+00:00",
+      "sourceSha256": "6bf4f91da3419f25eb817946085eb1fe8a695e6884d4067b1a48c3a629e311a1",
+      "bytes": 26120
+    },
+    {
+      "id": "hko/T1924e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1924e.txt",
+      "revision": "HKO Gregorian–Lunar 1924 official text snapshot",
+      "path": "assets/source/hko/T1924e.txt",
+      "retrievedAt": "2026-10-04T15:49:59.967547+00:00",
+      "sourceSha256": "a00cddfcc57273a8b7fe24cd540a7ba39cdb18e7011f1674c961216d499fc92d",
+      "bytes": 26192
+    },
+    {
+      "id": "hko/T1925e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1925e.txt",
+      "revision": "HKO Gregorian–Lunar 1925 official text snapshot",
+      "path": "assets/source/hko/T1925e.txt",
+      "retrievedAt": "2026-10-04T15:50:00.651598+00:00",
+      "sourceSha256": "b4c23d84d54808416974cd5010fa3472228510c40067656d096209a30f5479bf",
+      "bytes": 26119
+    },
+    {
+      "id": "hko/T1926e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1926e.txt",
+      "revision": "HKO Gregorian–Lunar 1926 official text snapshot",
+      "path": "assets/source/hko/T1926e.txt",
+      "retrievedAt": "2026-10-04T15:50:00.654432+00:00",
+      "sourceSha256": "9ddd4ac54b8e45f2dacd395d195f9d6e6a99c61a606e5495c31702b9a1e7bed4",
+      "bytes": 26123
+    },
+    {
+      "id": "hko/T1927e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1927e.txt",
+      "revision": "HKO Gregorian–Lunar 1927 official text snapshot",
+      "path": "assets/source/hko/T1927e.txt",
+      "retrievedAt": "2026-10-04T15:50:00.734993+00:00",
+      "sourceSha256": "52006ef20ce47518831abc9dbf8f8ba43b8ccc51ba34dad98b7c409c7a840405",
+      "bytes": 26124
+    },
+    {
+      "id": "hko/T1928e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1928e.txt",
+      "revision": "HKO Gregorian–Lunar 1928 official text snapshot",
+      "path": "assets/source/hko/T1928e.txt",
+      "retrievedAt": "2026-10-04T15:50:01.088302+00:00",
+      "sourceSha256": "6344b44a93ddae9c257c8d4031a64c97d4509098ccf3f38bef6832c419e0d1dc",
+      "bytes": 26194
+    },
+    {
+      "id": "hko/T1929e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1929e.txt",
+      "revision": "HKO Gregorian–Lunar 1929 official text snapshot",
+      "path": "assets/source/hko/T1929e.txt",
+      "retrievedAt": "2026-10-04T15:50:01.155331+00:00",
+      "sourceSha256": "1e15689478a2a3462b659b44c1da110b53d2a79009bbc34f6941b60e0023ea52",
+      "bytes": 26120
+    },
+    {
+      "id": "hko/T1930e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1930e.txt",
+      "revision": "HKO Gregorian–Lunar 1930 official text snapshot",
+      "path": "assets/source/hko/T1930e.txt",
+      "retrievedAt": "2026-10-04T15:50:01.842507+00:00",
+      "sourceSha256": "b718957c0cda0a66ec2ad138c211e48d3bba6fc9f6da8fe7adc3d65d69249056",
+      "bytes": 26119
+    },
+    {
+      "id": "hko/T1931e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1931e.txt",
+      "revision": "HKO Gregorian–Lunar 1931 official text snapshot",
+      "path": "assets/source/hko/T1931e.txt",
+      "retrievedAt": "2026-10-04T15:50:01.845226+00:00",
+      "sourceSha256": "93f6a8fa72484ae37ba0783359166014ceef7abbdab3ccdea031db41c30e15cf",
+      "bytes": 26121
+    },
+    {
+      "id": "hko/T1932e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1932e.txt",
+      "revision": "HKO Gregorian–Lunar 1932 official text snapshot",
+      "path": "assets/source/hko/T1932e.txt",
+      "retrievedAt": "2026-10-04T15:50:01.944131+00:00",
+      "sourceSha256": "75adf3fb062577588249cc4fcb0f50a34c2e80d935ac93cd7aed61d4ed99699e",
+      "bytes": 26195
+    },
+    {
+      "id": "hko/T1933e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1933e.txt",
+      "revision": "HKO Gregorian–Lunar 1933 official text snapshot",
+      "path": "assets/source/hko/T1933e.txt",
+      "retrievedAt": "2026-10-04T15:50:02.262510+00:00",
+      "sourceSha256": "feb12e6c7d5d49e04c7bbcd9037edc3d2d117e8319f935022c20b33f17022175",
+      "bytes": 26124
+    },
+    {
+      "id": "hko/T1934e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1934e.txt",
+      "revision": "HKO Gregorian–Lunar 1934 official text snapshot",
+      "path": "assets/source/hko/T1934e.txt",
+      "retrievedAt": "2026-10-04T15:50:02.368174+00:00",
+      "sourceSha256": "079b08061528a418af51b2149c1cf2d5cfb915ef7a253325d81ba8974c5676fe",
+      "bytes": 26119
+    },
+    {
+      "id": "hko/T1935e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1935e.txt",
+      "revision": "HKO Gregorian–Lunar 1935 official text snapshot",
+      "path": "assets/source/hko/T1935e.txt",
+      "retrievedAt": "2026-10-04T15:50:03.050170+00:00",
+      "sourceSha256": "376ff69a0e344e6f3a96cae2d115b2c408ec495ce46b428752b1fa93bfc1f69d",
+      "bytes": 26120
+    },
+    {
+      "id": "hko/T1936e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1936e.txt",
+      "revision": "HKO Gregorian–Lunar 1936 official text snapshot",
+      "path": "assets/source/hko/T1936e.txt",
+      "retrievedAt": "2026-10-04T15:50:03.018594+00:00",
+      "sourceSha256": "1d68b32ccd07617bcc70de33dda844c104d3652a2a7c45c07b0fcf3e6fb01aee",
+      "bytes": 26190
+    },
+    {
+      "id": "hko/T1937e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1937e.txt",
+      "revision": "HKO Gregorian–Lunar 1937 official text snapshot",
+      "path": "assets/source/hko/T1937e.txt",
+      "retrievedAt": "2026-10-04T15:50:03.187774+00:00",
+      "sourceSha256": "8b1ebfbc48aa7cefa4caa025d128e5dbd6345384e9e959cd3e9f0ef7b56ca7f1",
+      "bytes": 26121
+    },
+    {
+      "id": "hko/T1938e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1938e.txt",
+      "revision": "HKO Gregorian–Lunar 1938 official text snapshot",
+      "path": "assets/source/hko/T1938e.txt",
+      "retrievedAt": "2026-10-04T15:50:03.445267+00:00",
+      "sourceSha256": "e770a7d7c5e3d917bef9469a9fe6879e12fe358e16577b9af1619e30ceae4e7a",
+      "bytes": 26121
+    },
+    {
+      "id": "hko/T1939e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1939e.txt",
+      "revision": "HKO Gregorian–Lunar 1939 official text snapshot",
+      "path": "assets/source/hko/T1939e.txt",
+      "retrievedAt": "2026-10-04T15:50:03.554305+00:00",
+      "sourceSha256": "e5302dc0bb2f04bef3792cc0c59423e50a587096818de537ba4bc87f018c82ef",
+      "bytes": 26119
+    },
+    {
+      "id": "hko/T1940e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1940e.txt",
+      "revision": "HKO Gregorian–Lunar 1940 official text snapshot",
+      "path": "assets/source/hko/T1940e.txt",
+      "retrievedAt": "2026-10-04T15:50:04.221391+00:00",
+      "sourceSha256": "9593f85890db360e641c7281a3c34f1aa6576e9060376730864197e0b64db9c1",
+      "bytes": 26196
+    },
+    {
+      "id": "hko/T1941e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1941e.txt",
+      "revision": "HKO Gregorian–Lunar 1941 official text snapshot",
+      "path": "assets/source/hko/T1941e.txt",
+      "retrievedAt": "2026-10-04T15:50:04.209287+00:00",
+      "sourceSha256": "250cfe27678b9c91bbe85662de9d0a8cce6395812898de0c84ddc3376cc6ae90",
+      "bytes": 26625
+    },
+    {
+      "id": "hko/T1942e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1942e.txt",
+      "revision": "HKO Gregorian–Lunar 1942 official text snapshot",
+      "path": "assets/source/hko/T1942e.txt",
+      "retrievedAt": "2026-10-04T15:50:04.384060+00:00",
+      "sourceSha256": "105f689fb2521ffe5b05f51bafe45a0624399d07163fe63021ea50aa4593f0ed",
+      "bytes": 26259
+    },
+    {
+      "id": "hko/T1943e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1943e.txt",
+      "revision": "HKO Gregorian–Lunar 1943 official text snapshot",
+      "path": "assets/source/hko/T1943e.txt",
+      "retrievedAt": "2026-10-04T15:50:04.660840+00:00",
+      "sourceSha256": "76367b274caa93e3b19b8dec8120c6854f6e31d787d1a04363e0affae5017b4a",
+      "bytes": 26259
+    },
+    {
+      "id": "hko/T1944e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1944e.txt",
+      "revision": "HKO Gregorian–Lunar 1944 official text snapshot",
+      "path": "assets/source/hko/T1944e.txt",
+      "retrievedAt": "2026-10-04T15:50:04.770619+00:00",
+      "sourceSha256": "0bd517bddd1a0124554aea004ec3445ff057fbac676a54e0872a1965cfc073b9",
+      "bytes": 26333
+    },
+    {
+      "id": "hko/T1945e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1945e.txt",
+      "revision": "HKO Gregorian–Lunar 1945 official text snapshot",
+      "path": "assets/source/hko/T1945e.txt",
+      "retrievedAt": "2026-10-04T15:50:05.414529+00:00",
+      "sourceSha256": "14e317779429079ed2594dadd59e36f16b44947ef22a7edf9445d4eaf0e4ea1c",
+      "bytes": 26261
+    },
+    {
+      "id": "hko/T1946e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1946e.txt",
+      "revision": "HKO Gregorian–Lunar 1946 official text snapshot",
+      "path": "assets/source/hko/T1946e.txt",
+      "retrievedAt": "2026-10-04T15:50:05.401548+00:00",
+      "sourceSha256": "ab6836190016a8e54f17395ccf65def9344c6646aebff13eb4de55c208d00398",
+      "bytes": 26256
+    },
+    {
+      "id": "hko/T1947e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1947e.txt",
+      "revision": "HKO Gregorian–Lunar 1947 official text snapshot",
+      "path": "assets/source/hko/T1947e.txt",
+      "retrievedAt": "2026-10-04T15:50:05.606329+00:00",
+      "sourceSha256": "93bae89e1cc2eff8cca3e7d840de10e616a7f3f45c23f0967c6f51737f5360b4",
+      "bytes": 26627
+    },
+    {
+      "id": "hko/T1948e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1948e.txt",
+      "revision": "HKO Gregorian–Lunar 1948 official text snapshot",
+      "path": "assets/source/hko/T1948e.txt",
+      "retrievedAt": "2026-10-04T15:50:05.858190+00:00",
+      "sourceSha256": "a134d6c00e71fc949d44596cab7a17508ed15b22de567dd904f21aded8afd11a",
+      "bytes": 26324
+    },
+    {
+      "id": "hko/T1949e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1949e.txt",
+      "revision": "HKO Gregorian–Lunar 1949 official text snapshot",
+      "path": "assets/source/hko/T1949e.txt",
+      "retrievedAt": "2026-10-04T15:50:05.903937+00:00",
+      "sourceSha256": "03d3e0a305bbda52b246726aa9d8862524cf8f0fcb71a3bc1be5a26c3df047bc",
+      "bytes": 26254
+    },
+    {
+      "id": "hko/T1950e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1950e.txt",
+      "revision": "HKO Gregorian–Lunar 1950 official text snapshot",
+      "path": "assets/source/hko/T1950e.txt",
+      "retrievedAt": "2026-10-04T15:50:06.538658+00:00",
+      "sourceSha256": "33021defc45aa39ec9be03e3558c00b7b74959550181600790c6c9cfc7643cfe",
+      "bytes": 26258
+    },
+    {
+      "id": "hko/T1951e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1951e.txt",
+      "revision": "HKO Gregorian–Lunar 1951 official text snapshot",
+      "path": "assets/source/hko/T1951e.txt",
+      "retrievedAt": "2026-10-04T15:50:06.602019+00:00",
+      "sourceSha256": "f2842384b4073796290b1b0793253373b5dbf26dfd5dee5642ed347658f6b9d4",
+      "bytes": 26258
+    },
+    {
+      "id": "hko/T1952e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1952e.txt",
+      "revision": "HKO Gregorian–Lunar 1952 official text snapshot",
+      "path": "assets/source/hko/T1952e.txt",
+      "retrievedAt": "2026-10-04T15:50:06.768737+00:00",
+      "sourceSha256": "5057b9bb396ae371a4cfa63b840f94c0b6e62d4e5ded2b271c386eb49732e3e5",
+      "bytes": 26700
+    },
+    {
+      "id": "hko/T1953e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1953e.txt",
+      "revision": "HKO Gregorian–Lunar 1953 official text snapshot",
+      "path": "assets/source/hko/T1953e.txt",
+      "retrievedAt": "2026-10-04T15:50:07.055065+00:00",
+      "sourceSha256": "118c9dc4cb10ceb031613c8481522d4fa0b1ca5b2d462ed6fec12c98ca4afd4a",
+      "bytes": 26256
+    },
+    {
+      "id": "hko/T1954e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1954e.txt",
+      "revision": "HKO Gregorian–Lunar 1954 official text snapshot",
+      "path": "assets/source/hko/T1954e.txt",
+      "retrievedAt": "2026-10-04T15:50:07.057405+00:00",
+      "sourceSha256": "3033665842a2e0fb9141b78b8f6a430f6e9e79d8e453d45f10c5fbe45dfea9df",
+      "bytes": 26257
+    },
+    {
+      "id": "hko/T1955e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1955e.txt",
+      "revision": "HKO Gregorian–Lunar 1955 official text snapshot",
+      "path": "assets/source/hko/T1955e.txt",
+      "retrievedAt": "2026-10-04T15:50:07.746064+00:00",
+      "sourceSha256": "0e12a17692218e3a7aed335ef406ed3f774964fe8d2047ce02160825a57ce88a",
+      "bytes": 26256
+    },
+    {
+      "id": "hko/T1956e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1956e.txt",
+      "revision": "HKO Gregorian–Lunar 1956 official text snapshot",
+      "path": "assets/source/hko/T1956e.txt",
+      "retrievedAt": "2026-10-04T15:50:07.775091+00:00",
+      "sourceSha256": "b00e982c5ded2327781f299b1682b9d5510876327df666cd653ea87d091e123f",
+      "bytes": 26332
+    },
+    {
+      "id": "hko/T1957e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1957e.txt",
+      "revision": "HKO Gregorian–Lunar 1957 official text snapshot",
+      "path": "assets/source/hko/T1957e.txt",
+      "retrievedAt": "2026-10-04T15:50:07.995701+00:00",
+      "sourceSha256": "1f83b8ecfc9a0c2819aa14504fc9ad77015ee768546a4aa2d280d46775179191",
+      "bytes": 26261
+    },
+    {
+      "id": "hko/T1958e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1958e.txt",
+      "revision": "HKO Gregorian–Lunar 1958 official text snapshot",
+      "path": "assets/source/hko/T1958e.txt",
+      "retrievedAt": "2026-10-04T15:50:08.255678+00:00",
+      "sourceSha256": "f7122da0ca4300a6252cd64d0413b2a077698c64f318638057762424d3fd9f80",
+      "bytes": 26254
+    },
+    {
+      "id": "hko/T1959e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1959e.txt",
+      "revision": "HKO Gregorian–Lunar 1959 official text snapshot",
+      "path": "assets/source/hko/T1959e.txt",
+      "retrievedAt": "2026-10-04T15:50:08.249849+00:00",
+      "sourceSha256": "bfec172a4e383f26cc794a13e2a32b2220f090e6541e4a03e3c9a5b01dcbf955",
+      "bytes": 26255
+    },
+    {
+      "id": "hko/T1960e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1960e.txt",
+      "revision": "HKO Gregorian–Lunar 1960 official text snapshot",
+      "path": "assets/source/hko/T1960e.txt",
+      "retrievedAt": "2026-10-04T15:50:08.935673+00:00",
+      "sourceSha256": "48ea5582a5446548987f336dcdd7fb87e6e915783cffadd3ec0039ea3ce8f136",
+      "bytes": 26323
+    },
+    {
+      "id": "hko/T1961e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1961e.txt",
+      "revision": "HKO Gregorian–Lunar 1961 official text snapshot",
+      "path": "assets/source/hko/T1961e.txt",
+      "retrievedAt": "2026-10-04T15:50:08.958995+00:00",
+      "sourceSha256": "8533f505d27966b9eeeb6662363bec3d51f3b90ed0c1f764998c0296214a2638",
+      "bytes": 26256
+    },
+    {
+      "id": "hko/T1962e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1962e.txt",
+      "revision": "HKO Gregorian–Lunar 1962 official text snapshot",
+      "path": "assets/source/hko/T1962e.txt",
+      "retrievedAt": "2026-10-04T15:50:09.206572+00:00",
+      "sourceSha256": "e57ac5f10d1424c0f6c1cdc0cebc36b941947005e498495b5f24e9b36a83aeba",
+      "bytes": 26253
+    },
+    {
+      "id": "hko/T1963e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1963e.txt",
+      "revision": "HKO Gregorian–Lunar 1963 official text snapshot",
+      "path": "assets/source/hko/T1963e.txt",
+      "retrievedAt": "2026-10-04T15:50:09.385586+00:00",
+      "sourceSha256": "c0a890cae9be9daecba0ea771cdf9f3202ee62095e5420cc702f97d629ce53cf",
+      "bytes": 26259
+    },
+    {
+      "id": "hko/T1964e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1964e.txt",
+      "revision": "HKO Gregorian–Lunar 1964 official text snapshot",
+      "path": "assets/source/hko/T1964e.txt",
+      "retrievedAt": "2026-10-04T15:50:09.558837+00:00",
+      "sourceSha256": "0290587d462a6d92e64408c61665fe5553b5d1c3a07c40487bd8d1aa82aa6c2d",
+      "bytes": 26331
+    },
+    {
+      "id": "hko/T1965e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1965e.txt",
+      "revision": "HKO Gregorian–Lunar 1965 official text snapshot",
+      "path": "assets/source/hko/T1965e.txt",
+      "retrievedAt": "2026-10-04T15:50:10.101591+00:00",
+      "sourceSha256": "9a6e636d54ce5264ce8c1c4357cb650a12dce1f70b185cf6d338a75487f593c4",
+      "bytes": 26256
+    },
+    {
+      "id": "hko/T1966e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1966e.txt",
+      "revision": "HKO Gregorian–Lunar 1966 official text snapshot",
+      "path": "assets/source/hko/T1966e.txt",
+      "retrievedAt": "2026-10-04T15:50:10.106186+00:00",
+      "sourceSha256": "1a5d1c4de824c446dd0091be51abc3c15f4bbee9df334e62b296bf36aba87674",
+      "bytes": 26253
+    },
+    {
+      "id": "hko/T1967e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1967e.txt",
+      "revision": "HKO Gregorian–Lunar 1967 official text snapshot",
+      "path": "assets/source/hko/T1967e.txt",
+      "retrievedAt": "2026-10-04T15:50:10.500828+00:00",
+      "sourceSha256": "0b96e874410db6e144420eb7b9263366555a941b8706cfa6cfe0f1243c19f9ed",
+      "bytes": 26252
+    },
+    {
+      "id": "hko/T1968e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1968e.txt",
+      "revision": "HKO Gregorian–Lunar 1968 official text snapshot",
+      "path": "assets/source/hko/T1968e.txt",
+      "retrievedAt": "2026-10-04T15:50:10.565202+00:00",
+      "sourceSha256": "e753e5f95c08a09c1f460676cca2761bb9fe1cadfb76e86a602539f47f74ab57",
+      "bytes": 26330
+    },
+    {
+      "id": "hko/T1969e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1969e.txt",
+      "revision": "HKO Gregorian–Lunar 1969 official text snapshot",
+      "path": "assets/source/hko/T1969e.txt",
+      "retrievedAt": "2026-10-04T15:50:10.807325+00:00",
+      "sourceSha256": "db759cafe057ec63e92fcae784b0637b3e1d4f0adce115b18c4146ca45dc6f99",
+      "bytes": 26259
+    },
+    {
+      "id": "hko/T1970e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1970e.txt",
+      "revision": "HKO Gregorian–Lunar 1970 official text snapshot",
+      "path": "assets/source/hko/T1970e.txt",
+      "retrievedAt": "2026-10-04T15:50:11.353989+00:00",
+      "sourceSha256": "3ff1ae02d7ce1a52d8f50bd94b3ee9505cc00098fd6e55148ccf8d31a026dba9",
+      "bytes": 26256
+    },
+    {
+      "id": "hko/T1971e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1971e.txt",
+      "revision": "HKO Gregorian–Lunar 1971 official text snapshot",
+      "path": "assets/source/hko/T1971e.txt",
+      "retrievedAt": "2026-10-04T15:50:11.352321+00:00",
+      "sourceSha256": "37221755b629a7dd532a1a882cfe6187564957d31d4a9b4c5f05e6de387bde53",
+      "bytes": 26256
+    },
+    {
+      "id": "hko/T1972e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1972e.txt",
+      "revision": "HKO Gregorian–Lunar 1972 official text snapshot",
+      "path": "assets/source/hko/T1972e.txt",
+      "retrievedAt": "2026-10-04T15:50:11.836304+00:00",
+      "sourceSha256": "f17f1d9bf0a18d00f9981b1e4dd171125232256f5254c919b4c52ea051f398e9",
+      "bytes": 26328
+    },
+    {
+      "id": "hko/T1973e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1973e.txt",
+      "revision": "HKO Gregorian–Lunar 1973 official text snapshot",
+      "path": "assets/source/hko/T1973e.txt",
+      "retrievedAt": "2026-10-04T15:50:11.843492+00:00",
+      "sourceSha256": "1cbbcdd638178fa08a1a952e2cb1cadd1a71d8d0fa4c549e2cd7810c06a489bd",
+      "bytes": 26278
+    },
+    {
+      "id": "hko/T1974e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1974e.txt",
+      "revision": "HKO Gregorian–Lunar 1974 official text snapshot",
+      "path": "assets/source/hko/T1974e.txt",
+      "retrievedAt": "2026-10-04T15:50:11.967504+00:00",
+      "sourceSha256": "7ae9394f2fb47ff302ad486e2f2ab314f4d1a4fee8f9673738ae705b1b628027",
+      "bytes": 26254
+    },
+    {
+      "id": "hko/T1975e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1975e.txt",
+      "revision": "HKO Gregorian–Lunar 1975 official text snapshot",
+      "path": "assets/source/hko/T1975e.txt",
+      "retrievedAt": "2026-10-04T15:50:12.554776+00:00",
+      "sourceSha256": "a7af019fe97895ca5f21b9a026399020910e3ef07dd70389eae452b29f81fb0a",
+      "bytes": 26253
+    },
+    {
+      "id": "hko/T1976e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1976e.txt",
+      "revision": "HKO Gregorian–Lunar 1976 official text snapshot",
+      "path": "assets/source/hko/T1976e.txt",
+      "retrievedAt": "2026-10-04T15:50:12.524804+00:00",
+      "sourceSha256": "472919570b9c8093f3ffdd7a98e2fb56f4986443d0538ff7018969c6b96bbd59",
+      "bytes": 26332
+    },
+    {
+      "id": "hko/T1977e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1977e.txt",
+      "revision": "HKO Gregorian–Lunar 1977 official text snapshot",
+      "path": "assets/source/hko/T1977e.txt",
+      "retrievedAt": "2026-10-04T15:50:12.991973+00:00",
+      "sourceSha256": "1854835a770591a581642528e699e3b78739c1b5fda261d3fd4594ad18f92947",
+      "bytes": 26117
+    },
+    {
+      "id": "hko/T1978e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1978e.txt",
+      "revision": "HKO Gregorian–Lunar 1978 official text snapshot",
+      "path": "assets/source/hko/T1978e.txt",
+      "retrievedAt": "2026-10-04T15:50:13.064754+00:00",
+      "sourceSha256": "ab424392664eca7acff95d917d75cecf23fdf2304517512aee0f9680090d124d",
+      "bytes": 26120
+    },
+    {
+      "id": "hko/T1979e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1979e.txt",
+      "revision": "HKO Gregorian–Lunar 1979 official text snapshot",
+      "path": "assets/source/hko/T1979e.txt",
+      "retrievedAt": "2026-10-04T15:50:13.129624+00:00",
+      "sourceSha256": "5945e83fa7509f327c89e426dfd778cf8e7154ec8050c798d1397ff961be5eed",
+      "bytes": 26254
+    },
+    {
+      "id": "hko/T1980e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1980e.txt",
+      "revision": "HKO Gregorian–Lunar 1980 official text snapshot",
+      "path": "assets/source/hko/T1980e.txt",
+      "retrievedAt": "2026-10-04T15:50:13.737825+00:00",
+      "sourceSha256": "c3c506965ed69562cf68475e68c9ecc58ad199e7d98426b872aba8f31bda4c7c",
+      "bytes": 26196
+    },
+    {
+      "id": "hko/T1981e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1981e.txt",
+      "revision": "HKO Gregorian–Lunar 1981 official text snapshot",
+      "path": "assets/source/hko/T1981e.txt",
+      "retrievedAt": "2026-10-04T15:50:13.717211+00:00",
+      "sourceSha256": "4abcd2db41145b84f2e165262d05c14bfee38d06afd795c495929dcfbfbf005a",
+      "bytes": 26124
+    },
+    {
+      "id": "hko/T1982e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1982e.txt",
+      "revision": "HKO Gregorian–Lunar 1982 official text snapshot",
+      "path": "assets/source/hko/T1982e.txt",
+      "retrievedAt": "2026-10-04T15:50:14.186840+00:00",
+      "sourceSha256": "87b0fb07ee78f7c870f8f7eac1da927bea7b8a0694cd99544221a72deb80039a",
+      "bytes": 26119
+    },
+    {
+      "id": "hko/T1983e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1983e.txt",
+      "revision": "HKO Gregorian–Lunar 1983 official text snapshot",
+      "path": "assets/source/hko/T1983e.txt",
+      "retrievedAt": "2026-10-04T15:50:14.259145+00:00",
+      "sourceSha256": "560250cbe768d423fb9a86f7882545a2f06545260dd68d9c5e77ba771b4bb8ef",
+      "bytes": 26120
+    },
+    {
+      "id": "hko/T1984e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1984e.txt",
+      "revision": "HKO Gregorian–Lunar 1984 official text snapshot",
+      "path": "assets/source/hko/T1984e.txt",
+      "retrievedAt": "2026-10-04T15:50:14.312306+00:00",
+      "sourceSha256": "de5c6296e4acb2b87e19a658f26f86314732b327b3aafa372f359d39035688af",
+      "bytes": 26192
+    },
+    {
+      "id": "hko/T1985e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1985e.txt",
+      "revision": "HKO Gregorian–Lunar 1985 official text snapshot",
+      "path": "assets/source/hko/T1985e.txt",
+      "retrievedAt": "2026-10-04T15:50:14.857066+00:00",
+      "sourceSha256": "25ff71d03102d491026514d3b551b6ebebe4f906b34d0108a1f0ecc4ffef8b66",
+      "bytes": 26119
+    },
+    {
+      "id": "hko/T1986e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1986e.txt",
+      "revision": "HKO Gregorian–Lunar 1986 official text snapshot",
+      "path": "assets/source/hko/T1986e.txt",
+      "retrievedAt": "2026-10-04T15:50:14.934014+00:00",
+      "sourceSha256": "05dad4f0081a640e077852124ff657f3ad1bbeb2c23166c01d368473829b1cbb",
+      "bytes": 26123
+    },
+    {
+      "id": "hko/T1987e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1987e.txt",
+      "revision": "HKO Gregorian–Lunar 1987 official text snapshot",
+      "path": "assets/source/hko/T1987e.txt",
+      "retrievedAt": "2026-10-04T15:50:15.443065+00:00",
+      "sourceSha256": "09b78d24980c888e37df7131c558f0ea1176d78306d6e200dbb3c77f7c052aa4",
+      "bytes": 26124
+    },
+    {
+      "id": "hko/T1988e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1988e.txt",
+      "revision": "HKO Gregorian–Lunar 1988 official text snapshot",
+      "path": "assets/source/hko/T1988e.txt",
+      "retrievedAt": "2026-10-04T15:50:15.480806+00:00",
+      "sourceSha256": "4780453eb7f785803904ebcc488b17f62d56346675906eb1914079dad2ea5454",
+      "bytes": 26194
+    },
+    {
+      "id": "hko/T1989e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1989e.txt",
+      "revision": "HKO Gregorian–Lunar 1989 official text snapshot",
+      "path": "assets/source/hko/T1989e.txt",
+      "retrievedAt": "2026-10-04T15:50:15.478485+00:00",
+      "sourceSha256": "4565ae319d61048bbcb15cbdac71b57178cba0680b0cf766fc7d146f9bf115b5",
+      "bytes": 26120
+    },
+    {
+      "id": "hko/T1990e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1990e.txt",
+      "revision": "HKO Gregorian–Lunar 1990 official text snapshot",
+      "path": "assets/source/hko/T1990e.txt",
+      "retrievedAt": "2026-10-04T15:50:16.091842+00:00",
+      "sourceSha256": "6091739d27601136816e68588266d827cee20952ff6a900cd89307572737de93",
+      "bytes": 26117
+    },
+    {
+      "id": "hko/T1991e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1991e.txt",
+      "revision": "HKO Gregorian–Lunar 1991 official text snapshot",
+      "path": "assets/source/hko/T1991e.txt",
+      "retrievedAt": "2026-10-04T15:50:16.107643+00:00",
+      "sourceSha256": "cfd25b245422f55613c4371467897da658e4d37fd8238baa8759b0d786a081e4",
+      "bytes": 26121
+    },
+    {
+      "id": "hko/T1992e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1992e.txt",
+      "revision": "HKO Gregorian–Lunar 1992 official text snapshot",
+      "path": "assets/source/hko/T1992e.txt",
+      "retrievedAt": "2026-10-04T15:50:16.623117+00:00",
+      "sourceSha256": "1a6a2714e73bbcd6c91ad71ab527e81e5dc1a6a47bede6e0f73a0f27bdb4f72c",
+      "bytes": 26195
+    },
+    {
+      "id": "hko/T1993e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1993e.txt",
+      "revision": "HKO Gregorian–Lunar 1993 official text snapshot",
+      "path": "assets/source/hko/T1993e.txt",
+      "retrievedAt": "2026-10-04T15:50:16.628076+00:00",
+      "sourceSha256": "136516fb0112444b2ab2d3595c4590e2366cff1f30f8d6687f5a9d17d0642c0a",
+      "bytes": 26124
+    },
+    {
+      "id": "hko/T1994e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1994e.txt",
+      "revision": "HKO Gregorian–Lunar 1994 official text snapshot",
+      "path": "assets/source/hko/T1994e.txt",
+      "retrievedAt": "2026-10-04T15:50:16.620992+00:00",
+      "sourceSha256": "4ce5e8e79ded798239d747ae7c7e4f64db114eacfaa6f9e16e51e0e5373f39c7",
+      "bytes": 26119
+    },
+    {
+      "id": "hko/T1995e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1995e.txt",
+      "revision": "HKO Gregorian–Lunar 1995 official text snapshot",
+      "path": "assets/source/hko/T1995e.txt",
+      "retrievedAt": "2026-10-04T15:50:17.274232+00:00",
+      "sourceSha256": "173cdc1dffbebe0f1c3d3a4b1d89f2fd1360d45f83289b68cad728d36ac01f70",
+      "bytes": 26119
+    },
+    {
+      "id": "hko/T1996e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1996e.txt",
+      "revision": "HKO Gregorian–Lunar 1996 official text snapshot",
+      "path": "assets/source/hko/T1996e.txt",
+      "retrievedAt": "2026-10-04T15:50:17.276802+00:00",
+      "sourceSha256": "aa6715c8b5e50b77699d3ca2b74cfc7c4740cc2163d7b3dface40ba314996c37",
+      "bytes": 26188
+    },
+    {
+      "id": "hko/T1997e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1997e.txt",
+      "revision": "HKO Gregorian–Lunar 1997 official text snapshot",
+      "path": "assets/source/hko/T1997e.txt",
+      "retrievedAt": "2026-10-04T15:50:17.772715+00:00",
+      "sourceSha256": "9f6d76534b04cbc24081e77d88a606d50cc4791153c43bd48d90e5064c99adb3",
+      "bytes": 26121
+    },
+    {
+      "id": "hko/T1998e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1998e.txt",
+      "revision": "HKO Gregorian–Lunar 1998 official text snapshot",
+      "path": "assets/source/hko/T1998e.txt",
+      "retrievedAt": "2026-10-04T15:50:17.763254+00:00",
+      "sourceSha256": "e78b3f809abf6d9b09f648d7e94e522f09c40320300829e56acfcb5f33bb9df3",
+      "bytes": 26121
+    },
+    {
+      "id": "hko/T1999e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T1999e.txt",
+      "revision": "HKO Gregorian–Lunar 1999 official text snapshot",
+      "path": "assets/source/hko/T1999e.txt",
+      "retrievedAt": "2026-10-04T15:50:17.857291+00:00",
+      "sourceSha256": "0b5783a14ebc9a4f6cb9a7242c7fd5226b48bc990397f4ea77be68d558a5f70c",
+      "bytes": 26117
+    },
+    {
+      "id": "hko/T2000e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2000e.txt",
+      "revision": "HKO Gregorian–Lunar 2000 official text snapshot",
+      "path": "assets/source/hko/T2000e.txt",
+      "retrievedAt": "2026-10-04T15:50:18.417700+00:00",
+      "sourceSha256": "5a8ec016dd522ae8397ba5d3d10d8b942bde4123cc045626354611510b065a6c",
+      "bytes": 26196
+    },
+    {
+      "id": "hko/T2001e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2001e.txt",
+      "revision": "HKO Gregorian–Lunar 2001 official text snapshot",
+      "path": "assets/source/hko/T2001e.txt",
+      "retrievedAt": "2026-10-04T15:50:18.420720+00:00",
+      "sourceSha256": "6e89874a1ac2b6dd53a45a11fcbef79bba7efda940b0acf8a92aba31ee98514b",
+      "bytes": 26121
+    },
+    {
+      "id": "hko/T2002e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2002e.txt",
+      "revision": "HKO Gregorian–Lunar 2002 official text snapshot",
+      "path": "assets/source/hko/T2002e.txt",
+      "retrievedAt": "2026-10-04T15:50:18.940775+00:00",
+      "sourceSha256": "dae842a36c39c3f2e3a37010c4006fc43ec2615b0c07f39eafc1c3f674bef3ac",
+      "bytes": 26121
+    },
+    {
+      "id": "hko/T2003e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2003e.txt",
+      "revision": "HKO Gregorian–Lunar 2003 official text snapshot",
+      "path": "assets/source/hko/T2003e.txt",
+      "retrievedAt": "2026-10-04T15:50:18.936812+00:00",
+      "sourceSha256": "4f4cc8381e333f9f8b3730c66b00ecc33df13966ee534005a7263fc11ce9edc6",
+      "bytes": 26121
+    },
+    {
+      "id": "hko/T2004e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2004e.txt",
+      "revision": "HKO Gregorian–Lunar 2004 official text snapshot",
+      "path": "assets/source/hko/T2004e.txt",
+      "retrievedAt": "2026-10-04T15:50:19.029973+00:00",
+      "sourceSha256": "0545634614b4f1cefb20855ce6c265b903374935590f5bd761cc2b662ce231d5",
+      "bytes": 26195
+    },
+    {
+      "id": "hko/T2005e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2005e.txt",
+      "revision": "HKO Gregorian–Lunar 2005 official text snapshot",
+      "path": "assets/source/hko/T2005e.txt",
+      "retrievedAt": "2026-10-04T15:50:19.623673+00:00",
+      "sourceSha256": "9c9edc991dc0da61121aab334ba492a5565624f213a3e9016fd7d485bd77e657",
+      "bytes": 26123
+    },
+    {
+      "id": "hko/T2006e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2006e.txt",
+      "revision": "HKO Gregorian–Lunar 2006 official text snapshot",
+      "path": "assets/source/hko/T2006e.txt",
+      "retrievedAt": "2026-10-04T15:50:19.623022+00:00",
+      "sourceSha256": "a71873c695bfdd10d185e2485140c6a386bf0f9af5a01133c1217f82075e4087",
+      "bytes": 26120
+    },
+    {
+      "id": "hko/T2007e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2007e.txt",
+      "revision": "HKO Gregorian–Lunar 2007 official text snapshot",
+      "path": "assets/source/hko/T2007e.txt",
+      "retrievedAt": "2026-10-04T15:50:20.158123+00:00",
+      "sourceSha256": "2eeec2ef316267d92c2ec93e44d2ccb3a889e02c408aecdcc696a2c350416673",
+      "bytes": 26121
+    },
+    {
+      "id": "hko/T2008e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2008e.txt",
+      "revision": "HKO Gregorian–Lunar 2008 official text snapshot",
+      "path": "assets/source/hko/T2008e.txt",
+      "retrievedAt": "2026-10-04T15:50:20.161328+00:00",
+      "sourceSha256": "dd3c08f02280b3781a46f00e68632399ac0220e1793e936c8503702e4cda19de",
+      "bytes": 26191
+    },
+    {
+      "id": "hko/T2009e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2009e.txt",
+      "revision": "HKO Gregorian–Lunar 2009 official text snapshot",
+      "path": "assets/source/hko/T2009e.txt",
+      "retrievedAt": "2026-10-04T15:50:20.257439+00:00",
+      "sourceSha256": "5f2bc5e823a6f34a5274a45133d40d8b28f4b2cffecba0ffb2e1a9a56723ded1",
+      "bytes": 26119
+    },
+    {
+      "id": "hko/T2010e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2010e.txt",
+      "revision": "HKO Gregorian–Lunar 2010 official text snapshot",
+      "path": "assets/source/hko/T2010e.txt",
+      "retrievedAt": "2026-10-04T15:50:20.792118+00:00",
+      "sourceSha256": "c507beb3cd5a279ea666b8fe0a4f501c645316373a4b646d746c31c1594b421e",
+      "bytes": 26123
+    },
+    {
+      "id": "hko/T2011e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2011e.txt",
+      "revision": "HKO Gregorian–Lunar 2011 official text snapshot",
+      "path": "assets/source/hko/T2011e.txt",
+      "retrievedAt": "2026-10-04T15:50:20.837780+00:00",
+      "sourceSha256": "190a245434f85d15a81c7f4c35644a4b97aca62b35dbc153f8d0f93b0b3a3ec9",
+      "bytes": 28989
+    },
+    {
+      "id": "hko/T2012e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2012e.txt",
+      "revision": "HKO Gregorian–Lunar 2012 official text snapshot",
+      "path": "assets/source/hko/T2012e.txt",
+      "retrievedAt": "2026-10-04T15:50:21.353128+00:00",
+      "sourceSha256": "3baa28e28aae7e963a93e932b586bd131a163af9bc7f4f6c26cc97a663e3984d",
+      "bytes": 28701
+    },
+    {
+      "id": "hko/T2013e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2013e.txt",
+      "revision": "HKO Gregorian–Lunar 2013 official text snapshot",
+      "path": "assets/source/hko/T2013e.txt",
+      "retrievedAt": "2026-10-04T15:50:21.357069+00:00",
+      "sourceSha256": "5547e3ac578c35a7fee7124a0a828b332e952af2f98508a261445c40935d2ef0",
+      "bytes": 28620
+    },
+    {
+      "id": "hko/T2014e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2014e.txt",
+      "revision": "HKO Gregorian–Lunar 2014 official text snapshot",
+      "path": "assets/source/hko/T2014e.txt",
+      "retrievedAt": "2026-10-04T15:50:21.405533+00:00",
+      "sourceSha256": "d951404fd19b2e19580f41ca2c2cc854e20a27d2c680d5c50abd5b55df62371f",
+      "bytes": 28620
+    },
+    {
+      "id": "hko/T2015e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2015e.txt",
+      "revision": "HKO Gregorian–Lunar 2015 official text snapshot",
+      "path": "assets/source/hko/T2015e.txt",
+      "retrievedAt": "2026-10-04T15:50:21.959229+00:00",
+      "sourceSha256": "3a00ed814d839900f491b8f93d172b3376de7b2718534efabe90c16beb784974",
+      "bytes": 28986
+    },
+    {
+      "id": "hko/T2016e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2016e.txt",
+      "revision": "HKO Gregorian–Lunar 2016 official text snapshot",
+      "path": "assets/source/hko/T2016e.txt",
+      "retrievedAt": "2026-10-04T15:50:22.051154+00:00",
+      "sourceSha256": "54fd6b05b9ef67f0d4cb415e2cf9fd7144576fa9bc8bd56b31a6fcdbf2883926",
+      "bytes": 29070
+    },
+    {
+      "id": "hko/T2017e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2017e.txt",
+      "revision": "HKO Gregorian–Lunar 2017 official text snapshot",
+      "path": "assets/source/hko/T2017e.txt",
+      "retrievedAt": "2026-10-04T15:50:22.575522+00:00",
+      "sourceSha256": "61289cd623a29273ebac0bfef9d47c25d5c925ff7ad7eee4bb5b1c69d9fdfa83",
+      "bytes": 28624
+    },
+    {
+      "id": "hko/T2018e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2018e.txt",
+      "revision": "HKO Gregorian–Lunar 2018 official text snapshot",
+      "path": "assets/source/hko/T2018e.txt",
+      "retrievedAt": "2026-10-04T15:50:22.505712+00:00",
+      "sourceSha256": "aa927769705f2d92e1db2614e89a2079418ea13f9d1f12a4a10f48b7143692e8",
+      "bytes": 28617
+    },
+    {
+      "id": "hko/T2019e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2019e.txt",
+      "revision": "HKO Gregorian–Lunar 2019 official text snapshot",
+      "path": "assets/source/hko/T2019e.txt",
+      "retrievedAt": "2026-10-04T15:50:22.597143+00:00",
+      "sourceSha256": "678c150eb855b0c381de6afddf85c33b13cc473c6c2145309c8021dce9cd7d46",
+      "bytes": 28618
+    },
+    {
+      "id": "hko/T2020e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2020e.txt",
+      "revision": "HKO Gregorian–Lunar 2020 official text snapshot",
+      "path": "assets/source/hko/T2020e.txt",
+      "retrievedAt": "2026-10-04T15:50:23.152806+00:00",
+      "sourceSha256": "0dde5ed6d41935f8f420643287fc0250588102b154d8243e0f2762bb0c473bd2",
+      "bytes": 28699
+    },
+    {
+      "id": "hko/T2021e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2021e.txt",
+      "revision": "HKO Gregorian–Lunar 2021 official text snapshot",
+      "path": "assets/source/hko/T2021e.txt",
+      "retrievedAt": "2026-10-04T15:50:23.233524+00:00",
+      "sourceSha256": "d3432f28db9a868aa407720a39224d7858395389ddc818d92c3a3fa43d58360a",
+      "bytes": 28619
+    },
+    {
+      "id": "hko/T2022e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2022e.txt",
+      "revision": "HKO Gregorian–Lunar 2022 official text snapshot",
+      "path": "assets/source/hko/T2022e.txt",
+      "retrievedAt": "2026-10-04T15:50:23.715560+00:00",
+      "sourceSha256": "34c1edcf7ce3b20e3963f38379cfd77cce8bcf4dbede9bb9b18412e375bc555f",
+      "bytes": 28621
+    },
+    {
+      "id": "hko/T2023e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2023e.txt",
+      "revision": "HKO Gregorian–Lunar 2023 official text snapshot",
+      "path": "assets/source/hko/T2023e.txt",
+      "retrievedAt": "2026-10-04T15:50:23.809329+00:00",
+      "sourceSha256": "f3bbdef5c9b0c0158ca8328004e347da714494572effc23fea97af48052402e5",
+      "bytes": 28989
+    },
+    {
+      "id": "hko/T2024e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2024e.txt",
+      "revision": "HKO Gregorian–Lunar 2024 official text snapshot",
+      "path": "assets/source/hko/T2024e.txt",
+      "retrievedAt": "2026-10-04T15:50:23.807540+00:00",
+      "sourceSha256": "81f8fba2c809d5dcea5c63699e843b82e29318553cb5de7bbf053aa66d068fdc",
+      "bytes": 28701
+    },
+    {
+      "id": "hko/T2025e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2025e.txt",
+      "revision": "HKO Gregorian–Lunar 2025 official text snapshot",
+      "path": "assets/source/hko/T2025e.txt",
+      "retrievedAt": "2026-10-04T15:50:24.315227+00:00",
+      "sourceSha256": "e11ba9a4d1fcde4d09570871149d3eea329d3a92a1b79be814d3f7313ae3fa50",
+      "bytes": 28619
+    },
+    {
+      "id": "hko/T2026e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2026e.txt",
+      "revision": "HKO Gregorian–Lunar 2026 official text snapshot",
+      "path": "assets/source/hko/T2026e.txt",
+      "retrievedAt": "2026-10-04T15:50:24.417476+00:00",
+      "sourceSha256": "29ef9c43977a69681ef770d0c264e4226692f21f3febc3d16a4ee5c8aa06c60c",
+      "bytes": 28621
+    },
+    {
+      "id": "hko/T2027e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2027e.txt",
+      "revision": "HKO Gregorian–Lunar 2027 official text snapshot",
+      "path": "assets/source/hko/T2027e.txt",
+      "retrievedAt": "2026-10-04T15:50:24.875467+00:00",
+      "sourceSha256": "3754bb79f07ea3dc0d355c7e5da1770bc9bb02ac26bf2e7633692703177f9a17",
+      "bytes": 28621
+    },
+    {
+      "id": "hko/T2028e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2028e.txt",
+      "revision": "HKO Gregorian–Lunar 2028 official text snapshot",
+      "path": "assets/source/hko/T2028e.txt",
+      "retrievedAt": "2026-10-04T15:50:25.001790+00:00",
+      "sourceSha256": "22384e96b87353363be3c4c0d11d4c14988ab4f15335ce2b5cfdb0c411fbed65",
+      "bytes": 28700
+    },
+    {
+      "id": "hko/T2029e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2029e.txt",
+      "revision": "HKO Gregorian–Lunar 2029 official text snapshot",
+      "path": "assets/source/hko/T2029e.txt",
+      "retrievedAt": "2026-10-04T15:50:24.973146+00:00",
+      "sourceSha256": "7aaab28de4a750dea991f6308a69e9361e8219827f53dfce225ff5f7f6b77e0a",
+      "bytes": 28622
+    },
+    {
+      "id": "hko/T2030e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2030e.txt",
+      "revision": "HKO Gregorian–Lunar 2030 official text snapshot",
+      "path": "assets/source/hko/T2030e.txt",
+      "retrievedAt": "2026-10-04T15:50:25.497856+00:00",
+      "sourceSha256": "6235122d90c2934cb6aef2f5702988ec13c03d4fd4459e1b160dc15d49788423",
+      "bytes": 28619
+    },
+    {
+      "id": "hko/T2031e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2031e.txt",
+      "revision": "HKO Gregorian–Lunar 2031 official text snapshot",
+      "path": "assets/source/hko/T2031e.txt",
+      "retrievedAt": "2026-10-04T15:50:25.601042+00:00",
+      "sourceSha256": "20ae7b108634f677e6283c920fd5106964b8b5fba2aecd16bba07b0b3533f295",
+      "bytes": 28619
+    },
+    {
+      "id": "hko/T2032e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2032e.txt",
+      "revision": "HKO Gregorian–Lunar 2032 official text snapshot",
+      "path": "assets/source/hko/T2032e.txt",
+      "retrievedAt": "2026-10-04T15:50:26.042723+00:00",
+      "sourceSha256": "6ba28a15663ae9c7f460eaa823ebe134ba195fcb6b7337e619d511df1899b258",
+      "bytes": 28698
+    },
+    {
+      "id": "hko/T2033e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2033e.txt",
+      "revision": "HKO Gregorian–Lunar 2033 official text snapshot",
+      "path": "assets/source/hko/T2033e.txt",
+      "retrievedAt": "2026-10-04T15:50:26.146862+00:00",
+      "sourceSha256": "f7937894bf740a8b3fa1b348ba718b2cd7d017ae743018a01c138e1c765c4fee",
+      "bytes": 28619
+    },
+    {
+      "id": "hko/T2034e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2034e.txt",
+      "revision": "HKO Gregorian–Lunar 2034 official text snapshot",
+      "path": "assets/source/hko/T2034e.txt",
+      "retrievedAt": "2026-10-04T15:50:26.182063+00:00",
+      "sourceSha256": "a73bc77280d0dd6cc860cdc9e69cc199877e4b92d4a6f9ecd713a2e15ec43138",
+      "bytes": 28621
+    },
+    {
+      "id": "hko/T2035e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2035e.txt",
+      "revision": "HKO Gregorian–Lunar 2035 official text snapshot",
+      "path": "assets/source/hko/T2035e.txt",
+      "retrievedAt": "2026-10-04T15:50:26.705284+00:00",
+      "sourceSha256": "8653abef97319f541a403ce39583b4c3585256a250acdc9eb11a6412be0584db",
+      "bytes": 28621
+    },
+    {
+      "id": "hko/T2036e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2036e.txt",
+      "revision": "HKO Gregorian–Lunar 2036 official text snapshot",
+      "path": "assets/source/hko/T2036e.txt",
+      "retrievedAt": "2026-10-04T15:50:26.836619+00:00",
+      "sourceSha256": "db2d70ab2ef6747467c4df2c63ef3a93c582525dc7f64f99811135441168fa85",
+      "bytes": 28702
+    },
+    {
+      "id": "hko/T2037e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2037e.txt",
+      "revision": "HKO Gregorian–Lunar 2037 official text snapshot",
+      "path": "assets/source/hko/T2037e.txt",
+      "retrievedAt": "2026-10-04T15:50:27.215374+00:00",
+      "sourceSha256": "521893c65d57b8a911a5a6eb78e50b4a7c44a9a033d62e47671fcfc7edc4a1bf",
+      "bytes": 28621
+    },
+    {
+      "id": "hko/T2038e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2038e.txt",
+      "revision": "HKO Gregorian–Lunar 2038 official text snapshot",
+      "path": "assets/source/hko/T2038e.txt",
+      "retrievedAt": "2026-10-04T15:50:27.351662+00:00",
+      "sourceSha256": "f81269a4bd72f0fb2b9677bf42e92629feeea99e0b921be9d28d1a2bc9a50f63",
+      "bytes": 28619
+    },
+    {
+      "id": "hko/T2039e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2039e.txt",
+      "revision": "HKO Gregorian–Lunar 2039 official text snapshot",
+      "path": "assets/source/hko/T2039e.txt",
+      "retrievedAt": "2026-10-04T15:50:27.354061+00:00",
+      "sourceSha256": "39b89c58d77356ead99fe475762f46587dac33e09e0478ed2a77a4e2541acfda",
+      "bytes": 28986
+    },
+    {
+      "id": "hko/T2040e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2040e.txt",
+      "revision": "HKO Gregorian–Lunar 2040 official text snapshot",
+      "path": "assets/source/hko/T2040e.txt",
+      "retrievedAt": "2026-10-04T15:50:27.900118+00:00",
+      "sourceSha256": "0c1041ba294c610c3cfbd0deeebc906473df6a79d0a15eee3c1173ca1650790a",
+      "bytes": 29070
+    },
+    {
+      "id": "hko/T2041e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2041e.txt",
+      "revision": "HKO Gregorian–Lunar 2041 official text snapshot",
+      "path": "assets/source/hko/T2041e.txt",
+      "retrievedAt": "2026-10-04T15:50:28.020121+00:00",
+      "sourceSha256": "5913e75185db4cd8ce52900809ad39e482ac2bec2248971e1b31a888fe0f1638",
+      "bytes": 28623
+    },
+    {
+      "id": "hko/T2042e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2042e.txt",
+      "revision": "HKO Gregorian–Lunar 2042 official text snapshot",
+      "path": "assets/source/hko/T2042e.txt",
+      "retrievedAt": "2026-10-04T15:50:28.384433+00:00",
+      "sourceSha256": "4700b834eba65b53f00b1ceeae7884c4f19c15a66e002f96875a20efc18cdd0e",
+      "bytes": 28985
+    },
+    {
+      "id": "hko/T2043e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2043e.txt",
+      "revision": "HKO Gregorian–Lunar 2043 official text snapshot",
+      "path": "assets/source/hko/T2043e.txt",
+      "retrievedAt": "2026-10-04T15:50:28.512705+00:00",
+      "sourceSha256": "526d5297efac5d8a28760345fb65d7871081730a8ce3de6ddb1b0537c50ed816",
+      "bytes": 28619
+    },
+    {
+      "id": "hko/T2044e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2044e.txt",
+      "revision": "HKO Gregorian–Lunar 2044 official text snapshot",
+      "path": "assets/source/hko/T2044e.txt",
+      "retrievedAt": "2026-10-04T15:50:28.516599+00:00",
+      "sourceSha256": "320ef41ebd0763805edc209b7162a4e894b71bf8bf6ced8f936fbec77eb94b56",
+      "bytes": 28698
+    },
+    {
+      "id": "hko/T2045e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2045e.txt",
+      "revision": "HKO Gregorian–Lunar 2045 official text snapshot",
+      "path": "assets/source/hko/T2045e.txt",
+      "retrievedAt": "2026-10-04T15:50:29.081743+00:00",
+      "sourceSha256": "988389f937475fc3cd38395a08c5309d319e7e5781ee76a5ff36bf18a554aa28",
+      "bytes": 28618
+    },
+    {
+      "id": "hko/T2046e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2046e.txt",
+      "revision": "HKO Gregorian–Lunar 2046 official text snapshot",
+      "path": "assets/source/hko/T2046e.txt",
+      "retrievedAt": "2026-10-04T15:50:29.241036+00:00",
+      "sourceSha256": "03bbdae8073c54ffa9538b78258e239614049e960a39691b476df47a40e320d1",
+      "bytes": 28622
+    },
+    {
+      "id": "hko/T2047e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2047e.txt",
+      "revision": "HKO Gregorian–Lunar 2047 official text snapshot",
+      "path": "assets/source/hko/T2047e.txt",
+      "retrievedAt": "2026-10-04T15:50:29.586050+00:00",
+      "sourceSha256": "f63664c45c8e714610b7597add0b795160633237ee023cc88b63a77e53e1dc30",
+      "bytes": 28623
+    },
+    {
+      "id": "hko/T2048e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2048e.txt",
+      "revision": "HKO Gregorian–Lunar 2048 official text snapshot",
+      "path": "assets/source/hko/T2048e.txt",
+      "retrievedAt": "2026-10-04T15:50:29.747576+00:00",
+      "sourceSha256": "7bc4c98594eb7d67c8a9070e2430ba4b8ab746bab5f52b3cf06254d7cae8770d",
+      "bytes": 28700
+    },
+    {
+      "id": "hko/T2049e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2049e.txt",
+      "revision": "HKO Gregorian–Lunar 2049 official text snapshot",
+      "path": "assets/source/hko/T2049e.txt",
+      "retrievedAt": "2026-10-04T15:50:29.672654+00:00",
+      "sourceSha256": "988cccf80443f106f85a257525f7b0a1430a1e0856a89e9e4f6903669756c1d7",
+      "bytes": 28619
+    },
+    {
+      "id": "hko/T2050e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2050e.txt",
+      "revision": "HKO Gregorian–Lunar 2050 official text snapshot",
+      "path": "assets/source/hko/T2050e.txt",
+      "retrievedAt": "2026-10-04T15:50:30.258415+00:00",
+      "sourceSha256": "a1283cae1a44722c5cca6f65db9b1568e34fd96487374528727fb210aa869ef0",
+      "bytes": 28621
+    },
+    {
+      "id": "hko/T2051e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2051e.txt",
+      "revision": "HKO Gregorian–Lunar 2051 official text snapshot",
+      "path": "assets/source/hko/T2051e.txt",
+      "retrievedAt": "2026-10-04T15:50:30.421096+00:00",
+      "sourceSha256": "59c0649265e61504f71db8416c94b3b24c55bb7932ca85cc0a9fe52b27e63a5a",
+      "bytes": 28669
+    },
+    {
+      "id": "hko/T2052e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2052e.txt",
+      "revision": "HKO Gregorian–Lunar 2052 official text snapshot",
+      "path": "assets/source/hko/T2052e.txt",
+      "retrievedAt": "2026-10-04T15:50:30.743908+00:00",
+      "sourceSha256": "e193237e425cb22a303f49a7d278b9253e1a1138d2bcd345cc8fa76c7b042d2b",
+      "bytes": 28701
+    },
+    {
+      "id": "hko/T2053e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2053e.txt",
+      "revision": "HKO Gregorian–Lunar 2053 official text snapshot",
+      "path": "assets/source/hko/T2053e.txt",
+      "retrievedAt": "2026-10-04T15:50:30.822335+00:00",
+      "sourceSha256": "03e1a2d78d7f4d4144ef1923de86c705fd801ec5ce2403c88013d219f0930783",
+      "bytes": 28623
+    },
+    {
+      "id": "hko/T2054e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2054e.txt",
+      "revision": "HKO Gregorian–Lunar 2054 official text snapshot",
+      "path": "assets/source/hko/T2054e.txt",
+      "retrievedAt": "2026-10-04T15:50:30.897124+00:00",
+      "sourceSha256": "a10fb808e95c9511f0953840bdef78101947f46bc1bdb1f6bd4acf63b0424223",
+      "bytes": 28618
+    },
+    {
+      "id": "hko/T2055e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2055e.txt",
+      "revision": "HKO Gregorian–Lunar 2055 official text snapshot",
+      "path": "assets/source/hko/T2055e.txt",
+      "retrievedAt": "2026-10-04T15:50:31.389583+00:00",
+      "sourceSha256": "d58572072f1a502be366f0c06aae619e88876e414cf8616d3cb78035b159c8a4",
+      "bytes": 28985
+    },
+    {
+      "id": "hko/T2056e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2056e.txt",
+      "revision": "HKO Gregorian–Lunar 2056 official text snapshot",
+      "path": "assets/source/hko/T2056e.txt",
+      "retrievedAt": "2026-10-04T15:50:31.593288+00:00",
+      "sourceSha256": "e52ff54251409ea7c13ac4d2fda3240c2e9f0228f5005a90c2340a2882968cf5",
+      "bytes": 28699
+    },
+    {
+      "id": "hko/T2057e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2057e.txt",
+      "revision": "HKO Gregorian–Lunar 2057 official text snapshot",
+      "path": "assets/source/hko/T2057e.txt",
+      "retrievedAt": "2026-10-04T15:50:31.933638+00:00",
+      "sourceSha256": "a8a6582d79f2214f68c5e1f7429cf267a50541f5546e494b1a88639fe28ce23d",
+      "bytes": 28987
+    },
+    {
+      "id": "hko/T2058e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2058e.txt",
+      "revision": "HKO Gregorian–Lunar 2058 official text snapshot",
+      "path": "assets/source/hko/T2058e.txt",
+      "retrievedAt": "2026-10-04T15:50:32.017032+00:00",
+      "sourceSha256": "a19b3c16a6edde346f54c70497f8bbe99d75e705950fef8ec8ffd6f267ca4e62",
+      "bytes": 28987
+    },
+    {
+      "id": "hko/T2059e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2059e.txt",
+      "revision": "HKO Gregorian–Lunar 2059 official text snapshot",
+      "path": "assets/source/hko/T2059e.txt",
+      "retrievedAt": "2026-10-04T15:50:32.068593+00:00",
+      "sourceSha256": "f4f0b3592ff63ae7794cba0a3fd6e628c519032d8506963e6ed93ea93f3ce8f9",
+      "bytes": 28988
+    },
+    {
+      "id": "hko/T2060e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2060e.txt",
+      "revision": "HKO Gregorian–Lunar 2060 official text snapshot",
+      "path": "assets/source/hko/T2060e.txt",
+      "retrievedAt": "2026-10-04T15:50:32.581423+00:00",
+      "sourceSha256": "1a05e1fc70b5210f4d8467c9a99df7993dbe4dcd4620ad44d13326e709da3bf4",
+      "bytes": 29070
+    },
+    {
+      "id": "hko/T2061e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2061e.txt",
+      "revision": "HKO Gregorian–Lunar 2061 official text snapshot",
+      "path": "assets/source/hko/T2061e.txt",
+      "retrievedAt": "2026-10-04T15:50:32.771115+00:00",
+      "sourceSha256": "d40a65ecec408834b8fcc9848f43696d3199692bc1bb3f6c41f16c885ebfdca8",
+      "bytes": 28987
+    },
+    {
+      "id": "hko/T2062e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2062e.txt",
+      "revision": "HKO Gregorian–Lunar 2062 official text snapshot",
+      "path": "assets/source/hko/T2062e.txt",
+      "retrievedAt": "2026-10-04T15:50:33.076435+00:00",
+      "sourceSha256": "91b400638e6edb525122f4526d0e68f13bdff77f882c309b5ad329d78cf2424a",
+      "bytes": 28987
+    },
+    {
+      "id": "hko/T2063e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2063e.txt",
+      "revision": "HKO Gregorian–Lunar 2063 official text snapshot",
+      "path": "assets/source/hko/T2063e.txt",
+      "retrievedAt": "2026-10-04T15:50:33.172121+00:00",
+      "sourceSha256": "8e93d6bc5bb4678e03f41356356b455087f0c1e423c1deb281d99bf465678ffe",
+      "bytes": 28987
+    },
+    {
+      "id": "hko/T2064e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2064e.txt",
+      "revision": "HKO Gregorian–Lunar 2064 official text snapshot",
+      "path": "assets/source/hko/T2064e.txt",
+      "retrievedAt": "2026-10-04T15:50:33.219064+00:00",
+      "sourceSha256": "9b5fed8e97d44473af413d4bcbfbaa2e31f5c989faf095134500e79a4eef4157",
+      "bytes": 29069
+    },
+    {
+      "id": "hko/T2065e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2065e.txt",
+      "revision": "HKO Gregorian–Lunar 2065 official text snapshot",
+      "path": "assets/source/hko/T2065e.txt",
+      "retrievedAt": "2026-10-04T15:50:33.751850+00:00",
+      "sourceSha256": "f765a0e8db9084a1f4660c7bdcabb8a226e54317576b462e589da3d8ed22ad57",
+      "bytes": 28989
+    },
+    {
+      "id": "hko/T2066e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2066e.txt",
+      "revision": "HKO Gregorian–Lunar 2066 official text snapshot",
+      "path": "assets/source/hko/T2066e.txt",
+      "retrievedAt": "2026-10-04T15:50:33.928195+00:00",
+      "sourceSha256": "26445228ae4c7e66f2690372cac270d2a03327a3b3236f4af30fb2f63a3fb592",
+      "bytes": 28986
+    },
+    {
+      "id": "hko/T2067e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2067e.txt",
+      "revision": "HKO Gregorian–Lunar 2067 official text snapshot",
+      "path": "assets/source/hko/T2067e.txt",
+      "retrievedAt": "2026-10-04T15:50:34.264785+00:00",
+      "sourceSha256": "20a2ba2143ed87abe026b12f7dcf0bf431bddcfd2dbcd7340855b7d3ac8ae0ce",
+      "bytes": 28987
+    },
+    {
+      "id": "hko/T2068e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2068e.txt",
+      "revision": "HKO Gregorian–Lunar 2068 official text snapshot",
+      "path": "assets/source/hko/T2068e.txt",
+      "retrievedAt": "2026-10-04T15:50:34.333768+00:00",
+      "sourceSha256": "c11527d0ba057d75809e8ea75ad1ec0ee990f6f213ba950ec46436d95c58ce25",
+      "bytes": 29065
+    },
+    {
+      "id": "hko/T2069e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2069e.txt",
+      "revision": "HKO Gregorian–Lunar 2069 official text snapshot",
+      "path": "assets/source/hko/T2069e.txt",
+      "retrievedAt": "2026-10-04T15:50:34.437860+00:00",
+      "sourceSha256": "b8ce6b263adbd9d60b97257ccca7caf8b36e488ac19a5be02ecec7b8c519e502",
+      "bytes": 28906
+    },
+    {
+      "id": "hko/T2070e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2070e.txt",
+      "revision": "HKO Gregorian–Lunar 2070 official text snapshot",
+      "path": "assets/source/hko/T2070e.txt",
+      "retrievedAt": "2026-10-04T15:50:34.992334+00:00",
+      "sourceSha256": "8b6d33a14ef21833c311dcb4c27804cf62ccc48ecda4625abc693ed64d3c5382",
+      "bytes": 28989
+    },
+    {
+      "id": "hko/T2071e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2071e.txt",
+      "revision": "HKO Gregorian–Lunar 2071 official text snapshot",
+      "path": "assets/source/hko/T2071e.txt",
+      "retrievedAt": "2026-10-04T15:50:35.113719+00:00",
+      "sourceSha256": "61b54cba71aeaca69e8ddd48eac72f8169142c62ae871e4d8ff2f92dca450b71",
+      "bytes": 28622
+    },
+    {
+      "id": "hko/T2072e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2072e.txt",
+      "revision": "HKO Gregorian–Lunar 2072 official text snapshot",
+      "path": "assets/source/hko/T2072e.txt",
+      "retrievedAt": "2026-10-04T15:50:35.498040+00:00",
+      "sourceSha256": "d3b6abf6c045efeb208c04f6fac56d884c259278d156d3b036b9234e20cdb0c1",
+      "bytes": 29069
+    },
+    {
+      "id": "hko/T2073e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2073e.txt",
+      "revision": "HKO Gregorian–Lunar 2073 official text snapshot",
+      "path": "assets/source/hko/T2073e.txt",
+      "retrievedAt": "2026-10-04T15:50:35.502912+00:00",
+      "sourceSha256": "c0bcb8e643d3e6199d7d70e1a0c891b46d49a21b2e4714de65f322e0e5d6a96c",
+      "bytes": 28987
+    },
+    {
+      "id": "hko/T2074e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2074e.txt",
+      "revision": "HKO Gregorian–Lunar 2074 official text snapshot",
+      "path": "assets/source/hko/T2074e.txt",
+      "retrievedAt": "2026-10-04T15:50:35.592379+00:00",
+      "sourceSha256": "edd009285c2f1d309c4caa2de330a6917a71f95f66bdd78a2b8391160a4e422a",
+      "bytes": 28987
+    },
+    {
+      "id": "hko/T2075e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2075e.txt",
+      "revision": "HKO Gregorian–Lunar 2075 official text snapshot",
+      "path": "assets/source/hko/T2075e.txt",
+      "retrievedAt": "2026-10-04T15:50:36.181434+00:00",
+      "sourceSha256": "296309bcdd533f47e82ad6d405668ab21000a857719d4bc585cb52f86c67a8d6",
+      "bytes": 28986
+    },
+    {
+      "id": "hko/T2076e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2076e.txt",
+      "revision": "HKO Gregorian–Lunar 2076 official text snapshot",
+      "path": "assets/source/hko/T2076e.txt",
+      "retrievedAt": "2026-10-04T15:50:36.266199+00:00",
+      "sourceSha256": "cec49ada81b202422ec1a9aa98e13b29512c4a69b8edebb2ba4d4b1ff6c0733a",
+      "bytes": 29070
+    },
+    {
+      "id": "hko/T2077e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2077e.txt",
+      "revision": "HKO Gregorian–Lunar 2077 official text snapshot",
+      "path": "assets/source/hko/T2077e.txt",
+      "retrievedAt": "2026-10-04T15:50:36.661917+00:00",
+      "sourceSha256": "e410682c72927808bf9536ba7e89109cbf5fa0d470db69c154e13e9df6700c95",
+      "bytes": 28991
+    },
+    {
+      "id": "hko/T2078e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2078e.txt",
+      "revision": "HKO Gregorian–Lunar 2078 official text snapshot",
+      "path": "assets/source/hko/T2078e.txt",
+      "retrievedAt": "2026-10-04T15:50:36.698064+00:00",
+      "sourceSha256": "38d114f0477d17509acfc605d3b66454163235280c58892ab9623bbd5086d77b",
+      "bytes": 28984
+    },
+    {
+      "id": "hko/T2079e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2079e.txt",
+      "revision": "HKO Gregorian–Lunar 2079 official text snapshot",
+      "path": "assets/source/hko/T2079e.txt",
+      "retrievedAt": "2026-10-04T15:50:36.773804+00:00",
+      "sourceSha256": "af03de6dc3a09e46cdc8d797d6f22847e5f0007079da99a55034160129b1ac91",
+      "bytes": 28985
+    },
+    {
+      "id": "hko/T2080e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2080e.txt",
+      "revision": "HKO Gregorian–Lunar 2080 official text snapshot",
+      "path": "assets/source/hko/T2080e.txt",
+      "retrievedAt": "2026-10-04T15:50:37.391051+00:00",
+      "sourceSha256": "b6de49b2fb434ee02d04524171345e42e079cec380a5b2faea7e90b81602a6db",
+      "bytes": 28699
+    },
+    {
+      "id": "hko/T2081e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2081e.txt",
+      "revision": "HKO Gregorian–Lunar 2081 official text snapshot",
+      "path": "assets/source/hko/T2081e.txt",
+      "retrievedAt": "2026-10-04T15:50:37.457863+00:00",
+      "sourceSha256": "1362fcff6fabe98aa0f81f70b78af847e506fbf7135f0c966004a38d160e683d",
+      "bytes": 28986
+    },
+    {
+      "id": "hko/T2082e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2082e.txt",
+      "revision": "HKO Gregorian–Lunar 2082 official text snapshot",
+      "path": "assets/source/hko/T2082e.txt",
+      "retrievedAt": "2026-10-04T15:50:37.841832+00:00",
+      "sourceSha256": "4a39d22dafa94493babdf11b4d81c901d244de0463fa79cb51a450735d4c357e",
+      "bytes": 28988
+    },
+    {
+      "id": "hko/T2083e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2083e.txt",
+      "revision": "HKO Gregorian–Lunar 2083 official text snapshot",
+      "path": "assets/source/hko/T2083e.txt",
+      "retrievedAt": "2026-10-04T15:50:37.895838+00:00",
+      "sourceSha256": "fec15981ad8bd9f9c36f4d35294f72a380b6cb8ee63d44b92a8f7a0931ae953c",
+      "bytes": 28989
+    },
+    {
+      "id": "hko/T2084e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2084e.txt",
+      "revision": "HKO Gregorian–Lunar 2084 official text snapshot",
+      "path": "assets/source/hko/T2084e.txt",
+      "retrievedAt": "2026-10-04T15:50:37.987140+00:00",
+      "sourceSha256": "5b9a2a2306fa4acb72f5dee717bb8457fc505f3ed4511822f00f70289c0572f2",
+      "bytes": 29069
+    },
+    {
+      "id": "hko/T2085e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2085e.txt",
+      "revision": "HKO Gregorian–Lunar 2085 official text snapshot",
+      "path": "assets/source/hko/T2085e.txt",
+      "retrievedAt": "2026-10-04T15:50:38.597310+00:00",
+      "sourceSha256": "9e7c5d5dbb2d9d26734a1628039825783d2533daf51c135477c2dfd2709ca9ce",
+      "bytes": 28986
+    },
+    {
+      "id": "hko/T2086e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2086e.txt",
+      "revision": "HKO Gregorian–Lunar 2086 official text snapshot",
+      "path": "assets/source/hko/T2086e.txt",
+      "retrievedAt": "2026-10-04T15:50:38.617850+00:00",
+      "sourceSha256": "b3c7ef157e83d4b585c2b547c243f43b113f7e88298fb32f2dbe4a23cde9588a",
+      "bytes": 28988
+    },
+    {
+      "id": "hko/T2087e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2087e.txt",
+      "revision": "HKO Gregorian–Lunar 2087 official text snapshot",
+      "path": "assets/source/hko/T2087e.txt",
+      "retrievedAt": "2026-10-04T15:50:38.993790+00:00",
+      "sourceSha256": "efe2b14c19dd258af882033511a88a18ca246da4a3751a8661e0bfafc9196872",
+      "bytes": 28988
+    },
+    {
+      "id": "hko/T2088e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2088e.txt",
+      "revision": "HKO Gregorian–Lunar 2088 official text snapshot",
+      "path": "assets/source/hko/T2088e.txt",
+      "retrievedAt": "2026-10-04T15:50:39.081494+00:00",
+      "sourceSha256": "6648f4505d3b5676b9db7d6ac7f38477c61375f7a616fffca6e423035125f175",
+      "bytes": 29068
+    },
+    {
+      "id": "hko/T2089e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2089e.txt",
+      "revision": "HKO Gregorian–Lunar 2089 official text snapshot",
+      "path": "assets/source/hko/T2089e.txt",
+      "retrievedAt": "2026-10-04T15:50:39.132205+00:00",
+      "sourceSha256": "032b86ae289624f927dd6fa64c99148ce7adffb9cea6481ca83617db132fdf69",
+      "bytes": 28989
+    },
+    {
+      "id": "hko/T2090e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2090e.txt",
+      "revision": "HKO Gregorian–Lunar 2090 official text snapshot",
+      "path": "assets/source/hko/T2090e.txt",
+      "retrievedAt": "2026-10-04T15:50:39.743246+00:00",
+      "sourceSha256": "85801588295910601d3df501510d47718b396d5f93454a40bda89cee25da7d56",
+      "bytes": 28986
+    },
+    {
+      "id": "hko/T2091e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2091e.txt",
+      "revision": "HKO Gregorian–Lunar 2091 official text snapshot",
+      "path": "assets/source/hko/T2091e.txt",
+      "retrievedAt": "2026-10-04T15:50:39.814212+00:00",
+      "sourceSha256": "35f1d30d1741ab2c4bafd13d7077e7c993750bd4d0cce09db176adba5289c773",
+      "bytes": 28986
+    },
+    {
+      "id": "hko/T2092e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2092e.txt",
+      "revision": "HKO Gregorian–Lunar 2092 official text snapshot",
+      "path": "assets/source/hko/T2092e.txt",
+      "retrievedAt": "2026-10-04T15:50:40.188031+00:00",
+      "sourceSha256": "3d71db803ea9d46657707868180e625dfa6a88cadc2254f86312220bb9600eb5",
+      "bytes": 29066
+    },
+    {
+      "id": "hko/T2093e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2093e.txt",
+      "revision": "HKO Gregorian–Lunar 2093 official text snapshot",
+      "path": "assets/source/hko/T2093e.txt",
+      "retrievedAt": "2026-10-04T15:50:40.281475+00:00",
+      "sourceSha256": "fd45641bc7555db80a13f578436d0b4b1124ab4153b3a02bf460e4e13c10ebd0",
+      "bytes": 28986
+    },
+    {
+      "id": "hko/T2094e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2094e.txt",
+      "revision": "HKO Gregorian–Lunar 2094 official text snapshot",
+      "path": "assets/source/hko/T2094e.txt",
+      "retrievedAt": "2026-10-04T15:50:40.427826+00:00",
+      "sourceSha256": "ffd9ee8845ae594a977cc9f63918ef628831f0f2a02eb3bd75be5ef67b1a1e10",
+      "bytes": 28988
+    },
+    {
+      "id": "hko/T2095e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2095e.txt",
+      "revision": "HKO Gregorian–Lunar 2095 official text snapshot",
+      "path": "assets/source/hko/T2095e.txt",
+      "retrievedAt": "2026-10-04T15:50:41.074274+00:00",
+      "sourceSha256": "9dcb6cf9a52718a53f92bfa87d230c36f4f8ce0eeea3ad4a0142bf22ae7f081c",
+      "bytes": 28988
+    },
+    {
+      "id": "hko/T2096e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2096e.txt",
+      "revision": "HKO Gregorian–Lunar 2096 official text snapshot",
+      "path": "assets/source/hko/T2096e.txt",
+      "retrievedAt": "2026-10-04T15:50:41.144049+00:00",
+      "sourceSha256": "47d584f469df98fb9f14b50b71533d06d050b9c2c3a134475be13639a89db591",
+      "bytes": 29070
+    },
+    {
+      "id": "hko/T2097e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2097e.txt",
+      "revision": "HKO Gregorian–Lunar 2097 official text snapshot",
+      "path": "assets/source/hko/T2097e.txt",
+      "retrievedAt": "2026-10-04T15:50:41.523880+00:00",
+      "sourceSha256": "d174c54cffa8c1268adc408e21038e597f89e425572249dbc7f6dba315fb6919",
+      "bytes": 28988
+    },
+    {
+      "id": "hko/T2098e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2098e.txt",
+      "revision": "HKO Gregorian–Lunar 2098 official text snapshot",
+      "path": "assets/source/hko/T2098e.txt",
+      "retrievedAt": "2026-10-04T15:50:41.553039+00:00",
+      "sourceSha256": "f6a95a15703dd9481737c77f9bac06e1369cd990af939468492fcb32013da474",
+      "bytes": 28986
+    },
+    {
+      "id": "hko/T2099e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2099e.txt",
+      "revision": "HKO Gregorian–Lunar 2099 official text snapshot",
+      "path": "assets/source/hko/T2099e.txt",
+      "retrievedAt": "2026-10-04T15:50:41.737831+00:00",
+      "sourceSha256": "6d3ac1c65bec12a1c56f58a70defb00fe0f48080e2c84487ab7e159b8c7e8c56",
+      "bytes": 28986
+    },
+    {
+      "id": "hko/T2100e.txt",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2100e.txt",
+      "revision": "HKO Gregorian–Lunar 2100 official text snapshot",
+      "path": "assets/source/hko/T2100e.txt",
+      "retrievedAt": "2026-10-04T15:50:42.346239+00:00",
+      "sourceSha256": "c75561b0e594e3aff40842fae5258e82524d1494c9bd59f69309fce2a7053336",
+      "bytes": 28624
+    },
+    {
+      "id": "hko/conversion-text.html",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/conversion1_text.htm",
+      "revision": "official text table index",
+      "path": "assets/source/hko/conversion-text.html",
+      "retrievedAt": "2026-10-04T15:49:53.553195+00:00",
+      "sourceSha256": "64d359d5035867c1a00124f1f9fe730eb5ee01b5d5abbb951d9656ece0c7a042",
+      "bytes": 27943
+    },
+    {
+      "id": "hko/conversion.html",
+      "sourceUrl": "https://www.hko.gov.hk/en/gts/time/conversion.htm",
+      "revision": "1901–2100 official comparison; future new-moon warning",
+      "path": "assets/source/hko/conversion.html",
+      "retrievedAt": "2026-10-04T15:49:53.650163+00:00",
+      "sourceSha256": "a3b1a96465876ff4bbeb5218d21009ec61cbe1da57e063fbad972a501a0f2a71",
+      "bytes": 46069
+    },
+    {
+      "id": "hko/iprightsnotice.html",
+      "sourceUrl": "https://www.hko.gov.hk/en/publica/iprightsnotice.htm",
+      "revision": "publication rights/disclaimer snapshot",
+      "path": "assets/source/hko/iprightsnotice.html",
+      "retrievedAt": "2026-10-04T15:49:53.379402+00:00",
+      "sourceSha256": "d091faa5522ae46bea3259890cb129a5579dcfd7294d14eaa91ae57eb25aae13",
+      "bytes": 8108
+    },
+    {
+      "id": "hko/non-commercialuse.html",
+      "sourceUrl": "https://www.hko.gov.hk/en/publica/non-commercialuse.htm",
+      "revision": "noncommercial publication reuse conditions snapshot",
+      "path": "assets/source/hko/non-commercialuse.html",
+      "retrievedAt": "2026-10-04T15:49:53.843117+00:00",
+      "sourceSha256": "107c716c128203711e0be15fbb680caadd84f33e2dccb1c97baca3d10ed1c8bf",
+      "bytes": 10626
+    },
+    {
+      "id": "hko/web-use-conditions.html",
+      "sourceUrl": "https://www.hko.gov.hk/tc/appweb/applink.htm",
+      "revision": "website reuse conditions snapshot",
+      "path": "assets/source/hko/web-use-conditions.html",
+      "retrievedAt": "2026-10-04T15:49:53.395254+00:00",
+      "sourceSha256": "7420c012872b878ac1db38f5196ea33d264a1905d88ded35bdf539d6d7cc1b65",
+      "bytes": 10355
+    },
+    {
+      "id": "hyg/LICENSE",
+      "sourceUrl": "https://raw.githubusercontent.com/astronexus/HYG-Database/c7f7f883fe678cc7680169a50ccd7dcc49b060ce/LICENSE",
+      "revision": "c7f7f883fe678cc7680169a50ccd7dcc49b060ce",
+      "path": "assets/source/hyg/LICENSE",
+      "retrievedAt": "2026-10-04T13:23:21.311047+00:00",
+      "sourceSha256": "f404190403d31e0ce7223f4cb7af954485ad88077358330754dc5c892a856627",
+      "bytes": 422
+    },
+    {
+      "id": "hyg/hyg/CURRENT/hygdata_v41.csv",
+      "sourceUrl": "https://raw.githubusercontent.com/astronexus/HYG-Database/c7f7f883fe678cc7680169a50ccd7dcc49b060ce/hyg/CURRENT/hygdata_v41.csv",
+      "revision": "c7f7f883fe678cc7680169a50ccd7dcc49b060ce",
+      "path": "assets/source/hyg/hyg/CURRENT/hygdata_v41.csv",
+      "retrievedAt": "2026-10-04T13:23:36.166309+00:00",
+      "sourceSha256": "d9f69fd86bbf90a4e4d52b4c5c53eacfa6dfc0bfdef85bfd94f095e0bebe4ebd",
+      "bytes": 33932548
+    },
+    {
+      "id": "hyg/hyg/README.md",
+      "sourceUrl": "https://raw.githubusercontent.com/astronexus/HYG-Database/c7f7f883fe678cc7680169a50ccd7dcc49b060ce/hyg/README.md",
+      "revision": "c7f7f883fe678cc7680169a50ccd7dcc49b060ce",
+      "path": "assets/source/hyg/hyg/README.md",
+      "retrievedAt": "2026-10-04T13:23:21.313937+00:00",
+      "sourceSha256": "81f765951e60131e49ccc91376815791e130ad1db46047eb1384d3ba6bcb5af4",
+      "bytes": 6416
+    },
+    {
+      "id": "lunar-typescript/LICENSE",
+      "sourceUrl": "https://raw.githubusercontent.com/6tail/lunar-typescript/a376ec2b8fd1b3069e24c92801bab8707fccd49d/LICENSE",
+      "revision": "a376ec2b8fd1b3069e24c92801bab8707fccd49d",
+      "path": "assets/source/lunar-typescript/LICENSE",
+      "retrievedAt": "2026-10-04T15:49:48.385313+00:00",
+      "sourceSha256": "097ec7989106eb9a27b6eff71dbaf1cd6bb04a9b35b6c94b54fff0829a041a8c",
+      "bytes": 1062
+    },
+    {
+      "id": "lunar-typescript/lunar-typescript-1.8.6.tgz",
+      "sourceUrl": "https://registry.npmjs.org/lunar-typescript/-/lunar-typescript-1.8.6.tgz",
+      "revision": "a376ec2b8fd1b3069e24c92801bab8707fccd49d",
+      "path": "assets/source/lunar-typescript/lunar-typescript-1.8.6.tgz",
+      "retrievedAt": "2026-10-04T15:49:48.585864+00:00",
+      "sourceSha256": "257163cff2e2bb8359861721e72e5dbed2f583340b1400e459fd27816ac2ac39",
+      "bytes": 335460
+    },
+    {
+      "id": "lunar-typescript/npm-1.8.6.json",
+      "sourceUrl": "https://registry.npmjs.org/lunar-typescript/1.8.6",
+      "revision": "a376ec2b8fd1b3069e24c92801bab8707fccd49d",
+      "path": "assets/source/lunar-typescript/npm-1.8.6.json",
+      "retrievedAt": "2026-10-04T15:49:48.586792+00:00",
+      "sourceSha256": "b2500947473ec469d42d94bd5a1dfcee24c58073c22ab76c064dab9b84e620f1",
+      "bytes": 2745
+    },
+    {
+      "id": "nasa/WAC_HAPKE_README.TXT",
+      "sourceUrl": "https://pds.mcp.nasa.gov/data/store/img/lunar_reconnaissance_orbiter/pds4/lroc/lro-l-lroc-5-rdr/LROLRC_2001/DATA/MDR/WAC_HAPKE/WAC_HAPKE_README.TXT",
+      "revision": "LROC WAC Hapke normalized source documentation",
+      "path": "assets/source/nasa/WAC_HAPKE_README.TXT",
+      "retrievedAt": "2026-10-04T15:49:52.825035+00:00",
+      "sourceSha256": "498452139c78d43f1149e286cb6916703a1e300d91dffcbd4f9957cce5c52b0c",
+      "bytes": 3991
+    },
+    {
+      "id": "nasa/cgi-moon-kit-4720.html",
+      "sourceUrl": "https://svs.gsfc.nasa.gov/4720/",
+      "revision": "page snapshot; selected 2019 map",
+      "path": "assets/source/nasa/cgi-moon-kit-4720.html",
+      "retrievedAt": "2026-10-04T15:49:50.514298+00:00",
+      "sourceSha256": "abcac6054a419ffae0dccb37f40d59b6374e0cacb53316be70bba50e6e8ce251",
+      "bytes": 54933
+    },
+    {
+      "id": "nasa/chandra-sgra-j2000.html",
+      "sourceUrl": "https://www.chandra.harvard.edu/photo/2010/sgra/index.html",
+      "revision": "Deep Star Maps2020 celestial; official page/file snapshot, no galactic2021 layer",
+      "path": "assets/source/nasa/chandra-sgra-j2000.html",
+      "retrievedAt": "2026-10-04T17:35:32.711721+00:00",
+      "sourceSha256": "becfc2c576288833567015f46f24b41a56a999c5e1df938be0a744b53d52813e",
+      "bytes": 66325
+    },
+    {
+      "id": "nasa/cloud_combined_2048.jpg",
+      "sourceUrl": "https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg",
+      "revision": "snapshot",
+      "path": "assets/source/nasa/cloud_combined_2048.jpg",
+      "retrievedAt": "2026-10-04T13:41:08.105328+00:00",
+      "sourceSha256": "daddaad84d7a33bbbc86cdda3f591099f57cee8607b7bcf3b67eb7e4f7a1c793",
+      "bytes": 829367
+    },
+    {
+      "id": "nasa/deep-star-maps-4851.html",
+      "sourceUrl": "https://svs.gsfc.nasa.gov/4851/",
+      "revision": "Deep Star Maps2020 celestial; official page/file snapshot, no galactic2021 layer",
+      "path": "assets/source/nasa/deep-star-maps-4851.html",
+      "retrievedAt": "2026-10-04T17:31:29.246283+00:00",
+      "sourceSha256": "fc9b7e589e03471af0883b354a805e8257bc744cedf9e2cd9c6eb52045f0e2db",
+      "bytes": 92422
+    },
+    {
+      "id": "nasa/dnb_land_ocean_ice.2012.3600x1800.jpg",
+      "sourceUrl": "https://eoimages.gsfc.nasa.gov/images/imagerecords/79000/79765/dnb_land_ocean_ice.2012.3600x1800.jpg",
+      "revision": "EO79765-BlackMarble2012",
+      "path": "assets/source/nasa/dnb_land_ocean_ice.2012.3600x1800.jpg",
+      "retrievedAt": "2026-10-04T13:31:38.699754+00:00",
+      "sourceSha256": "373e5a08c9f378a2ce6320214a613148e4b1e3946b3f39a516c9093b76cb7124",
+      "bytes": 794479
+    },
+    {
+      "id": "nasa/earth-day-2002-credits.html",
+      "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/",
+      "revision": "EO57730-BlueMarble2002",
+      "path": "assets/source/nasa/earth-day-2002-credits.html",
+      "retrievedAt": "2026-10-04T13:36:42.807824+00:00",
+      "sourceSha256": "833fb46f0c23fe9cc4997172c0597d3e537fafa71341c8e3ba9b259432eb3d4f",
+      "bytes": 321712
+    },
+    {
+      "id": "nasa/earth-day-page.html",
+      "sourceUrl": "https://earthobservatory.nasa.gov/features/BlueMarble",
+      "revision": "EO57730-BlueMarble2002",
+      "path": "assets/source/nasa/earth-day-page.html",
+      "retrievedAt": "2026-10-04T13:31:40.310977+00:00",
+      "sourceSha256": "d372c5e9383b96245e4fe0ea767639abcfbc4bfc2391d356cc8d34e4641f9869",
+      "bytes": 359619
+    },
+    {
+      "id": "nasa/earth-night-2012-credits.html",
+      "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/night-lights-2012-map-79765/",
+      "revision": "EO79765-BlackMarble2012",
+      "path": "assets/source/nasa/earth-night-2012-credits.html",
+      "retrievedAt": "2026-10-04T13:36:44.982049+00:00",
+      "sourceSha256": "167e927a66a44151a6e12cef2530ca024cb689bbfa58ae6cbaee81a19864736a",
+      "bytes": 364518
+    },
+    {
+      "id": "nasa/earth-night-page.html",
+      "sourceUrl": "https://earthobservatory.nasa.gov/images/79765/night-lights-2012-the-black-marble",
+      "revision": "EO79765-BlackMarble2012",
+      "path": "assets/source/nasa/earth-night-page.html",
+      "retrievedAt": "2026-10-04T13:31:39.693689+00:00",
+      "sourceSha256": "0eb7d7c9e6a02323cde43c914d811954b00f1ab4236807f02b45cfb3a38a1267",
+      "bytes": 317136
+    },
+    {
+      "id": "nasa/gaia-dr2-credit.html",
+      "sourceUrl": "https://gea.esac.esa.int/archive/documentation/GDR2/Miscellaneous/sec_credit_and_citation_instructions/",
+      "revision": "Deep Star Maps2020 celestial; official page/file snapshot, no galactic2021 layer",
+      "path": "assets/source/nasa/gaia-dr2-credit.html",
+      "retrievedAt": "2026-10-04T17:41:58.008003+00:00",
+      "sourceSha256": "4b75a6ff52afe7245baec073ee06f9ec81ef274aab92aa53c3b909f4013f39a4",
+      "bytes": 27776
+    },
+    {
+      "id": "nasa/hiptyc_2020_4k_print.jpg",
+      "sourceUrl": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004851/hiptyc_2020_4k_print.jpg",
+      "revision": "Deep Star Maps2020 celestial; official page/file snapshot, no galactic2021 layer",
+      "path": "assets/source/nasa/hiptyc_2020_4k_print.jpg",
+      "retrievedAt": "2026-10-04T17:31:29.018780+00:00",
+      "sourceSha256": "d80b41a47e4a12e5d4ffebb614e98215bf6cf99ab7705c93eac32dfdf82bc846",
+      "bytes": 78695
+    },
+    {
+      "id": "nasa/land_ocean_ice_2048.png",
+      "sourceUrl": "https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57730/land_ocean_ice_2048.png",
+      "revision": "EO57730-BlueMarble2002",
+      "path": "assets/source/nasa/land_ocean_ice_2048.png",
+      "retrievedAt": "2026-10-04T13:31:39.507241+00:00",
+      "sourceSha256": "b5e0139834c638d10c2c747f4bac63df5f9387680c00d87e5a2a9ed9a3dfea71",
+      "bytes": 1912469
+    },
+    {
+      "id": "nasa/lroc_color_poles_1k.jpg",
+      "sourceUrl": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/lroc_color_poles_1k.jpg",
+      "revision": "NASA CGI Moon Kit 2019; SVS4720; official 1K derivative",
+      "path": "assets/source/nasa/lroc_color_poles_1k.jpg",
+      "retrievedAt": "2026-10-04T15:56:26.514126+00:00",
+      "sourceSha256": "b246064f217f8d479df78c49c7c8595a8f5fbda008a72fd539978d2e121e0109",
+      "bytes": 139068
+    },
+    {
+      "id": "nasa/media-usage.html",
+      "sourceUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "revision": "snapshot",
+      "path": "assets/source/nasa/media-usage.html",
+      "retrievedAt": "2026-10-04T13:31:40.006829+00:00",
+      "sourceSha256": "9bb10367c180da3a506f9d0b70f1576ad4d13110b654504d90ffb639e245475b",
+      "bytes": 317941
+    },
+    {
+      "id": "nasa/milkyway_2020_4k.exr",
+      "sourceUrl": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004851/milkyway_2020_4k.exr",
+      "revision": "Deep Star Maps2020 celestial; official page/file snapshot, no galactic2021 layer",
+      "path": "assets/source/nasa/milkyway_2020_4k.exr",
+      "retrievedAt": "2026-10-04T17:31:59.294306+00:00",
+      "sourceSha256": "2eb802d6e68d170b410f766c7fec07f7518619f6b6708fdc81e9302d93e74fdb",
+      "bytes": 36436668
+    },
+    {
+      "id": "nasa/milkyway_2020_4k_print.jpg",
+      "sourceUrl": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004851/milkyway_2020_4k_print.jpg",
+      "revision": "Deep Star Maps2020 celestial; official page/file snapshot, no galactic2021 layer",
+      "path": "assets/source/nasa/milkyway_2020_4k_print.jpg",
+      "retrievedAt": "2026-10-04T17:31:29.039669+00:00",
+      "sourceSha256": "1ebe95804f5f0e6e23f77488aaa33fdb4aaef3fd336821fb41b261ddeaee2df0",
+      "bytes": 71247
+    },
+    {
+      "id": "nasa/starmap_2020_4k_print.jpg",
+      "sourceUrl": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004851/starmap_2020_4k_print.jpg",
+      "revision": "Deep Star Maps2020 celestial; official page/file snapshot, no galactic2021 layer",
+      "path": "assets/source/nasa/starmap_2020_4k_print.jpg",
+      "retrievedAt": "2026-10-04T17:31:30.696773+00:00",
+      "sourceSha256": "8d2e7e8d515e238deaf90e2b7fb11b2838b6e8db64f933a57540d894468148aa",
+      "bytes": 42786
+    },
+    {
+      "id": "nasa/usgs-mare-crisium.html",
+      "sourceUrl": "https://planetarynames.wr.usgs.gov/Feature/3671",
+      "revision": "IAU/USGS nomenclature coordinate snapshot; orientation QA",
+      "path": "assets/source/nasa/usgs-mare-crisium.html",
+      "retrievedAt": "2026-10-04T16:00:53.935199+00:00",
+      "sourceSha256": "c8c056d6baeee82a8ca12f7cbfcba3079c2c35b841f5f18f3380af91b07678bf",
+      "bytes": 51445
+    },
+    {
+      "id": "nasa/usgs-tycho.html",
+      "sourceUrl": "https://planetarynames.wr.usgs.gov/Feature/6163",
+      "revision": "IAU/USGS nomenclature coordinate snapshot; orientation QA",
+      "path": "assets/source/nasa/usgs-tycho.html",
+      "retrievedAt": "2026-10-04T16:00:53.934313+00:00",
+      "sourceSha256": "057114abbe5f667e2402be12fafe721b28726e69bb2b354f9867e4848509708c",
+      "bytes": 105445
+    },
+    {
+      "id": "stellarium/po/stellarium-skycultures/zh_CN.po",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium/982747cf68d4e3e5e829d9988647bf7e76a32a2d/po/stellarium-skycultures/zh_CN.po",
+      "revision": "982747cf68d4e3e5e829d9988647bf7e76a32a2d",
+      "path": "assets/source/stellarium/po/stellarium-skycultures/zh_CN.po",
+      "retrievedAt": "2026-10-04T13:23:34.913373+00:00",
+      "sourceSha256": "32c290e9b6ca5303bb6d6a2d03d8f8a99c7f9f799f3845e2b4d5bbd88ecd4248",
+      "bytes": 2923370
+    },
+    {
+      "id": "stellarium244/chinese/constellation_names.eng.fab",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium/ab961cbde42eec8121be0df6ff48292f8d492b54/skycultures/chinese/constellation_names.eng.fab",
+      "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+      "path": "assets/source/stellarium244/chinese/constellation_names.eng.fab",
+      "retrievedAt": "2026-10-04T13:50:08.829785+00:00",
+      "sourceSha256": "ce36d74282659dfe7a943a6d8ef591f18f650312f198cc6b5884e319622f473f",
+      "bytes": 13816
+    },
+    {
+      "id": "stellarium244/chinese/info.ini",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium/ab961cbde42eec8121be0df6ff48292f8d492b54/skycultures/chinese/info.ini",
+      "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+      "path": "assets/source/stellarium244/chinese/info.ini",
+      "retrievedAt": "2026-10-04T13:31:37.053477+00:00",
+      "sourceSha256": "122f3a3fb46cf373af14c16a9c762c80300748f41149398c2023b14933d5b75c",
+      "bytes": 142
+    },
+    {
+      "id": "stellarium244/chinese/star_names.fab",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium/ab961cbde42eec8121be0df6ff48292f8d492b54/skycultures/chinese/star_names.fab",
+      "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+      "path": "assets/source/stellarium244/chinese/star_names.fab",
+      "retrievedAt": "2026-10-04T13:50:10.235500+00:00",
+      "sourceSha256": "86891f56260bee78405d50c4972fecaad2f021ad5554ea2e4b6f0c392c15dbb0",
+      "bytes": 340783
+    },
+    {
+      "id": "stellarium244/modern/constellation_names.eng.fab",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium/ab961cbde42eec8121be0df6ff48292f8d492b54/skycultures/modern/constellation_names.eng.fab",
+      "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+      "path": "assets/source/stellarium244/modern/constellation_names.eng.fab",
+      "retrievedAt": "2026-10-04T13:50:08.849639+00:00",
+      "sourceSha256": "282f913ca5dc79f4d61efde2d0366f8385a3282a25c635d09026504cd5ccd4d5",
+      "bytes": 2491
+    },
+    {
+      "id": "stellarium244/modern/constellationship.fab",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium/ab961cbde42eec8121be0df6ff48292f8d492b54/skycultures/modern/constellationship.fab",
+      "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+      "path": "assets/source/stellarium244/modern/constellationship.fab",
+      "retrievedAt": "2026-10-04T13:31:37.062341+00:00",
+      "sourceSha256": "92441ca09d71320ec29709af6e51ff6b76f090e7576f1d0e8b25a3fe5626707c",
+      "bytes": 8852
+    },
+    {
+      "id": "stellarium244/modern/info.ini",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium/ab961cbde42eec8121be0df6ff48292f8d492b54/skycultures/modern/info.ini",
+      "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+      "path": "assets/source/stellarium244/modern/info.ini",
+      "retrievedAt": "2026-10-04T13:31:37.020621+00:00",
+      "sourceSha256": "ecfc1652dbdd978fb18c226a2046527d627fb953a9871c752adacaa01f1e3499",
+      "bytes": 165
+    },
+    {
+      "id": "stellarium244/modern_chinese/info.ini",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium/ab961cbde42eec8121be0df6ff48292f8d492b54/skycultures/modern_chinese/info.ini",
+      "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+      "path": "assets/source/stellarium244/modern_chinese/info.ini",
+      "retrievedAt": "2026-10-04T13:31:37.024376+00:00",
+      "sourceSha256": "48f80c4bad9c3b20e44cff3fc52202baa9c850e59d7b55ac7e8f9defcd741673",
+      "bytes": 170
+    },
+    {
+      "id": "stellarium244/po/stellarium-skycultures/zh_CN.po",
+      "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium/ab961cbde42eec8121be0df6ff48292f8d492b54/po/stellarium-skycultures/zh_CN.po",
+      "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+      "path": "assets/source/stellarium244/po/stellarium-skycultures/zh_CN.po",
+      "retrievedAt": "2026-10-04T13:50:10.078098+00:00",
+      "sourceSha256": "a6cb7bf3baee828f2d19dd614646de16e88820ed3009f8e4438ecd089e7bc7be",
+      "bytes": 1985095
+    }
+  ]
+}

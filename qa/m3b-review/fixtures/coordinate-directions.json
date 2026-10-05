@@ -1,0 +1,105 @@
+{
+  "status": "fixed-independent-coordinate-reference",
+  "scope": "Source coordinates only, not proof of production texture orientation or scientific frame precision. HIP is cross-identification for nearby bright-star region; background deliberately omits the bright star itself.",
+  "nasaSourceUrl": "https://svs.gsfc.nasa.gov/4851/",
+  "projectionEvidence": "Celestial ICRF/J2000 plate-carree, RA0 at image centre, RA grows left. RA12 is image-edge seam. Image Y grows downward. Pixel coordinates denote pixel centres (u*W-.5).",
+  "rows": [
+    {
+      "region": "Sgr A*",
+      "hip": null,
+      "sourceUrl": "https://simbad.cds.unistra.fr/simbad/sim-basic?Ident=sgr+A",
+      "coordinateFrame": "ICRS; equinox and proper-motion epoch J2000",
+      "rawSexagesimal": "17 45 40.03599-29 00 28.1699",
+      "raHours": 17.761121108333334,
+      "decDeg": -29.007824972222224,
+      "sourceUvImageTopDown": [
+        0.7599532871527778,
+        0.6611545831790123
+      ],
+      "sourcePixel4096x2048": [
+        3112.2686641777777,
+        1353.5445863506172
+      ],
+      "samplerUvFlipYTrue": [
+        0.7599532871527778,
+        0.3388454168209877
+      ],
+      "rawPath": "qa/m3b-review/fixtures/simbad-sgra.html",
+      "rawSha256": "15674928ad948c6774b3c734faa57012d68580f5817e98e017d2a3b64f65966e",
+      "retrievedAtUtc": "2026-10-04T17:32:05.6368089Z"
+    },
+    {
+      "region": "Deneb / Cygnus",
+      "hip": 102098,
+      "sourceUrl": "https://simbad.cds.unistra.fr/simbad/sim-basic?Ident=Deneb",
+      "coordinateFrame": "ICRS; equinox and proper-motion epoch J2000",
+      "rawSexagesimal": "20 41 25.91514+45 16 49.2197",
+      "raHours": 20.690531983333333,
+      "decDeg": 45.28033880555555,
+      "sourceUvImageTopDown": [
+        0.6378945006944444,
+        0.24844256219135807
+      ],
+      "sourcePixel4096x2048": [
+        2612.3158748444444,
+        508.31036736790134
+      ],
+      "samplerUvFlipYTrue": [
+        0.6378945006944444,
+        0.7515574378086419
+      ],
+      "rawPath": "qa/m3b-review/fixtures/simbad-deneb.html",
+      "rawSha256": "bca6ebb366b04afcf78e5f5ec417baaceda9aa7769470d2126a9a8790044bd2d",
+      "retrievedAtUtc": "2026-10-04T17:32:07.5666603Z"
+    },
+    {
+      "region": "Acrux / Crux",
+      "hip": 60718,
+      "sourceUrl": "https://simbad.cds.unistra.fr/simbad/sim-basic?Ident=alf+Cru",
+      "coordinateFrame": "ICRS; equinox and proper-motion epoch J2000",
+      "rawSexagesimal": "12 26 35.89522-63 05 56.7343",
+      "raHours": 12.443304227777778,
+      "decDeg": -63.09909286111111,
+      "sourceUvImageTopDown": [
+        0.9815289905092592,
+        0.8505505158950617
+      ],
+      "sourcePixel4096x2048": [
+        4019.842745125926,
+        1741.4274565530864
+      ],
+      "samplerUvFlipYTrue": [
+        0.9815289905092592,
+        0.1494494841049383
+      ],
+      "rawPath": "qa/m3b-review/fixtures/simbad-acrux.html",
+      "rawSha256": "4a7d81e712df2bdd79d1cd24f3147bfaf07642b26bb6d122eb189de92cf5a0ec",
+      "retrievedAtUtc": "2026-10-04T17:32:09.9100646Z"
+    },
+    {
+      "region": "Betelgeuse / Orion",
+      "hip": 27989,
+      "sourceUrl": "https://simbad.cds.unistra.fr/simbad/sim-basic?Ident=alf+Ori",
+      "coordinateFrame": "ICRS; equinox and proper-motion epoch J2000",
+      "rawSexagesimal": "05 55 10.30536+07 24 25.4304",
+      "raHours": 5.919529266666667,
+      "decDeg": 7.407064,
+      "sourceUvImageTopDown": [
+        0.25335294722222224,
+        0.4588496444444444
+      ],
+      "sourcePixel4096x2048": [
+        1037.2336718222223,
+        939.2240718222222
+      ],
+      "samplerUvFlipYTrue": [
+        0.25335294722222224,
+        0.5411503555555556
+      ],
+      "rawPath": "qa/m3b-review/fixtures/simbad-betelgeuse.html",
+      "rawSha256": "44bc9cd8f73767e9ff2f22ffe652bfd9add6f0aaac001e9b39a96aa31aabe0f9",
+      "retrievedAtUtc": "2026-10-04T17:32:12.6488804Z"
+    }
+  ],
+  "runAt": "2026-10-04T17:33:47.558Z"
+}

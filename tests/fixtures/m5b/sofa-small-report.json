@@ -1,0 +1,361 @@
+{
+  "schemaVersion": 1,
+  "purpose": "small independent convention-model examples; no production scoring",
+  "runAtUtc": "2026-10-04T21:22:45.761086+00:00",
+  "driverSha256": "2fbaf84a9d83e12a3f9c7509b33e2ca10d5d829ecc518cee8b5d0fa0998ff166",
+  "sampleScriptSha256": "b251baf75ae9cff2148939c12e53e715e8c57c2ae6f73898624c6b5805b4c03c",
+  "executableSha256": "1b60ff3ca145e19b67b03f5b67d35a8576e4d06ce4be716f3bb60eef5bf578dc",
+  "hygSourceSha256": "d9f69fd86bbf90a4e4d52b4c5c53eacfa6dfc0bfdef85bfd94f095e0bebe4ebd",
+  "inputFieldOrder": [
+    "rowId",
+    "id",
+    "motionModel",
+    "fallbackReason",
+    "framePolicy",
+    "raHours",
+    "decDeg",
+    "pmRaCosDecMasYr",
+    "pmDecMasYr",
+    "distancePc",
+    "radialVelocityKmS",
+    "motionYearsSinceJ2000",
+    "ut1Jd1",
+    "ut1Jd2",
+    "ttJd1",
+    "ttJd2",
+    "longitudeDegEast",
+    "latitudeDeg"
+  ],
+  "objectIds": [
+    "hip:32349",
+    "hip:91262",
+    "hip:11767",
+    "hip:57939",
+    "hip:103527",
+    "hip:89341",
+    "hip:40160",
+    "hip:17851",
+    "hyg:119623"
+  ],
+  "exceptionObjectIds": [
+    "hip:17851",
+    "hyg:119623"
+  ],
+  "referenceTimes": [
+    {
+      "calendarUtLabel": "1900-Mar-15 00:00:00.000",
+      "jdUtLabel": 2415093.5,
+      "motionYearsSinceJ2000": -99.79876796714579,
+      "motionPolicy": "numeric-UT-label-elapsed-days-divided-by-365.25-not-TT-years",
+      "ut1Jd": [
+        2415093.5,
+        0.0
+      ],
+      "ttJd": [
+        2415093.5,
+        -1.981939814814815e-05
+      ],
+      "referenceTimePolicy": "Horizons-before-1962-UT-is-UT1",
+      "dut1SecondsUsed": 0.0,
+      "tdbMinusUtSecondsFromHorizons": -1.712396,
+      "tdbMinusTtSecondsSofa": 0.0015986517200921866,
+      "tdbToTtCorrectionApplied": false,
+      "ttMinusUt1Seconds": -1.712396,
+      "tdbTtConversions": [
+        {
+          "tdbMinusTtSeconds": 0.0015986517200921866,
+          "ut1DayFraction": 0,
+          "observerKm": [
+            0,
+            0
+          ],
+          "warnings": [
+            "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+          ]
+        },
+        {
+          "tdbMinusTtSeconds": 0.0015986517200921866,
+          "ut1DayFraction": 0,
+          "observerKm": [
+            0,
+            0
+          ],
+          "warnings": [
+            "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+          ]
+        }
+      ],
+      "warnings": [
+        "pre1962-Horizons-TT-TDB-distinction-not-maintained-up-to-2ms",
+        "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+      ],
+      "rawReferenceId": "horizons-equator-sun-batch1",
+      "rawSha256": "411e3829114de5305f6224b4a1f0431e193ad8f8944c8521879f08aef4f5327c"
+    },
+    {
+      "calendarUtLabel": "2026-Sep-15 00:00:00.000",
+      "jdUtLabel": 2461298.5,
+      "motionYearsSinceJ2000": 26.70362765229295,
+      "motionPolicy": "numeric-UT-label-elapsed-days-divided-by-365.25-not-TT-years",
+      "ut1Jd": [
+        2461298.5,
+        -8.530092592592592e-08
+      ],
+      "ttJd": [
+        2461298.5,
+        0.0008007407842297578
+      ],
+      "referenceTimePolicy": "Horizons-UTC-plus-its-returned-DUT1",
+      "dut1SecondsUsed": -0.00737,
+      "tdbMinusUtSecondsFromHorizons": 69.182472,
+      "tdbMinusTtSecondsSofa": -0.0015317574510807057,
+      "tdbToTtCorrectionApplied": true,
+      "ttMinusUt1Seconds": 69.19137375745107,
+      "tdbTtConversions": [
+        {
+          "tdbMinusTtSeconds": -0.001531757450913347,
+          "ut1DayFraction": 0.9999999146990741,
+          "observerKm": [
+            0,
+            0
+          ],
+          "warnings": []
+        },
+        {
+          "tdbMinusTtSeconds": -0.0015317574510807057,
+          "ut1DayFraction": 0.9999999146990741,
+          "observerKm": [
+            0,
+            0
+          ],
+          "warnings": []
+        }
+      ],
+      "warnings": [],
+      "rawReferenceId": "horizons-equator-sun-batch2",
+      "rawSha256": "f577fdcd39219e89a3d15b57e46b95b6984c33b55fccd92fd41fb4425c45eb19"
+    },
+    {
+      "calendarUtLabel": "2100-Sep-15 00:00:00.000",
+      "jdUtLabel": 2488326.5,
+      "motionYearsSinceJ2000": 100.70225872689939,
+      "motionPolicy": "numeric-UT-label-elapsed-days-divided-by-365.25-not-TT-years",
+      "ut1Jd": [
+        2488326.5,
+        -1.1304398148148148e-06
+      ],
+      "ttJd": [
+        2488326.5,
+        0.0008007407455621395
+      ],
+      "referenceTimePolicy": "Horizons-UTC-plus-its-returned-DUT1",
+      "dut1SecondsUsed": -0.09767,
+      "tdbMinusUtSecondsFromHorizons": 69.182448,
+      "tdbMinusTtSecondsSofa": -0.0015524165688562944,
+      "tdbToTtCorrectionApplied": true,
+      "ttMinusUt1Seconds": 69.28167041656884,
+      "tdbTtConversions": [
+        {
+          "tdbMinusTtSeconds": -0.0015524165686725802,
+          "ut1DayFraction": 0.9999988695601851,
+          "observerKm": [
+            0,
+            0
+          ],
+          "warnings": [
+            "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+          ]
+        },
+        {
+          "tdbMinusTtSeconds": -0.0015524165688562944,
+          "ut1DayFraction": 0.9999988695601851,
+          "observerKm": [
+            0,
+            0
+          ],
+          "warnings": [
+            "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+          ]
+        }
+      ],
+      "warnings": [
+        "future-Horizons-DUT1-model-not-measurement",
+        "future-leap-seconds-unknown-Horizons-fixed-model",
+        "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+      ],
+      "rawReferenceId": "horizons-equator-sun-batch2",
+      "rawSha256": "f577fdcd39219e89a3d15b57e46b95b6984c33b55fccd92fd41fb4425c45eb19"
+    }
+  ],
+  "validRows": 58,
+  "validExitCode": 0,
+  "polarGuardExitCode": 1,
+  "overflowGuardExitCode": 1,
+  "maxMotionCrossCheckArcsec": 2.3078206462064817e-11,
+  "warningRows": [
+    {
+      "rowId": "unit-near-pole",
+      "warnings": [
+        "near-pole-ra-coordinate-rate-amplification"
+      ]
+    }
+  ],
+  "framePolicyDiagnostic": [
+    {
+      "rowId": "hip-32349-0-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.01935333957898754
+    },
+    {
+      "rowId": "hip-32349-1-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.019363458765875873
+    },
+    {
+      "rowId": "hip-32349-2-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.01936937704162323
+    },
+    {
+      "rowId": "hip-91262-0-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.022706392578996343
+    },
+    {
+      "rowId": "hip-91262-1-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.022707072944643192
+    },
+    {
+      "rowId": "hip-91262-2-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.02270747071606236
+    },
+    {
+      "rowId": "hip-11767-0-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.017912439447014296
+    },
+    {
+      "rowId": "hip-11767-1-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.017912028046412166
+    },
+    {
+      "rowId": "hip-11767-2-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.017911787481676093
+    },
+    {
+      "rowId": "hip-57939-0-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.017815576802781737
+    },
+    {
+      "rowId": "hip-57939-1-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.017869570235630548
+    },
+    {
+      "rowId": "hip-57939-2-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.017901143065868323
+    },
+    {
+      "rowId": "hip-103527-0-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.018747753360853856
+    },
+    {
+      "rowId": "hip-103527-1-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.01874734160329033
+    },
+    {
+      "rowId": "hip-103527-2-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.01874710095910279
+    },
+    {
+      "rowId": "hip-89341-0-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.009500863599403412
+    },
+    {
+      "rowId": "hip-89341-1-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.009500835762672744
+    },
+    {
+      "rowId": "hip-89341-2-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.009500819450163296
+    },
+    {
+      "rowId": "hip-40160-0-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.022978294166315444
+    },
+    {
+      "rowId": "hip-40160-1-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.022978285510511613
+    },
+    {
+      "rowId": "hip-40160-2-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.022978280363988433
+    },
+    {
+      "rowId": "hip-17851-0-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.017308873049761243
+    },
+    {
+      "rowId": "hip-17851-1-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.017308954946396657
+    },
+    {
+      "rowId": "hip-17851-2-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.01730900297642432
+    },
+    {
+      "rowId": "hyg-119623-0-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.008780706708260045
+    },
+    {
+      "rowId": "hyg-119623-1-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.008781020790329623
+    },
+    {
+      "rowId": "hyg-119623-2-mean-j2000",
+      "meanJ2000VsIcrsArcsec": 0.00878120428454724
+    }
+  ],
+  "failures": [],
+  "artifacts": [
+    {
+      "file": "small-input.tsv",
+      "sha256": "84b236402d82be34c6e051a1cb7af8b143ee3c562e7fcb9611533aca4b5bc31f",
+      "bytes": 14295
+    },
+    {
+      "file": "small-output.ndjson",
+      "sha256": "436f4e6eae69b52c4d88638f182586df4416aa2b493e433cd71c747bed831d3d",
+      "bytes": 78467
+    },
+    {
+      "file": "small-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "polar-guard-input.tsv",
+      "sha256": "36f4b663215ceaefc343eaca8ec0139c8d60dbc1d43ba8c8726a79b8d1e3e39e",
+      "bytes": 123
+    },
+    {
+      "file": "polar-guard-output.ndjson",
+      "sha256": "acc5ba331bc74c000cf245bff1494e24274d812cca26ddd679eeeb88f93f7f65",
+      "bytes": 312
+    },
+    {
+      "file": "polar-guard-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "file": "overflow-guard-input.tsv",
+      "sha256": "27106fe26847d9a46ef7b5e44bdcdffed5c190f51c41799ebf1379bea9e33e66",
+      "bytes": 148
+    },
+    {
+      "file": "overflow-guard-output.ndjson",
+      "sha256": "ae4318a44db443d55da6f5dcf8192e804e2dfbf86dff8e53cb83f8b15b6c2c2a",
+      "bytes": 333
+    },
+    {
+      "file": "overflow-guard-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ]
+}

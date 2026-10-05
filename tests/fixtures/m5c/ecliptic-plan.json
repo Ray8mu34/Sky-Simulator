@@ -1,0 +1,353 @@
+{
+  "schemaVersion": 1,
+  "frozenBeforeNativeOutputAtUtc": "2026-10-04T22:27:36.092601+00:00",
+  "dates": [
+    {
+      "id": "modern-1900-mar15",
+      "year": 1900,
+      "ttJd": [
+        2415093.5,
+        -1.981939814814815e-05
+      ],
+      "scope": "modern-predeclared-1arcsec-axis-contract",
+      "referenceContext": {
+        "epochIndex": 0,
+        "siteIndex": 0,
+        "siteId": "equator",
+        "rawReferenceId": "horizons-equator-sun-batch1",
+        "rawSha256": "411e3829114de5305f6224b4a1f0431e193ad8f8944c8521879f08aef4f5327c",
+        "jdUtLabel": 2415093.5,
+        "tdbMinusUtSeconds": -1.712396,
+        "dut1Seconds": null,
+        "calendarUtLabel": "1900-03-15T00:00:00",
+        "motionYearsSinceJ2000": -99.79876796714579,
+        "referenceTimePolicy": "Horizons-before-1962-UT-is-UT1",
+        "ut1Jd": [
+          2415093.5,
+          0.0
+        ],
+        "ttJd": [
+          2415093.5,
+          -1.981939814814815e-05
+        ],
+        "dut1SecondsUsed": 0.0,
+        "tdbMinusTtSecondsSofa": 0.0015986517200921866,
+        "tdbToTtCorrectionApplied": false,
+        "ttMinusUt1Seconds": -1.712396,
+        "tdbTtConversions": [
+          {
+            "exitCode": 0,
+            "stdout": "{\"tdbMinusTtSeconds\":0.0015986517200921866,\"ut1DayFraction\":0,\"observerKm\":[0,0],\"warnings\":[\"dtdb-model-outside-stated-1950-2050-accuracy-interval\"]}\n",
+            "stderr": "",
+            "parsed": {
+              "tdbMinusTtSeconds": 0.0015986517200921866,
+              "ut1DayFraction": 0,
+              "observerKm": [
+                0,
+                0
+              ],
+              "warnings": [
+                "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+              ]
+            }
+          },
+          {
+            "exitCode": 0,
+            "stdout": "{\"tdbMinusTtSeconds\":0.0015986517200921866,\"ut1DayFraction\":0,\"observerKm\":[0,0],\"warnings\":[\"dtdb-model-outside-stated-1950-2050-accuracy-interval\"]}\n",
+            "stderr": "",
+            "parsed": {
+              "tdbMinusTtSeconds": 0.0015986517200921866,
+              "ut1DayFraction": 0,
+              "observerKm": [
+                0,
+                0
+              ],
+              "warnings": [
+                "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+              ]
+            }
+          }
+        ],
+        "warnings": [
+          "pre1962-Horizons-TT-TDB-distinction-not-maintained-up-to-2ms",
+          "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+        ]
+      },
+      "modernAxisGateArcsec": 1.0
+    },
+    {
+      "id": "modern-2000-mar15",
+      "year": 2000,
+      "ttJd": [
+        2451618.5,
+        0.0007428703839239395
+      ],
+      "scope": "modern-predeclared-1arcsec-axis-contract",
+      "referenceContext": {
+        "epochIndex": 8,
+        "siteIndex": 0,
+        "siteId": "equator",
+        "rawReferenceId": "horizons-equator-sun-batch1",
+        "rawSha256": "411e3829114de5305f6224b4a1f0431e193ad8f8944c8521879f08aef4f5327c",
+        "jdUtLabel": 2451618.5,
+        "tdbMinusUtSeconds": 64.185547,
+        "dut1Seconds": 0.28942,
+        "calendarUtLabel": "2000-03-15T00:00:00",
+        "motionYearsSinceJ2000": 0.20123203285420946,
+        "referenceTimePolicy": "Horizons-UTC-plus-its-returned-DUT1",
+        "ut1Jd": [
+          2451618.5,
+          3.3497685185185185e-06
+        ],
+        "ttJd": [
+          2451618.5,
+          0.0007428703839239395
+        ],
+        "dut1SecondsUsed": 0.28942,
+        "tdbMinusTtSecondsSofa": 0.0015458289716355053,
+        "tdbToTtCorrectionApplied": true,
+        "ttMinusUt1Seconds": 63.89458117102837,
+        "tdbTtConversions": [
+          {
+            "exitCode": 0,
+            "stdout": "{\"tdbMinusTtSeconds\":0.0015458289718064146,\"ut1DayFraction\":3.3497685185185185e-06,\"observerKm\":[0,0],\"warnings\":[]}\n",
+            "stderr": "",
+            "parsed": {
+              "tdbMinusTtSeconds": 0.0015458289718064146,
+              "ut1DayFraction": 3.3497685185185185e-06,
+              "observerKm": [
+                0,
+                0
+              ],
+              "warnings": []
+            }
+          },
+          {
+            "exitCode": 0,
+            "stdout": "{\"tdbMinusTtSeconds\":0.0015458289716355053,\"ut1DayFraction\":3.3497685185185185e-06,\"observerKm\":[0,0],\"warnings\":[]}\n",
+            "stderr": "",
+            "parsed": {
+              "tdbMinusTtSeconds": 0.0015458289716355053,
+              "ut1DayFraction": 3.3497685185185185e-06,
+              "observerKm": [
+                0,
+                0
+              ],
+              "warnings": []
+            }
+          }
+        ],
+        "warnings": []
+      },
+      "modernAxisGateArcsec": 1.0
+    },
+    {
+      "id": "modern-2026-mar15",
+      "year": 2026,
+      "ttJd": [
+        2461114.5,
+        0.0008007407839040275
+      ],
+      "scope": "modern-predeclared-1arcsec-axis-contract",
+      "referenceContext": {
+        "epochIndex": 12,
+        "siteIndex": 0,
+        "siteId": "equator",
+        "rawReferenceId": "horizons-equator-sun-batch2",
+        "rawSha256": "f577fdcd39219e89a3d15b57e46b95b6984c33b55fccd92fd41fb4425c45eb19",
+        "jdUtLabel": 2461114.5,
+        "tdbMinusUtSeconds": 69.185537,
+        "dut1Seconds": 0.06196,
+        "calendarUtLabel": "2026-03-15T00:00:00",
+        "motionYearsSinceJ2000": 26.199863107460644,
+        "referenceTimePolicy": "Horizons-UTC-plus-its-returned-DUT1",
+        "ut1Jd": [
+          2461114.5,
+          7.171296296296297e-07
+        ],
+        "ttJd": [
+          2461114.5,
+          0.0008007407839040275
+        ],
+        "dut1SecondsUsed": 0.06196,
+        "tdbMinusTtSecondsSofa": 0.0015332706920274546,
+        "tdbToTtCorrectionApplied": true,
+        "ttMinusUt1Seconds": 69.12204372930798,
+        "tdbTtConversions": [
+          {
+            "exitCode": 0,
+            "stdout": "{\"tdbMinusTtSeconds\":0.0015332706922021903,\"ut1DayFraction\":7.1712962962962965e-07,\"observerKm\":[0,0],\"warnings\":[]}\n",
+            "stderr": "",
+            "parsed": {
+              "tdbMinusTtSeconds": 0.0015332706922021903,
+              "ut1DayFraction": 7.171296296296297e-07,
+              "observerKm": [
+                0,
+                0
+              ],
+              "warnings": []
+            }
+          },
+          {
+            "exitCode": 0,
+            "stdout": "{\"tdbMinusTtSeconds\":0.0015332706920274546,\"ut1DayFraction\":7.1712962962962965e-07,\"observerKm\":[0,0],\"warnings\":[]}\n",
+            "stderr": "",
+            "parsed": {
+              "tdbMinusTtSeconds": 0.0015332706920274546,
+              "ut1DayFraction": 7.171296296296297e-07,
+              "observerKm": [
+                0,
+                0
+              ],
+              "warnings": []
+            }
+          }
+        ],
+        "warnings": []
+      },
+      "modernAxisGateArcsec": 1.0
+    },
+    {
+      "id": "modern-2100-mar15",
+      "year": 2100,
+      "ttJd": [
+        2488142.5,
+        0.0008007407639318291
+      ],
+      "scope": "modern-predeclared-1arcsec-axis-contract",
+      "referenceContext": {
+        "epochIndex": 20,
+        "siteIndex": 0,
+        "siteId": "equator",
+        "rawReferenceId": "horizons-equator-sun-batch2",
+        "rawSha256": "f577fdcd39219e89a3d15b57e46b95b6984c33b55fccd92fd41fb4425c45eb19",
+        "jdUtLabel": 2488142.5,
+        "tdbMinusUtSeconds": 69.185555,
+        "dut1Seconds": -0.09767,
+        "calendarUtLabel": "2100-03-15T00:00:00",
+        "motionYearsSinceJ2000": 100.19849418206708,
+        "referenceTimePolicy": "Horizons-UTC-plus-its-returned-DUT1",
+        "ut1Jd": [
+          2488142.5,
+          -1.1304398148148148e-06
+        ],
+        "ttJd": [
+          2488142.5,
+          0.0008007407639318291
+        ],
+        "dut1SecondsUsed": -0.09767,
+        "tdbMinusTtSecondsSofa": 0.0015529962899652916,
+        "tdbToTtCorrectionApplied": true,
+        "ttMinusUt1Seconds": 69.28167200371003,
+        "tdbTtConversions": [
+          {
+            "exitCode": 0,
+            "stdout": "{\"tdbMinusTtSeconds\":0.0015529962901471945,\"ut1DayFraction\":0.99999886956018513,\"observerKm\":[0,0],\"warnings\":[\"dtdb-model-outside-stated-1950-2050-accuracy-interval\"]}\n",
+            "stderr": "",
+            "parsed": {
+              "tdbMinusTtSeconds": 0.0015529962901471945,
+              "ut1DayFraction": 0.9999988695601851,
+              "observerKm": [
+                0,
+                0
+              ],
+              "warnings": [
+                "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+              ]
+            }
+          },
+          {
+            "exitCode": 0,
+            "stdout": "{\"tdbMinusTtSeconds\":0.0015529962899652916,\"ut1DayFraction\":0.99999886956018513,\"observerKm\":[0,0],\"warnings\":[\"dtdb-model-outside-stated-1950-2050-accuracy-interval\"]}\n",
+            "stderr": "",
+            "parsed": {
+              "tdbMinusTtSeconds": 0.0015529962899652916,
+              "ut1DayFraction": 0.9999988695601851,
+              "observerKm": [
+                0,
+                0
+              ],
+              "warnings": [
+                "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+              ]
+            }
+          }
+        ],
+        "warnings": [
+          "future-Horizons-DUT1-model-not-measurement",
+          "future-leap-seconds-unknown-Horizons-fixed-model",
+          "dtdb-model-outside-stated-1950-2050-accuracy-interval"
+        ]
+      },
+      "modernAxisGateArcsec": 1.0
+    },
+    {
+      "id": "extended-minus2000-mar15",
+      "year": -2000,
+      "ttJd": [
+        990648.5,
+        0.0
+      ],
+      "scope": "numerical-axis-handedness-only-not-precision-validated",
+      "referenceContext": null,
+      "modernAxisGateArcsec": null,
+      "timePolicy": "explicit proleptic Gregorian March15 00:00 TT input, not an inferred UT/UTC/DeltaT",
+      "warnings": [
+        "extended-epoch-no-absolute-ecliptic-accuracy-claim"
+      ]
+    },
+    {
+      "id": "extended-4000-mar15",
+      "year": 4000,
+      "ttJd": [
+        3182103.5,
+        0.0
+      ],
+      "scope": "numerical-axis-handedness-only-not-precision-validated",
+      "referenceContext": null,
+      "modernAxisGateArcsec": null,
+      "timePolicy": "explicit proleptic Gregorian March15 00:00 TT input, not an inferred UT/UTC/DeltaT",
+      "warnings": [
+        "extended-epoch-no-absolute-ecliptic-accuracy-claim"
+      ]
+    }
+  ],
+  "longitudeDegs": [
+    0,
+    30,
+    60,
+    90,
+    120,
+    150,
+    180,
+    210,
+    240,
+    270,
+    300,
+    330
+  ],
+  "basisColumns": [
+    "eclipticX",
+    "eclipticY",
+    "eclipticZ"
+  ],
+  "modernAxisGateArcsec": 1.0,
+  "gateStatus": "project engineering gate, predeclared, not upstream guarantee",
+  "priorCoefficientBound": {
+    "scope": "prior coefficient triangle bound relative to SOFA Nut00b; no AE numeric call/comparison",
+    "julianCenturiesAbsoluteLimit": 1.01,
+    "sofaTerms": 77,
+    "auditedAeTerms": 5,
+    "omittedLongitudeBoundArcsec": 0.34330273699999997,
+    "omittedObliquityBoundArcsec": 0.109173996,
+    "combinedComponentTriangleBoundArcsec": 0.45247673299999996,
+    "oneArcsecThresholdStatus": "predeclared project gate, not upstream 1arcsec guarantee; full2000A/model/precession differences still explicit",
+    "sourceNut00bSha256": "49dd03e83670c8838d6b9ec2f4ae85159cc39d1c2ef020a114f0fcb8ac20e44e"
+  },
+  "referenceContextSha256": "85de2e85bc32c3a04dc3a93f3220b4d4ac247fe05ba48d3a5daabe5a5c256b86",
+  "officialSofaZipSha256": "375729d8c0a254fd27c55484de5c8b83cccef351e1ef19d9cf7f26f5485e5538",
+  "driverSha256": "7213291cf4b98d34976139c5496061ebd50ce1fdaa7884d112704198ebaba62f",
+  "generatorSha256": "2aa2349c30a2170b2f10d7c1a4e8c1b86230eeea6343276eaebe19a33d2dc846",
+  "framePolicy": "true ecliptic/equinox of date to mean-J2000, bias removed",
+  "productionComparisonPerformed": false
+}

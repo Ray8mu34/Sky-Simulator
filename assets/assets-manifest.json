@@ -1,0 +1,932 @@
+{
+  "schemaVersion": 1,
+  "status": "actual files acquired and processed; selected HYG and Stellarium data licenses explicitly versioned; official NASA media conditions recorded; fixed MIT lunar generator with complete independent HKO audit and retained differences; NASA2020 celestial background-only Milky Way with fixed tone map",
+  "buildTools": {
+    "python": "3.12.12 (dl_env)",
+    "Pillow": "12.2.0",
+    "numpy": "2.4.6"
+  },
+  "sourceLock": "assets/source-lock.json",
+  "runtimeAssetsAreStaticImports": true,
+  "runtimeExternalDownloads": false,
+  "excluded": "assets/source/** including raw EXR/source previews/download ranges, raw CSV, source JPEG/PNG/TIF, generator source package, HKO raw TXT/PDF and extracted checked rows, repo trees, upstream PO source, reference screenshots, illustrations",
+  "assets": [
+    {
+      "id": "bright-stars",
+      "source": "https://github.com/astronexus/HYG-Database",
+      "revision": "c7f7f883fe678cc7680169a50ccd7dcc49b060ce",
+      "license": "CC-BY-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "credit": "David Nash / Astronexus HYG 4.1; Hipparcos, Yale Bright Star and Gliese catalogs",
+      "sourceFiles": [
+        {
+          "id": "hyg/hyg/CURRENT/hygdata_v41.csv",
+          "sourceUrl": "https://raw.githubusercontent.com/astronexus/HYG-Database/c7f7f883fe678cc7680169a50ccd7dcc49b060ce/hyg/CURRENT/hygdata_v41.csv",
+          "revision": "c7f7f883fe678cc7680169a50ccd7dcc49b060ce",
+          "path": "assets/source/hyg/hyg/CURRENT/hygdata_v41.csv",
+          "retrievedAt": "2026-10-04T13:23:36.166309+00:00",
+          "sourceSha256": "d9f69fd86bbf90a4e4d52b4c5c53eacfa6dfc0bfdef85bfd94f095e0bebe4ebd"
+        },
+        {
+          "id": "hyg/hyg/README.md",
+          "sourceUrl": "https://raw.githubusercontent.com/astronexus/HYG-Database/c7f7f883fe678cc7680169a50ccd7dcc49b060ce/hyg/README.md",
+          "revision": "c7f7f883fe678cc7680169a50ccd7dcc49b060ce",
+          "path": "assets/source/hyg/hyg/README.md",
+          "retrievedAt": "2026-10-04T13:23:21.313937+00:00",
+          "sourceSha256": "81f765951e60131e49ccc91376815791e130ad1db46047eb1384d3ba6bcb5af4"
+        },
+        {
+          "id": "hyg/LICENSE",
+          "sourceUrl": "https://raw.githubusercontent.com/astronexus/HYG-Database/c7f7f883fe678cc7680169a50ccd7dcc49b060ce/LICENSE",
+          "revision": "c7f7f883fe678cc7680169a50ccd7dcc49b060ce",
+          "path": "assets/source/hyg/LICENSE",
+          "retrievedAt": "2026-10-04T13:23:21.311047+00:00",
+          "sourceSha256": "f404190403d31e0ce7223f4cb7af954485ad88077358330754dc5c892a856627"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "assets/runtime/stars.bin",
+          "sha256": "960078fd7816d9aee7053703c0b29acc59d8a54106191d4a16d7662ae8c0c54b",
+          "bytes": 285472
+        },
+        {
+          "path": "assets/runtime/stars.b64.txt",
+          "sha256": "0e2942af67732e61b179f0c8d528aa606543dcc7b5c822cecb4a7b73be13e8e5",
+          "bytes": 380632
+        },
+        {
+          "path": "assets/runtime/star-meta.json",
+          "sha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1",
+          "bytes": 1559522
+        }
+      ],
+      "coordinateFrame": "right-handed J2000 equatorial (ICRS approximation), X=RA0h Y=RA6h Z=north",
+      "epoch": "J2000.0",
+      "equinox": "J2000.0",
+      "units": {
+        "ra": "hours",
+        "dec": "degrees",
+        "magnitude": "V mag",
+        "pmra": "mu_alpha*cos(dec), mas/year",
+        "pmdec": "mas/year",
+        "dist": "parsec; invalid >=100000 excluded",
+        "velocity": "parsec/year",
+        "rv": "km/s"
+      },
+      "selection": "mag<=6.5 plus all western figure endpoints and required pedagogical named stars; exclude Sun",
+      "count": 8921,
+      "processing": "32-byte little-endian GPU records; double precision RA/Dec/PM and source quality retained in compact metadata; color mapping is restrained display approximation",
+      "processingCommand": "conda run -n dl_env python scripts/data_build.py"
+    },
+    {
+      "id": "western-constellations",
+      "source": "https://github.com/Stellarium/stellarium/tree/v24.4/skycultures/modern",
+      "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+      "license": "CC-BY-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "licenseEvidence": "Selected v24.4 modern/info.ini explicitly lists CC BY-SA 4.0. Newer version-omitting Western sources are development reference only and not selected for distribution.",
+      "credit": "Stellarium's team; Chinese labels: Stellarium zh_CN translation team",
+      "sourceFiles": [
+        {
+          "id": "stellarium244/modern/info.ini",
+          "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium/ab961cbde42eec8121be0df6ff48292f8d492b54/skycultures/modern/info.ini",
+          "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+          "path": "assets/source/stellarium244/modern/info.ini",
+          "retrievedAt": "2026-10-04T13:31:37.020621+00:00",
+          "sourceSha256": "ecfc1652dbdd978fb18c226a2046527d627fb953a9871c752adacaa01f1e3499"
+        },
+        {
+          "id": "stellarium244/modern/constellationship.fab",
+          "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium/ab961cbde42eec8121be0df6ff48292f8d492b54/skycultures/modern/constellationship.fab",
+          "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+          "path": "assets/source/stellarium244/modern/constellationship.fab",
+          "retrievedAt": "2026-10-04T13:31:37.062341+00:00",
+          "sourceSha256": "92441ca09d71320ec29709af6e51ff6b76f090e7576f1d0e8b25a3fe5626707c"
+        },
+        {
+          "id": "stellarium244/modern/constellation_names.eng.fab",
+          "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium/ab961cbde42eec8121be0df6ff48292f8d492b54/skycultures/modern/constellation_names.eng.fab",
+          "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+          "path": "assets/source/stellarium244/modern/constellation_names.eng.fab",
+          "retrievedAt": "2026-10-04T13:50:08.849639+00:00",
+          "sourceSha256": "282f913ca5dc79f4d61efde2d0366f8385a3282a25c635d09026504cd5ccd4d5"
+        },
+        {
+          "id": "stellarium244/po/stellarium-skycultures/zh_CN.po",
+          "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium/ab961cbde42eec8121be0df6ff48292f8d492b54/po/stellarium-skycultures/zh_CN.po",
+          "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+          "path": "assets/source/stellarium244/po/stellarium-skycultures/zh_CN.po",
+          "retrievedAt": "2026-10-04T13:50:10.078098+00:00",
+          "sourceSha256": "a6cb7bf3baee828f2d19dd614646de16e88820ed3009f8e4438ecd089e7bc7be"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "assets/runtime/constellations.bin",
+          "sha256": "07786a9f634d6897357c0d1228f18a3ec36401735724c80fe3e3af4d1d50dc89",
+          "bytes": 2704
+        },
+        {
+          "path": "assets/runtime/constellation-meta.json",
+          "sha256": "70cbb0668f8a8a9d4b16522cb00356855fa40e116f160aa79c266693b989c61c",
+          "bytes": 23457
+        }
+      ],
+      "coordinateFrame": "J2000 through HIP star endpoints; mean endpoint direction is a label anchor, not an IAU boundary centre",
+      "epoch": "J2000.0",
+      "units": "Uint16 star indexes; lineStart and lineCount are segment units",
+      "constellations": 88,
+      "segments": 676,
+      "uniqueEndpoints": 692,
+      "missingEndpoints": 0,
+      "processing": "Flatten the complete v24.4 Modern segment list; resolve all HIP endpoints; exact Latin constellation name localized with matching zh_CN.po. No artwork or boundaries included.",
+      "processingCommand": "conda run -n dl_env python scripts/data_build.py"
+    },
+    {
+      "id": "chinese-star-aliases",
+      "source": "https://github.com/Stellarium/stellarium/tree/v24.4/skycultures/chinese",
+      "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+      "localizationRevision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+      "license": "CC-BY-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "credit": "Karrie Berglund / Digitalis Education Solutions, Hong Kong Space Museum star-map basis; Sun Shuwei; Yi Shitong star-chart basis; Stellarium team and zh_CN translators",
+      "sourceFiles": [
+        {
+          "id": "stellarium244/chinese/star_names.fab",
+          "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium/ab961cbde42eec8121be0df6ff48292f8d492b54/skycultures/chinese/star_names.fab",
+          "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+          "path": "assets/source/stellarium244/chinese/star_names.fab",
+          "retrievedAt": "2026-10-04T13:50:10.235500+00:00",
+          "sourceSha256": "86891f56260bee78405d50c4972fecaad2f021ad5554ea2e4b6f0c392c15dbb0"
+        },
+        {
+          "id": "stellarium244/chinese/info.ini",
+          "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium/ab961cbde42eec8121be0df6ff48292f8d492b54/skycultures/chinese/info.ini",
+          "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+          "path": "assets/source/stellarium244/chinese/info.ini",
+          "retrievedAt": "2026-10-04T13:31:37.053477+00:00",
+          "sourceSha256": "122f3a3fb46cf373af14c16a9c762c80300748f41149398c2023b14933d5b75c"
+        },
+        {
+          "id": "stellarium244/po/stellarium-skycultures/zh_CN.po",
+          "sourceUrl": "https://raw.githubusercontent.com/Stellarium/stellarium/ab961cbde42eec8121be0df6ff48292f8d492b54/po/stellarium-skycultures/zh_CN.po",
+          "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",
+          "path": "assets/source/stellarium244/po/stellarium-skycultures/zh_CN.po",
+          "retrievedAt": "2026-10-04T13:50:10.078098+00:00",
+          "sourceSha256": "a6cb7bf3baee828f2d19dd614646de16e88820ed3009f8e4438ecd089e7bc7be"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "assets/runtime/star-meta.json",
+          "sha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1",
+          "bytes": 1559522
+        }
+      ],
+      "evidenceFile": "assets/names-zh-evidence.json",
+      "constellationLabelEvidenceFile": "assets/constellation-name-evidence.json",
+      "namedStars": 176,
+      "namesAndAliases": 198,
+      "coordinateFrame": "stable HIP identifiers",
+      "epoch": null,
+      "units": "text",
+      "processing": "Only confirmed confidence-1 individual HIP star names; exact full English-to-Chinese lookup from matching v24.4 zh_CN.po. Skip uncertain confidence-2 mappings and untranslated strings; no Roman-name inference.",
+      "processingCommand": "conda run -n dl_env python scripts/data_build.py"
+    },
+    {
+      "id": "earth-day",
+      "source": "https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/",
+      "revision": "Blue Marble 2002 (land observations June–September 2001)",
+      "license": "NASA Images and Media Usage Guidelines; US Government imagery generally not subject to US copyright; educational/informational use with acknowledgment, no endorsement",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "credit": "NASA Goddard Space Flight Center / NASA Earth Observatory; Reto Stöckli (land surface, shallow water), Robert Simmon (ocean color, compositing); MODIS teams; USGS/NOAA supporting data",
+      "sourceFiles": [
+        {
+          "id": "nasa/land_ocean_ice_2048.png",
+          "sourceUrl": "https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57730/land_ocean_ice_2048.png",
+          "revision": "EO57730-BlueMarble2002",
+          "path": "assets/source/nasa/land_ocean_ice_2048.png",
+          "retrievedAt": "2026-10-04T13:31:39.507241+00:00",
+          "sourceSha256": "b5e0139834c638d10c2c747f4bac63df5f9387680c00d87e5a2a9ed9a3dfea71"
+        },
+        {
+          "id": "nasa/media-usage.html",
+          "sourceUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+          "revision": "snapshot",
+          "path": "assets/source/nasa/media-usage.html",
+          "retrievedAt": "2026-10-04T13:31:40.006829+00:00",
+          "sourceSha256": "9bb10367c180da3a506f9d0b70f1576ad4d13110b654504d90ffb639e245475b"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "assets/runtime/earth-day-2k.webp",
+          "sha256": "f2fde0f1ca1958b262b2cbdbd98ab1b69e4f750c674f188e98d06fef940dddf7",
+          "bytes": 219370,
+          "dimensions": [
+            2048,
+            1024
+          ]
+        },
+        {
+          "path": "assets/runtime/earth-day-1k.webp",
+          "sha256": "9c16d3d51a4d22ca97a67e06579368ea8e101efb09d388576c913cfcf52f5c63",
+          "bytes": 62728,
+          "dimensions": [
+            1024,
+            512
+          ]
+        }
+      ],
+      "coordinateFrame": "geographic equirectangular; north at top, Greenwich at u=0.5, east increases right",
+      "epoch": "static source composite; unrelated to simulated date",
+      "units": "8bit color",
+      "colorSpace": "sRGB",
+      "processing": "RGB conversion, WebP quality87 2K, Lanczos downsample+quality85 1K; no geography/longitude change",
+      "processingCommand": "conda run -n dl_env python scripts/data_textures.py"
+    },
+    {
+      "id": "earth-night",
+      "source": "https://science.nasa.gov/earth/earth-observatory/night-lights-2012-map-79765/",
+      "revision": "Night Lights 2012 Map, published2012-11-27; observations2012-04-18 to2012-10-23",
+      "license": "NASA Images and Media Usage Guidelines; US Government imagery generally not subject to US copyright; educational/informational use with acknowledgment, no endorsement",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "credit": "NASA Earth Observatory / Robert Simmon; Suomi NPP VIIRS data courtesy Chris Elvidge, NOAA National Geophysical Data Center",
+      "sourceFiles": [
+        {
+          "id": "nasa/dnb_land_ocean_ice.2012.3600x1800.jpg",
+          "sourceUrl": "https://eoimages.gsfc.nasa.gov/images/imagerecords/79000/79765/dnb_land_ocean_ice.2012.3600x1800.jpg",
+          "revision": "EO79765-BlackMarble2012",
+          "path": "assets/source/nasa/dnb_land_ocean_ice.2012.3600x1800.jpg",
+          "retrievedAt": "2026-10-04T13:31:38.699754+00:00",
+          "sourceSha256": "373e5a08c9f378a2ce6320214a613148e4b1e3946b3f39a516c9093b76cb7124"
+        },
+        {
+          "id": "nasa/media-usage.html",
+          "sourceUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+          "revision": "snapshot",
+          "path": "assets/source/nasa/media-usage.html",
+          "retrievedAt": "2026-10-04T13:31:40.006829+00:00",
+          "sourceSha256": "9bb10367c180da3a506f9d0b70f1576ad4d13110b654504d90ffb639e245475b"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "assets/runtime/earth-night-1k.webp",
+          "sha256": "2d2f796280c944499cc4e3b2fda5ae0e4dfbe71a50b9540a65868fcb3d94297e",
+          "bytes": 21586,
+          "dimensions": [
+            1024,
+            512
+          ]
+        }
+      ],
+      "coordinateFrame": "geographic equirectangular; north at top, Greenwich at u=0.5, east increases right",
+      "epoch": "static source composite; unrelated to simulated date",
+      "units": "8bit color",
+      "colorSpace": "sRGB",
+      "processing": "Lanczos downsample1K; subtract0.72*blue +0.015 and multiply1.8 to suppress blue backdrop and retain measured light locations; display emission texture, not quantitative radiance. Composite also contains gas flares/wildfires and is not a current city census.",
+      "processingCommand": "conda run -n dl_env python scripts/data_textures.py"
+    },
+    {
+      "id": "earth-clouds",
+      "source": "https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/",
+      "revision": "Blue Marble 2002 static cloud composite, EO57747; two visible days and a thermal day for poles",
+      "license": "NASA Images and Media Usage Guidelines; US Government imagery generally not subject to US copyright; educational/informational use with acknowledgment, no endorsement",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "credit": "NASA Goddard Space Flight Center / NASA Earth Observatory; Reto Stöckli (clouds), Robert Simmon (compositing); MODIS Atmosphere Group",
+      "sourceFiles": [
+        {
+          "id": "nasa/cloud_combined_2048.jpg",
+          "sourceUrl": "https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg",
+          "revision": "snapshot",
+          "path": "assets/source/nasa/cloud_combined_2048.jpg",
+          "retrievedAt": "2026-10-04T13:41:08.105328+00:00",
+          "sourceSha256": "daddaad84d7a33bbbc86cdda3f591099f57cee8607b7bcf3b67eb7e4f7a1c793"
+        },
+        {
+          "id": "nasa/media-usage.html",
+          "sourceUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+          "revision": "snapshot",
+          "path": "assets/source/nasa/media-usage.html",
+          "retrievedAt": "2026-10-04T13:31:40.006829+00:00",
+          "sourceSha256": "9bb10367c180da3a506f9d0b70f1576ad4d13110b654504d90ffb639e245475b"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "assets/runtime/earth-clouds-1k.webp",
+          "sha256": "f34296e67f4d54773ba45cdbf713fff80d2e8c1ae8321d29e82c080a0be6d04a",
+          "bytes": 358566,
+          "dimensions": [
+            1024,
+            512
+          ]
+        }
+      ],
+      "coordinateFrame": "geographic equirectangular; north at top, Greenwich at u=0.5, east increases right",
+      "epoch": "static source composite; unrelated to simulated date",
+      "units": "8bit grayscale opacity mask",
+      "colorSpace": "NoColorSpace linear mask",
+      "processing": "ConvertL; Lanczos downsample1K; replicate gray toRGB.r; losslessWebP; shader uses linear cloud-opacity mask; not current weather",
+      "processingCommand": "conda run -n dl_env python scripts/data_textures.py"
+    },
+    {
+      "id": "moon-color",
+      "source": "https://svs.gsfc.nasa.gov/4720/",
+      "revision": "2019 CGI Moon Kit, official1K JPG derivative",
+      "sourceFile": "assets/source/nasa/lroc_color_poles_1k.jpg",
+      "sourceSha256": "b246064f217f8d479df78c49c7c8595a8f5fbda008a72fd539978d2e121e0109",
+      "outputs": [
+        {
+          "path": "assets/runtime/moon-color-1k.webp",
+          "sha256": "93061f93a89a67089205fa955d10fa83762d3607448bd7f6ef8f1157f43fd7c9",
+          "bytes": 113956,
+          "dimensions": [
+            1024,
+            512
+          ]
+        }
+      ],
+      "coordinateFrame": "equirectangular lunar body-fixed; east-positive longitude -180..180 left-to-right, north at top",
+      "uvLongitudeEastDeg": [
+        -180,
+        -90,
+        0,
+        90,
+        180
+      ],
+      "uvSamples": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1
+      ],
+      "imageRowLatitudeNorthDeg": [
+        90,
+        0,
+        -90
+      ],
+      "colorSpace": "sRGB",
+      "processing": "Official 2019 1K JPG retained at original resolution; RGB WebPquality88 transcoding only, no rotation, mirroring or longitude offset. 2K TIF transfer timed out; incomplete file is not selected.",
+      "limitations": "NASA map is optimized for aesthetics: gamma/exposure/white-balance adjustments and filled poles; not scientific photometry or a current observation.",
+      "processingCommand": "conda run -n dl_env python scripts/data_moon.py",
+      "license": "NASA Images and Media Usage Guidelines; US Government imagery generally not subject to US copyright; educational/informational use with acknowledgment, no endorsement",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "credit": "NASA Scientific Visualization Studio / Ernie Wright (USRA); Noah Petro (NASA/GSFC); LROC WAC camera team (Arizona State University), LOLA team",
+      "sourceFiles": [
+        {
+          "id": "nasa/lroc_color_poles_1k.jpg",
+          "sourceUrl": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/lroc_color_poles_1k.jpg",
+          "revision": "NASA CGI Moon Kit 2019; SVS4720; official 1K derivative",
+          "path": "assets/source/nasa/lroc_color_poles_1k.jpg",
+          "retrievedAt": "2026-10-04T15:56:26.514126+00:00",
+          "sourceSha256": "b246064f217f8d479df78c49c7c8595a8f5fbda008a72fd539978d2e121e0109"
+        },
+        {
+          "id": "nasa/cgi-moon-kit-4720.html",
+          "sourceUrl": "https://svs.gsfc.nasa.gov/4720/",
+          "revision": "page snapshot; selected 2019 map",
+          "path": "assets/source/nasa/cgi-moon-kit-4720.html",
+          "retrievedAt": "2026-10-04T15:49:50.514298+00:00",
+          "sourceSha256": "abcac6054a419ffae0dccb37f40d59b6374e0cacb53316be70bba50e6e8ce251"
+        },
+        {
+          "id": "nasa/WAC_HAPKE_README.TXT",
+          "sourceUrl": "https://pds.mcp.nasa.gov/data/store/img/lunar_reconnaissance_orbiter/pds4/lroc/lro-l-lroc-5-rdr/LROLRC_2001/DATA/MDR/WAC_HAPKE/WAC_HAPKE_README.TXT",
+          "revision": "LROC WAC Hapke normalized source documentation",
+          "path": "assets/source/nasa/WAC_HAPKE_README.TXT",
+          "retrievedAt": "2026-10-04T15:49:52.825035+00:00",
+          "sourceSha256": "498452139c78d43f1149e286cb6916703a1e300d91dffcbd4f9957cce5c52b0c"
+        },
+        {
+          "id": "nasa/usgs-mare-crisium.html",
+          "sourceUrl": "https://planetarynames.wr.usgs.gov/Feature/3671",
+          "revision": "IAU/USGS nomenclature coordinate snapshot; orientation QA",
+          "path": "assets/source/nasa/usgs-mare-crisium.html",
+          "retrievedAt": "2026-10-04T16:00:53.935199+00:00",
+          "sourceSha256": "c8c056d6baeee82a8ca12f7cbfcba3079c2c35b841f5f18f3380af91b07678bf"
+        },
+        {
+          "id": "nasa/usgs-tycho.html",
+          "sourceUrl": "https://planetarynames.wr.usgs.gov/Feature/6163",
+          "revision": "IAU/USGS nomenclature coordinate snapshot; orientation QA",
+          "path": "assets/source/nasa/usgs-tycho.html",
+          "retrievedAt": "2026-10-04T16:00:53.934313+00:00",
+          "sourceSha256": "057114abbe5f667e2402be12fafe721b28726e69bb2b354f9867e4848509708c"
+        },
+        {
+          "id": "nasa/media-usage.html",
+          "sourceUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+          "revision": "snapshot",
+          "path": "assets/source/nasa/media-usage.html",
+          "retrievedAt": "2026-10-04T13:31:40.006829+00:00",
+          "sourceSha256": "9bb10367c180da3a506f9d0b70f1576ad4d13110b654504d90ffb639e245475b"
+        }
+      ]
+    },
+    {
+      "id": "lunar-calendar",
+      "source": "https://github.com/6tail/lunar-typescript",
+      "revision": "a376ec2b8fd1b3069e24c92801bab8707fccd49d",
+      "generator": "lunar-typescript@1.8.6",
+      "license": "MIT",
+      "licenseUrl": "https://github.com/6tail/lunar-typescript/blob/a376ec2b8fd1b3069e24c92801bab8707fccd49d/LICENSE",
+      "credit": "6tail; lunar-typescript1.8.6. Independent QA comparison: Hong Kong Observatory, HKSAR Government.",
+      "sourceFiles": [
+        {
+          "id": "lunar-typescript/lunar-typescript-1.8.6.tgz",
+          "sourceUrl": "https://registry.npmjs.org/lunar-typescript/-/lunar-typescript-1.8.6.tgz",
+          "revision": "a376ec2b8fd1b3069e24c92801bab8707fccd49d",
+          "path": "assets/source/lunar-typescript/lunar-typescript-1.8.6.tgz",
+          "retrievedAt": "2026-10-04T15:49:48.585864+00:00",
+          "sourceSha256": "257163cff2e2bb8359861721e72e5dbed2f583340b1400e459fd27816ac2ac39"
+        },
+        {
+          "id": "lunar-typescript/npm-1.8.6.json",
+          "sourceUrl": "https://registry.npmjs.org/lunar-typescript/1.8.6",
+          "revision": "a376ec2b8fd1b3069e24c92801bab8707fccd49d",
+          "path": "assets/source/lunar-typescript/npm-1.8.6.json",
+          "retrievedAt": "2026-10-04T15:49:48.586792+00:00",
+          "sourceSha256": "b2500947473ec469d42d94bd5a1dfcee24c58073c22ab76c064dab9b84e620f1"
+        },
+        {
+          "id": "lunar-typescript/LICENSE",
+          "sourceUrl": "https://raw.githubusercontent.com/6tail/lunar-typescript/a376ec2b8fd1b3069e24c92801bab8707fccd49d/LICENSE",
+          "revision": "a376ec2b8fd1b3069e24c92801bab8707fccd49d",
+          "path": "assets/source/lunar-typescript/LICENSE",
+          "retrievedAt": "2026-10-04T15:49:48.385313+00:00",
+          "sourceSha256": "097ec7989106eb9a27b6eff71dbaf1cd6bb04a9b35b6c94b54fff0829a041a8c"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "assets/runtime/lunar-months.bin",
+          "sha256": "a5a31dd8760bc423607edf937dbdaa833b75a99ad7e6c81899edc96e28b70dc5",
+          "bytes": 19808
+        },
+        {
+          "path": "assets/runtime/lunar-months.b64.txt",
+          "sha256": "1b6dc5f1e30a0323b4b32e0462f2e96392b92010f7a8a5a25bc6311882b1a5c3",
+          "bytes": 26413
+        },
+        {
+          "path": "assets/runtime/lunar-meta.json",
+          "sha256": "f100fb34d92b96dc2d3f8c560a5d90112314c730263749d018740b2665e9588e",
+          "bytes": 1648
+        }
+      ],
+      "units": "UTC+08 civil Unix day / lunar year, month, leap flag, day count",
+      "supportedGregorianYears": [
+        1901,
+        2100
+      ],
+      "months": 2476,
+      "recordBytes": 8,
+      "hkoComparison": {
+        "checkedDays": 73049,
+        "matchingDays": 73019,
+        "mismatchDays": 30,
+        "mismatchRanges": [
+          {
+            "start": "2057-09-28",
+            "end": "2057-10-27",
+            "days": 30
+          }
+        ],
+        "textTableMissingDates": [
+          "2069-12-30"
+        ],
+        "pdfSupplementDates": [
+          "2069-12-30"
+        ],
+        "pdfSupplementProof": "qa/m3-review/fixtures/hko-2069e.metadata.json",
+        "pdfSupplementSha256": "77e5623b62c7bb9ac4644ba77987334f3389ebe7346c1538ccf917e250b31b96",
+        "warnedNewMoonDates": [
+          "2057-09-28",
+          "2089-09-04",
+          "2097-08-07"
+        ],
+        "uncertainGregorianYears": [
+          2057,
+          2089,
+          2097
+        ],
+        "policy": "Runtime retains the fixed MIT generator convention. HKO tables are independent QA only; all mismatches retained. Flag every day of warned/differing Gregorian years as uncertain."
+      },
+      "qaSources": {
+        "files": 200,
+        "pdfSupplement": "2069e.pdf",
+        "sourceLockPrefix": "hko/",
+        "rights": "HKO yearly TXT/PDF and extracted checked rows are independent QA materials with HKSAR rights; excluded from runtime releases; not CC0 or MIT.",
+        "conditions": "assets/licenses/HKO-QA-NOTICE.md"
+      },
+      "processing": "Fixed MIT generator only, compact month starts including Gregorian boundary coverage and exclusive terminal sentinel. All HKO mismatches retained; no HKO data substituted into runtime.",
+      "processingCommand": "node scripts/data_lunar_generate.mjs; conda run -n dl_env python scripts/data_lunar.py"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "milky-way",
+      "source": "https://svs.gsfc.nasa.gov/4851/",
+      "revision": "Deep Star Maps2020 celestial Milky Way background; official EXR snapshot",
+      "sourceFile": "assets/source/nasa/milkyway_2020_4k.exr",
+      "sourceSha256": "2eb802d6e68d170b410f766c7fec07f7518619f6b6708fdc81e9302d93e74fdb",
+      "sourceDimensions": [
+        4096,
+        2048
+      ],
+      "sourceEncoding": "OpenEXR half-float RGB, linear color",
+      "coordinateFrame": "ICRF/J2000 geocentric RA/Dec; approximate EQJ frame shared with star catalog",
+      "epoch": "static catalog-derived background, approximateJ2000; not a simulated date observation",
+      "projection": "plate carrée / equirectangular equatorial, not galactic",
+      "rightAscensionIncreasesLeft": true,
+      "rightAscensionHoursAtU": [
+        12,
+        6,
+        0,
+        18,
+        12
+      ],
+      "uSamples": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1
+      ],
+      "northAtImageTop": true,
+      "seamRaHours": 12,
+      "uvFormula": {
+        "u": "fract(0.5-raHours/24)",
+        "imageRowV": "0.5-decDeg/180",
+        "threeDefaultFlipYSamplerV": "0.5+decDeg/180",
+        "shaderEqjU": "fract(0.5-atan(y,x)/(2*pi))",
+        "shaderEqjImageV": "0.5-asin(z/length(direction))/pi"
+      },
+      "colorSpace": "sRGB",
+      "toneMapping": {
+        "exposure": 1.0,
+        "operator": "componentwise Reinhard c=(exposure*linear)/(1+exposure*linear)",
+        "encoding": "IEC61966-2-1 standard linear-to-sRGB transfer; nearest integer8bit",
+        "resampling": "Tone-map source once, then common LDR master Lanczos downsample to2K/1K; no per-resolution normalization"
+      },
+      "brightStarSeparation": {
+        "selectedLayer": "milkyway_2020_4k.exr celestial background only",
+        "omittedForegroundCatalogs": [
+          "Hipparcos-2",
+          "Tycho-2"
+        ],
+        "hipparcosUseVmagLessThan": 8.0,
+        "tychoUseVmagRange": [
+          8.0,
+          11.5
+        ],
+        "backgroundContains": "GaiaDR2 unresolved faint stars, supporting faint UCAC3 replacements, stellar clusters and Magellanic Clouds; no added nebulosity photography",
+        "photometricGap": "Runtime selectable catalog mostlyV<=6.5; omitted NASA foreground extends toV11.5. Integrated contribution from much of6.5..11.5 is therefore absent, except required catalog endpoints. This is not complete Milky Way luminosity or calibrated total sky brightness.",
+        "limitation": "Catalog/pipeline separation, not a custom6.5mag raster cutoff. V/G passband differences, blends/variables and supplemental stars prevent claiming mathematically zero residual bright-star contribution."
+      },
+      "directionAnchors": [
+        {
+          "id": "galactic-center-sgra",
+          "nameZh": "银心／人马座A*",
+          "raHours": 17.761111111111113,
+          "decDeg": -29.00777777777778,
+          "source": "https://www.chandra.harvard.edu/photo/2010/sgra/index.html",
+          "sourceCoordinateText": "J2000 RA17h45m40s Dec-29°00′28.00″; rounded reference direction, not subarcsecond astrometry",
+          "directionEqj": [
+            -0.054659795197192974,
+            -0.8728440917211694,
+            -0.4849283435070051
+          ],
+          "imageUv": [
+            0.7599537037037036,
+            0.6611543209876544
+          ],
+          "threeFlipYSamplerUv": [
+            0.7599537037037036,
+            0.33884567901234564
+          ],
+          "pixel2k": [
+            1555.885185185185,
+            676.5220246913581
+          ],
+          "pixelCoordinateConvention": "pixel centers at integer coordinates; continuous x=u*width-.5,y=v*height-.5"
+        },
+        {
+          "id": "cygnus-deneb",
+          "nameZh": "天鹅座／天津四",
+          "starId": "hip:102098",
+          "raHours": 20.690532,
+          "decDeg": 45.280338,
+          "source": "HYG4.1 locked star metadata / HIP identifier",
+          "sourcePath": "assets/source/hyg/hyg/CURRENT/hygdata_v41.csv",
+          "directionEqj": [
+            0.45564906292149915,
+            -0.5361820478423085,
+            0.7105580504296521
+          ],
+          "imageUv": [
+            0.6378944999999999,
+            0.24844256666666664
+          ],
+          "threeFlipYSamplerUv": [
+            0.6378944999999999,
+            0.7515574333333334
+          ],
+          "pixel2k": [
+            1305.9079359999998,
+            253.90518826666664
+          ],
+          "pixelCoordinateConvention": "pixel centers at integer coordinates; continuous x=u*width-.5,y=v*height-.5"
+        },
+        {
+          "id": "crux-acrux",
+          "nameZh": "南十字座／十字架二",
+          "starId": "hip:60718",
+          "raHours": 12.443311,
+          "decDeg": -63.099092,
+          "source": "HYG4.1 locked star metadata / HIP identifier",
+          "sourcePath": "assets/source/hyg/hyg/CURRENT/hygdata_v41.csv",
+          "directionEqj": [
+            -0.4494051114377986,
+            -0.052392752626677114,
+            -0.8917903594936311
+          ],
+          "imageUv": [
+            0.9815287083333334,
+            0.8505505111111111
+          ],
+          "threeFlipYSamplerUv": [
+            0.9815287083333334,
+            0.14944948888888887
+          ],
+          "pixel2k": [
+            2009.6707946666668,
+            870.4637233777778
+          ],
+          "pixelCoordinateConvention": "pixel centers at integer coordinates; continuous x=u*width-.5,y=v*height-.5"
+        },
+        {
+          "id": "orion-betelgeuse",
+          "nameZh": "猎户座／参宿四",
+          "starId": "hip:27989",
+          "raHours": 5.919529,
+          "decDeg": 7.407063,
+          "source": "HYG4.1 locked star metadata / HIP identifier",
+          "sourcePath": "assets/source/hyg/hyg/CURRENT/hygdata_v41.csv",
+          "directionEqj": [
+            0.020889912777736868,
+            0.9914352231440408,
+            0.12891784148621366
+          ],
+          "imageUv": [
+            0.2533529583333334,
+            0.45884965
+          ],
+          "threeFlipYSamplerUv": [
+            0.2533529583333334,
+            0.54115035
+          ],
+          "pixel2k": [
+            518.3668586666668,
+            469.3620416
+          ],
+          "pixelCoordinateConvention": "pixel centers at integer coordinates; continuous x=u*width-.5,y=v*height-.5"
+        },
+        {
+          "id": "ra-axis-0",
+          "nameZh": "RA0中央",
+          "raHours": 0,
+          "decDeg": 0,
+          "source": "NASA SVS4851 coordinate-map description; mathematical coordinate axis",
+          "directionEqj": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "imageUv": [
+            0.5,
+            0.5
+          ],
+          "threeFlipYSamplerUv": [
+            0.5,
+            0.5
+          ],
+          "pixel2k": [
+            1023.5,
+            511.5
+          ],
+          "pixelCoordinateConvention": "pixel centers at integer coordinates; continuous x=u*width-.5,y=v*height-.5"
+        },
+        {
+          "id": "ra-axis-6",
+          "nameZh": "RA6左四分点",
+          "raHours": 6,
+          "decDeg": 0,
+          "source": "NASA SVS4851 coordinate-map description; mathematical coordinate axis",
+          "directionEqj": [
+            6.123233995736766e-17,
+            1.0,
+            0.0
+          ],
+          "imageUv": [
+            0.25,
+            0.5
+          ],
+          "threeFlipYSamplerUv": [
+            0.25,
+            0.5
+          ],
+          "pixel2k": [
+            511.5,
+            511.5
+          ],
+          "pixelCoordinateConvention": "pixel centers at integer coordinates; continuous x=u*width-.5,y=v*height-.5"
+        },
+        {
+          "id": "ra-axis-12",
+          "nameZh": "RA12接缝",
+          "raHours": 12,
+          "decDeg": 0,
+          "source": "NASA SVS4851 coordinate-map description; mathematical coordinate axis",
+          "directionEqj": [
+            -1.0,
+            1.2246467991473532e-16,
+            0.0
+          ],
+          "imageUv": [
+            0.0,
+            0.5
+          ],
+          "threeFlipYSamplerUv": [
+            0.0,
+            0.5
+          ],
+          "pixel2k": [
+            -0.5,
+            511.5
+          ],
+          "pixelCoordinateConvention": "pixel centers at integer coordinates; continuous x=u*width-.5,y=v*height-.5"
+        },
+        {
+          "id": "ra-axis-18",
+          "nameZh": "RA18右四分点",
+          "raHours": 18,
+          "decDeg": 0,
+          "source": "NASA SVS4851 coordinate-map description; mathematical coordinate axis",
+          "directionEqj": [
+            -1.8369701987210297e-16,
+            -1.0,
+            0.0
+          ],
+          "imageUv": [
+            0.75,
+            0.5
+          ],
+          "threeFlipYSamplerUv": [
+            0.75,
+            0.5
+          ],
+          "pixel2k": [
+            1535.5,
+            511.5
+          ],
+          "pixelCoordinateConvention": "pixel centers at integer coordinates; continuous x=u*width-.5,y=v*height-.5"
+        }
+      ],
+      "brightStarPreviewChecks": [
+        {
+          "starId": "hip:102098",
+          "imageUv": [
+            0.6378944999999999,
+            0.24844256666666664
+          ],
+          "officialForegroundPreviewPeak": 113,
+          "officialBackgroundPreviewPeak": 89,
+          "note": "7x7 source-preview maxgray demonstrates foreground separation near a known bright star; previews have different tone mappings, so ratio is display evidence, not calibrated photometry."
+        },
+        {
+          "starId": "hip:60718",
+          "imageUv": [
+            0.9815287083333334,
+            0.8505505111111111
+          ],
+          "officialForegroundPreviewPeak": 167,
+          "officialBackgroundPreviewPeak": 129,
+          "note": "7x7 source-preview maxgray demonstrates foreground separation near a known bright star; previews have different tone mappings, so ratio is display evidence, not calibrated photometry."
+        },
+        {
+          "starId": "hip:27989",
+          "imageUv": [
+            0.2533529583333334,
+            0.45884965
+          ],
+          "officialForegroundPreviewPeak": 133,
+          "officialBackgroundPreviewPeak": 61,
+          "note": "7x7 source-preview maxgray demonstrates foreground separation near a known bright star; previews have different tone mappings, so ratio is display evidence, not calibrated photometry."
+        }
+      ],
+      "outputs": [
+        {
+          "path": "assets/runtime/milky-way-2k.webp",
+          "sha256": "051d43aced336873a0d3877f0542133749de9366ed5601355732dd78000c6488",
+          "bytes": 345322,
+          "dimensions": [
+            2048,
+            1024
+          ]
+        },
+        {
+          "path": "assets/runtime/milky-way-1k.webp",
+          "sha256": "f4c2caf0724f245aa9e53e993bab17dad2456301373f44f7326bf4872edb86e0",
+          "bytes": 32564,
+          "dimensions": [
+            1024,
+            512
+          ]
+        }
+      ],
+      "processingCommand": "conda run -n dl_env python scripts/data_milky_way.py",
+      "tools": {
+        "OpenCV": "4.12.0",
+        "Pillow": "12.2.0",
+        "numpy": "2.4.6"
+      },
+      "limitations": "Static catalog-density visualization, not photometrically calibrated sky radiance or a current weather/airglow model; global renderer intensity/saturation are explicit qualitative display parameters.",
+      "license": "NASA Images and Media Usage Guidelines; source acknowledgment including ESA/Gaia/DPAC; no endorsement",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "credit": "NASA/Goddard Space Flight Center Scientific Visualization Studio; Ernie Wright (USRA); GaiaDR2: ESA/Gaia/DPAC; supporting faint UCAC3 data",
+      "directionAnchorMetadataLicense": "The three HIP star-region coordinates are derived from HYG4.1 (CC-BY-SA4.0), with confirmed Chinese labels from Stellariumv24.4 (CC-BY-SA4.0); these metadata terms are separate from the NASA image. Corresponding HYG/STELLARIUM notices and CC-BY-SA4.0 text are included.",
+      "sourceFiles": [
+        {
+          "id": "nasa/milkyway_2020_4k.exr",
+          "sourceUrl": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004851/milkyway_2020_4k.exr",
+          "revision": "Deep Star Maps2020 celestial; official page/file snapshot, no galactic2021 layer",
+          "path": "assets/source/nasa/milkyway_2020_4k.exr",
+          "retrievedAt": "2026-10-04T17:31:59.294306+00:00",
+          "sourceSha256": "2eb802d6e68d170b410f766c7fec07f7518619f6b6708fdc81e9302d93e74fdb"
+        },
+        {
+          "id": "nasa/deep-star-maps-4851.html",
+          "sourceUrl": "https://svs.gsfc.nasa.gov/4851/",
+          "revision": "Deep Star Maps2020 celestial; official page/file snapshot, no galactic2021 layer",
+          "path": "assets/source/nasa/deep-star-maps-4851.html",
+          "retrievedAt": "2026-10-04T17:31:29.246283+00:00",
+          "sourceSha256": "fc9b7e589e03471af0883b354a805e8257bc744cedf9e2cd9c6eb52045f0e2db"
+        },
+        {
+          "id": "nasa/milkyway_2020_4k_print.jpg",
+          "sourceUrl": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004851/milkyway_2020_4k_print.jpg",
+          "revision": "Deep Star Maps2020 celestial; official page/file snapshot, no galactic2021 layer",
+          "path": "assets/source/nasa/milkyway_2020_4k_print.jpg",
+          "retrievedAt": "2026-10-04T17:31:29.039669+00:00",
+          "sourceSha256": "1ebe95804f5f0e6e23f77488aaa33fdb4aaef3fd336821fb41b261ddeaee2df0"
+        },
+        {
+          "id": "nasa/hiptyc_2020_4k_print.jpg",
+          "sourceUrl": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004851/hiptyc_2020_4k_print.jpg",
+          "revision": "Deep Star Maps2020 celestial; official page/file snapshot, no galactic2021 layer",
+          "path": "assets/source/nasa/hiptyc_2020_4k_print.jpg",
+          "retrievedAt": "2026-10-04T17:31:29.018780+00:00",
+          "sourceSha256": "d80b41a47e4a12e5d4ffebb614e98215bf6cf99ab7705c93eac32dfdf82bc846"
+        },
+        {
+          "id": "nasa/starmap_2020_4k_print.jpg",
+          "sourceUrl": "https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004851/starmap_2020_4k_print.jpg",
+          "revision": "Deep Star Maps2020 celestial; official page/file snapshot, no galactic2021 layer",
+          "path": "assets/source/nasa/starmap_2020_4k_print.jpg",
+          "retrievedAt": "2026-10-04T17:31:30.696773+00:00",
+          "sourceSha256": "8d2e7e8d515e238deaf90e2b7fb11b2838b6e8db64f933a57540d894468148aa"
+        },
+        {
+          "id": "nasa/chandra-sgra-j2000.html",
+          "sourceUrl": "https://www.chandra.harvard.edu/photo/2010/sgra/index.html",
+          "revision": "Deep Star Maps2020 celestial; official page/file snapshot, no galactic2021 layer",
+          "path": "assets/source/nasa/chandra-sgra-j2000.html",
+          "retrievedAt": "2026-10-04T17:35:32.711721+00:00",
+          "sourceSha256": "becfc2c576288833567015f46f24b41a56a999c5e1df938be0a744b53d52813e"
+        },
+        {
+          "id": "nasa/gaia-dr2-credit.html",
+          "sourceUrl": "https://gea.esac.esa.int/archive/documentation/GDR2/Miscellaneous/sec_credit_and_citation_instructions/",
+          "revision": "Deep Star Maps2020 celestial; official page/file snapshot, no galactic2021 layer",
+          "path": "assets/source/nasa/gaia-dr2-credit.html",
+          "retrievedAt": "2026-10-04T17:41:58.008003+00:00",
+          "sourceSha256": "4b75a6ff52afe7245baec073ee06f9ec81ef274aab92aa53c3b909f4013f39a4"
+        },
+        {
+          "id": "nasa/media-usage.html",
+          "sourceUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+          "revision": "snapshot",
+          "path": "assets/source/nasa/media-usage.html",
+          "retrievedAt": "2026-10-04T13:31:40.006829+00:00",
+          "sourceSha256": "9bb10367c180da3a506f9d0b70f1576ad4d13110b654504d90ffb639e245475b"
+        }
+      ],
+      "outputFiles": "2K or1K selected by renderer; exactly one texture resolution resident at a time",
+      "independentDirectionReference": "qa/m3b-review/fixtures/coordinate-directions.json (CDS/SIMBAD J2000 external numeric references)"
+    }
+  ]
+}

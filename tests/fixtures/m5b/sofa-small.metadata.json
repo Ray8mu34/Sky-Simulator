@@ -1,0 +1,16 @@
+{
+  "purpose": "Frozen output produced by a custom QA wrapper calling unchanged official SOFA 2023-10-11 Pmpx with observer=0; independent convention/motion check, not externally measured catalog accuracy",
+  "originalRun": "qa/science-reference-prep/star-reference/runs/20261004T212238881Z",
+  "sourceDocument": "docs/SOFA-STAR-REFERENCE.md",
+  "outputFile": "sofa-small-output.ndjson",
+  "outputSha256": "436f4e6eae69b52c4d88638f182586df4416aa2b493e433cd71c747bed831d3d",
+  "reportFile": "sofa-small-report.json",
+  "reportSha256": "593a4df29a2158c9ce2cbe2117c568bb45e2dc62996fda37c99d089b68eea336",
+  "licenseFile": "SOFA-LICENSE.txt",
+  "licenseSha256": "7e6f42ebacdff175083a46063cf1fb6fc5749c9d52c906e2580aeb7fb5a12ae9",
+  "motionTimePolicy": "numeric UT labelled days since J2000 divided by 365.25, separately from explicit UT1/TT used for coordinate rotations",
+  "framePolicy": "HYG mean-J2000, with separate icrs-input diagnostic rows; both have same underlying motion direction",
+  "artificialInputPolicy": "Three tangent synthetic labels have no canonical source identity; t=0 full-space synthetic label uses neutral HIP999999 only in test. Raw outputs and input echoes are preserved unchanged.",
+  "fieldUnits": { "raHours": "hours", "decDeg": "degrees", "pmRaCosDecMasYr": "mas/Julian year, includes cos declination", "pmDecMasYr": "mas/Julian year", "distancePc": "pc", "radialVelocityKmS": "km/s, positive receding" },
+  "expectedRows": 58
+}

@@ -1,0 +1,698 @@
+[
+  {
+    "usnoName": "ACHERNAR",
+    "navStarNumbers": [
+      5
+    ],
+    "objectId": "hip:7588",
+    "hip": 7588,
+    "hygId": 7574,
+    "hygProperName": "Achernar",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "ACRUX",
+    "navStarNumbers": [
+      30
+    ],
+    "objectId": "hip:60718",
+    "hip": 60718,
+    "hygId": 60530,
+    "hygProperName": "Acrux",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "ALDEBARAN",
+    "navStarNumbers": [
+      10
+    ],
+    "objectId": "hip:21421",
+    "hip": 21421,
+    "hygId": 21368,
+    "hygProperName": "Aldebaran",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "ALTAIR",
+    "navStarNumbers": [
+      51
+    ],
+    "objectId": "hip:97649",
+    "hip": 97649,
+    "hygId": 97338,
+    "hygProperName": "Altair",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "ANTARES",
+    "navStarNumbers": [
+      42
+    ],
+    "objectId": "hip:80763",
+    "hip": 80763,
+    "hygId": 80519,
+    "hygProperName": "Antares",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "ARCTURUS",
+    "navStarNumbers": [
+      37
+    ],
+    "objectId": "hip:69673",
+    "hip": 69673,
+    "hygId": 69451,
+    "hygProperName": "Arcturus",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Acamar",
+    "navStarNumbers": [
+      7
+    ],
+    "objectId": "hip:13847",
+    "hip": 13847,
+    "hygId": 13813,
+    "hygProperName": "Acamar",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Adhara",
+    "navStarNumbers": [
+      19
+    ],
+    "objectId": "hip:33579",
+    "hip": 33579,
+    "hygId": 33492,
+    "hygProperName": "Adhara",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Alioth",
+    "navStarNumbers": [
+      32
+    ],
+    "objectId": "hip:62956",
+    "hip": 62956,
+    "hygId": 62757,
+    "hygProperName": "Alioth",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Alkaid",
+    "navStarNumbers": [
+      34
+    ],
+    "objectId": "hip:67301",
+    "hip": 67301,
+    "hygId": 67088,
+    "hygProperName": "Alkaid",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Alnair",
+    "navStarNumbers": [
+      55
+    ],
+    "objectId": "hip:109268",
+    "hip": 109268,
+    "hygId": 108922,
+    "hygProperName": "Alnair",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Alnilam",
+    "navStarNumbers": [
+      15
+    ],
+    "objectId": "hip:26311",
+    "hip": 26311,
+    "hygId": 26246,
+    "hygProperName": "Alnilam",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Alphard",
+    "navStarNumbers": [
+      25
+    ],
+    "objectId": "hip:46390",
+    "hip": 46390,
+    "hygId": 46259,
+    "hygProperName": "Alphard",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Alphecca",
+    "navStarNumbers": [
+      41
+    ],
+    "objectId": "hip:76267",
+    "hip": 76267,
+    "hygId": 76035,
+    "hygProperName": "Alphecca",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Alpheratz",
+    "navStarNumbers": [
+      1
+    ],
+    "objectId": "hip:677",
+    "hip": 677,
+    "hygId": 676,
+    "hygProperName": "Alpheratz",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Ankaa",
+    "navStarNumbers": [
+      2
+    ],
+    "objectId": "hip:2081",
+    "hip": 2081,
+    "hygId": 2076,
+    "hygProperName": "Ankaa",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Atria",
+    "navStarNumbers": [
+      43
+    ],
+    "objectId": "hip:82273",
+    "hip": 82273,
+    "hygId": 82022,
+    "hygProperName": "Atria",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Avior",
+    "navStarNumbers": [
+      22
+    ],
+    "objectId": "hip:41037",
+    "hip": 41037,
+    "hygId": 40921,
+    "hygProperName": "Avior",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "BETELGEUSE",
+    "navStarNumbers": [
+      16
+    ],
+    "objectId": "hip:27989",
+    "hip": 27989,
+    "hygId": 27919,
+    "hygProperName": "Betelgeuse",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Bellatrix",
+    "navStarNumbers": [
+      13
+    ],
+    "objectId": "hip:25336",
+    "hip": 25336,
+    "hygId": 25273,
+    "hygProperName": "Bellatrix",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "CANOPUS",
+    "navStarNumbers": [
+      17
+    ],
+    "objectId": "hip:30438",
+    "hip": 30438,
+    "hygId": 30365,
+    "hygProperName": "Canopus",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "CAPELLA",
+    "navStarNumbers": [
+      12
+    ],
+    "objectId": "hip:24608",
+    "hip": 24608,
+    "hygId": 24549,
+    "hygProperName": "Capella",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "DENEB",
+    "navStarNumbers": [
+      53
+    ],
+    "objectId": "hip:102098",
+    "hip": 102098,
+    "hygId": 101767,
+    "hygProperName": "Deneb",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Denebola",
+    "navStarNumbers": [
+      28
+    ],
+    "objectId": "hip:57632",
+    "hip": 57632,
+    "hygId": 57459,
+    "hygProperName": "Denebola",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Diphda",
+    "navStarNumbers": [
+      4
+    ],
+    "objectId": "hip:3419",
+    "hip": 3419,
+    "hygId": 3413,
+    "hygProperName": "Diphda",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Dubhe",
+    "navStarNumbers": [
+      27
+    ],
+    "objectId": "hip:54061",
+    "hip": 54061,
+    "hygId": 53905,
+    "hygProperName": "Dubhe",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Elnath",
+    "navStarNumbers": [
+      14
+    ],
+    "objectId": "hip:25428",
+    "hip": 25428,
+    "hygId": 25364,
+    "hygProperName": "Elnath",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Eltanin",
+    "navStarNumbers": [
+      47
+    ],
+    "objectId": "hip:87833",
+    "hip": 87833,
+    "hygId": 87561,
+    "hygProperName": "Eltanin",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Enif",
+    "navStarNumbers": [
+      54
+    ],
+    "objectId": "hip:107315",
+    "hip": 107315,
+    "hygId": 106972,
+    "hygProperName": "Enif",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "FOMALHAUT",
+    "navStarNumbers": [
+      56
+    ],
+    "objectId": "hip:113368",
+    "hip": 113368,
+    "hygId": 113008,
+    "hygProperName": "Fomalhaut",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Gacrux",
+    "navStarNumbers": [
+      31
+    ],
+    "objectId": "hip:61084",
+    "hip": 61084,
+    "hygId": 60893,
+    "hygProperName": "Gacrux",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Gienah",
+    "navStarNumbers": [
+      29
+    ],
+    "objectId": "hip:59803",
+    "hip": 59803,
+    "hygId": 59621,
+    "hygProperName": "Gienah",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "HADAR",
+    "navStarNumbers": [
+      35
+    ],
+    "objectId": "hip:68702",
+    "hip": 68702,
+    "hygId": 68483,
+    "hygProperName": "Hadar",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Hamal",
+    "navStarNumbers": [
+      6
+    ],
+    "objectId": "hip:9884",
+    "hip": 9884,
+    "hygId": 9861,
+    "hygProperName": "Hamal",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Kaus Australis",
+    "navStarNumbers": [
+      48
+    ],
+    "objectId": "hip:90185",
+    "hip": 90185,
+    "hygId": 89906,
+    "hygProperName": "Kaus Australis",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Kochab",
+    "navStarNumbers": [
+      40
+    ],
+    "objectId": "hip:72607",
+    "hip": 72607,
+    "hygId": 72380,
+    "hygProperName": "Kochab",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Markab",
+    "navStarNumbers": [
+      57
+    ],
+    "objectId": "hip:113963",
+    "hip": 113963,
+    "hygId": 113603,
+    "hygProperName": "Markab",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Menkar",
+    "navStarNumbers": [
+      8
+    ],
+    "objectId": "hip:14135",
+    "hip": 14135,
+    "hygId": 14100,
+    "hygProperName": "Menkar",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Menkent",
+    "navStarNumbers": [
+      36
+    ],
+    "objectId": "hip:68933",
+    "hip": 68933,
+    "hygId": 68714,
+    "hygProperName": "Menkent",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Miaplacidus",
+    "navStarNumbers": [
+      24
+    ],
+    "objectId": "hip:45238",
+    "hip": 45238,
+    "hygId": 45106,
+    "hygProperName": "Miaplacidus",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Mirfak",
+    "navStarNumbers": [
+      9
+    ],
+    "objectId": "hip:15863",
+    "hip": 15863,
+    "hygId": 15824,
+    "hygProperName": "Mirfak",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Nunki",
+    "navStarNumbers": [
+      50
+    ],
+    "objectId": "hip:92855",
+    "hip": 92855,
+    "hygId": 92564,
+    "hygProperName": "Nunki",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "POLARIS",
+    "navStarNumbers": [
+      ""
+    ],
+    "objectId": "hip:11767",
+    "hip": 11767,
+    "hygId": 11734,
+    "hygProperName": "Polaris",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "POLLUX",
+    "navStarNumbers": [
+      21
+    ],
+    "objectId": "hip:37826",
+    "hip": 37826,
+    "hygId": 37718,
+    "hygProperName": "Pollux",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "PROCYON",
+    "navStarNumbers": [
+      20
+    ],
+    "objectId": "hip:37279",
+    "hip": 37279,
+    "hygId": 37173,
+    "hygProperName": "Procyon",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Peacock",
+    "navStarNumbers": [
+      52
+    ],
+    "objectId": "hip:100751",
+    "hip": 100751,
+    "hygId": 100425,
+    "hygProperName": "Peacock",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "REGULUS",
+    "navStarNumbers": [
+      26
+    ],
+    "objectId": "hip:49669",
+    "hip": 49669,
+    "hygId": 49528,
+    "hygProperName": "Regulus",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "RIGEL",
+    "navStarNumbers": [
+      11
+    ],
+    "objectId": "hip:24436",
+    "hip": 24436,
+    "hygId": 24378,
+    "hygProperName": "Rigel",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "RIGIL KENTAURUS",
+    "navStarNumbers": [
+      38
+    ],
+    "objectId": "hip:71683",
+    "hip": 71683,
+    "hygId": 71456,
+    "hygProperName": "Rigil Kentaurus",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Rasalhague",
+    "navStarNumbers": [
+      46
+    ],
+    "objectId": "hip:86032",
+    "hip": 86032,
+    "hygId": 85769,
+    "hygProperName": "Rasalhague",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "SIRIUS",
+    "navStarNumbers": [
+      18
+    ],
+    "objectId": "hip:32349",
+    "hip": 32349,
+    "hygId": 32263,
+    "hygProperName": "Sirius",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "SPICA",
+    "navStarNumbers": [
+      33
+    ],
+    "objectId": "hip:65474",
+    "hip": 65474,
+    "hygId": 65269,
+    "hygProperName": "Spica",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Sabik",
+    "navStarNumbers": [
+      44
+    ],
+    "objectId": "hip:84012",
+    "hip": 84012,
+    "hygId": 83755,
+    "hygProperName": "Sabik",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Schedar",
+    "navStarNumbers": [
+      3
+    ],
+    "objectId": "hip:3179",
+    "hip": 3179,
+    "hygId": 3172,
+    "hygProperName": "Schedar",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Shaula",
+    "navStarNumbers": [
+      45
+    ],
+    "objectId": "hip:85927",
+    "hip": 85927,
+    "hygId": 85665,
+    "hygProperName": "Shaula",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Suhail",
+    "navStarNumbers": [
+      23
+    ],
+    "objectId": "hip:44816",
+    "hip": 44816,
+    "hygId": 44689,
+    "hygProperName": "Suhail",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "VEGA",
+    "navStarNumbers": [
+      49
+    ],
+    "objectId": "hip:91262",
+    "hip": 91262,
+    "hygId": 90979,
+    "hygProperName": "Vega",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  },
+  {
+    "usnoName": "Zubenelgenubi",
+    "navStarNumbers": [
+      39
+    ],
+    "objectId": "hip:72622",
+    "hip": 72622,
+    "hygId": 72396,
+    "hygProperName": "Zubenelgenubi",
+    "mappingMethod": "unique exact proper-name match, case-insensitive; no astrometric field matching",
+    "catalogSha256": "46dd05ad8aa40b284e32efd929002d067bed89e3e39d7c885be5a7ae43af3dd1"
+  }
+]

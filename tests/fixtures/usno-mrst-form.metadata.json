@@ -1,0 +1,10 @@
+{
+  "rawFile": "usno-mrst-form.html",
+  "sourceUrl": "https://aa.usno.navy.mil/data/mrst",
+  "sha256": "610f27b063f6e7c808a79fb994a6be726f5cf3ed2cfab61ea94578d0789f815a",
+  "bytes": 41972,
+  "status": "retrieved-interface-source",
+  "retrievedAtUtc": "2026-10-04T20:06:20.1738236Z",
+  "retrievalClock": "Observed saved file LastWriteTimeUtc from the original successful download.",
+  "acquisition": "Original HTML fetched with Invoke-WebRequest, normal certificate validation. Form method GET and action /calculated/mrst were inspected before composing requests; body -20 Sirius, -8 Canopus, -14 Polaris are actual option values."
+}

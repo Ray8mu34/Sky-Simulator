@@ -1,0 +1,18 @@
+{
+  "status": "independently-rendered-and-visually-checked-reference",
+  "note": "Official PDF December row under Gregorian column30 gives17; month11 starts December14. Independent reference for missing TXT row, not editing original TXT or runtime generator data.",
+  "comparisonNeighbors": {
+    "2069-12-29": 16,
+    "2069-12-31": 18
+  },
+  "verifiedRow": {
+    "lunarDay": 17,
+    "gregorianDate": "2069-12-30",
+    "isLeapMonth": false,
+    "lunarMonth": 11
+  },
+  "retrievedAt": "2026-10-04T15:58:10.1330051+00:00",
+  "rendering": "pdftoppm -png -singlefile -scale-to1900; complete page viewed with view_image",
+  "sourceUrl": "https://www.hko.gov.hk/en/gts/time/calendar/pdf/files/2069e.pdf",
+  "sha256": "77e5623b62c7bb9ac4644ba77987334f3389ebe7346c1538ccf917e250b31b96"
+}

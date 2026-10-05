@@ -1,0 +1,330 @@
+{
+  "schemaVersion": 1,
+  "id": "milky-way",
+  "source": "https://svs.gsfc.nasa.gov/4851/",
+  "revision": "Deep Star Maps2020 celestial Milky Way background; official EXR snapshot",
+  "sourceFile": "assets/source/nasa/milkyway_2020_4k.exr",
+  "sourceSha256": "2eb802d6e68d170b410f766c7fec07f7518619f6b6708fdc81e9302d93e74fdb",
+  "sourceDimensions": [
+    4096,
+    2048
+  ],
+  "sourceEncoding": "OpenEXR half-float RGB, linear color",
+  "coordinateFrame": "ICRF/J2000 geocentric RA/Dec; approximate EQJ frame shared with star catalog",
+  "epoch": "static catalog-derived background, approximateJ2000; not a simulated date observation",
+  "projection": "plate carrée / equirectangular equatorial, not galactic",
+  "rightAscensionIncreasesLeft": true,
+  "rightAscensionHoursAtU": [
+    12,
+    6,
+    0,
+    18,
+    12
+  ],
+  "uSamples": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1
+  ],
+  "northAtImageTop": true,
+  "seamRaHours": 12,
+  "uvFormula": {
+    "u": "fract(0.5-raHours/24)",
+    "imageRowV": "0.5-decDeg/180",
+    "threeDefaultFlipYSamplerV": "0.5+decDeg/180",
+    "shaderEqjU": "fract(0.5-atan(y,x)/(2*pi))",
+    "shaderEqjImageV": "0.5-asin(z/length(direction))/pi"
+  },
+  "colorSpace": "sRGB",
+  "toneMapping": {
+    "exposure": 1.0,
+    "operator": "componentwise Reinhard c=(exposure*linear)/(1+exposure*linear)",
+    "encoding": "IEC61966-2-1 standard linear-to-sRGB transfer; nearest integer8bit",
+    "resampling": "Tone-map source once, then common LDR master Lanczos downsample to2K/1K; no per-resolution normalization"
+  },
+  "brightStarSeparation": {
+    "selectedLayer": "milkyway_2020_4k.exr celestial background only",
+    "omittedForegroundCatalogs": [
+      "Hipparcos-2",
+      "Tycho-2"
+    ],
+    "hipparcosUseVmagLessThan": 8.0,
+    "tychoUseVmagRange": [
+      8.0,
+      11.5
+    ],
+    "backgroundContains": "GaiaDR2 unresolved faint stars, supporting faint UCAC3 replacements, stellar clusters and Magellanic Clouds; no added nebulosity photography",
+    "photometricGap": "Runtime selectable catalog mostlyV<=6.5; omitted NASA foreground extends toV11.5. Integrated contribution from much of6.5..11.5 is therefore absent, except required catalog endpoints. This is not complete Milky Way luminosity or calibrated total sky brightness.",
+    "limitation": "Catalog/pipeline separation, not a custom6.5mag raster cutoff. V/G passband differences, blends/variables and supplemental stars prevent claiming mathematically zero residual bright-star contribution."
+  },
+  "directionAnchors": [
+    {
+      "id": "galactic-center-sgra",
+      "nameZh": "银心／人马座A*",
+      "raHours": 17.761111111111113,
+      "decDeg": -29.00777777777778,
+      "source": "https://www.chandra.harvard.edu/photo/2010/sgra/index.html",
+      "sourceCoordinateText": "J2000 RA17h45m40s Dec-29°00′28.00″; rounded reference direction, not subarcsecond astrometry",
+      "directionEqj": [
+        -0.054659795197192974,
+        -0.8728440917211694,
+        -0.4849283435070051
+      ],
+      "imageUv": [
+        0.7599537037037036,
+        0.6611543209876544
+      ],
+      "threeFlipYSamplerUv": [
+        0.7599537037037036,
+        0.33884567901234564
+      ],
+      "pixel2k": [
+        1555.885185185185,
+        676.5220246913581
+      ],
+      "pixelCoordinateConvention": "pixel centers at integer coordinates; continuous x=u*width-.5,y=v*height-.5"
+    },
+    {
+      "id": "cygnus-deneb",
+      "nameZh": "天鹅座／天津四",
+      "starId": "hip:102098",
+      "raHours": 20.690532,
+      "decDeg": 45.280338,
+      "source": "HYG4.1 locked star metadata / HIP identifier",
+      "sourcePath": "assets/source/hyg/hyg/CURRENT/hygdata_v41.csv",
+      "directionEqj": [
+        0.45564906292149915,
+        -0.5361820478423085,
+        0.7105580504296521
+      ],
+      "imageUv": [
+        0.6378944999999999,
+        0.24844256666666664
+      ],
+      "threeFlipYSamplerUv": [
+        0.6378944999999999,
+        0.7515574333333334
+      ],
+      "pixel2k": [
+        1305.9079359999998,
+        253.90518826666664
+      ],
+      "pixelCoordinateConvention": "pixel centers at integer coordinates; continuous x=u*width-.5,y=v*height-.5"
+    },
+    {
+      "id": "crux-acrux",
+      "nameZh": "南十字座／十字架二",
+      "starId": "hip:60718",
+      "raHours": 12.443311,
+      "decDeg": -63.099092,
+      "source": "HYG4.1 locked star metadata / HIP identifier",
+      "sourcePath": "assets/source/hyg/hyg/CURRENT/hygdata_v41.csv",
+      "directionEqj": [
+        -0.4494051114377986,
+        -0.052392752626677114,
+        -0.8917903594936311
+      ],
+      "imageUv": [
+        0.9815287083333334,
+        0.8505505111111111
+      ],
+      "threeFlipYSamplerUv": [
+        0.9815287083333334,
+        0.14944948888888887
+      ],
+      "pixel2k": [
+        2009.6707946666668,
+        870.4637233777778
+      ],
+      "pixelCoordinateConvention": "pixel centers at integer coordinates; continuous x=u*width-.5,y=v*height-.5"
+    },
+    {
+      "id": "orion-betelgeuse",
+      "nameZh": "猎户座／参宿四",
+      "starId": "hip:27989",
+      "raHours": 5.919529,
+      "decDeg": 7.407063,
+      "source": "HYG4.1 locked star metadata / HIP identifier",
+      "sourcePath": "assets/source/hyg/hyg/CURRENT/hygdata_v41.csv",
+      "directionEqj": [
+        0.020889912777736868,
+        0.9914352231440408,
+        0.12891784148621366
+      ],
+      "imageUv": [
+        0.2533529583333334,
+        0.45884965
+      ],
+      "threeFlipYSamplerUv": [
+        0.2533529583333334,
+        0.54115035
+      ],
+      "pixel2k": [
+        518.3668586666668,
+        469.3620416
+      ],
+      "pixelCoordinateConvention": "pixel centers at integer coordinates; continuous x=u*width-.5,y=v*height-.5"
+    },
+    {
+      "id": "ra-axis-0",
+      "nameZh": "RA0中央",
+      "raHours": 0,
+      "decDeg": 0,
+      "source": "NASA SVS4851 coordinate-map description; mathematical coordinate axis",
+      "directionEqj": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "imageUv": [
+        0.5,
+        0.5
+      ],
+      "threeFlipYSamplerUv": [
+        0.5,
+        0.5
+      ],
+      "pixel2k": [
+        1023.5,
+        511.5
+      ],
+      "pixelCoordinateConvention": "pixel centers at integer coordinates; continuous x=u*width-.5,y=v*height-.5"
+    },
+    {
+      "id": "ra-axis-6",
+      "nameZh": "RA6左四分点",
+      "raHours": 6,
+      "decDeg": 0,
+      "source": "NASA SVS4851 coordinate-map description; mathematical coordinate axis",
+      "directionEqj": [
+        6.123233995736766e-17,
+        1.0,
+        0.0
+      ],
+      "imageUv": [
+        0.25,
+        0.5
+      ],
+      "threeFlipYSamplerUv": [
+        0.25,
+        0.5
+      ],
+      "pixel2k": [
+        511.5,
+        511.5
+      ],
+      "pixelCoordinateConvention": "pixel centers at integer coordinates; continuous x=u*width-.5,y=v*height-.5"
+    },
+    {
+      "id": "ra-axis-12",
+      "nameZh": "RA12接缝",
+      "raHours": 12,
+      "decDeg": 0,
+      "source": "NASA SVS4851 coordinate-map description; mathematical coordinate axis",
+      "directionEqj": [
+        -1.0,
+        1.2246467991473532e-16,
+        0.0
+      ],
+      "imageUv": [
+        0.0,
+        0.5
+      ],
+      "threeFlipYSamplerUv": [
+        0.0,
+        0.5
+      ],
+      "pixel2k": [
+        -0.5,
+        511.5
+      ],
+      "pixelCoordinateConvention": "pixel centers at integer coordinates; continuous x=u*width-.5,y=v*height-.5"
+    },
+    {
+      "id": "ra-axis-18",
+      "nameZh": "RA18右四分点",
+      "raHours": 18,
+      "decDeg": 0,
+      "source": "NASA SVS4851 coordinate-map description; mathematical coordinate axis",
+      "directionEqj": [
+        -1.8369701987210297e-16,
+        -1.0,
+        0.0
+      ],
+      "imageUv": [
+        0.75,
+        0.5
+      ],
+      "threeFlipYSamplerUv": [
+        0.75,
+        0.5
+      ],
+      "pixel2k": [
+        1535.5,
+        511.5
+      ],
+      "pixelCoordinateConvention": "pixel centers at integer coordinates; continuous x=u*width-.5,y=v*height-.5"
+    }
+  ],
+  "brightStarPreviewChecks": [
+    {
+      "starId": "hip:102098",
+      "imageUv": [
+        0.6378944999999999,
+        0.24844256666666664
+      ],
+      "officialForegroundPreviewPeak": 113,
+      "officialBackgroundPreviewPeak": 89,
+      "note": "7x7 source-preview maxgray demonstrates foreground separation near a known bright star; previews have different tone mappings, so ratio is display evidence, not calibrated photometry."
+    },
+    {
+      "starId": "hip:60718",
+      "imageUv": [
+        0.9815287083333334,
+        0.8505505111111111
+      ],
+      "officialForegroundPreviewPeak": 167,
+      "officialBackgroundPreviewPeak": 129,
+      "note": "7x7 source-preview maxgray demonstrates foreground separation near a known bright star; previews have different tone mappings, so ratio is display evidence, not calibrated photometry."
+    },
+    {
+      "starId": "hip:27989",
+      "imageUv": [
+        0.2533529583333334,
+        0.45884965
+      ],
+      "officialForegroundPreviewPeak": 133,
+      "officialBackgroundPreviewPeak": 61,
+      "note": "7x7 source-preview maxgray demonstrates foreground separation near a known bright star; previews have different tone mappings, so ratio is display evidence, not calibrated photometry."
+    }
+  ],
+  "outputs": [
+    {
+      "path": "assets/runtime/milky-way-2k.webp",
+      "sha256": "051d43aced336873a0d3877f0542133749de9366ed5601355732dd78000c6488",
+      "bytes": 345322,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "path": "assets/runtime/milky-way-1k.webp",
+      "sha256": "f4c2caf0724f245aa9e53e993bab17dad2456301373f44f7326bf4872edb86e0",
+      "bytes": 32564,
+      "dimensions": [
+        1024,
+        512
+      ]
+    }
+  ],
+  "processingCommand": "conda run -n dl_env python scripts/data_milky_way.py",
+  "tools": {
+    "OpenCV": "4.12.0",
+    "Pillow": "12.2.0",
+    "numpy": "2.4.6"
+  },
+  "limitations": "Static catalog-density visualization, not photometrically calibrated sky radiance or a current weather/airglow model; global renderer intensity/saturation are explicit qualitative display parameters."
+}

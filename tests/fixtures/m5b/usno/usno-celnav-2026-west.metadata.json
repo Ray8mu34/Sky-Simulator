@@ -1,0 +1,20 @@
+{
+  "id": "usno-celnav-2026-west",
+  "sourceUrl": "https://aa.usno.navy.mil/api/celnav?date=2026-12-15&time=18%3A00%3A00&coords=40%2C-75",
+  "requestParameters": {
+    "time": "18:00:00",
+    "date": "2026-12-15",
+    "id": "2026-west",
+    "coords": "40,-75"
+  },
+  "requestedAtUtc": "2026-10-04T19:51:39.2615157+00:00",
+  "convention": "UT1 and sea-level celestial-navigation table. Hc is geocentric altitude; corrections are separate, not already applied. Stars selected by source Hc>=1deg; 2100 is an explicit range probe, not expected valid data.",
+  "rawFile": "usno-celnav-2026-west.raw",
+  "acquisition": "Original HTTP response body; PowerShell Invoke-WebRequest; normal certificate validation; no global proxy or TLS changes.",
+  "status": "retrieved-reference-not-production-validated",
+  "httpStatus": 200,
+  "contentType": "application/json",
+  "retrievedAtUtc": "2026-10-04T19:51:45.6306084+00:00",
+  "bytes": 11791,
+  "sha256": "b0be529820e25a8d6661da12bb69943dc360f1841f358c3abf1bc32fc05d7c2b"
+}

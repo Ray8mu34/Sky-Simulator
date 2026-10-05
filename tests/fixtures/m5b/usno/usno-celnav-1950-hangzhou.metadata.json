@@ -1,0 +1,20 @@
+{
+  "id": "usno-celnav-1950-hangzhou",
+  "sourceUrl": "https://aa.usno.navy.mil/api/celnav?date=1950-06-15&time=06%3A00%3A00&coords=30.25%2C120.17",
+  "requestParameters": {
+    "time": "06:00:00",
+    "date": "1950-06-15",
+    "id": "1950-hangzhou",
+    "coords": "30.25,120.17"
+  },
+  "requestedAtUtc": "2026-10-04T19:51:26.6412563+00:00",
+  "convention": "UT1 and sea-level celestial-navigation table. Hc is geocentric altitude; corrections are separate, not already applied. Stars selected by source Hc>=1deg; 2100 is an explicit range probe, not expected valid data.",
+  "rawFile": "usno-celnav-1950-hangzhou.raw",
+  "acquisition": "Original HTTP response body; PowerShell Invoke-WebRequest; normal certificate validation; no global proxy or TLS changes.",
+  "status": "retrieved-reference-not-production-validated",
+  "httpStatus": 200,
+  "contentType": "application/json",
+  "retrievedAtUtc": "2026-10-04T19:51:32.8763405+00:00",
+  "bytes": 13399,
+  "sha256": "28827983b6a5810ea83a533e23d40398216f610fdf94ffba64f492283f055664"
+}

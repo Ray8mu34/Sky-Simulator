@@ -1,0 +1,42 @@
+{
+  "id": "moon-color",
+  "source": "https://svs.gsfc.nasa.gov/4720/",
+  "revision": "2019 CGI Moon Kit, official1K JPG derivative",
+  "sourceFile": "assets/source/nasa/lroc_color_poles_1k.jpg",
+  "sourceSha256": "b246064f217f8d479df78c49c7c8595a8f5fbda008a72fd539978d2e121e0109",
+  "outputs": [
+    {
+      "path": "assets/runtime/moon-color-1k.webp",
+      "sha256": "93061f93a89a67089205fa955d10fa83762d3607448bd7f6ef8f1157f43fd7c9",
+      "bytes": 113956,
+      "dimensions": [
+        1024,
+        512
+      ]
+    }
+  ],
+  "coordinateFrame": "equirectangular lunar body-fixed; east-positive longitude -180..180 left-to-right, north at top",
+  "uvLongitudeEastDeg": [
+    -180,
+    -90,
+    0,
+    90,
+    180
+  ],
+  "uvSamples": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1
+  ],
+  "imageRowLatitudeNorthDeg": [
+    90,
+    0,
+    -90
+  ],
+  "colorSpace": "sRGB",
+  "processing": "Official 2019 1K JPG retained at original resolution; RGB WebPquality88 transcoding only, no rotation, mirroring or longitude offset. 2K TIF transfer timed out; incomplete file is not selected.",
+  "limitations": "NASA map is optimized for aesthetics: gamma/exposure/white-balance adjustments and filled poles; not scientific photometry or a current observation.",
+  "processingCommand": "conda run -n dl_env python scripts/data_moon.py"
+}

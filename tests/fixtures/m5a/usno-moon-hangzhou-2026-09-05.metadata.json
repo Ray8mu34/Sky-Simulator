@@ -1,0 +1,39 @@
+{
+  "purpose": "Predeclared waning-quarter neighborhood intended to exercise a possible single-direction civil day; actual returned events retained regardless of count.",
+  "definitionSource": "https://aa.usno.navy.mil/faq/RST_defs",
+  "retrievedAtUtc": "2026-10-04T20:04:29.5750127+00:00",
+  "returnedDate": {
+    "tzHours": 8.0,
+    "day": 5,
+    "year": 2026,
+    "isdst": false,
+    "month": 9
+  },
+  "httpStatus": 200,
+  "sourceUrl": "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-09-05&coords=30.25,120.17&tz=8&dst=false",
+  "bytes": 1265,
+  "status": "retrieved-reference-not-production-validated",
+  "requestedAtUtc": "2026-10-04T20:04:23.0320131+00:00",
+  "units": {
+    "moondataTime": "local HH:mm or null",
+    "civilZone": "explicit fixed UTC offset, not historical IANA",
+    "timescale": "source Universal Time plus explicit fixed display offset",
+    "calendar": "Gregorian modern civil date"
+  },
+  "sha256": "99317bc60c157898df34bae49d17e540629f5108390db8eaa390338e33c97533",
+  "request": {
+    "latitudeDeg": 30.25,
+    "heightMeters": 0,
+    "dst": false,
+    "displayZone": {
+      "offsetMinutes": 480,
+      "kind": "fixed"
+    },
+    "dateLocal": "2026-09-05",
+    "longitudeDegEast": 120.17
+  },
+  "apiVersion": "4.0.1",
+  "definition": "Moon upper limb at level unobstructed horizontal horizon, sea-level standard refraction34arcmin; lunar parallax already accounted by source, no phase-dependent limb rule. Returned local times rounded to minute. Source oneday geographic model/ephemeris differs from project AE and is independent.",
+  "acquisition": "Original HTTP response bytes saved by PowerShell Invoke-WebRequest; normal certificate validation; no proxy or system configuration changes.",
+  "rawFile": "usno-moon-hangzhou-2026-09-05.json"
+}

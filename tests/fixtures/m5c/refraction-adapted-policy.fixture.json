@@ -1,0 +1,1615 @@
+{
+  "schemaVersion": 1,
+  "purpose": "separate independent policy adapter expected, preserving raw AE golden",
+  "policyVersion": "ae-normal-nonnegative-p0-none-identity-v1",
+  "rawGoldenSha256": "f62a9e72c689040e6bac4cf8816ba02d07f7b66587f8681b0fdb82b174e96bc0",
+  "contractFile": "docs/M5C-CONTRACT.md",
+  "contractSha256": "65c43a0e869ca2232b33bf1892964af4b4b656a16c6891dbc87a8fae5bb58f45",
+  "formula": "standard: max(0, rawCorrectionDeg)*P/1010*283/(273+T); none or P=0: exact zero correction",
+  "rows": [
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": -90,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -90.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": -90,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -90.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": -89.999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -89.999,
+      "differenceFromScaledRawDeg": -7.264950796450698e-06
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": -89.999,
+      "policyCorrectionDeg": 7.264950796450698e-06,
+      "policyApparentAltitudeDeg": -89.9989927350492,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": -45,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -45.0,
+      "differenceFromScaledRawDeg": -0.3269227858387205
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": -45,
+      "policyCorrectionDeg": 0.3269227858387205,
+      "policyApparentAltitudeDeg": -44.67307721416128,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": -18,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -18.0,
+      "differenceFromScaledRawDeg": -0.5230764573419527
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": -18,
+      "policyCorrectionDeg": 0.5230764573419527,
+      "policyApparentAltitudeDeg": -17.476923542658046,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": -6,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -6.0,
+      "differenceFromScaledRawDeg": -0.6102558668989448
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": -6,
+      "policyCorrectionDeg": 0.6102558668989448,
+      "policyApparentAltitudeDeg": -5.389744133101055,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": -5.11,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -5.11,
+      "differenceFromScaledRawDeg": -0.616721673107755
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": -5.11,
+      "policyCorrectionDeg": 0.616721673107755,
+      "policyApparentAltitudeDeg": -4.493278326892245,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": -1.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -1.000001,
+      "differenceFromScaledRawDeg": -0.6465806136160741
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": -1.000001,
+      "policyCorrectionDeg": 0.6465806136160741,
+      "policyApparentAltitudeDeg": -0.3534203863839258,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": -1,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -1.0,
+      "differenceFromScaledRawDeg": -0.6465806208810249
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": -1,
+      "policyCorrectionDeg": 0.6465806208810249,
+      "policyApparentAltitudeDeg": -0.35341937911897514,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": -0.999999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -0.999999,
+      "differenceFromScaledRawDeg": -0.6465804532655449
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": -0.999999,
+      "policyCorrectionDeg": 0.6465804532655449,
+      "policyApparentAltitudeDeg": -0.35341854673445505,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": -0.5,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -0.5,
+      "differenceFromScaledRawDeg": -0.5614632682445471
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": -0.5,
+      "policyCorrectionDeg": 0.5614632682445471,
+      "policyApparentAltitudeDeg": 0.061463268244547065,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": 0,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 0.0,
+      "differenceFromScaledRawDeg": -0.4830321230741662
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": 0,
+      "policyCorrectionDeg": 0.4830321230741662,
+      "policyApparentAltitudeDeg": 0.4830321230741662,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": 1,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 1.0,
+      "differenceFromScaledRawDeg": -0.36239811324859406
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": 1,
+      "policyCorrectionDeg": 0.36239811324859406,
+      "policyApparentAltitudeDeg": 1.362398113248594,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": 5,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 5.0,
+      "differenceFromScaledRawDeg": -0.16123544340190651
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": 5,
+      "policyCorrectionDeg": 0.16123544340190651,
+      "policyApparentAltitudeDeg": 5.161235443401907,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": 10,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 10.0,
+      "differenceFromScaledRawDeg": -0.09012801338558875
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": 10,
+      "policyCorrectionDeg": 0.09012801338558875,
+      "policyApparentAltitudeDeg": 10.09012801338559,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": 30,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 30.0,
+      "differenceFromScaledRawDeg": -0.029099750246328184
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": 30,
+      "policyCorrectionDeg": 0.029099750246328184,
+      "policyApparentAltitudeDeg": 30.029099750246328,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": 45,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 45.0,
+      "differenceFromScaledRawDeg": -0.016878460981225234
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": 45,
+      "policyCorrectionDeg": 0.016878460981225234,
+      "policyApparentAltitudeDeg": 45.016878460981225,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": 60,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 60.0,
+      "differenceFromScaledRawDeg": -0.009752471282616549
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": 60,
+      "policyCorrectionDeg": 0.009752471282616549,
+      "policyApparentAltitudeDeg": 60.00975247128262,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": 85,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 85.0,
+      "differenceFromScaledRawDeg": -0.0014531387060251935
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": 85,
+      "policyCorrectionDeg": 0.0014531387060251935,
+      "policyApparentAltitudeDeg": 85.00145313870603,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": 89,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.0,
+      "differenceFromScaledRawDeg": -0.00026425385497841006
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": 89,
+      "policyCorrectionDeg": 0.00026425385497841006,
+      "policyApparentAltitudeDeg": 89.00026425385498,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": 89.89,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.89,
+      "differenceFromScaledRawDeg": -4.68483115124438e-07
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": 89.89,
+      "policyCorrectionDeg": 4.68483115124438e-07,
+      "policyApparentAltitudeDeg": 89.89000046848311,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": 89.9,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.9,
+      "differenceFromScaledRawDeg": 2.4951907588806716e-06
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": 89.9,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.9,
+      "differenceFromScaledRawDeg": 2.4951907588806716e-06
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": 89.999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.999,
+      "differenceFromScaledRawDeg": 3.1835637546121855e-05
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": 89.999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.999,
+      "differenceFromScaledRawDeg": 3.1835637546121855e-05
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": 90,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 90.0,
+      "differenceFromScaledRawDeg": 3.213200672439883e-05
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": 90,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 90.0,
+      "differenceFromScaledRawDeg": 3.213200672439883e-05
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": -90.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -90.000001,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": -90.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -90.000001,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "none",
+      "geometricAltitudeDeg": 90.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 90.000001,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "unit-scale",
+      "mode": "standard",
+      "geometricAltitudeDeg": 90.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 90.000001,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": -90,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -90.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": -90,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -90.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": -89.999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -89.999,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": -89.999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -89.999,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": -45,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -45.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": -45,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -45.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": -18,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -18.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": -18,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -18.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": -6,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -6.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": -6,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -6.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": -5.11,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -5.11,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": -5.11,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -5.11,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": -1.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -1.000001,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": -1.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -1.000001,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": -1,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -1.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": -1,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -1.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": -0.999999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -0.999999,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": -0.999999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -0.999999,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": -0.5,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -0.5,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": -0.5,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -0.5,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": 0,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 0.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": 0,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 0.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": 1,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 1.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": 1,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 1.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": 5,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 5.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": 5,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 5.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": 10,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 10.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": 10,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 10.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": 30,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 30.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": 30,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 30.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": 45,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 45.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": 45,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 45.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": 60,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 60.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": 60,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 60.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": 85,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 85.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": 85,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 85.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": 89,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": 89,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": 89.89,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.89,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": 89.89,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.89,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": 89.9,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.9,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": 89.9,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.9,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": 89.999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.999,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": 89.999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.999,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": 90,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 90.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": 90,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 90.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": -90.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -90.000001,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": -90.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -90.000001,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "none",
+      "geometricAltitudeDeg": 90.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 90.000001,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "zero-pressure",
+      "mode": "standard",
+      "geometricAltitudeDeg": 90.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 90.000001,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": -90,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -90.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": -90,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -90.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": -89.999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -89.999,
+      "differenceFromScaledRawDeg": -7.161794639179519e-06
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": -89.999,
+      "policyCorrectionDeg": 7.161794639179519e-06,
+      "policyApparentAltitudeDeg": -89.99899283820535,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": -45,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -45.0,
+      "differenceFromScaledRawDeg": -0.32228075876153955
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": -45,
+      "policyCorrectionDeg": 0.32228075876153955,
+      "policyApparentAltitudeDeg": -44.677719241238464,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": -18,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -18.0,
+      "differenceFromScaledRawDeg": -0.5156492140184633
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": -18,
+      "policyCorrectionDeg": 0.5156492140184633,
+      "policyApparentAltitudeDeg": -17.484350785981537,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": -6,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -6.0,
+      "differenceFromScaledRawDeg": -0.6015907496882071
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": -6,
+      "policyCorrectionDeg": 0.6015907496882071,
+      "policyApparentAltitudeDeg": -5.398409250311793,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": -5.11,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -5.11,
+      "differenceFromScaledRawDeg": -0.6079647469170464
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": -5.11,
+      "policyCorrectionDeg": 0.6079647469170464,
+      "policyApparentAltitudeDeg": -4.502035253082954,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": -1.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -1.000001,
+      "differenceFromScaledRawDeg": -0.637399715722139
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": -1.000001,
+      "policyCorrectionDeg": 0.637399715722139,
+      "policyApparentAltitudeDeg": -0.36260128427786087,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": -1,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -1.0,
+      "differenceFromScaledRawDeg": -0.6373997228839337
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": -1,
+      "policyCorrectionDeg": 0.6373997228839337,
+      "policyApparentAltitudeDeg": -0.36260027711606635,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": -0.999999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -0.999999,
+      "differenceFromScaledRawDeg": -0.6373995576484518
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": -0.999999,
+      "policyCorrectionDeg": 0.6373995576484518,
+      "policyApparentAltitudeDeg": -0.3625994423515482,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": -0.5,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -0.5,
+      "differenceFromScaledRawDeg": -0.5534909646703341
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": -0.5,
+      "policyCorrectionDeg": 0.5534909646703341,
+      "policyApparentAltitudeDeg": 0.053490964670334096,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": 0,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 0.0,
+      "differenceFromScaledRawDeg": -0.47617347543140254
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": 0,
+      "policyCorrectionDeg": 0.47617347543140254,
+      "policyApparentAltitudeDeg": 0.47617347543140254,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": 1,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 1.0,
+      "differenceFromScaledRawDeg": -0.3572523665240168
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": 1,
+      "policyCorrectionDeg": 0.3572523665240168,
+      "policyApparentAltitudeDeg": 1.3572523665240168,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": 5,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 5.0,
+      "differenceFromScaledRawDeg": -0.15894603646395708
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": 5,
+      "policyCorrectionDeg": 0.15894603646395708,
+      "policyApparentAltitudeDeg": 5.158946036463957,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": 10,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 10.0,
+      "differenceFromScaledRawDeg": -0.08884827181763691
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": 10,
+      "policyCorrectionDeg": 0.08884827181763691,
+      "policyApparentAltitudeDeg": 10.088848271817637,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": 30,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 30.0,
+      "differenceFromScaledRawDeg": -0.028686558402767615
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": 30,
+      "policyCorrectionDeg": 0.028686558402767615,
+      "policyApparentAltitudeDeg": 30.028686558402768,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": 45,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 45.0,
+      "differenceFromScaledRawDeg": -0.01663880110956783
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": 45,
+      "policyCorrectionDeg": 0.01663880110956783,
+      "policyApparentAltitudeDeg": 45.016638801109565,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": 60,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 60.0,
+      "differenceFromScaledRawDeg": -0.009613994438161697
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": 60,
+      "policyCorrectionDeg": 0.009613994438161697,
+      "policyApparentAltitudeDeg": 60.00961399443816,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": 85,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 85.0,
+      "differenceFromScaledRawDeg": -0.0014325053653329472
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": 85,
+      "policyCorrectionDeg": 0.0014325053653329472,
+      "policyApparentAltitudeDeg": 85.00143250536533,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": 89,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.0,
+      "differenceFromScaledRawDeg": -0.00026050167371973094
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": 89,
+      "policyCorrectionDeg": 0.00026050167371973094,
+      "policyApparentAltitudeDeg": 89.00026050167372,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": 89.89,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.89,
+      "differenceFromScaledRawDeg": -4.618310510903252e-07
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": 89.89,
+      "policyCorrectionDeg": 4.618310510903252e-07,
+      "policyApparentAltitudeDeg": 89.89000046183105,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": 89.9,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.9,
+      "differenceFromScaledRawDeg": 2.4597611603112718e-06
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": 89.9,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.9,
+      "differenceFromScaledRawDeg": 2.4597611603112718e-06
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": 89.999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.999,
+      "differenceFromScaledRawDeg": 3.138359841667029e-05
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": 89.999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.999,
+      "differenceFromScaledRawDeg": 3.138359841667029e-05
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": 90,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 90.0,
+      "differenceFromScaledRawDeg": 3.167575940325799e-05
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": 90,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 90.0,
+      "differenceFromScaledRawDeg": 3.167575940325799e-05
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": -90.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -90.000001,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": -90.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -90.000001,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "none",
+      "geometricAltitudeDeg": 90.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 90.000001,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "1013.25-15C",
+      "mode": "standard",
+      "geometricAltitudeDeg": 90.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 90.000001,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": -90,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -90.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": -90,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -90.0,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": -89.999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -89.999,
+      "differenceFromScaledRawDeg": -1.4119940997394019e-05
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": -89.999,
+      "policyCorrectionDeg": 1.4119940997394019e-05,
+      "policyApparentAltitudeDeg": -89.998985880059,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": -45,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -45.0,
+      "differenceFromScaledRawDeg": -0.635397344879697
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": -45,
+      "policyCorrectionDeg": 0.635397344879697,
+      "policyApparentAltitudeDeg": -44.3646026551203,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": -18,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -18.0,
+      "differenceFromScaledRawDeg": -1.0166357518075153
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": -18,
+      "policyCorrectionDeg": 1.0166357518075153,
+      "policyApparentAltitudeDeg": -16.983364248192483,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": -6,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -6.0,
+      "differenceFromScaledRawDeg": -1.1860750437754344
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": -6,
+      "policyCorrectionDeg": 1.1860750437754344,
+      "policyApparentAltitudeDeg": -4.813924956224565,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": -5.11,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -5.11,
+      "differenceFromScaledRawDeg": -1.198641791263055
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": -5.11,
+      "policyCorrectionDeg": 1.198641791263055,
+      "policyApparentAltitudeDeg": -3.9113582087369454,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": -1.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -1.000001,
+      "differenceFromScaledRawDeg": -1.2566747346421263
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": -1.000001,
+      "policyCorrectionDeg": 1.2566747346421263,
+      "policyApparentAltitudeDeg": 0.2566737346421264,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": -1,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -1.0,
+      "differenceFromScaledRawDeg": -1.2566747487620673
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": -1,
+      "policyCorrectionDeg": 1.2566747487620673,
+      "policyApparentAltitudeDeg": 0.2566747487620673,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": -0.999999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -0.999999,
+      "differenceFromScaledRawDeg": -1.2566744229896356
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": -0.999999,
+      "policyCorrectionDeg": 1.2566744229896356,
+      "policyApparentAltitudeDeg": 0.25667542298963564,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": -0.5,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -0.5,
+      "differenceFromScaledRawDeg": -1.0912432089271915
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": -0.5,
+      "policyCorrectionDeg": 1.0912432089271915,
+      "policyApparentAltitudeDeg": 0.5912432089271915,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": 0,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 0.0,
+      "differenceFromScaledRawDeg": -0.9388067818690942
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": 0,
+      "policyCorrectionDeg": 0.9388067818690942,
+      "policyApparentAltitudeDeg": 0.9388067818690942,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": 1,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 1.0,
+      "differenceFromScaledRawDeg": -0.7043461297958137
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": 1,
+      "policyCorrectionDeg": 0.7043461297958137,
+      "policyApparentAltitudeDeg": 1.7043461297958138,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": 5,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 5.0,
+      "differenceFromScaledRawDeg": -0.31337238355913377
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": 5,
+      "policyCorrectionDeg": 0.31337238355913377,
+      "policyApparentAltitudeDeg": 5.313372383559134,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": 10,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 10.0,
+      "differenceFromScaledRawDeg": -0.17517011014563003
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": 10,
+      "policyCorrectionDeg": 0.17517011014563003,
+      "policyApparentAltitudeDeg": 10.17517011014563,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": 30,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 30.0,
+      "differenceFromScaledRawDeg": -0.05655740390117925
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": 30,
+      "policyCorrectionDeg": 0.05655740390117925,
+      "policyApparentAltitudeDeg": 30.05655740390118,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": 45,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 45.0,
+      "differenceFromScaledRawDeg": -0.03280447175198357
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": 45,
+      "policyCorrectionDeg": 0.03280447175198357,
+      "policyApparentAltitudeDeg": 45.03280447175198,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": 60,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 60.0,
+      "differenceFromScaledRawDeg": -0.018954611386576888
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": 60,
+      "policyCorrectionDeg": 0.018954611386576888,
+      "policyApparentAltitudeDeg": 60.018954611386576,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": 85,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 85.0,
+      "differenceFromScaledRawDeg": -0.0028242769104684694
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": 85,
+      "policyCorrectionDeg": 0.0028242769104684694,
+      "policyApparentAltitudeDeg": 85.00282427691047,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": 89,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.0,
+      "differenceFromScaledRawDeg": -0.0005135958859421281
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": 89,
+      "policyCorrectionDeg": 0.0005135958859421281,
+      "policyApparentAltitudeDeg": 89.00051359588595,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": 89.89,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.89,
+      "differenceFromScaledRawDeg": -9.105297653308483e-07
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": 89.89,
+      "policyCorrectionDeg": 9.105297653308483e-07,
+      "policyApparentAltitudeDeg": 89.89000091052976,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": 89.9,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.9,
+      "differenceFromScaledRawDeg": 4.849578101733394e-06
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": 89.9,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.9,
+      "differenceFromScaledRawDeg": 4.849578101733394e-06
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": 89.999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.999,
+      "differenceFromScaledRawDeg": 6.187479259808265e-05
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": 89.999,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 89.999,
+      "differenceFromScaledRawDeg": 6.187479259808265e-05
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": 90,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 90.0,
+      "differenceFromScaledRawDeg": 6.245080686548298e-05
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": 90,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 90.0,
+      "differenceFromScaledRawDeg": 6.245080686548298e-05
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": -90.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -90.000001,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": -90.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": -90.000001,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "none",
+      "geometricAltitudeDeg": 90.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 90.000001,
+      "differenceFromScaledRawDeg": 0.0
+    },
+    {
+      "environmentId": "max-allowed-density",
+      "mode": "standard",
+      "geometricAltitudeDeg": 90.000001,
+      "policyCorrectionDeg": 0.0,
+      "policyApparentAltitudeDeg": 90.000001,
+      "differenceFromScaledRawDeg": 0.0
+    }
+  ],
+  "scalarDomainNote": "out-of-range angles retained only as raw source boundary diagnostics, not valid product direction inputs",
+  "azimuthUndefinedPoleNote": "vector endpoint identity is an additional contract, not assigning an azimuth to zenith/nadir",
+  "productionComparisonPerformed": false,
+  "failures": []
+}

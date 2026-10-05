@@ -1,0 +1,24 @@
+{
+  "source": "M3第二批新增教学输入；不是原04验收包编号，也不是独立golden结果。",
+  "baseline": {
+    "utc": "2026-08-14T14:00:00Z",
+    "observer": { "name": "杭州银河教学", "latitudeDeg": 30.25, "longitudeDegEast": 120.17, "heightMeters": 20, "displayZone": { "kind": "fixed", "offsetMinutes": 480 } },
+    "groundCamera": { "kind": "ground", "azimuthDegNorthEast": 202, "altitudeDeg": 26, "verticalFovDeg": 65 },
+    "viewMode": "ground",
+    "presentation": "observation",
+    "atmosphere": true,
+    "milkyWay": true,
+    "moonlightEnabled": true,
+    "darkSkyLimitingMagnitude": 6.5
+  },
+  "notes": [
+    "固定UT、地点和相机；三个场景仅人工天空亮度不同。相机看向人马座银河区域，不以该近似区域方向作为银心精确位置。",
+    "同科学内核快照核实：此时太阳与月球均在几何地平下，月光模型贡献为0；用于隔离人工亮度影响，非外部精度验证。",
+    "暗夜、郊外、城市仅为0、0.5、1的定性教学示例，不对应SQM、Bortle等级、实测亮度或天气。"
+  ],
+  "scenes": [
+    { "id": "G01", "title": "新增 · 暗夜银河", "artificialSkyBrightness": 0 },
+    { "id": "G02", "title": "新增 · 郊外示例", "artificialSkyBrightness": 0.5 },
+    { "id": "G03", "title": "新增 · 城市示例", "artificialSkyBrightness": 1 }
+  ]
+}

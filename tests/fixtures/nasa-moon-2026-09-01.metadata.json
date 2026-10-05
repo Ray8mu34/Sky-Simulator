@@ -1,0 +1,12 @@
+{
+  "sourceDefinition": "https://svs.gsfc.nasa.gov/help/#dial-a-moon-api",
+  "sha256": "3569bf49553fb23bf7c8827ef1c38c173210d2b357a592d3bc6927c73a04c986",
+  "returnedTime": "2026-09-01T00:00",
+  "sourceUrl": "https://svs.gsfc.nasa.gov/api/dialamoon/2026-09-01T00:00",
+  "rawFile": "nasa-moon-2026-09-01.json",
+  "retrievedAt": "2026-10-04T15:51:26.9674609+00:00",
+  "convention": "Geocentric Moon; phase percentage, angular diameter arcsec, body subearth/subsolar longlat deg, north pole PA CCW; use response time and verify RA unit separately.",
+  "bytes": 1981,
+  "status": "retrieved-reference-not-production-validated",
+  "acquisition": "Original HTTP bytes saved by curl.exe --noproxy svs.gsfc.nasa.gov --fail; normal certificate validation. One explicitly authorised domain-direct retry after proxy-route EOF; initial failure preserved."
+}

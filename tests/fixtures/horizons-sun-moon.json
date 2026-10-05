@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "source": "JPL Horizons observer ephemeris API",
+  "documentation": "https://ssd-api.jpl.nasa.gov/doc/horizons.html",
+  "manual": "https://ssd.jpl.nasa.gov/horizons/manual.html",
+  "retrievedAtUtc": "2026-10-04T13:28:31.361Z",
+  "observer": {
+    "name": "杭州教学预设",
+    "latitudeDeg": 30.25,
+    "longitudeDegEast": 120.17,
+    "heightMeters": 20
+  },
+  "conventions": {
+    "time": "UT output: UTC from 1962 onward, UT1 before 1962; adapter uses UT1≈UTC. Gregorian calendar explicitly pinned.",
+    "angles": "Q2 apparent topocentric RA/Dec: true equator/equinox of date, light-time, aberration and JPL light bending; Q4 azimuth east of north and airless elevation.",
+    "phase": "Q10 illuminated fraction; Q13 apparent angular diameter; Q20 light-time-corrected observer distance.",
+    "differences": "Astronomy Engine has its own ΔT and approximate ephemerides; no real-time EOP or gravitational light bending. At 2100-12-31 AE default TT−UT≈205.008s whereas Horizons extrapolates last known leap seconds (TT−UTC=69.184s); do not silently replace the production ΔT model. This limited fixture does not certify the entire modern interval."
+  },
+  "tolerances": {
+    "directionDeg": 0.03333333333333333,
+    "altitudeDeg": 0.03333333333333333,
+    "diameterDeg": 0.0005,
+    "illuminatedFraction": 0.002
+  },
+  "toleranceBasis": "Implementation plan §12.1: Sun/Moon ≤2 arcmin at altitude >5°, aligned topocentric apparent/airless conventions. This fixture also probes below-horizon cases; the 1 arcmin stellar criterion is separate.",
+  "initialProbe": { "thresholdArcmin": 1, "failure": "Moon 2100-12-31T23:59:59Z direction=1.3828064179 arcmin; diagnosed ΔT convention mismatch, not hidden by replacing the engine model." },
+  "responses": [
+    {
+      "body": "Sun",
+      "requestUrl": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&OBJ_DATA=%27YES%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27coord%40399%27&COORD_TYPE=%27GEODETIC%27&SITE_COORD=%27120.17%2C30.25%2C0.02%27&TLIST=%272415020.5%2C2451545%2C2461298.0833333335%2C2488434.499988426%27&TLIST_TYPE=%27JD%27&TIME_TYPE=%27UT%27&QUANTITIES=%272%2C4%2C10%2C13%2C20%27&REF_SYSTEM=%27ICRF%27&CAL_TYPE=%27GREGORIAN%27&CAL_FORMAT=%27BOTH%27&ANG_FORMAT=%27DEG%27&APPARENT=%27AIRLESS%27&RANGE_UNITS=%27AU%27&TIME_DIGITS=%27SECONDS%27&EXTRA_PREC=%27YES%27&CSV_FORMAT=%27YES%27&COMMAND=%2710%27",
+      "parameters": {
+        "format": "json",
+        "OBJ_DATA": "YES",
+        "MAKE_EPHEM": "YES",
+        "EPHEM_TYPE": "OBSERVER",
+        "CENTER": "coord@399",
+        "COORD_TYPE": "GEODETIC",
+        "SITE_COORD": "120.17,30.25,0.02",
+        "TLIST": "2415020.5,2451545,2461298.0833333335,2488434.499988426",
+        "TLIST_TYPE": "JD",
+        "TIME_TYPE": "UT",
+        "QUANTITIES": "2,4,10,13,20",
+        "REF_SYSTEM": "ICRF",
+        "CAL_TYPE": "GREGORIAN",
+        "CAL_FORMAT": "BOTH",
+        "ANG_FORMAT": "DEG",
+        "APPARENT": "AIRLESS",
+        "RANGE_UNITS": "AU",
+        "TIME_DIGITS": "SECONDS",
+        "EXTRA_PREC": "YES",
+        "CSV_FORMAT": "YES",
+        "COMMAND": "10"
+      },
+      "signature": {
+        "version": "1.2",
+        "source": "NASA/JPL Horizons API"
+      },
+      "rawFile": "horizons-sun.txt",
+      "sha256": "7aaa9e57a24027643b1cb52a0affac382e01646d3639ca9ee05f964d8fe49ec5"
+    },
+    {
+      "body": "Moon",
+      "requestUrl": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&OBJ_DATA=%27YES%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27coord%40399%27&COORD_TYPE=%27GEODETIC%27&SITE_COORD=%27120.17%2C30.25%2C0.02%27&TLIST=%272415020.5%2C2451545%2C2461298.0833333335%2C2488434.499988426%27&TLIST_TYPE=%27JD%27&TIME_TYPE=%27UT%27&QUANTITIES=%272%2C4%2C10%2C13%2C20%27&REF_SYSTEM=%27ICRF%27&CAL_TYPE=%27GREGORIAN%27&CAL_FORMAT=%27BOTH%27&ANG_FORMAT=%27DEG%27&APPARENT=%27AIRLESS%27&RANGE_UNITS=%27AU%27&TIME_DIGITS=%27SECONDS%27&EXTRA_PREC=%27YES%27&CSV_FORMAT=%27YES%27&COMMAND=%27301%27",
+      "parameters": {
+        "format": "json",
+        "OBJ_DATA": "YES",
+        "MAKE_EPHEM": "YES",
+        "EPHEM_TYPE": "OBSERVER",
+        "CENTER": "coord@399",
+        "COORD_TYPE": "GEODETIC",
+        "SITE_COORD": "120.17,30.25,0.02",
+        "TLIST": "2415020.5,2451545,2461298.0833333335,2488434.499988426",
+        "TLIST_TYPE": "JD",
+        "TIME_TYPE": "UT",
+        "QUANTITIES": "2,4,10,13,20",
+        "REF_SYSTEM": "ICRF",
+        "CAL_TYPE": "GREGORIAN",
+        "CAL_FORMAT": "BOTH",
+        "ANG_FORMAT": "DEG",
+        "APPARENT": "AIRLESS",
+        "RANGE_UNITS": "AU",
+        "TIME_DIGITS": "SECONDS",
+        "EXTRA_PREC": "YES",
+        "CSV_FORMAT": "YES",
+        "COMMAND": "301"
+      },
+      "signature": {
+        "version": "1.2",
+        "source": "NASA/JPL Horizons API"
+      },
+      "rawFile": "horizons-moon.txt",
+      "sha256": "56c4b04e3fedd610e2067ef1424a62cd34a9181efaff597638e26f8c9e9d0e97"
+    }
+  ],
+  "rows": [
+    {
+      "body": "Sun",
+      "utc": "1900-01-01T00:00:00Z",
+      "utDaysJ2000": -36524.5,
+      "raHoursOfDate": 18.736532979133337,
+      "decDegOfDate": -23.064448659,
+      "azimuthDeg": 125.170353892,
+      "altitudeDeg": 11.052918039,
+      "illuminatedFraction": null,
+      "angularDiameterDeg": 0.54198,
+      "observerDistanceAU": 0.98325803794747
+    },
+    {
+      "body": "Sun",
+      "utc": "2000-01-01T12:00:00Z",
+      "utDaysJ2000": 0,
+      "raHoursOfDate": 18.751753327333333,
+      "decDegOfDate": -23.033189425,
+      "azimuthDeg": 262.13992414,
+      "altitudeDeg": -35.929147031,
+      "illuminatedFraction": null,
+      "angularDiameterDeg": 0.5419280555555556,
+      "observerDistanceAU": 0.98335260527797
+    },
+    {
+      "body": "Sun",
+      "utc": "2026-09-14T14:00:00Z",
+      "utDaysJ2000": 9753.083333333489,
+      "raHoursOfDate": 11.496594206800001,
+      "decDegOfDate": 3.258719991,
+      "azimuthDeg": 315.622058409,
+      "altitudeDeg": -46.697110813,
+      "illuminatedFraction": null,
+      "angularDiameterDeg": 0.5297530555555556,
+      "observerDistanceAU": 1.0059521360431
+    },
+    {
+      "body": "Sun",
+      "utc": "2100-12-31T23:59:59Z",
+      "utDaysJ2000": 36889.49998842599,
+      "raHoursOfDate": 18.751611911533335,
+      "decDegOfDate": -23.025304168,
+      "azimuthDeg": 125.189497141,
+      "altitudeDeg": 11.136432172,
+      "illuminatedFraction": null,
+      "angularDiameterDeg": 0.5418958333333334,
+      "observerDistanceAU": 0.98341072757558
+    },
+    {
+      "body": "Moon",
+      "utc": "1900-01-01T00:00:00Z",
+      "utDaysJ2000": -36524.5,
+      "raHoursOfDate": 18.223471745933335,
+      "decDegOfDate": -22.982136904,
+      "azimuthDeg": 129.978930675,
+      "altitudeDeg": 16.378282431,
+      "illuminatedFraction": 0.0038283,
+      "angularDiameterDeg": 0.5431866666666667,
+      "observerDistanceAU": 0.00245007598676
+    },
+    {
+      "body": "Moon",
+      "utc": "2000-01-01T12:00:00Z",
+      "utDaysJ2000": 0,
+      "raHoursOfDate": 14.828468461533333,
+      "decDegOfDate": -11.194436452,
+      "azimuthDeg": 354.608923634,
+      "altitudeDeg": -70.871312235,
+      "illuminatedFraction": 0.2294816,
+      "angularDiameterDeg": 0.4874475,
+      "observerDistanceAU": 0.00273023787898
+    },
+    {
+      "body": "Moon",
+      "utc": "2026-09-14T14:00:00Z",
+      "utDaysJ2000": 9753.083333333489,
+      "raHoursOfDate": 13.9446883448,
+      "decDegOfDate": -17.576739756,
+      "azimuthDeg": 265.961046135,
+      "altitudeDeg": -29.634319264,
+      "illuminatedFraction": 0.1277442,
+      "angularDiameterDeg": 0.5034508333333333,
+      "observerDistanceAU": 0.00264345144269
+    },
+    {
+      "body": "Moon",
+      "utc": "2100-12-31T23:59:59Z",
+      "utDaysJ2000": 36889.49998842599,
+      "raHoursOfDate": 19.821068340133333,
+      "decDegOfDate": -24.81236373,
+      "azimuthDeg": 117.924906806,
+      "altitudeDeg": -1.739026628,
+      "illuminatedFraction": 0.016600999999999998,
+      "angularDiameterDeg": 0.5414963888888888,
+      "observerDistanceAU": 0.00245772330443
+    }
+  ]
+}

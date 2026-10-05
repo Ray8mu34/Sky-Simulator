@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "generator": "lunar-typescript@1.8.6",
+  "generatorRevision": "a376ec2b8fd1b3069e24c92801bab8707fccd49d",
+  "calendarZone": "UTC+08:00",
+  "gregorianStartInclusive": "1901-01-01",
+  "gregorianEndExclusive": "2101-01-01",
+  "verifiedGregorianYears": [
+    1901,
+    2100
+  ],
+  "months": 2476,
+  "recordBytes": 8,
+  "recordLayout": "int32LE civilUnixDay, uint16LE lunarYear, uint8 month|leapBit128, uint8 length29or30",
+  "hkoComparison": {
+    "checkedDays": 73049,
+    "matchingDays": 73019,
+    "mismatchDays": 30,
+    "mismatchRanges": [
+      {
+        "start": "2057-09-28",
+        "end": "2057-10-27",
+        "days": 30
+      }
+    ],
+    "textTableMissingDates": [
+      "2069-12-30"
+    ],
+    "pdfSupplementDates": [
+      "2069-12-30"
+    ],
+    "pdfSupplementProof": "qa/m3-review/fixtures/hko-2069e.metadata.json",
+    "pdfSupplementSha256": "77e5623b62c7bb9ac4644ba77987334f3389ebe7346c1538ccf917e250b31b96",
+    "warnedNewMoonDates": [
+      "2057-09-28",
+      "2089-09-04",
+      "2097-08-07"
+    ],
+    "uncertainGregorianYears": [
+      2057,
+      2089,
+      2097
+    ],
+    "policy": "Runtime retains the fixed MIT generator convention. HKO tables are independent QA only; all mismatches retained. Flag every day of warned/differing Gregorian years as uncertain."
+  },
+  "recordFirst": {
+    "civilDate": "1900-12-22",
+    "civilDay": -25212,
+    "year": 1900,
+    "month": 11,
+    "isLeapMonth": false,
+    "monthLengthDays": 29
+  },
+  "recordLast": {
+    "civilDate": "2101-01-29",
+    "civilDay": 47875,
+    "year": 2101,
+    "month": 1,
+    "isLeapMonth": false,
+    "monthLengthDays": 30
+  }
+}

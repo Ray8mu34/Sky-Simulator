@@ -1,0 +1,9 @@
+{
+  "acquisition": "Complete structured JSON reference from successful web tool response, manually preserved; not original HTTP bytes. Native byte retrieval separately failed TLS.",
+  "status": "web-tool-reference-capture-not-production-validated",
+  "capturedAt": "2026-10-04T15:50:08.2496767+00:00",
+  "sha256": "2d72774a8efc5b4e673777b8a036ff36dfd5d76784be655bb2408053f984e4bc",
+  "convention": "Primary lunar phase event times in Universal Time, one minute resolution; API4.0.1",
+  "sourceUrl": "https://aa.usno.navy.mil/api/moon/phases/date?date=2026-09-01&nump=4",
+  "rawFile": "usno-phase-2026-09-web-capture.json"
+}

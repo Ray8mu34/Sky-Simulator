@@ -1,0 +1,20 @@
+{
+  "id": "usno-celnav-1900-equator",
+  "sourceUrl": "https://aa.usno.navy.mil/api/celnav?date=1900-03-15&time=00%3A00%3A00&coords=0%2C0",
+  "requestParameters": {
+    "time": "00:00:00",
+    "date": "1900-03-15",
+    "id": "1900-equator",
+    "coords": "0,0"
+  },
+  "requestedAtUtc": "2026-10-04T19:51:19.9804174+00:00",
+  "convention": "UT1 and sea-level celestial-navigation table. Hc is geocentric altitude; corrections are separate, not already applied. Stars selected by source Hc>=1deg; 2100 is an explicit range probe, not expected valid data.",
+  "rawFile": "usno-celnav-1900-equator.raw",
+  "acquisition": "Original HTTP response body; PowerShell Invoke-WebRequest; normal certificate validation; no global proxy or TLS changes.",
+  "status": "retrieved-reference-not-production-validated",
+  "httpStatus": 200,
+  "contentType": "application/json",
+  "retrievedAtUtc": "2026-10-04T19:51:26.6153488+00:00",
+  "bytes": 13085,
+  "sha256": "8eacdb8258cffe33717694a66277fc251f1555816250b90b95bd2bac60731e1b"
+}

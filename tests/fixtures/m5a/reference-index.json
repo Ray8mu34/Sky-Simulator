@@ -1,0 +1,476 @@
+{
+  "status": "preparation-only-not-production-validated",
+  "indexedAtUtc": "2026-10-04T20:12:19.539Z",
+  "parserVersion": "m5a-reference-parser-v1",
+  "parserSha256": "d0c663d2e1fac803f3e9aa4b2eb954729dd21fb0efdc1ea5956605ef4e96bc06",
+  "scope": "Raw reference integrity, actual requested day/place/zone and literal event/table symbols. No project ObjectDayEvents implementation exists yet; no production error or scientific accuracy PASS is claimed.",
+  "referenceCount": 11,
+  "rows": [
+    {
+      "rawFile": "tests/fixtures/usno-hangzhou-2026-09-14.json",
+      "metadataFile": "tests/fixtures/usno-hangzhou-2026-09-14.metadata.json",
+      "sha256": "ebcaf91bee08f6ddcef6c35332fd8ac0ed5c7f27cc845b727ef8d7751809e327",
+      "bytes": 1261,
+      "sourceUrl": "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-09-14&coords=30.25,120.17&tz=8&dst=false",
+      "apiVersion": "4.0.1",
+      "kind": "Moon",
+      "provenance": "Previously frozen original HTTP response reused without modification; independently verified hash.",
+      "dateLocal": "2026-09-14",
+      "observer": {
+        "latitudeDeg": 30.25,
+        "longitudeDegEast": 120.17,
+        "heightMeters": 0,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 480
+        }
+      },
+      "expectedCrossings": [
+        {
+          "kind": "rise",
+          "timeLocal": "08:35"
+        },
+        {
+          "kind": "set",
+          "timeLocal": "19:39"
+        }
+      ],
+      "expectedClassificationText": null,
+      "rawMoonData": [
+        {
+          "phen": "Rise",
+          "time": "08:35"
+        },
+        {
+          "phen": "Upper Transit",
+          "time": "14:10"
+        },
+        {
+          "phen": "Set",
+          "time": "19:39"
+        }
+      ],
+      "definition": "Sea-level Moon upper-limb standard horizon/refraction reference; minute-rounded fixed local clock; topocentric project must not apply parallax twice. Existing acquisition metadata may describe solar use only: raw Moon fields are reused intact, not rewritten.",
+      "status": "hash-and-request-verified-reference-not-production-validated"
+    },
+    {
+      "rawFile": "tests/fixtures/usno-solar70n-summer.json",
+      "metadataFile": "tests/fixtures/usno-solar70n-summer.metadata.json",
+      "sha256": "00f3df26e1dc08af344715ca69036610288d44bfc9a6db16457242ebeb7dbf1c",
+      "bytes": 1234,
+      "sourceUrl": "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-06-21&coords=70,0&tz=0",
+      "apiVersion": "4.0.1",
+      "kind": "Moon",
+      "provenance": "Previously frozen original HTTP response reused without modification; independently verified hash.",
+      "dateLocal": "2026-06-21",
+      "observer": {
+        "latitudeDeg": 70,
+        "longitudeDegEast": 0,
+        "heightMeters": 0,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 0
+        }
+      },
+      "expectedCrossings": [
+        {
+          "kind": "rise",
+          "timeLocal": "11:40"
+        },
+        {
+          "kind": "set",
+          "timeLocal": "23:28"
+        }
+      ],
+      "expectedClassificationText": null,
+      "rawMoonData": [
+        {
+          "phen": "Rise",
+          "time": "11:40"
+        },
+        {
+          "phen": "Upper Transit",
+          "time": "17:51"
+        },
+        {
+          "phen": "Set",
+          "time": "23:28"
+        }
+      ],
+      "definition": "Sea-level Moon upper-limb standard horizon/refraction reference; minute-rounded fixed local clock; topocentric project must not apply parallax twice. Existing acquisition metadata may describe solar use only: raw Moon fields are reused intact, not rewritten.",
+      "status": "hash-and-request-verified-reference-not-production-validated"
+    },
+    {
+      "rawFile": "tests/fixtures/usno-solar70n-winter.json",
+      "metadataFile": "tests/fixtures/usno-solar70n-winter.metadata.json",
+      "sha256": "0df33dc6bdb72b63063f358da6114b4876890fd348910cf6d6fc80905aa82b23",
+      "bytes": 1171,
+      "sourceUrl": "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-12-21&coords=70,0&tz=0",
+      "apiVersion": "4.0.1",
+      "kind": "Moon",
+      "provenance": "Previously frozen original HTTP response reused without modification; independently verified hash.",
+      "dateLocal": "2026-12-21",
+      "observer": {
+        "latitudeDeg": 70,
+        "longitudeDegEast": 0,
+        "heightMeters": 0,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 0
+        }
+      },
+      "expectedCrossings": [],
+      "expectedClassificationText": "Object continuously above the Horizon",
+      "rawMoonData": [
+        {
+          "phen": "Object continuously above the Horizon",
+          "time": null
+        },
+        {
+          "phen": "Lower Transit",
+          "time": "09:12"
+        },
+        {
+          "phen": "Upper Transit",
+          "time": "21:43"
+        }
+      ],
+      "definition": "Sea-level Moon upper-limb standard horizon/refraction reference; minute-rounded fixed local clock; topocentric project must not apply parallax twice. Existing acquisition metadata may describe solar use only: raw Moon fields are reused intact, not rewritten.",
+      "status": "hash-and-request-verified-reference-not-production-validated"
+    },
+    {
+      "rawFile": "tests/fixtures/m5a/usno-moon-hangzhou-2026-09-05.json",
+      "metadataFile": "tests/fixtures/m5a/usno-moon-hangzhou-2026-09-05.metadata.json",
+      "sha256": "99317bc60c157898df34bae49d17e540629f5108390db8eaa390338e33c97533",
+      "bytes": 1265,
+      "sourceUrl": "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-09-05&coords=30.25,120.17&tz=8&dst=false",
+      "apiVersion": "4.0.1",
+      "kind": "Moon",
+      "provenance": "New predeclared official HTTP oneday response; full original bytes retained.",
+      "dateLocal": "2026-09-05",
+      "observer": {
+        "latitudeDeg": 30.25,
+        "longitudeDegEast": 120.17,
+        "heightMeters": 0,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 480
+        }
+      },
+      "expectedCrossings": [
+        {
+          "kind": "set",
+          "timeLocal": "13:50"
+        },
+        {
+          "kind": "rise",
+          "timeLocal": "23:53"
+        }
+      ],
+      "expectedClassificationText": null,
+      "rawMoonData": [
+        {
+          "phen": "Upper Transit",
+          "time": "06:20"
+        },
+        {
+          "phen": "Set",
+          "time": "13:50"
+        },
+        {
+          "phen": "Rise",
+          "time": "23:53"
+        }
+      ],
+      "definition": "Sea-level Moon upper-limb standard horizon/refraction reference; minute-rounded fixed local clock; topocentric project must not apply parallax twice. Existing acquisition metadata may describe solar use only: raw Moon fields are reused intact, not rewritten.",
+      "status": "hash-and-request-verified-reference-not-production-validated"
+    },
+    {
+      "rawFile": "tests/fixtures/m5a/usno-moon-hangzhou-2026-09-06.json",
+      "metadataFile": "tests/fixtures/m5a/usno-moon-hangzhou-2026-09-06.metadata.json",
+      "sha256": "4d9463a8252655db6718720686d8de29c27ed774763d9d350e4b55e2863dd963",
+      "bytes": 1188,
+      "sourceUrl": "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-09-06&coords=30.25,120.17&tz=8&dst=false",
+      "apiVersion": "4.0.1",
+      "kind": "Moon",
+      "provenance": "New predeclared official HTTP oneday response; full original bytes retained.",
+      "dateLocal": "2026-09-06",
+      "observer": {
+        "latitudeDeg": 30.25,
+        "longitudeDegEast": 120.17,
+        "heightMeters": 0,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 480
+        }
+      },
+      "expectedCrossings": [
+        {
+          "kind": "set",
+          "timeLocal": "14:50"
+        }
+      ],
+      "expectedClassificationText": null,
+      "rawMoonData": [
+        {
+          "phen": "Upper Transit",
+          "time": "07:23"
+        },
+        {
+          "phen": "Set",
+          "time": "14:50"
+        }
+      ],
+      "definition": "Sea-level Moon upper-limb standard horizon/refraction reference; minute-rounded fixed local clock; topocentric project must not apply parallax twice. Existing acquisition metadata may describe solar use only: raw Moon fields are reused intact, not rewritten.",
+      "status": "hash-and-request-verified-reference-not-production-validated"
+    },
+    {
+      "rawFile": "tests/fixtures/m5a/usno-moon-sydney-2026-09-11.json",
+      "metadataFile": "tests/fixtures/m5a/usno-moon-sydney-2026-09-11.metadata.json",
+      "sha256": "8dbf3a3ec99f98be0c4c86065910eac79f27ec3457672f7f9b48af72f55cafc5",
+      "bytes": 1259,
+      "sourceUrl": "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-09-11&coords=-33.8688,151.2093&tz=10&dst=false",
+      "apiVersion": "4.0.1",
+      "kind": "Moon",
+      "provenance": "New predeclared official HTTP oneday response; full original bytes retained.",
+      "dateLocal": "2026-09-11",
+      "observer": {
+        "latitudeDeg": -33.8688,
+        "longitudeDegEast": 151.2093,
+        "heightMeters": 0,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 600
+        }
+      },
+      "expectedCrossings": [
+        {
+          "kind": "rise",
+          "timeLocal": "05:49"
+        },
+        {
+          "kind": "set",
+          "timeLocal": "17:52"
+        }
+      ],
+      "expectedClassificationText": null,
+      "rawMoonData": [
+        {
+          "phen": "Rise",
+          "time": "05:49"
+        },
+        {
+          "phen": "Upper Transit",
+          "time": "11:46"
+        },
+        {
+          "phen": "Set",
+          "time": "17:52"
+        }
+      ],
+      "definition": "Sea-level Moon upper-limb standard horizon/refraction reference; minute-rounded fixed local clock; topocentric project must not apply parallax twice. Existing acquisition metadata may describe solar use only: raw Moon fields are reused intact, not rewritten.",
+      "status": "hash-and-request-verified-reference-not-production-validated"
+    },
+    {
+      "rawFile": "tests/fixtures/m5a/usno-moon-sydney-2026-09-14.json",
+      "metadataFile": "tests/fixtures/m5a/usno-moon-sydney-2026-09-14.metadata.json",
+      "sha256": "273f790c668814759f38349f1d5e4ce5e8cbc2efc46ac6b39b75bb9aaea36b84",
+      "bytes": 1267,
+      "sourceUrl": "https://aa.usno.navy.mil/api/rstt/oneday?date=2026-09-14&coords=-33.8688,151.2093&tz=10&dst=false",
+      "apiVersion": "4.0.1",
+      "kind": "Moon",
+      "provenance": "New predeclared official HTTP oneday response; full original bytes retained.",
+      "dateLocal": "2026-09-14",
+      "observer": {
+        "latitudeDeg": -33.8688,
+        "longitudeDegEast": 151.2093,
+        "heightMeters": 0,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 600
+        }
+      },
+      "expectedCrossings": [
+        {
+          "kind": "rise",
+          "timeLocal": "07:13"
+        },
+        {
+          "kind": "set",
+          "timeLocal": "21:01"
+        }
+      ],
+      "expectedClassificationText": null,
+      "rawMoonData": [
+        {
+          "phen": "Rise",
+          "time": "07:13"
+        },
+        {
+          "phen": "Upper Transit",
+          "time": "14:02"
+        },
+        {
+          "phen": "Set",
+          "time": "21:01"
+        }
+      ],
+      "definition": "Sea-level Moon upper-limb standard horizon/refraction reference; minute-rounded fixed local clock; topocentric project must not apply parallax twice. Existing acquisition metadata may describe solar use only: raw Moon fields are reused intact, not rewritten.",
+      "status": "hash-and-request-verified-reference-not-production-validated"
+    },
+    {
+      "rawFile": "tests/fixtures/m5a/usno-star-canopus-sydney-2026-09-14.html",
+      "metadataFile": "tests/fixtures/m5a/usno-star-canopus-sydney-2026-09-14.metadata.json",
+      "sha256": "26a8b534b28003c1e644963476a21e1327a8c10d7b9e36e238f72c59194794eb",
+      "bytes": 8745,
+      "sourceUrl": "https://aa.usno.navy.mil/calculated/mrst?body=-8&date=2026-09-14&reps=1&lat=-33.8688&lon=151.2093&label=M5A_Sydney&tz=10&tz_sign=1&height=0&submit=Get%20Data",
+      "kind": "star",
+      "canonicalCatalogId": "hip:30438",
+      "name": "Canopus",
+      "dateLocal": "2026-09-14",
+      "observer": {
+        "latitudeDeg": -33.8688,
+        "longitudeDegEast": 151.2093,
+        "heightMeters": 0,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 600
+        }
+      },
+      "returnedDmsLocationDegrees": {
+        "longitudeDegEast": 151.20930555555555,
+        "latitudeDeg": -33.868805555555554,
+        "maximumQuantizationArcsec": 0.05
+      },
+      "expectedCrossings": [
+        {
+          "kind": "set",
+          "timeLocal": "17:04"
+        },
+        {
+          "kind": "rise",
+          "timeLocal": "20:29"
+        }
+      ],
+      "expectedClassification": null,
+      "rawRiseToken": "20:29",
+      "rawSetToken": "17:04",
+      "rawTableLines": [
+        "2026 Sep 14 (Mon)        20:29 165        06:48 71S        17:04 195                 "
+      ],
+      "definition": "Point target rise/set; level unobstructed horizon and no geometric dip. Source uses integrated polytropic-atmosphere refraction (Hohenkerk/Sinclair), different from project constant near-horizon34arcmin-density approximation; report that model difference rather than hiding it. Local fixed-zone times rounded to minute. Stars/source astrometric corrections must be kept separate from project current tangent proper-motion model.",
+      "status": "hash-actual-header-and-table-verified-reference-not-production-validated"
+    },
+    {
+      "rawFile": "tests/fixtures/m5a/usno-star-polaris-hangzhou-2026-09-14.html",
+      "metadataFile": "tests/fixtures/m5a/usno-star-polaris-hangzhou-2026-09-14.metadata.json",
+      "sha256": "d40af63d8043f81342f2da86b8cf2008bff4ced1caa061a70e7ac8cd84bd2a49",
+      "bytes": 8972,
+      "sourceUrl": "https://aa.usno.navy.mil/calculated/mrst?body=-14&date=2026-09-14&reps=1&lat=30.25&lon=120.17&label=M5A_Hangzhou&tz=8&tz_sign=1&height=0&submit=Get%20Data",
+      "kind": "star",
+      "canonicalCatalogId": "hip:11767",
+      "name": "Polaris",
+      "dateLocal": "2026-09-14",
+      "observer": {
+        "latitudeDeg": 30.25,
+        "longitudeDegEast": 120.17,
+        "heightMeters": 0,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 480
+        }
+      },
+      "returnedDmsLocationDegrees": {
+        "longitudeDegEast": 120.17,
+        "latitudeDeg": 30.25,
+        "maximumQuantizationArcsec": 0.05
+      },
+      "expectedCrossings": [],
+      "expectedClassification": "always-above",
+      "rawRiseToken": "*****",
+      "rawSetToken": "*****",
+      "rawTableLines": [
+        "2026 Sep 14 (Mon)        ***** ***        03:36 31N        ***** ***        15:34 30N"
+      ],
+      "definition": "Point target rise/set; level unobstructed horizon and no geometric dip. Source uses integrated polytropic-atmosphere refraction (Hohenkerk/Sinclair), different from project constant near-horizon34arcmin-density approximation; report that model difference rather than hiding it. Local fixed-zone times rounded to minute. Stars/source astrometric corrections must be kept separate from project current tangent proper-motion model.",
+      "status": "hash-actual-header-and-table-verified-reference-not-production-validated"
+    },
+    {
+      "rawFile": "tests/fixtures/m5a/usno-star-polaris-sydney-2026-09-14.html",
+      "metadataFile": "tests/fixtures/m5a/usno-star-polaris-sydney-2026-09-14.metadata.json",
+      "sha256": "81be6ac9241effad841149880755211e973eac262f55fcbf911529499453e531",
+      "bytes": 8786,
+      "sourceUrl": "https://aa.usno.navy.mil/calculated/mrst?body=-14&date=2026-09-14&reps=1&lat=-33.8688&lon=151.2093&label=M5A_Sydney&tz=10&tz_sign=1&height=0&submit=Get%20Data",
+      "kind": "star",
+      "canonicalCatalogId": "hip:11767",
+      "name": "Polaris",
+      "dateLocal": "2026-09-14",
+      "observer": {
+        "latitudeDeg": -33.8688,
+        "longitudeDegEast": 151.2093,
+        "heightMeters": 0,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 600
+        }
+      },
+      "returnedDmsLocationDegrees": {
+        "longitudeDegEast": 151.20930555555555,
+        "latitudeDeg": -33.868805555555554,
+        "maximumQuantizationArcsec": 0.05
+      },
+      "expectedCrossings": [],
+      "expectedClassification": "always-below",
+      "rawRiseToken": "-----",
+      "rawSetToken": "-----",
+      "rawTableLines": [
+        "2026 Sep 14 (Mon)        ----- ---        ----- ---        ----- ---                 "
+      ],
+      "definition": "Point target rise/set; level unobstructed horizon and no geometric dip. Source uses integrated polytropic-atmosphere refraction (Hohenkerk/Sinclair), different from project constant near-horizon34arcmin-density approximation; report that model difference rather than hiding it. Local fixed-zone times rounded to minute. Stars/source astrometric corrections must be kept separate from project current tangent proper-motion model.",
+      "status": "hash-actual-header-and-table-verified-reference-not-production-validated"
+    },
+    {
+      "rawFile": "tests/fixtures/m5a/usno-star-sirius-hangzhou-2026-09-14.html",
+      "metadataFile": "tests/fixtures/m5a/usno-star-sirius-hangzhou-2026-09-14.metadata.json",
+      "sha256": "8cbce2a8836e4703f26cb9123841750b8ba5985d120c305cc5d97465f5dabe00",
+      "bytes": 8750,
+      "sourceUrl": "https://aa.usno.navy.mil/calculated/mrst?body=-20&date=2026-09-14&reps=1&lat=30.25&lon=120.17&label=M5A_Hangzhou&tz=8&tz_sign=1&height=0&submit=Get%20Data",
+      "kind": "star",
+      "canonicalCatalogId": "hip:32349",
+      "name": "Sirius",
+      "dateLocal": "2026-09-14",
+      "observer": {
+        "latitudeDeg": 30.25,
+        "longitudeDegEast": 120.17,
+        "heightMeters": 0,
+        "displayZone": {
+          "kind": "fixed",
+          "offsetMinutes": 480
+        }
+      },
+      "returnedDmsLocationDegrees": {
+        "longitudeDegEast": 120.17,
+        "latitudeDeg": 30.25,
+        "maximumQuantizationArcsec": 0.05
+      },
+      "expectedCrossings": [
+        {
+          "kind": "rise",
+          "timeLocal": "01:52"
+        },
+        {
+          "kind": "set",
+          "timeLocal": "12:35"
+        }
+      ],
+      "expectedClassification": null,
+      "rawRiseToken": "01:52",
+      "rawSetToken": "12:35",
+      "rawTableLines": [
+        "2026 Sep 14 (Mon)        01:52 109        07:14 43S        12:35 251                 "
+      ],
+      "definition": "Point target rise/set; level unobstructed horizon and no geometric dip. Source uses integrated polytropic-atmosphere refraction (Hohenkerk/Sinclair), different from project constant near-horizon34arcmin-density approximation; report that model difference rather than hiding it. Local fixed-zone times rounded to minute. Stars/source astrometric corrections must be kept separate from project current tangent proper-motion model.",
+      "status": "hash-actual-header-and-table-verified-reference-not-production-validated"
+    }
+  ]
+}

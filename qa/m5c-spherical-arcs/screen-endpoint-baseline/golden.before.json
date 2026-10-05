@@ -1,0 +1,4044 @@
+{
+  "baselineSha256": "39304a9b3d8494a8a17721e39701417d318277093bdba2f884c9ed8e24ce0546",
+  "projectErrorPx": 0.35,
+  "frozenFixtures": [
+    {
+      "name": "curved-shared-screen-tuple",
+      "inputDirectionSha256": "ab43fbd0c2e97ddd3c5c378b47c725170aea81b0b572a646a0d083a55b5068ad",
+      "positionSha256": "174cebccb7de8cb0b298bcddb5ae06c10e61e1be0d311acb3d34cd7cd14e9d62",
+      "ordinaryIndexSha256": "bdf0003f403f5f9929d49660fc535216d4b5758b1cfb1b6f7cb6591fc33d02bd",
+      "highlightSha256": "bdf0003f403f5f9929d49660fc535216d4b5758b1cfb1b6f7cb6591fc33d02bd",
+      "result": {
+        "revision": 1,
+        "indexCount": 36,
+        "totalSegments": 18,
+        "maxActualAngularStepDeg": 5.000000000000002,
+        "antipodalArcCount": 0,
+        "coincidentArcCount": 0,
+        "invalidArcCount": 0,
+        "budgetExceededArcCount": 0,
+        "unmeasurableArcCount": 0,
+        "screenTestedSegmentCount": 18,
+        "screenUnmeasurableSegmentCount": 0,
+        "maxObservedScreenErrorPx": 0.09517784181423337,
+        "pixelErrorStatus": "sampled-within-tolerance"
+      },
+      "ranges": [
+        [
+          "Test",
+          {
+            "indexStart": 0,
+            "indexCount": 36
+          }
+        ]
+      ],
+      "beforeCalls": 81
+    },
+    {
+      "name": "screen-budget-overflow",
+      "inputDirectionSha256": "ab43fbd0c2e97ddd3c5c378b47c725170aea81b0b572a646a0d083a55b5068ad",
+      "positionSha256": "ab43fbd0c2e97ddd3c5c378b47c725170aea81b0b572a646a0d083a55b5068ad",
+      "ordinaryIndexSha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+      "highlightSha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+      "result": {
+        "revision": 1,
+        "indexCount": 0,
+        "totalSegments": 0,
+        "maxActualAngularStepDeg": 0,
+        "antipodalArcCount": 0,
+        "coincidentArcCount": 0,
+        "invalidArcCount": 0,
+        "budgetExceededArcCount": 1,
+        "unmeasurableArcCount": 0,
+        "screenTestedSegmentCount": 0,
+        "screenUnmeasurableSegmentCount": 0,
+        "maxObservedScreenErrorPx": 29.289321881345238,
+        "pixelErrorStatus": "budget-exceeded"
+      },
+      "ranges": [
+        [
+          "Test",
+          {
+            "indexStart": 0,
+            "indexCount": 0
+          }
+        ]
+      ],
+      "beforeCalls": 3
+    },
+    {
+      "name": "near-clip-visible-interior",
+      "inputDirectionSha256": "ab43fbd0c2e97ddd3c5c378b47c725170aea81b0b572a646a0d083a55b5068ad",
+      "positionSha256": "f2850d5d935637be2d6432ce52519bec1b8729b153fa8014295b9662dbb25078",
+      "ordinaryIndexSha256": "1cf1986c30e61072efdd839a15cf2c60bdd131eb0fd7b1bdf3d87d0644386b86",
+      "highlightSha256": "1cf1986c30e61072efdd839a15cf2c60bdd131eb0fd7b1bdf3d87d0644386b86",
+      "result": {
+        "revision": 1,
+        "indexCount": 28,
+        "totalSegments": 14,
+        "maxActualAngularStepDeg": 10.000000000000004,
+        "antipodalArcCount": 0,
+        "coincidentArcCount": 0,
+        "invalidArcCount": 0,
+        "budgetExceededArcCount": 0,
+        "unmeasurableArcCount": 1,
+        "screenTestedSegmentCount": 10,
+        "screenUnmeasurableSegmentCount": 4,
+        "maxObservedScreenErrorPx": 0.09517784181423337,
+        "pixelErrorStatus": "unmeasurable"
+      },
+      "ranges": [
+        [
+          "Test",
+          {
+            "indexStart": 0,
+            "indexCount": 28
+          }
+        ]
+      ],
+      "beforeCalls": 57
+    },
+    {
+      "name": "nonfinite-screen",
+      "inputDirectionSha256": "ab43fbd0c2e97ddd3c5c378b47c725170aea81b0b572a646a0d083a55b5068ad",
+      "positionSha256": "96cac678b6eaf5c4fca3233fd247dcd8b81ca498371b7d14f6e83d16f3fe4a55",
+      "ordinaryIndexSha256": "77416800dd5271e9825be8ceb699831c2ff831bfc275529bd375655a1acac585",
+      "highlightSha256": "77416800dd5271e9825be8ceb699831c2ff831bfc275529bd375655a1acac585",
+      "result": {
+        "revision": 1,
+        "indexCount": 18,
+        "totalSegments": 9,
+        "maxActualAngularStepDeg": 10.000000000000004,
+        "antipodalArcCount": 0,
+        "coincidentArcCount": 0,
+        "invalidArcCount": 0,
+        "budgetExceededArcCount": 0,
+        "unmeasurableArcCount": 1,
+        "screenTestedSegmentCount": 0,
+        "screenUnmeasurableSegmentCount": 9,
+        "maxObservedScreenErrorPx": 0,
+        "pixelErrorStatus": "unmeasurable"
+      },
+      "ranges": [
+        [
+          "Test",
+          {
+            "indexStart": 0,
+            "indexCount": 18
+          }
+        ]
+      ],
+      "beforeCalls": 27
+    },
+    {
+      "name": "angular-budget-without-projection",
+      "inputDirectionSha256": "ab43fbd0c2e97ddd3c5c378b47c725170aea81b0b572a646a0d083a55b5068ad",
+      "positionSha256": "bdb52021ff70369e4b8b92f3503194aa62e612d5aab809cb7122f0a464c6a304",
+      "ordinaryIndexSha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "highlightSha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "result": {
+        "revision": 1,
+        "indexCount": 0,
+        "totalSegments": 0,
+        "maxActualAngularStepDeg": 0,
+        "antipodalArcCount": 0,
+        "coincidentArcCount": 0,
+        "invalidArcCount": 0,
+        "budgetExceededArcCount": 1,
+        "unmeasurableArcCount": 0,
+        "screenTestedSegmentCount": 0,
+        "screenUnmeasurableSegmentCount": 0,
+        "maxObservedScreenErrorPx": 0,
+        "pixelErrorStatus": "not-requested"
+      },
+      "ranges": [
+        [
+          "Test",
+          {
+            "indexStart": 0,
+            "indexCount": 0
+          }
+        ]
+      ],
+      "beforeCalls": 0
+    },
+    {
+      "name": "knots-without-projection",
+      "inputDirectionSha256": "ab43fbd0c2e97ddd3c5c378b47c725170aea81b0b572a646a0d083a55b5068ad",
+      "positionSha256": "290f21e93d6f30ae7ef74d1866a00e187854baa9bc97868e0d6e2cf3fa5314cc",
+      "ordinaryIndexSha256": "62bc0e32f2d030f0dfb3f1f5e78481cff1a3286d9ae40fcf7920b092facbed9f",
+      "highlightSha256": "62bc0e32f2d030f0dfb3f1f5e78481cff1a3286d9ae40fcf7920b092facbed9f",
+      "result": {
+        "revision": 1,
+        "indexCount": 182,
+        "totalSegments": 91,
+        "maxActualAngularStepDeg": 1.0000000000000064,
+        "antipodalArcCount": 0,
+        "coincidentArcCount": 0,
+        "invalidArcCount": 0,
+        "budgetExceededArcCount": 0,
+        "unmeasurableArcCount": 0,
+        "screenTestedSegmentCount": 0,
+        "screenUnmeasurableSegmentCount": 0,
+        "maxObservedScreenErrorPx": 0,
+        "pixelErrorStatus": "not-requested"
+      },
+      "ranges": [
+        [
+          "Test",
+          {
+            "indexStart": 0,
+            "indexCount": 182
+          }
+        ]
+      ],
+      "beforeCalls": 0
+    },
+    {
+      "name": "ground-wide-676",
+      "inputDirectionSha256": "0b2fe09d62cdbb0ad03e0bc01f814321e27339b2cd69e92fd621a4b50003de54",
+      "positionSha256": "f5c103bcf0d12b33d0d4f8f5a4d60aaa1ccebfb038be11f5b4fc27e87722130d",
+      "ordinaryIndexSha256": "5bde720f556dee3f799ba4852b96b7623d3c37c1218e61d07d7182e1158f8685",
+      "highlightSha256": "1565548c63759442ed9090d8ceb9ea97888081082632ae97f71c69442e599f2e",
+      "result": {
+        "revision": 1,
+        "indexCount": 16374,
+        "totalSegments": 8187,
+        "maxActualAngularStepDeg": 0.49983178662163114,
+        "antipodalArcCount": 0,
+        "coincidentArcCount": 0,
+        "invalidArcCount": 0,
+        "budgetExceededArcCount": 0,
+        "unmeasurableArcCount": 381,
+        "screenTestedSegmentCount": 3613,
+        "screenUnmeasurableSegmentCount": 4574,
+        "maxObservedScreenErrorPx": 0.11598641552072696,
+        "pixelErrorStatus": "unmeasurable"
+      },
+      "ranges": [
+        [
+          "Aql",
+          {
+            "indexStart": 0,
+            "indexCount": 204
+          }
+        ],
+        [
+          "And",
+          {
+            "indexStart": 204,
+            "indexCount": 138
+          }
+        ],
+        [
+          "Scl",
+          {
+            "indexStart": 342,
+            "indexCount": 194
+          }
+        ],
+        [
+          "Ara",
+          {
+            "indexStart": 536,
+            "indexCount": 148
+          }
+        ],
+        [
+          "Lib",
+          {
+            "indexStart": 684,
+            "indexCount": 180
+          }
+        ],
+        [
+          "Cet",
+          {
+            "indexStart": 864,
+            "indexCount": 512
+          }
+        ],
+        [
+          "Ari",
+          {
+            "indexStart": 1376,
+            "indexCount": 66
+          }
+        ],
+        [
+          "Sct",
+          {
+            "indexStart": 1442,
+            "indexCount": 118
+          }
+        ],
+        [
+          "Pyx",
+          {
+            "indexStart": 1560,
+            "indexCount": 34
+          }
+        ],
+        [
+          "Boo",
+          {
+            "indexStart": 1594,
+            "indexCount": 294
+          }
+        ],
+        [
+          "Cae",
+          {
+            "indexStart": 1888,
+            "indexCount": 36
+          }
+        ],
+        [
+          "Cha",
+          {
+            "indexStart": 1924,
+            "indexCount": 50
+          }
+        ],
+        [
+          "Cnc",
+          {
+            "indexStart": 1974,
+            "indexCount": 152
+          }
+        ],
+        [
+          "Cap",
+          {
+            "indexStart": 2126,
+            "indexCount": 244
+          }
+        ],
+        [
+          "Car",
+          {
+            "indexStart": 2370,
+            "indexCount": 368
+          }
+        ],
+        [
+          "Cas",
+          {
+            "indexStart": 2738,
+            "indexCount": 76
+          }
+        ],
+        [
+          "Cen",
+          {
+            "indexStart": 2814,
+            "indexCount": 354
+          }
+        ],
+        [
+          "Cep",
+          {
+            "indexStart": 3168,
+            "indexCount": 236
+          }
+        ],
+        [
+          "Com",
+          {
+            "indexStart": 3404,
+            "indexCount": 82
+          }
+        ],
+        [
+          "CVn",
+          {
+            "indexStart": 3486,
+            "indexCount": 22
+          }
+        ],
+        [
+          "Aur",
+          {
+            "indexStart": 3508,
+            "indexCount": 206
+          }
+        ],
+        [
+          "Col",
+          {
+            "indexStart": 3714,
+            "indexCount": 84
+          }
+        ],
+        [
+          "Cir",
+          {
+            "indexStart": 3798,
+            "indexCount": 60
+          }
+        ],
+        [
+          "Crt",
+          {
+            "indexStart": 3858,
+            "indexCount": 186
+          }
+        ],
+        [
+          "CrA",
+          {
+            "indexStart": 4044,
+            "indexCount": 66
+          }
+        ],
+        [
+          "CrB",
+          {
+            "indexStart": 4110,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Crv",
+          {
+            "indexStart": 4172,
+            "indexCount": 104
+          }
+        ],
+        [
+          "Cru",
+          {
+            "indexStart": 4276,
+            "indexCount": 44
+          }
+        ],
+        [
+          "Cyg",
+          {
+            "indexStart": 4320,
+            "indexCount": 256
+          }
+        ],
+        [
+          "Del",
+          {
+            "indexStart": 4576,
+            "indexCount": 42
+          }
+        ],
+        [
+          "Dor",
+          {
+            "indexStart": 4618,
+            "indexCount": 98
+          }
+        ],
+        [
+          "Dra",
+          {
+            "indexStart": 4716,
+            "indexCount": 386
+          }
+        ],
+        [
+          "Nor",
+          {
+            "indexStart": 5102,
+            "indexCount": 86
+          }
+        ],
+        [
+          "Eri",
+          {
+            "indexStart": 5188,
+            "indexCount": 594
+          }
+        ],
+        [
+          "Sge",
+          {
+            "indexStart": 5782,
+            "indexCount": 36
+          }
+        ],
+        [
+          "For",
+          {
+            "indexStart": 5818,
+            "indexCount": 26
+          }
+        ],
+        [
+          "Gem",
+          {
+            "indexStart": 5844,
+            "indexCount": 328
+          }
+        ],
+        [
+          "Cam",
+          {
+            "indexStart": 6172,
+            "indexCount": 168
+          }
+        ],
+        [
+          "CMa",
+          {
+            "indexStart": 6340,
+            "indexCount": 286
+          }
+        ],
+        [
+          "UMa",
+          {
+            "indexStart": 6626,
+            "indexCount": 584
+          }
+        ],
+        [
+          "Gru",
+          {
+            "indexStart": 7210,
+            "indexCount": 196
+          }
+        ],
+        [
+          "Her",
+          {
+            "indexStart": 7406,
+            "indexCount": 384
+          }
+        ],
+        [
+          "Hor",
+          {
+            "indexStart": 7790,
+            "indexCount": 106
+          }
+        ],
+        [
+          "Hya",
+          {
+            "indexStart": 7896,
+            "indexCount": 422
+          }
+        ],
+        [
+          "Hyi",
+          {
+            "indexStart": 8318,
+            "indexCount": 122
+          }
+        ],
+        [
+          "Ind",
+          {
+            "indexStart": 8440,
+            "indexCount": 110
+          }
+        ],
+        [
+          "Lac",
+          {
+            "indexStart": 8550,
+            "indexCount": 88
+          }
+        ],
+        [
+          "Mon",
+          {
+            "indexStart": 8638,
+            "indexCount": 236
+          }
+        ],
+        [
+          "Lep",
+          {
+            "indexStart": 8874,
+            "indexCount": 214
+          }
+        ],
+        [
+          "Leo",
+          {
+            "indexStart": 9088,
+            "indexCount": 308
+          }
+        ],
+        [
+          "Lup",
+          {
+            "indexStart": 9396,
+            "indexCount": 266
+          }
+        ],
+        [
+          "Lyn",
+          {
+            "indexStart": 9662,
+            "indexCount": 180
+          }
+        ],
+        [
+          "Lyr",
+          {
+            "indexStart": 9842,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Ant",
+          {
+            "indexStart": 9904,
+            "indexCount": 32
+          }
+        ],
+        [
+          "Mic",
+          {
+            "indexStart": 9936,
+            "indexCount": 28
+          }
+        ],
+        [
+          "Mus",
+          {
+            "indexStart": 9964,
+            "indexCount": 72
+          }
+        ],
+        [
+          "Oct",
+          {
+            "indexStart": 10036,
+            "indexCount": 138
+          }
+        ],
+        [
+          "Aps",
+          {
+            "indexStart": 10174,
+            "indexCount": 28
+          }
+        ],
+        [
+          "Oph",
+          {
+            "indexStart": 10202,
+            "indexCount": 344
+          }
+        ],
+        [
+          "Ori",
+          {
+            "indexStart": 10546,
+            "indexCount": 432
+          }
+        ],
+        [
+          "Pav",
+          {
+            "indexStart": 10978,
+            "indexCount": 312
+          }
+        ],
+        [
+          "Peg",
+          {
+            "indexStart": 11290,
+            "indexCount": 472
+          }
+        ],
+        [
+          "Pic",
+          {
+            "indexStart": 11762,
+            "indexCount": 60
+          }
+        ],
+        [
+          "Per",
+          {
+            "indexStart": 11822,
+            "indexCount": 190
+          }
+        ],
+        [
+          "Equ",
+          {
+            "indexStart": 12012,
+            "indexCount": 54
+          }
+        ],
+        [
+          "CMi",
+          {
+            "indexStart": 12066,
+            "indexCount": 18
+          }
+        ],
+        [
+          "LMi",
+          {
+            "indexStart": 12084,
+            "indexCount": 108
+          }
+        ],
+        [
+          "Vul",
+          {
+            "indexStart": 12192,
+            "indexCount": 32
+          }
+        ],
+        [
+          "UMi",
+          {
+            "indexStart": 12224,
+            "indexCount": 126
+          }
+        ],
+        [
+          "Phe",
+          {
+            "indexStart": 12350,
+            "indexCount": 326
+          }
+        ],
+        [
+          "Psc",
+          {
+            "indexStart": 12676,
+            "indexCount": 402
+          }
+        ],
+        [
+          "PsA",
+          {
+            "indexStart": 13078,
+            "indexCount": 136
+          }
+        ],
+        [
+          "Vol",
+          {
+            "indexStart": 13214,
+            "indexCount": 130
+          }
+        ],
+        [
+          "Pup",
+          {
+            "indexStart": 13344,
+            "indexCount": 280
+          }
+        ],
+        [
+          "Ret",
+          {
+            "indexStart": 13624,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Sgr",
+          {
+            "indexStart": 13686,
+            "indexCount": 492
+          }
+        ],
+        [
+          "Sco",
+          {
+            "indexStart": 14178,
+            "indexCount": 238
+          }
+        ],
+        [
+          "Ser",
+          {
+            "indexStart": 14416,
+            "indexCount": 260
+          }
+        ],
+        [
+          "Sex",
+          {
+            "indexStart": 14676,
+            "indexCount": 24
+          }
+        ],
+        [
+          "Men",
+          {
+            "indexStart": 14700,
+            "indexCount": 26
+          }
+        ],
+        [
+          "Tau",
+          {
+            "indexStart": 14726,
+            "indexCount": 292
+          }
+        ],
+        [
+          "Tel",
+          {
+            "indexStart": 15018,
+            "indexCount": 14
+          }
+        ],
+        [
+          "Tuc",
+          {
+            "indexStart": 15032,
+            "indexCount": 118
+          }
+        ],
+        [
+          "Tri",
+          {
+            "indexStart": 15150,
+            "indexCount": 62
+          }
+        ],
+        [
+          "TrA",
+          {
+            "indexStart": 15212,
+            "indexCount": 92
+          }
+        ],
+        [
+          "Aqr",
+          {
+            "indexStart": 15304,
+            "indexCount": 370
+          }
+        ],
+        [
+          "Vir",
+          {
+            "indexStart": 15674,
+            "indexCount": 442
+          }
+        ],
+        [
+          "Vel",
+          {
+            "indexStart": 16116,
+            "indexCount": 258
+          }
+        ]
+      ],
+      "beforeCalls": 24561
+    },
+    {
+      "name": "ground-near-low-676",
+      "inputDirectionSha256": "0b2fe09d62cdbb0ad03e0bc01f814321e27339b2cd69e92fd621a4b50003de54",
+      "positionSha256": "357527a981a3da8c690de975a9ff177526db5dc62c0d3e7dc922de176318ab85",
+      "ordinaryIndexSha256": "7c7aa64fdf655f574f4e719f3ada88bc92bab13a4018eae182020f91421a673b",
+      "highlightSha256": "1565548c63759442ed9090d8ceb9ea97888081082632ae97f71c69442e599f2e",
+      "result": {
+        "revision": 1,
+        "indexCount": 16382,
+        "totalSegments": 8191,
+        "maxActualAngularStepDeg": 0.49983178662163114,
+        "antipodalArcCount": 0,
+        "coincidentArcCount": 0,
+        "invalidArcCount": 0,
+        "budgetExceededArcCount": 0,
+        "unmeasurableArcCount": 283,
+        "screenTestedSegmentCount": 4658,
+        "screenUnmeasurableSegmentCount": 3533,
+        "maxObservedScreenErrorPx": 0.313145532353495,
+        "pixelErrorStatus": "unmeasurable"
+      },
+      "ranges": [
+        [
+          "Aql",
+          {
+            "indexStart": 0,
+            "indexCount": 204
+          }
+        ],
+        [
+          "And",
+          {
+            "indexStart": 204,
+            "indexCount": 138
+          }
+        ],
+        [
+          "Scl",
+          {
+            "indexStart": 342,
+            "indexCount": 194
+          }
+        ],
+        [
+          "Ara",
+          {
+            "indexStart": 536,
+            "indexCount": 148
+          }
+        ],
+        [
+          "Lib",
+          {
+            "indexStart": 684,
+            "indexCount": 180
+          }
+        ],
+        [
+          "Cet",
+          {
+            "indexStart": 864,
+            "indexCount": 512
+          }
+        ],
+        [
+          "Ari",
+          {
+            "indexStart": 1376,
+            "indexCount": 66
+          }
+        ],
+        [
+          "Sct",
+          {
+            "indexStart": 1442,
+            "indexCount": 118
+          }
+        ],
+        [
+          "Pyx",
+          {
+            "indexStart": 1560,
+            "indexCount": 34
+          }
+        ],
+        [
+          "Boo",
+          {
+            "indexStart": 1594,
+            "indexCount": 294
+          }
+        ],
+        [
+          "Cae",
+          {
+            "indexStart": 1888,
+            "indexCount": 36
+          }
+        ],
+        [
+          "Cha",
+          {
+            "indexStart": 1924,
+            "indexCount": 50
+          }
+        ],
+        [
+          "Cnc",
+          {
+            "indexStart": 1974,
+            "indexCount": 152
+          }
+        ],
+        [
+          "Cap",
+          {
+            "indexStart": 2126,
+            "indexCount": 244
+          }
+        ],
+        [
+          "Car",
+          {
+            "indexStart": 2370,
+            "indexCount": 368
+          }
+        ],
+        [
+          "Cas",
+          {
+            "indexStart": 2738,
+            "indexCount": 76
+          }
+        ],
+        [
+          "Cen",
+          {
+            "indexStart": 2814,
+            "indexCount": 354
+          }
+        ],
+        [
+          "Cep",
+          {
+            "indexStart": 3168,
+            "indexCount": 236
+          }
+        ],
+        [
+          "Com",
+          {
+            "indexStart": 3404,
+            "indexCount": 82
+          }
+        ],
+        [
+          "CVn",
+          {
+            "indexStart": 3486,
+            "indexCount": 22
+          }
+        ],
+        [
+          "Aur",
+          {
+            "indexStart": 3508,
+            "indexCount": 206
+          }
+        ],
+        [
+          "Col",
+          {
+            "indexStart": 3714,
+            "indexCount": 84
+          }
+        ],
+        [
+          "Cir",
+          {
+            "indexStart": 3798,
+            "indexCount": 60
+          }
+        ],
+        [
+          "Crt",
+          {
+            "indexStart": 3858,
+            "indexCount": 186
+          }
+        ],
+        [
+          "CrA",
+          {
+            "indexStart": 4044,
+            "indexCount": 66
+          }
+        ],
+        [
+          "CrB",
+          {
+            "indexStart": 4110,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Crv",
+          {
+            "indexStart": 4172,
+            "indexCount": 104
+          }
+        ],
+        [
+          "Cru",
+          {
+            "indexStart": 4276,
+            "indexCount": 44
+          }
+        ],
+        [
+          "Cyg",
+          {
+            "indexStart": 4320,
+            "indexCount": 256
+          }
+        ],
+        [
+          "Del",
+          {
+            "indexStart": 4576,
+            "indexCount": 42
+          }
+        ],
+        [
+          "Dor",
+          {
+            "indexStart": 4618,
+            "indexCount": 98
+          }
+        ],
+        [
+          "Dra",
+          {
+            "indexStart": 4716,
+            "indexCount": 386
+          }
+        ],
+        [
+          "Nor",
+          {
+            "indexStart": 5102,
+            "indexCount": 86
+          }
+        ],
+        [
+          "Eri",
+          {
+            "indexStart": 5188,
+            "indexCount": 594
+          }
+        ],
+        [
+          "Sge",
+          {
+            "indexStart": 5782,
+            "indexCount": 36
+          }
+        ],
+        [
+          "For",
+          {
+            "indexStart": 5818,
+            "indexCount": 26
+          }
+        ],
+        [
+          "Gem",
+          {
+            "indexStart": 5844,
+            "indexCount": 328
+          }
+        ],
+        [
+          "Cam",
+          {
+            "indexStart": 6172,
+            "indexCount": 168
+          }
+        ],
+        [
+          "CMa",
+          {
+            "indexStart": 6340,
+            "indexCount": 286
+          }
+        ],
+        [
+          "UMa",
+          {
+            "indexStart": 6626,
+            "indexCount": 584
+          }
+        ],
+        [
+          "Gru",
+          {
+            "indexStart": 7210,
+            "indexCount": 196
+          }
+        ],
+        [
+          "Her",
+          {
+            "indexStart": 7406,
+            "indexCount": 384
+          }
+        ],
+        [
+          "Hor",
+          {
+            "indexStart": 7790,
+            "indexCount": 106
+          }
+        ],
+        [
+          "Hya",
+          {
+            "indexStart": 7896,
+            "indexCount": 422
+          }
+        ],
+        [
+          "Hyi",
+          {
+            "indexStart": 8318,
+            "indexCount": 122
+          }
+        ],
+        [
+          "Ind",
+          {
+            "indexStart": 8440,
+            "indexCount": 110
+          }
+        ],
+        [
+          "Lac",
+          {
+            "indexStart": 8550,
+            "indexCount": 88
+          }
+        ],
+        [
+          "Mon",
+          {
+            "indexStart": 8638,
+            "indexCount": 236
+          }
+        ],
+        [
+          "Lep",
+          {
+            "indexStart": 8874,
+            "indexCount": 214
+          }
+        ],
+        [
+          "Leo",
+          {
+            "indexStart": 9088,
+            "indexCount": 308
+          }
+        ],
+        [
+          "Lup",
+          {
+            "indexStart": 9396,
+            "indexCount": 266
+          }
+        ],
+        [
+          "Lyn",
+          {
+            "indexStart": 9662,
+            "indexCount": 180
+          }
+        ],
+        [
+          "Lyr",
+          {
+            "indexStart": 9842,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Ant",
+          {
+            "indexStart": 9904,
+            "indexCount": 32
+          }
+        ],
+        [
+          "Mic",
+          {
+            "indexStart": 9936,
+            "indexCount": 28
+          }
+        ],
+        [
+          "Mus",
+          {
+            "indexStart": 9964,
+            "indexCount": 72
+          }
+        ],
+        [
+          "Oct",
+          {
+            "indexStart": 10036,
+            "indexCount": 138
+          }
+        ],
+        [
+          "Aps",
+          {
+            "indexStart": 10174,
+            "indexCount": 28
+          }
+        ],
+        [
+          "Oph",
+          {
+            "indexStart": 10202,
+            "indexCount": 344
+          }
+        ],
+        [
+          "Ori",
+          {
+            "indexStart": 10546,
+            "indexCount": 432
+          }
+        ],
+        [
+          "Pav",
+          {
+            "indexStart": 10978,
+            "indexCount": 312
+          }
+        ],
+        [
+          "Peg",
+          {
+            "indexStart": 11290,
+            "indexCount": 472
+          }
+        ],
+        [
+          "Pic",
+          {
+            "indexStart": 11762,
+            "indexCount": 60
+          }
+        ],
+        [
+          "Per",
+          {
+            "indexStart": 11822,
+            "indexCount": 190
+          }
+        ],
+        [
+          "Equ",
+          {
+            "indexStart": 12012,
+            "indexCount": 54
+          }
+        ],
+        [
+          "CMi",
+          {
+            "indexStart": 12066,
+            "indexCount": 18
+          }
+        ],
+        [
+          "LMi",
+          {
+            "indexStart": 12084,
+            "indexCount": 108
+          }
+        ],
+        [
+          "Vul",
+          {
+            "indexStart": 12192,
+            "indexCount": 32
+          }
+        ],
+        [
+          "UMi",
+          {
+            "indexStart": 12224,
+            "indexCount": 126
+          }
+        ],
+        [
+          "Phe",
+          {
+            "indexStart": 12350,
+            "indexCount": 326
+          }
+        ],
+        [
+          "Psc",
+          {
+            "indexStart": 12676,
+            "indexCount": 402
+          }
+        ],
+        [
+          "PsA",
+          {
+            "indexStart": 13078,
+            "indexCount": 136
+          }
+        ],
+        [
+          "Vol",
+          {
+            "indexStart": 13214,
+            "indexCount": 130
+          }
+        ],
+        [
+          "Pup",
+          {
+            "indexStart": 13344,
+            "indexCount": 280
+          }
+        ],
+        [
+          "Ret",
+          {
+            "indexStart": 13624,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Sgr",
+          {
+            "indexStart": 13686,
+            "indexCount": 492
+          }
+        ],
+        [
+          "Sco",
+          {
+            "indexStart": 14178,
+            "indexCount": 246
+          }
+        ],
+        [
+          "Ser",
+          {
+            "indexStart": 14424,
+            "indexCount": 260
+          }
+        ],
+        [
+          "Sex",
+          {
+            "indexStart": 14684,
+            "indexCount": 24
+          }
+        ],
+        [
+          "Men",
+          {
+            "indexStart": 14708,
+            "indexCount": 26
+          }
+        ],
+        [
+          "Tau",
+          {
+            "indexStart": 14734,
+            "indexCount": 292
+          }
+        ],
+        [
+          "Tel",
+          {
+            "indexStart": 15026,
+            "indexCount": 14
+          }
+        ],
+        [
+          "Tuc",
+          {
+            "indexStart": 15040,
+            "indexCount": 118
+          }
+        ],
+        [
+          "Tri",
+          {
+            "indexStart": 15158,
+            "indexCount": 62
+          }
+        ],
+        [
+          "TrA",
+          {
+            "indexStart": 15220,
+            "indexCount": 92
+          }
+        ],
+        [
+          "Aqr",
+          {
+            "indexStart": 15312,
+            "indexCount": 370
+          }
+        ],
+        [
+          "Vir",
+          {
+            "indexStart": 15682,
+            "indexCount": 442
+          }
+        ],
+        [
+          "Vel",
+          {
+            "indexStart": 16124,
+            "indexCount": 258
+          }
+        ]
+      ],
+      "beforeCalls": 24585
+    },
+    {
+      "name": "globe-wide-676",
+      "inputDirectionSha256": "0b2fe09d62cdbb0ad03e0bc01f814321e27339b2cd69e92fd621a4b50003de54",
+      "positionSha256": "8bb722d817b9637b805812d8c963609452d57f17f581559883c982cc6c2d9c1c",
+      "ordinaryIndexSha256": "06dd5413092213fe340ff5c2a0d271bbc7cade63e74f90d44c1e465a9e17c4e9",
+      "highlightSha256": "989e86fa5c4be2fba6d8c4e1b7dc5d140b8e29da8882b97504b60846b0ac71f7",
+      "result": {
+        "revision": 1,
+        "indexCount": 16288,
+        "totalSegments": 8144,
+        "maxActualAngularStepDeg": 0.49983178662163114,
+        "antipodalArcCount": 0,
+        "coincidentArcCount": 0,
+        "invalidArcCount": 0,
+        "budgetExceededArcCount": 0,
+        "unmeasurableArcCount": 0,
+        "screenTestedSegmentCount": 8144,
+        "screenUnmeasurableSegmentCount": 0,
+        "maxObservedScreenErrorPx": 0.0015190601463152434,
+        "pixelErrorStatus": "sampled-within-tolerance"
+      },
+      "ranges": [
+        [
+          "Aql",
+          {
+            "indexStart": 0,
+            "indexCount": 204
+          }
+        ],
+        [
+          "And",
+          {
+            "indexStart": 204,
+            "indexCount": 138
+          }
+        ],
+        [
+          "Scl",
+          {
+            "indexStart": 342,
+            "indexCount": 194
+          }
+        ],
+        [
+          "Ara",
+          {
+            "indexStart": 536,
+            "indexCount": 148
+          }
+        ],
+        [
+          "Lib",
+          {
+            "indexStart": 684,
+            "indexCount": 180
+          }
+        ],
+        [
+          "Cet",
+          {
+            "indexStart": 864,
+            "indexCount": 512
+          }
+        ],
+        [
+          "Ari",
+          {
+            "indexStart": 1376,
+            "indexCount": 66
+          }
+        ],
+        [
+          "Sct",
+          {
+            "indexStart": 1442,
+            "indexCount": 118
+          }
+        ],
+        [
+          "Pyx",
+          {
+            "indexStart": 1560,
+            "indexCount": 34
+          }
+        ],
+        [
+          "Boo",
+          {
+            "indexStart": 1594,
+            "indexCount": 286
+          }
+        ],
+        [
+          "Cae",
+          {
+            "indexStart": 1880,
+            "indexCount": 36
+          }
+        ],
+        [
+          "Cha",
+          {
+            "indexStart": 1916,
+            "indexCount": 50
+          }
+        ],
+        [
+          "Cnc",
+          {
+            "indexStart": 1966,
+            "indexCount": 152
+          }
+        ],
+        [
+          "Cap",
+          {
+            "indexStart": 2118,
+            "indexCount": 244
+          }
+        ],
+        [
+          "Car",
+          {
+            "indexStart": 2362,
+            "indexCount": 368
+          }
+        ],
+        [
+          "Cas",
+          {
+            "indexStart": 2730,
+            "indexCount": 76
+          }
+        ],
+        [
+          "Cen",
+          {
+            "indexStart": 2806,
+            "indexCount": 354
+          }
+        ],
+        [
+          "Cep",
+          {
+            "indexStart": 3160,
+            "indexCount": 236
+          }
+        ],
+        [
+          "Com",
+          {
+            "indexStart": 3396,
+            "indexCount": 82
+          }
+        ],
+        [
+          "CVn",
+          {
+            "indexStart": 3478,
+            "indexCount": 22
+          }
+        ],
+        [
+          "Aur",
+          {
+            "indexStart": 3500,
+            "indexCount": 198
+          }
+        ],
+        [
+          "Col",
+          {
+            "indexStart": 3698,
+            "indexCount": 84
+          }
+        ],
+        [
+          "Cir",
+          {
+            "indexStart": 3782,
+            "indexCount": 60
+          }
+        ],
+        [
+          "Crt",
+          {
+            "indexStart": 3842,
+            "indexCount": 186
+          }
+        ],
+        [
+          "CrA",
+          {
+            "indexStart": 4028,
+            "indexCount": 66
+          }
+        ],
+        [
+          "CrB",
+          {
+            "indexStart": 4094,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Crv",
+          {
+            "indexStart": 4156,
+            "indexCount": 104
+          }
+        ],
+        [
+          "Cru",
+          {
+            "indexStart": 4260,
+            "indexCount": 44
+          }
+        ],
+        [
+          "Cyg",
+          {
+            "indexStart": 4304,
+            "indexCount": 256
+          }
+        ],
+        [
+          "Del",
+          {
+            "indexStart": 4560,
+            "indexCount": 42
+          }
+        ],
+        [
+          "Dor",
+          {
+            "indexStart": 4602,
+            "indexCount": 98
+          }
+        ],
+        [
+          "Dra",
+          {
+            "indexStart": 4700,
+            "indexCount": 386
+          }
+        ],
+        [
+          "Nor",
+          {
+            "indexStart": 5086,
+            "indexCount": 86
+          }
+        ],
+        [
+          "Eri",
+          {
+            "indexStart": 5172,
+            "indexCount": 586
+          }
+        ],
+        [
+          "Sge",
+          {
+            "indexStart": 5758,
+            "indexCount": 36
+          }
+        ],
+        [
+          "For",
+          {
+            "indexStart": 5794,
+            "indexCount": 26
+          }
+        ],
+        [
+          "Gem",
+          {
+            "indexStart": 5820,
+            "indexCount": 328
+          }
+        ],
+        [
+          "Cam",
+          {
+            "indexStart": 6148,
+            "indexCount": 168
+          }
+        ],
+        [
+          "CMa",
+          {
+            "indexStart": 6316,
+            "indexCount": 286
+          }
+        ],
+        [
+          "UMa",
+          {
+            "indexStart": 6602,
+            "indexCount": 570
+          }
+        ],
+        [
+          "Gru",
+          {
+            "indexStart": 7172,
+            "indexCount": 196
+          }
+        ],
+        [
+          "Her",
+          {
+            "indexStart": 7368,
+            "indexCount": 384
+          }
+        ],
+        [
+          "Hor",
+          {
+            "indexStart": 7752,
+            "indexCount": 106
+          }
+        ],
+        [
+          "Hya",
+          {
+            "indexStart": 7858,
+            "indexCount": 422
+          }
+        ],
+        [
+          "Hyi",
+          {
+            "indexStart": 8280,
+            "indexCount": 122
+          }
+        ],
+        [
+          "Ind",
+          {
+            "indexStart": 8402,
+            "indexCount": 110
+          }
+        ],
+        [
+          "Lac",
+          {
+            "indexStart": 8512,
+            "indexCount": 88
+          }
+        ],
+        [
+          "Mon",
+          {
+            "indexStart": 8600,
+            "indexCount": 236
+          }
+        ],
+        [
+          "Lep",
+          {
+            "indexStart": 8836,
+            "indexCount": 214
+          }
+        ],
+        [
+          "Leo",
+          {
+            "indexStart": 9050,
+            "indexCount": 308
+          }
+        ],
+        [
+          "Lup",
+          {
+            "indexStart": 9358,
+            "indexCount": 266
+          }
+        ],
+        [
+          "Lyn",
+          {
+            "indexStart": 9624,
+            "indexCount": 176
+          }
+        ],
+        [
+          "Lyr",
+          {
+            "indexStart": 9800,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Ant",
+          {
+            "indexStart": 9862,
+            "indexCount": 32
+          }
+        ],
+        [
+          "Mic",
+          {
+            "indexStart": 9894,
+            "indexCount": 28
+          }
+        ],
+        [
+          "Mus",
+          {
+            "indexStart": 9922,
+            "indexCount": 72
+          }
+        ],
+        [
+          "Oct",
+          {
+            "indexStart": 9994,
+            "indexCount": 138
+          }
+        ],
+        [
+          "Aps",
+          {
+            "indexStart": 10132,
+            "indexCount": 28
+          }
+        ],
+        [
+          "Oph",
+          {
+            "indexStart": 10160,
+            "indexCount": 344
+          }
+        ],
+        [
+          "Ori",
+          {
+            "indexStart": 10504,
+            "indexCount": 432
+          }
+        ],
+        [
+          "Pav",
+          {
+            "indexStart": 10936,
+            "indexCount": 304
+          }
+        ],
+        [
+          "Peg",
+          {
+            "indexStart": 11240,
+            "indexCount": 472
+          }
+        ],
+        [
+          "Pic",
+          {
+            "indexStart": 11712,
+            "indexCount": 60
+          }
+        ],
+        [
+          "Per",
+          {
+            "indexStart": 11772,
+            "indexCount": 190
+          }
+        ],
+        [
+          "Equ",
+          {
+            "indexStart": 11962,
+            "indexCount": 54
+          }
+        ],
+        [
+          "CMi",
+          {
+            "indexStart": 12016,
+            "indexCount": 18
+          }
+        ],
+        [
+          "LMi",
+          {
+            "indexStart": 12034,
+            "indexCount": 108
+          }
+        ],
+        [
+          "Vul",
+          {
+            "indexStart": 12142,
+            "indexCount": 32
+          }
+        ],
+        [
+          "UMi",
+          {
+            "indexStart": 12174,
+            "indexCount": 126
+          }
+        ],
+        [
+          "Phe",
+          {
+            "indexStart": 12300,
+            "indexCount": 306
+          }
+        ],
+        [
+          "Psc",
+          {
+            "indexStart": 12606,
+            "indexCount": 402
+          }
+        ],
+        [
+          "PsA",
+          {
+            "indexStart": 13008,
+            "indexCount": 136
+          }
+        ],
+        [
+          "Vol",
+          {
+            "indexStart": 13144,
+            "indexCount": 130
+          }
+        ],
+        [
+          "Pup",
+          {
+            "indexStart": 13274,
+            "indexCount": 280
+          }
+        ],
+        [
+          "Ret",
+          {
+            "indexStart": 13554,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Sgr",
+          {
+            "indexStart": 13616,
+            "indexCount": 492
+          }
+        ],
+        [
+          "Sco",
+          {
+            "indexStart": 14108,
+            "indexCount": 234
+          }
+        ],
+        [
+          "Ser",
+          {
+            "indexStart": 14342,
+            "indexCount": 260
+          }
+        ],
+        [
+          "Sex",
+          {
+            "indexStart": 14602,
+            "indexCount": 24
+          }
+        ],
+        [
+          "Men",
+          {
+            "indexStart": 14626,
+            "indexCount": 26
+          }
+        ],
+        [
+          "Tau",
+          {
+            "indexStart": 14652,
+            "indexCount": 284
+          }
+        ],
+        [
+          "Tel",
+          {
+            "indexStart": 14936,
+            "indexCount": 14
+          }
+        ],
+        [
+          "Tuc",
+          {
+            "indexStart": 14950,
+            "indexCount": 114
+          }
+        ],
+        [
+          "Tri",
+          {
+            "indexStart": 15064,
+            "indexCount": 62
+          }
+        ],
+        [
+          "TrA",
+          {
+            "indexStart": 15126,
+            "indexCount": 92
+          }
+        ],
+        [
+          "Aqr",
+          {
+            "indexStart": 15218,
+            "indexCount": 370
+          }
+        ],
+        [
+          "Vir",
+          {
+            "indexStart": 15588,
+            "indexCount": 442
+          }
+        ],
+        [
+          "Vel",
+          {
+            "indexStart": 16030,
+            "indexCount": 258
+          }
+        ]
+      ],
+      "beforeCalls": 24432
+    },
+    {
+      "name": "globe-near-low-676",
+      "inputDirectionSha256": "0b2fe09d62cdbb0ad03e0bc01f814321e27339b2cd69e92fd621a4b50003de54",
+      "positionSha256": "94084ddf242f012cee48eedfc42d4588686ce229181c89d40cc6a533bd2f959a",
+      "ordinaryIndexSha256": "9f3284284706d9b9c6a77ca0c4b641a9aa2f6ad0a4c147068241cf2d99b2d28b",
+      "highlightSha256": "ebd830b2b540ac44fd308b0ea426d12888c1bf07c2184c2e588b7d30b3e11b01",
+      "result": {
+        "revision": 1,
+        "indexCount": 17006,
+        "totalSegments": 8503,
+        "maxActualAngularStepDeg": 0.49983178662163114,
+        "antipodalArcCount": 0,
+        "coincidentArcCount": 0,
+        "invalidArcCount": 0,
+        "budgetExceededArcCount": 0,
+        "unmeasurableArcCount": 0,
+        "screenTestedSegmentCount": 8503,
+        "screenUnmeasurableSegmentCount": 0,
+        "maxObservedScreenErrorPx": 0.34991633315819404,
+        "pixelErrorStatus": "sampled-within-tolerance"
+      },
+      "ranges": [
+        [
+          "Aql",
+          {
+            "indexStart": 0,
+            "indexCount": 320
+          }
+        ],
+        [
+          "And",
+          {
+            "indexStart": 320,
+            "indexCount": 138
+          }
+        ],
+        [
+          "Scl",
+          {
+            "indexStart": 458,
+            "indexCount": 194
+          }
+        ],
+        [
+          "Ara",
+          {
+            "indexStart": 652,
+            "indexCount": 148
+          }
+        ],
+        [
+          "Lib",
+          {
+            "indexStart": 800,
+            "indexCount": 180
+          }
+        ],
+        [
+          "Cet",
+          {
+            "indexStart": 980,
+            "indexCount": 512
+          }
+        ],
+        [
+          "Ari",
+          {
+            "indexStart": 1492,
+            "indexCount": 66
+          }
+        ],
+        [
+          "Sct",
+          {
+            "indexStart": 1558,
+            "indexCount": 236
+          }
+        ],
+        [
+          "Pyx",
+          {
+            "indexStart": 1794,
+            "indexCount": 34
+          }
+        ],
+        [
+          "Boo",
+          {
+            "indexStart": 1828,
+            "indexCount": 286
+          }
+        ],
+        [
+          "Cae",
+          {
+            "indexStart": 2114,
+            "indexCount": 36
+          }
+        ],
+        [
+          "Cha",
+          {
+            "indexStart": 2150,
+            "indexCount": 50
+          }
+        ],
+        [
+          "Cnc",
+          {
+            "indexStart": 2200,
+            "indexCount": 152
+          }
+        ],
+        [
+          "Cap",
+          {
+            "indexStart": 2352,
+            "indexCount": 244
+          }
+        ],
+        [
+          "Car",
+          {
+            "indexStart": 2596,
+            "indexCount": 368
+          }
+        ],
+        [
+          "Cas",
+          {
+            "indexStart": 2964,
+            "indexCount": 76
+          }
+        ],
+        [
+          "Cen",
+          {
+            "indexStart": 3040,
+            "indexCount": 354
+          }
+        ],
+        [
+          "Cep",
+          {
+            "indexStart": 3394,
+            "indexCount": 236
+          }
+        ],
+        [
+          "Com",
+          {
+            "indexStart": 3630,
+            "indexCount": 82
+          }
+        ],
+        [
+          "CVn",
+          {
+            "indexStart": 3712,
+            "indexCount": 22
+          }
+        ],
+        [
+          "Aur",
+          {
+            "indexStart": 3734,
+            "indexCount": 198
+          }
+        ],
+        [
+          "Col",
+          {
+            "indexStart": 3932,
+            "indexCount": 84
+          }
+        ],
+        [
+          "Cir",
+          {
+            "indexStart": 4016,
+            "indexCount": 60
+          }
+        ],
+        [
+          "Crt",
+          {
+            "indexStart": 4076,
+            "indexCount": 186
+          }
+        ],
+        [
+          "CrA",
+          {
+            "indexStart": 4262,
+            "indexCount": 66
+          }
+        ],
+        [
+          "CrB",
+          {
+            "indexStart": 4328,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Crv",
+          {
+            "indexStart": 4390,
+            "indexCount": 104
+          }
+        ],
+        [
+          "Cru",
+          {
+            "indexStart": 4494,
+            "indexCount": 44
+          }
+        ],
+        [
+          "Cyg",
+          {
+            "indexStart": 4538,
+            "indexCount": 256
+          }
+        ],
+        [
+          "Del",
+          {
+            "indexStart": 4794,
+            "indexCount": 42
+          }
+        ],
+        [
+          "Dor",
+          {
+            "indexStart": 4836,
+            "indexCount": 98
+          }
+        ],
+        [
+          "Dra",
+          {
+            "indexStart": 4934,
+            "indexCount": 386
+          }
+        ],
+        [
+          "Nor",
+          {
+            "indexStart": 5320,
+            "indexCount": 86
+          }
+        ],
+        [
+          "Eri",
+          {
+            "indexStart": 5406,
+            "indexCount": 586
+          }
+        ],
+        [
+          "Sge",
+          {
+            "indexStart": 5992,
+            "indexCount": 36
+          }
+        ],
+        [
+          "For",
+          {
+            "indexStart": 6028,
+            "indexCount": 26
+          }
+        ],
+        [
+          "Gem",
+          {
+            "indexStart": 6054,
+            "indexCount": 328
+          }
+        ],
+        [
+          "Cam",
+          {
+            "indexStart": 6382,
+            "indexCount": 168
+          }
+        ],
+        [
+          "CMa",
+          {
+            "indexStart": 6550,
+            "indexCount": 286
+          }
+        ],
+        [
+          "UMa",
+          {
+            "indexStart": 6836,
+            "indexCount": 570
+          }
+        ],
+        [
+          "Gru",
+          {
+            "indexStart": 7406,
+            "indexCount": 196
+          }
+        ],
+        [
+          "Her",
+          {
+            "indexStart": 7602,
+            "indexCount": 384
+          }
+        ],
+        [
+          "Hor",
+          {
+            "indexStart": 7986,
+            "indexCount": 106
+          }
+        ],
+        [
+          "Hya",
+          {
+            "indexStart": 8092,
+            "indexCount": 422
+          }
+        ],
+        [
+          "Hyi",
+          {
+            "indexStart": 8514,
+            "indexCount": 122
+          }
+        ],
+        [
+          "Ind",
+          {
+            "indexStart": 8636,
+            "indexCount": 110
+          }
+        ],
+        [
+          "Lac",
+          {
+            "indexStart": 8746,
+            "indexCount": 88
+          }
+        ],
+        [
+          "Mon",
+          {
+            "indexStart": 8834,
+            "indexCount": 236
+          }
+        ],
+        [
+          "Lep",
+          {
+            "indexStart": 9070,
+            "indexCount": 214
+          }
+        ],
+        [
+          "Leo",
+          {
+            "indexStart": 9284,
+            "indexCount": 308
+          }
+        ],
+        [
+          "Lup",
+          {
+            "indexStart": 9592,
+            "indexCount": 266
+          }
+        ],
+        [
+          "Lyn",
+          {
+            "indexStart": 9858,
+            "indexCount": 176
+          }
+        ],
+        [
+          "Lyr",
+          {
+            "indexStart": 10034,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Ant",
+          {
+            "indexStart": 10096,
+            "indexCount": 32
+          }
+        ],
+        [
+          "Mic",
+          {
+            "indexStart": 10128,
+            "indexCount": 28
+          }
+        ],
+        [
+          "Mus",
+          {
+            "indexStart": 10156,
+            "indexCount": 72
+          }
+        ],
+        [
+          "Oct",
+          {
+            "indexStart": 10228,
+            "indexCount": 138
+          }
+        ],
+        [
+          "Aps",
+          {
+            "indexStart": 10366,
+            "indexCount": 28
+          }
+        ],
+        [
+          "Oph",
+          {
+            "indexStart": 10394,
+            "indexCount": 684
+          }
+        ],
+        [
+          "Ori",
+          {
+            "indexStart": 11078,
+            "indexCount": 432
+          }
+        ],
+        [
+          "Pav",
+          {
+            "indexStart": 11510,
+            "indexCount": 304
+          }
+        ],
+        [
+          "Peg",
+          {
+            "indexStart": 11814,
+            "indexCount": 472
+          }
+        ],
+        [
+          "Pic",
+          {
+            "indexStart": 12286,
+            "indexCount": 60
+          }
+        ],
+        [
+          "Per",
+          {
+            "indexStart": 12346,
+            "indexCount": 190
+          }
+        ],
+        [
+          "Equ",
+          {
+            "indexStart": 12536,
+            "indexCount": 54
+          }
+        ],
+        [
+          "CMi",
+          {
+            "indexStart": 12590,
+            "indexCount": 18
+          }
+        ],
+        [
+          "LMi",
+          {
+            "indexStart": 12608,
+            "indexCount": 108
+          }
+        ],
+        [
+          "Vul",
+          {
+            "indexStart": 12716,
+            "indexCount": 32
+          }
+        ],
+        [
+          "UMi",
+          {
+            "indexStart": 12748,
+            "indexCount": 126
+          }
+        ],
+        [
+          "Phe",
+          {
+            "indexStart": 12874,
+            "indexCount": 306
+          }
+        ],
+        [
+          "Psc",
+          {
+            "indexStart": 13180,
+            "indexCount": 402
+          }
+        ],
+        [
+          "PsA",
+          {
+            "indexStart": 13582,
+            "indexCount": 136
+          }
+        ],
+        [
+          "Vol",
+          {
+            "indexStart": 13718,
+            "indexCount": 130
+          }
+        ],
+        [
+          "Pup",
+          {
+            "indexStart": 13848,
+            "indexCount": 280
+          }
+        ],
+        [
+          "Ret",
+          {
+            "indexStart": 14128,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Sgr",
+          {
+            "indexStart": 14190,
+            "indexCount": 512
+          }
+        ],
+        [
+          "Sco",
+          {
+            "indexStart": 14702,
+            "indexCount": 234
+          }
+        ],
+        [
+          "Ser",
+          {
+            "indexStart": 14936,
+            "indexCount": 384
+          }
+        ],
+        [
+          "Sex",
+          {
+            "indexStart": 15320,
+            "indexCount": 24
+          }
+        ],
+        [
+          "Men",
+          {
+            "indexStart": 15344,
+            "indexCount": 26
+          }
+        ],
+        [
+          "Tau",
+          {
+            "indexStart": 15370,
+            "indexCount": 284
+          }
+        ],
+        [
+          "Tel",
+          {
+            "indexStart": 15654,
+            "indexCount": 14
+          }
+        ],
+        [
+          "Tuc",
+          {
+            "indexStart": 15668,
+            "indexCount": 114
+          }
+        ],
+        [
+          "Tri",
+          {
+            "indexStart": 15782,
+            "indexCount": 62
+          }
+        ],
+        [
+          "TrA",
+          {
+            "indexStart": 15844,
+            "indexCount": 92
+          }
+        ],
+        [
+          "Aqr",
+          {
+            "indexStart": 15936,
+            "indexCount": 370
+          }
+        ],
+        [
+          "Vir",
+          {
+            "indexStart": 16306,
+            "indexCount": 442
+          }
+        ],
+        [
+          "Vel",
+          {
+            "indexStart": 16748,
+            "indexCount": 258
+          }
+        ]
+      ],
+      "beforeCalls": 26586
+    },
+    {
+      "name": "horizon-wide-676",
+      "inputDirectionSha256": "0b2fe09d62cdbb0ad03e0bc01f814321e27339b2cd69e92fd621a4b50003de54",
+      "positionSha256": "8bb722d817b9637b805812d8c963609452d57f17f581559883c982cc6c2d9c1c",
+      "ordinaryIndexSha256": "06dd5413092213fe340ff5c2a0d271bbc7cade63e74f90d44c1e465a9e17c4e9",
+      "highlightSha256": "989e86fa5c4be2fba6d8c4e1b7dc5d140b8e29da8882b97504b60846b0ac71f7",
+      "result": {
+        "revision": 1,
+        "indexCount": 16288,
+        "totalSegments": 8144,
+        "maxActualAngularStepDeg": 0.49983178662163114,
+        "antipodalArcCount": 0,
+        "coincidentArcCount": 0,
+        "invalidArcCount": 0,
+        "budgetExceededArcCount": 0,
+        "unmeasurableArcCount": 0,
+        "screenTestedSegmentCount": 8144,
+        "screenUnmeasurableSegmentCount": 0,
+        "maxObservedScreenErrorPx": 0.0015069069390132262,
+        "pixelErrorStatus": "sampled-within-tolerance"
+      },
+      "ranges": [
+        [
+          "Aql",
+          {
+            "indexStart": 0,
+            "indexCount": 204
+          }
+        ],
+        [
+          "And",
+          {
+            "indexStart": 204,
+            "indexCount": 138
+          }
+        ],
+        [
+          "Scl",
+          {
+            "indexStart": 342,
+            "indexCount": 194
+          }
+        ],
+        [
+          "Ara",
+          {
+            "indexStart": 536,
+            "indexCount": 148
+          }
+        ],
+        [
+          "Lib",
+          {
+            "indexStart": 684,
+            "indexCount": 180
+          }
+        ],
+        [
+          "Cet",
+          {
+            "indexStart": 864,
+            "indexCount": 512
+          }
+        ],
+        [
+          "Ari",
+          {
+            "indexStart": 1376,
+            "indexCount": 66
+          }
+        ],
+        [
+          "Sct",
+          {
+            "indexStart": 1442,
+            "indexCount": 118
+          }
+        ],
+        [
+          "Pyx",
+          {
+            "indexStart": 1560,
+            "indexCount": 34
+          }
+        ],
+        [
+          "Boo",
+          {
+            "indexStart": 1594,
+            "indexCount": 286
+          }
+        ],
+        [
+          "Cae",
+          {
+            "indexStart": 1880,
+            "indexCount": 36
+          }
+        ],
+        [
+          "Cha",
+          {
+            "indexStart": 1916,
+            "indexCount": 50
+          }
+        ],
+        [
+          "Cnc",
+          {
+            "indexStart": 1966,
+            "indexCount": 152
+          }
+        ],
+        [
+          "Cap",
+          {
+            "indexStart": 2118,
+            "indexCount": 244
+          }
+        ],
+        [
+          "Car",
+          {
+            "indexStart": 2362,
+            "indexCount": 368
+          }
+        ],
+        [
+          "Cas",
+          {
+            "indexStart": 2730,
+            "indexCount": 76
+          }
+        ],
+        [
+          "Cen",
+          {
+            "indexStart": 2806,
+            "indexCount": 354
+          }
+        ],
+        [
+          "Cep",
+          {
+            "indexStart": 3160,
+            "indexCount": 236
+          }
+        ],
+        [
+          "Com",
+          {
+            "indexStart": 3396,
+            "indexCount": 82
+          }
+        ],
+        [
+          "CVn",
+          {
+            "indexStart": 3478,
+            "indexCount": 22
+          }
+        ],
+        [
+          "Aur",
+          {
+            "indexStart": 3500,
+            "indexCount": 198
+          }
+        ],
+        [
+          "Col",
+          {
+            "indexStart": 3698,
+            "indexCount": 84
+          }
+        ],
+        [
+          "Cir",
+          {
+            "indexStart": 3782,
+            "indexCount": 60
+          }
+        ],
+        [
+          "Crt",
+          {
+            "indexStart": 3842,
+            "indexCount": 186
+          }
+        ],
+        [
+          "CrA",
+          {
+            "indexStart": 4028,
+            "indexCount": 66
+          }
+        ],
+        [
+          "CrB",
+          {
+            "indexStart": 4094,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Crv",
+          {
+            "indexStart": 4156,
+            "indexCount": 104
+          }
+        ],
+        [
+          "Cru",
+          {
+            "indexStart": 4260,
+            "indexCount": 44
+          }
+        ],
+        [
+          "Cyg",
+          {
+            "indexStart": 4304,
+            "indexCount": 256
+          }
+        ],
+        [
+          "Del",
+          {
+            "indexStart": 4560,
+            "indexCount": 42
+          }
+        ],
+        [
+          "Dor",
+          {
+            "indexStart": 4602,
+            "indexCount": 98
+          }
+        ],
+        [
+          "Dra",
+          {
+            "indexStart": 4700,
+            "indexCount": 386
+          }
+        ],
+        [
+          "Nor",
+          {
+            "indexStart": 5086,
+            "indexCount": 86
+          }
+        ],
+        [
+          "Eri",
+          {
+            "indexStart": 5172,
+            "indexCount": 586
+          }
+        ],
+        [
+          "Sge",
+          {
+            "indexStart": 5758,
+            "indexCount": 36
+          }
+        ],
+        [
+          "For",
+          {
+            "indexStart": 5794,
+            "indexCount": 26
+          }
+        ],
+        [
+          "Gem",
+          {
+            "indexStart": 5820,
+            "indexCount": 328
+          }
+        ],
+        [
+          "Cam",
+          {
+            "indexStart": 6148,
+            "indexCount": 168
+          }
+        ],
+        [
+          "CMa",
+          {
+            "indexStart": 6316,
+            "indexCount": 286
+          }
+        ],
+        [
+          "UMa",
+          {
+            "indexStart": 6602,
+            "indexCount": 570
+          }
+        ],
+        [
+          "Gru",
+          {
+            "indexStart": 7172,
+            "indexCount": 196
+          }
+        ],
+        [
+          "Her",
+          {
+            "indexStart": 7368,
+            "indexCount": 384
+          }
+        ],
+        [
+          "Hor",
+          {
+            "indexStart": 7752,
+            "indexCount": 106
+          }
+        ],
+        [
+          "Hya",
+          {
+            "indexStart": 7858,
+            "indexCount": 422
+          }
+        ],
+        [
+          "Hyi",
+          {
+            "indexStart": 8280,
+            "indexCount": 122
+          }
+        ],
+        [
+          "Ind",
+          {
+            "indexStart": 8402,
+            "indexCount": 110
+          }
+        ],
+        [
+          "Lac",
+          {
+            "indexStart": 8512,
+            "indexCount": 88
+          }
+        ],
+        [
+          "Mon",
+          {
+            "indexStart": 8600,
+            "indexCount": 236
+          }
+        ],
+        [
+          "Lep",
+          {
+            "indexStart": 8836,
+            "indexCount": 214
+          }
+        ],
+        [
+          "Leo",
+          {
+            "indexStart": 9050,
+            "indexCount": 308
+          }
+        ],
+        [
+          "Lup",
+          {
+            "indexStart": 9358,
+            "indexCount": 266
+          }
+        ],
+        [
+          "Lyn",
+          {
+            "indexStart": 9624,
+            "indexCount": 176
+          }
+        ],
+        [
+          "Lyr",
+          {
+            "indexStart": 9800,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Ant",
+          {
+            "indexStart": 9862,
+            "indexCount": 32
+          }
+        ],
+        [
+          "Mic",
+          {
+            "indexStart": 9894,
+            "indexCount": 28
+          }
+        ],
+        [
+          "Mus",
+          {
+            "indexStart": 9922,
+            "indexCount": 72
+          }
+        ],
+        [
+          "Oct",
+          {
+            "indexStart": 9994,
+            "indexCount": 138
+          }
+        ],
+        [
+          "Aps",
+          {
+            "indexStart": 10132,
+            "indexCount": 28
+          }
+        ],
+        [
+          "Oph",
+          {
+            "indexStart": 10160,
+            "indexCount": 344
+          }
+        ],
+        [
+          "Ori",
+          {
+            "indexStart": 10504,
+            "indexCount": 432
+          }
+        ],
+        [
+          "Pav",
+          {
+            "indexStart": 10936,
+            "indexCount": 304
+          }
+        ],
+        [
+          "Peg",
+          {
+            "indexStart": 11240,
+            "indexCount": 472
+          }
+        ],
+        [
+          "Pic",
+          {
+            "indexStart": 11712,
+            "indexCount": 60
+          }
+        ],
+        [
+          "Per",
+          {
+            "indexStart": 11772,
+            "indexCount": 190
+          }
+        ],
+        [
+          "Equ",
+          {
+            "indexStart": 11962,
+            "indexCount": 54
+          }
+        ],
+        [
+          "CMi",
+          {
+            "indexStart": 12016,
+            "indexCount": 18
+          }
+        ],
+        [
+          "LMi",
+          {
+            "indexStart": 12034,
+            "indexCount": 108
+          }
+        ],
+        [
+          "Vul",
+          {
+            "indexStart": 12142,
+            "indexCount": 32
+          }
+        ],
+        [
+          "UMi",
+          {
+            "indexStart": 12174,
+            "indexCount": 126
+          }
+        ],
+        [
+          "Phe",
+          {
+            "indexStart": 12300,
+            "indexCount": 306
+          }
+        ],
+        [
+          "Psc",
+          {
+            "indexStart": 12606,
+            "indexCount": 402
+          }
+        ],
+        [
+          "PsA",
+          {
+            "indexStart": 13008,
+            "indexCount": 136
+          }
+        ],
+        [
+          "Vol",
+          {
+            "indexStart": 13144,
+            "indexCount": 130
+          }
+        ],
+        [
+          "Pup",
+          {
+            "indexStart": 13274,
+            "indexCount": 280
+          }
+        ],
+        [
+          "Ret",
+          {
+            "indexStart": 13554,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Sgr",
+          {
+            "indexStart": 13616,
+            "indexCount": 492
+          }
+        ],
+        [
+          "Sco",
+          {
+            "indexStart": 14108,
+            "indexCount": 234
+          }
+        ],
+        [
+          "Ser",
+          {
+            "indexStart": 14342,
+            "indexCount": 260
+          }
+        ],
+        [
+          "Sex",
+          {
+            "indexStart": 14602,
+            "indexCount": 24
+          }
+        ],
+        [
+          "Men",
+          {
+            "indexStart": 14626,
+            "indexCount": 26
+          }
+        ],
+        [
+          "Tau",
+          {
+            "indexStart": 14652,
+            "indexCount": 284
+          }
+        ],
+        [
+          "Tel",
+          {
+            "indexStart": 14936,
+            "indexCount": 14
+          }
+        ],
+        [
+          "Tuc",
+          {
+            "indexStart": 14950,
+            "indexCount": 114
+          }
+        ],
+        [
+          "Tri",
+          {
+            "indexStart": 15064,
+            "indexCount": 62
+          }
+        ],
+        [
+          "TrA",
+          {
+            "indexStart": 15126,
+            "indexCount": 92
+          }
+        ],
+        [
+          "Aqr",
+          {
+            "indexStart": 15218,
+            "indexCount": 370
+          }
+        ],
+        [
+          "Vir",
+          {
+            "indexStart": 15588,
+            "indexCount": 442
+          }
+        ],
+        [
+          "Vel",
+          {
+            "indexStart": 16030,
+            "indexCount": 258
+          }
+        ]
+      ],
+      "beforeCalls": 24432
+    },
+    {
+      "name": "horizon-near-low-676",
+      "inputDirectionSha256": "0b2fe09d62cdbb0ad03e0bc01f814321e27339b2cd69e92fd621a4b50003de54",
+      "positionSha256": "187ce9a6ad9bdb830c01afba2607ef2c89f282fffe40676228b9cfb2c1f74306",
+      "ordinaryIndexSha256": "0a791bed3b3f53413826dce0cea0b32582d6c1779dff918ac608cf72db112e3f",
+      "highlightSha256": "b99d118fbfd9dfb272bbedb000f348cfdbf312682400c9d52005c0114476f148",
+      "result": {
+        "revision": 1,
+        "indexCount": 17050,
+        "totalSegments": 8525,
+        "maxActualAngularStepDeg": 0.49983178662163114,
+        "antipodalArcCount": 0,
+        "coincidentArcCount": 0,
+        "invalidArcCount": 0,
+        "budgetExceededArcCount": 0,
+        "unmeasurableArcCount": 0,
+        "screenTestedSegmentCount": 8525,
+        "screenUnmeasurableSegmentCount": 0,
+        "maxObservedScreenErrorPx": 0.34555432271583486,
+        "pixelErrorStatus": "sampled-within-tolerance"
+      },
+      "ranges": [
+        [
+          "Aql",
+          {
+            "indexStart": 0,
+            "indexCount": 204
+          }
+        ],
+        [
+          "And",
+          {
+            "indexStart": 204,
+            "indexCount": 138
+          }
+        ],
+        [
+          "Scl",
+          {
+            "indexStart": 342,
+            "indexCount": 194
+          }
+        ],
+        [
+          "Ara",
+          {
+            "indexStart": 536,
+            "indexCount": 148
+          }
+        ],
+        [
+          "Lib",
+          {
+            "indexStart": 684,
+            "indexCount": 180
+          }
+        ],
+        [
+          "Cet",
+          {
+            "indexStart": 864,
+            "indexCount": 512
+          }
+        ],
+        [
+          "Ari",
+          {
+            "indexStart": 1376,
+            "indexCount": 66
+          }
+        ],
+        [
+          "Sct",
+          {
+            "indexStart": 1442,
+            "indexCount": 118
+          }
+        ],
+        [
+          "Pyx",
+          {
+            "indexStart": 1560,
+            "indexCount": 34
+          }
+        ],
+        [
+          "Boo",
+          {
+            "indexStart": 1594,
+            "indexCount": 286
+          }
+        ],
+        [
+          "Cae",
+          {
+            "indexStart": 1880,
+            "indexCount": 36
+          }
+        ],
+        [
+          "Cha",
+          {
+            "indexStart": 1916,
+            "indexCount": 50
+          }
+        ],
+        [
+          "Cnc",
+          {
+            "indexStart": 1966,
+            "indexCount": 152
+          }
+        ],
+        [
+          "Cap",
+          {
+            "indexStart": 2118,
+            "indexCount": 244
+          }
+        ],
+        [
+          "Car",
+          {
+            "indexStart": 2362,
+            "indexCount": 368
+          }
+        ],
+        [
+          "Cas",
+          {
+            "indexStart": 2730,
+            "indexCount": 76
+          }
+        ],
+        [
+          "Cen",
+          {
+            "indexStart": 2806,
+            "indexCount": 354
+          }
+        ],
+        [
+          "Cep",
+          {
+            "indexStart": 3160,
+            "indexCount": 236
+          }
+        ],
+        [
+          "Com",
+          {
+            "indexStart": 3396,
+            "indexCount": 82
+          }
+        ],
+        [
+          "CVn",
+          {
+            "indexStart": 3478,
+            "indexCount": 22
+          }
+        ],
+        [
+          "Aur",
+          {
+            "indexStart": 3500,
+            "indexCount": 198
+          }
+        ],
+        [
+          "Col",
+          {
+            "indexStart": 3698,
+            "indexCount": 84
+          }
+        ],
+        [
+          "Cir",
+          {
+            "indexStart": 3782,
+            "indexCount": 60
+          }
+        ],
+        [
+          "Crt",
+          {
+            "indexStart": 3842,
+            "indexCount": 186
+          }
+        ],
+        [
+          "CrA",
+          {
+            "indexStart": 4028,
+            "indexCount": 66
+          }
+        ],
+        [
+          "CrB",
+          {
+            "indexStart": 4094,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Crv",
+          {
+            "indexStart": 4156,
+            "indexCount": 104
+          }
+        ],
+        [
+          "Cru",
+          {
+            "indexStart": 4260,
+            "indexCount": 44
+          }
+        ],
+        [
+          "Cyg",
+          {
+            "indexStart": 4304,
+            "indexCount": 256
+          }
+        ],
+        [
+          "Del",
+          {
+            "indexStart": 4560,
+            "indexCount": 42
+          }
+        ],
+        [
+          "Dor",
+          {
+            "indexStart": 4602,
+            "indexCount": 98
+          }
+        ],
+        [
+          "Dra",
+          {
+            "indexStart": 4700,
+            "indexCount": 386
+          }
+        ],
+        [
+          "Nor",
+          {
+            "indexStart": 5086,
+            "indexCount": 86
+          }
+        ],
+        [
+          "Eri",
+          {
+            "indexStart": 5172,
+            "indexCount": 586
+          }
+        ],
+        [
+          "Sge",
+          {
+            "indexStart": 5758,
+            "indexCount": 36
+          }
+        ],
+        [
+          "For",
+          {
+            "indexStart": 5794,
+            "indexCount": 26
+          }
+        ],
+        [
+          "Gem",
+          {
+            "indexStart": 5820,
+            "indexCount": 328
+          }
+        ],
+        [
+          "Cam",
+          {
+            "indexStart": 6148,
+            "indexCount": 168
+          }
+        ],
+        [
+          "CMa",
+          {
+            "indexStart": 6316,
+            "indexCount": 286
+          }
+        ],
+        [
+          "UMa",
+          {
+            "indexStart": 6602,
+            "indexCount": 570
+          }
+        ],
+        [
+          "Gru",
+          {
+            "indexStart": 7172,
+            "indexCount": 392
+          }
+        ],
+        [
+          "Her",
+          {
+            "indexStart": 7564,
+            "indexCount": 384
+          }
+        ],
+        [
+          "Hor",
+          {
+            "indexStart": 7948,
+            "indexCount": 106
+          }
+        ],
+        [
+          "Hya",
+          {
+            "indexStart": 8054,
+            "indexCount": 422
+          }
+        ],
+        [
+          "Hyi",
+          {
+            "indexStart": 8476,
+            "indexCount": 122
+          }
+        ],
+        [
+          "Ind",
+          {
+            "indexStart": 8598,
+            "indexCount": 220
+          }
+        ],
+        [
+          "Lac",
+          {
+            "indexStart": 8818,
+            "indexCount": 88
+          }
+        ],
+        [
+          "Mon",
+          {
+            "indexStart": 8906,
+            "indexCount": 236
+          }
+        ],
+        [
+          "Lep",
+          {
+            "indexStart": 9142,
+            "indexCount": 214
+          }
+        ],
+        [
+          "Leo",
+          {
+            "indexStart": 9356,
+            "indexCount": 308
+          }
+        ],
+        [
+          "Lup",
+          {
+            "indexStart": 9664,
+            "indexCount": 266
+          }
+        ],
+        [
+          "Lyn",
+          {
+            "indexStart": 9930,
+            "indexCount": 176
+          }
+        ],
+        [
+          "Lyr",
+          {
+            "indexStart": 10106,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Ant",
+          {
+            "indexStart": 10168,
+            "indexCount": 32
+          }
+        ],
+        [
+          "Mic",
+          {
+            "indexStart": 10200,
+            "indexCount": 28
+          }
+        ],
+        [
+          "Mus",
+          {
+            "indexStart": 10228,
+            "indexCount": 72
+          }
+        ],
+        [
+          "Oct",
+          {
+            "indexStart": 10300,
+            "indexCount": 206
+          }
+        ],
+        [
+          "Aps",
+          {
+            "indexStart": 10506,
+            "indexCount": 28
+          }
+        ],
+        [
+          "Oph",
+          {
+            "indexStart": 10534,
+            "indexCount": 344
+          }
+        ],
+        [
+          "Ori",
+          {
+            "indexStart": 10878,
+            "indexCount": 432
+          }
+        ],
+        [
+          "Pav",
+          {
+            "indexStart": 11310,
+            "indexCount": 566
+          }
+        ],
+        [
+          "Peg",
+          {
+            "indexStart": 11876,
+            "indexCount": 472
+          }
+        ],
+        [
+          "Pic",
+          {
+            "indexStart": 12348,
+            "indexCount": 60
+          }
+        ],
+        [
+          "Per",
+          {
+            "indexStart": 12408,
+            "indexCount": 190
+          }
+        ],
+        [
+          "Equ",
+          {
+            "indexStart": 12598,
+            "indexCount": 54
+          }
+        ],
+        [
+          "CMi",
+          {
+            "indexStart": 12652,
+            "indexCount": 18
+          }
+        ],
+        [
+          "LMi",
+          {
+            "indexStart": 12670,
+            "indexCount": 108
+          }
+        ],
+        [
+          "Vul",
+          {
+            "indexStart": 12778,
+            "indexCount": 32
+          }
+        ],
+        [
+          "UMi",
+          {
+            "indexStart": 12810,
+            "indexCount": 126
+          }
+        ],
+        [
+          "Phe",
+          {
+            "indexStart": 12936,
+            "indexCount": 306
+          }
+        ],
+        [
+          "Psc",
+          {
+            "indexStart": 13242,
+            "indexCount": 402
+          }
+        ],
+        [
+          "PsA",
+          {
+            "indexStart": 13644,
+            "indexCount": 136
+          }
+        ],
+        [
+          "Vol",
+          {
+            "indexStart": 13780,
+            "indexCount": 130
+          }
+        ],
+        [
+          "Pup",
+          {
+            "indexStart": 13910,
+            "indexCount": 280
+          }
+        ],
+        [
+          "Ret",
+          {
+            "indexStart": 14190,
+            "indexCount": 62
+          }
+        ],
+        [
+          "Sgr",
+          {
+            "indexStart": 14252,
+            "indexCount": 536
+          }
+        ],
+        [
+          "Sco",
+          {
+            "indexStart": 14788,
+            "indexCount": 234
+          }
+        ],
+        [
+          "Ser",
+          {
+            "indexStart": 15022,
+            "indexCount": 260
+          }
+        ],
+        [
+          "Sex",
+          {
+            "indexStart": 15282,
+            "indexCount": 24
+          }
+        ],
+        [
+          "Men",
+          {
+            "indexStart": 15306,
+            "indexCount": 26
+          }
+        ],
+        [
+          "Tau",
+          {
+            "indexStart": 15332,
+            "indexCount": 284
+          }
+        ],
+        [
+          "Tel",
+          {
+            "indexStart": 15616,
+            "indexCount": 14
+          }
+        ],
+        [
+          "Tuc",
+          {
+            "indexStart": 15630,
+            "indexCount": 196
+          }
+        ],
+        [
+          "Tri",
+          {
+            "indexStart": 15826,
+            "indexCount": 62
+          }
+        ],
+        [
+          "TrA",
+          {
+            "indexStart": 15888,
+            "indexCount": 92
+          }
+        ],
+        [
+          "Aqr",
+          {
+            "indexStart": 15980,
+            "indexCount": 370
+          }
+        ],
+        [
+          "Vir",
+          {
+            "indexStart": 16350,
+            "indexCount": 442
+          }
+        ],
+        [
+          "Vel",
+          {
+            "indexStart": 16792,
+            "indexCount": 258
+          }
+        ]
+      ],
+      "beforeCalls": 26718
+    }
+  ]
+}
