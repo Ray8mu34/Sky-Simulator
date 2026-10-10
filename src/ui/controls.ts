@@ -35,7 +35,7 @@ const viewNames: Record<ViewMode, string> = { ground: '地表', space: '太空',
 let availableViews: readonly ViewMode[] = ['ground', 'space'];
 export function setAvailableViews(views: readonly ViewMode[]): void { availableViews = [...views]; }
 
-type LayerDefinition = { key: keyof LayerState; label: string; tip: string; views?: readonly ViewMode[]; advanced?: boolean };
+type LayerDefinition = { key: keyof LayerState; label: string; tip: string; views?: readonly ViewMode[]; advanced?: boolean; inverse?: boolean };
 const layerDefinitions: readonly LayerDefinition[] = [
   { key: 'constellationLines', label: '星座连线', tip: '来自固定星文化版本的方向连线，不表示恒星间的物理连接。' },
   { key: 'constellationLabels', label: '星座名称', tip: '星座名称与连线锚点；背面与被遮挡标签由渲染器筛选。' },
@@ -43,7 +43,7 @@ const layerDefinitions: readonly LayerDefinition[] = [
   { key: 'sunMoon', label: '太阳 / 月球', tip: '地表为站心，外部视图为地心；日月角径来自同一快照。' },
   { key: 'milkyWay', label: '银河', tip: '静态J2000银河背景，与恒星共用方向变换；扩展年代不模拟银河自身演化。' },
   { key: 'atmosphere', label: '大气', tip: '太阳高度驱动的天空明暗与地球薄大气近似，不是天气预报。' },
-  { key: 'terrain', label: '地景', tip: '当地水平系的示意地面，不是真实地形。', views: ['ground'] },
+  { key: 'terrain', label: '地面透明（看地平线下）', tip: '只移除示意地面的遮挡，不改变天体高度、肉眼可见性或升落预报。地平参考线独立。', views: ['ground'], inverse: true },
   { key: 'earthClouds', label: '云层', tip: '静态云层纹理，不是实时云图。', views: ['space', 'globe', 'horizon'] },
   { key: 'earthDay', label: '地球日景', tip: '静态日景贴图；关闭保留受光球体，云层、夜灯与大气独立。', views: ['space', 'globe', 'horizon'] },
   { key: 'earthNightLights', label: '夜景灯光', tip: '静态地球夜灯，只在背光区域显示。', views: ['space', 'globe', 'horizon'] },
@@ -57,7 +57,7 @@ const layerDefinitions: readonly LayerDefinition[] = [
 ];
 
 function layerHtml(layer: LayerDefinition): string {
-  return `<label class="layer-toggle" data-layer-row="${layer.key}" title="${layer.tip}"><input type="checkbox" data-layer="${layer.key}"><span>${layer.label}</span></label>`;
+  return `<label class="layer-toggle${layer.inverse ? ' layer-toggle-wide' : ''}" data-layer-row="${layer.key}" title="${layer.tip}"><input type="checkbox" data-layer="${layer.key}"${layer.inverse ? ' data-layer-inverse="true" aria-describedby="sky-ground-transparency-note"' : ''}><span>${layer.label}</span></label>`;
 }
 function pad(n: number): string { return String(n).padStart(2, '0'); }
 function yearText(n: number): string { return n < 0 ? `-${String(-n).padStart(4, '0')}` : String(n).padStart(4, '0'); }
@@ -121,7 +121,7 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
           <details class="custom-observer"><summary>经纬度 / 海拔</summary><form id="sky-observer-form" class="observer-form"><label for="sky-latitude">纬度 °</label><input id="sky-latitude" type="number" min="-90" max="90" step="any" required><label for="sky-longitude">东经 °</label><input id="sky-longitude" type="number" min="-180" max="180" step="any" required><label for="sky-height">海拔 m</label><input id="sky-height" type="number" min="-500" max="100000" step="any" required><button type="submit">应用地点</button></form><p class="tiny-note">地点与时区分别设置。</p></details>
           <div class="body-readouts"><span class="sun-readout">太阳 几何 — · 视高度 —</span><span class="moon-readout">月球 几何 — · 视高度 —</span><span class="phase-readout">月面照亮 —</span></div>
         </section>
-        <details class="control-section layer-section" open><summary>显示图层</summary><p id="sky-layer-capabilities" class="tiny-note" hidden>2D中灰色图层不可用；方位与地平边界固定显示。</p><div class="layer-grid">${layerDefinitions.filter((layer) => !layer.advanced).map(layerHtml).join('')}</div><details class="advanced-layers"><summary>参考线 / 名称</summary><div class="layer-grid">${layerDefinitions.filter((layer) => layer.advanced).map(layerHtml).join('')}</div><p class="tiny-note">连线是方向图样；云层与灯光为静态素材。</p></details></details>
+        <details class="control-section layer-section" open><summary>显示图层</summary><p id="sky-layer-capabilities" class="tiny-note" hidden>2D中灰色图层不可用；方位与地平边界固定显示。</p><div class="layer-grid">${layerDefinitions.filter((layer) => !layer.advanced).map(layerHtml).join('')}</div><p id="sky-ground-transparency-note" class="tiny-note"></p><details class="advanced-layers"><summary>参考线 / 名称</summary><div class="layer-grid">${layerDefinitions.filter((layer) => layer.advanced).map(layerHtml).join('')}</div><p class="tiny-note">连线是方向图样；云层与灯光为静态素材。</p></details></details>
         <details class="control-section scene-section"></details>
         <details class="control-section performance-section"><summary>运行数据</summary><dl class="metrics"><dt>帧间隔 p50 / p95 / p99</dt><dd class="metric-frame">未测</dd><dt>绘制 / 标签 / 待处理</dt><dd class="metric-calls">未测</dd><dt>纹理 / 几何</dt><dd class="metric-resources">未测</dd><dt>应用 GPU 估算</dt><dd class="metric-gpu">未测</dd><dt>主线程 / Worker 堆</dt><dd class="metric-heap">未测</dd></dl><p class="metric-notes tiny-note">浏览器与驱动内存另计。</p></details>
         <details class="control-section help-section"><summary>操作与科学口径</summary><p class="gesture-help">拖动调整视线，滚轮缩放。</p><p>时间、地点和图层在视角间共用；切换视角保留各自相机。控件区可上下滚动，触摸不会转动天空。</p><p>方位从北向东增加。几何高度不含折射，视高度使用所选近似；两者都是观测地点读数。外部三视图保持几何方向，近地平现场大气可能与近似显著不同。</p><p>天文纪年 0 是公元前1年，−1 是公元前2年。使用前推格里高利历；范围 −2000 至 +4000，扩展年代仅作近似探索。</p><p>天球半径是方向模型，太阳标记表示方向；显示比例不用于科学距离。</p></details>
@@ -148,6 +148,7 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
   const observerDraft = trackFormDraft(container.querySelector<HTMLFormElement>('#sky-observer-form')!);
   const teachingControls = mountTeachingControls(container.querySelector<HTMLElement>('.observer-section')!, state, reason => { if (reason === 'time-event') timeControls.cancelSession(true); change(reason ?? 'teaching'); }, () => { if (window.matchMedia(MOBILE_CONTROLS_QUERY).matches) setDrawer(false); });
   const appearanceControls = mountAppearanceControls(container.querySelector<HTMLElement>('.layer-section')!, state, (reason) => change(reason ?? 'environment-appearance'));
+  container.querySelector<HTMLElement>('.panel-scroll > .control-section')!.after(container.querySelector<HTMLElement>('.appearance-controls')!);
   const refractionControls = mountRefractionControls(container.querySelector<HTMLElement>('.layer-section')!, state, change);
   const timeControls = mountTimeControls(container.querySelector<HTMLElement>('.time-section')!, state, change, (value) => message(value, true));
   const objectDayControls = mountObjectDayControls(container.querySelector<HTMLElement>('.selected-object')!, state, ut => {
@@ -171,6 +172,7 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
     if (reason === 'selection' || explicitScienceChange || reason === 'display-zone' || clockChangedUt) objectDayControls.invalidate();
     if (explicitScienceChange) { teachingControls.invalidate(); appearanceControls.invalidate(); }
     else if (reason === 'display-zone') teachingControls.invalidate();
+    if (['view', 'layers', 'presentation'].includes(reason)) appearanceControls.invalidate();
     if (explicitScienceChange || reason === 'environment-refraction' || clockChangedUt) lastSnapshot = undefined;
     sync(reason !== 'selection');
     if (reason === 'selection') objectDayControls.notifyVisibility(true);
@@ -289,12 +291,17 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
     for (const layer of layerDefinitions) {
       const control = inputByLayer(layer.key);
       const unsupported = graphicsStatus?.capabilities.unsupportedLayers.includes(layer.key) ?? false;
-      control.checked = state.layers[layer.key]; control.disabled = unsupported;
+      const inactiveGroundControl = layer.key === 'terrain' && (overview || state.viewMode !== 'ground');
+      control.checked = layer.inverse ? !state.layers[layer.key] : state.layers[layer.key]; control.disabled = unsupported || inactiveGroundControl;
       const row = container.querySelector<HTMLElement>(`[data-layer-row="${layer.key}"]`)!;
       row.hidden = !overview && !!layer.views && !layer.views.includes(state.viewMode);
-      row.classList.toggle('is-unavailable', unsupported);
+      row.classList.toggle('is-unavailable', unsupported || inactiveGroundControl);
       row.title = unsupported ? '2D方位图不支持此图层；三维模式恢复后可用。' : overview && layer.key === 'sunMoon' ? '日月仅为站心方向符号，固定图示大小，非真实角径或月面。' : layer.tip;
     }
+    const transparencyNote = container.querySelector<HTMLElement>('#sky-ground-transparency-note')!;
+    transparencyNote.hidden = !overview && state.viewMode !== 'ground';
+    transparencyNote.textContent = overview ? '2D方位图不展示地平线下；地面透明仅适用于三维地表。'
+      : '透明仅移除地面遮挡；地平线与可见性、升落预报各自独立。';
     appearanceControls.sync();
     refractionControls.sync();
     syncPlayback();
@@ -375,7 +382,7 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
   listen(container, 'change', (event) => {
     const el = event.target as HTMLInputElement | HTMLSelectElement;
     tryAction(() => {
-      if (el.dataset.layer && !(el as HTMLInputElement).disabled) { state.layers[el.dataset.layer as keyof LayerState] = (el as HTMLInputElement).checked; change('layers'); }
+      if (el.dataset.layer && !(el as HTMLInputElement).disabled) { state.layers[el.dataset.layer as keyof LayerState] = el.dataset.layerInverse === 'true' ? !(el as HTMLInputElement).checked : (el as HTMLInputElement).checked; change('layers'); }
       if (el.id === 'sky-city') {
         if (el.value === 'custom') { container.querySelector<HTMLDetailsElement>('.custom-observer')!.open = true; input('sky-latitude').focus(); }
         else { state.observer = { ...cities[Number(el.value)]!, displayZone: state.observer.displayZone }; observerDraft.clear(); change('observer'); }

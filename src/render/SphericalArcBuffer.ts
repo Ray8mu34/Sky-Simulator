@@ -118,6 +118,8 @@ export interface SphericalArcCreateOptions {
   maxSegmentsPerArc?: number;
   /** Maximum input knot count per arc, integer [0,64], default8. */
   maxExtraKnotsPerArc?: number;
+  /** Optional two per-arc endpoint aliases for constant per-arc vertex attributes. Default layout stays unchanged. */
+  endpointAliases?: boolean;
 }
 
 export enum SphericalArcDiagnostic {
@@ -162,6 +164,8 @@ export interface SphericalArcBuffer {
   readonly arcCount: number;
   readonly maxSegmentsPerArc: number;
   readonly maxExtraKnotsPerArc: number;
+  /** Appended aliases retain the exact caller-owned Float32 endpoint bytes. Null uses the original star indices. */
+  readonly endpointAliasBase?: number | null;
   /** Star prefix and fixed per-source-arc interior slots. Shared by Points, ordinary lines and highlight. */
   readonly positions: Float32Array;
   /** Caller writes its unique propagated directions here. Points drawRange must be [0,starCount]. */
@@ -202,7 +206,9 @@ export function createSphericalArcBuffer(options: SphericalArcCreateOptions): Sp
   if (!Number.isInteger(maxSegmentsPerArc) || maxSegmentsPerArc < 1 || maxSegmentsPerArc > 4096) throw new RangeError('球面线固定段数容量须在1至4096之间。');
   if (!Number.isInteger(maxExtraKnotsPerArc) || maxExtraKnotsPerArc < 0 || maxExtraKnotsPerArc > 64) throw new RangeError('每弧额外接点输入容量须在0至64之间。');
   const arcCount = lineIndices.length / 2;
-  const vertexCount = starCount + arcCount * (maxSegmentsPerArc - 1), indexCapacity = arcCount * maxSegmentsPerArc * 2;
+  const interiorVertexCount = starCount + arcCount * (maxSegmentsPerArc - 1);
+  const endpointAliasBase = options.endpointAliases ? interiorVertexCount : null;
+  const vertexCount = interiorVertexCount + (endpointAliasBase===null?0:arcCount*2), indexCapacity = arcCount * maxSegmentsPerArc * 2;
   if (!Number.isSafeInteger(vertexCount) || vertexCount > 0xffffffff || !Number.isSafeInteger(indexCapacity) || indexCapacity > 0xffffffff) throw new RangeError('球面线固定容量超出Uint32索引范围。');
   const endpoints = new Uint32Array(lineIndices.length);
   for (let i = 0; i < lineIndices.length; i++) {
@@ -220,7 +226,7 @@ export function createSphericalArcBuffer(options: SphericalArcCreateOptions): Sp
   if (nextSegment !== arcCount) throw new RangeError('星座范围未完整覆盖源连线。');
   const positions = new Float32Array(vertexCount * 3);
   const buffer: SphericalArcBuffer = {
-    starCount, arcCount, maxSegmentsPerArc, maxExtraKnotsPerArc, positions,
+    starCount, arcCount, maxSegmentsPerArc, maxExtraKnotsPerArc, endpointAliasBase, positions,
     starDirections: positions.subarray(0, starCount * 3),
     ordinaryIndex: new Uint32Array(indexCapacity), highlightIndex: new Uint32Array(maximumFigureLines * maxSegmentsPerArc * 2), figureRanges,
     arcSegmentCounts: new Uint16Array(arcCount), arcIndexStarts: new Uint32Array(arcCount), arcDiagnostics: new Uint8Array(arcCount),
@@ -371,9 +377,15 @@ export function updateSphericalArcBuffer(buffer: SphericalArcBuffer, options: Sp
       }
       if (exceeded) { buffer.arcDiagnostics[arc] |= SphericalArcDiagnostic.BudgetExceeded; result.budgetExceededArcCount++; continue; }
       const interiorBase = buffer.starCount + arc * (buffer.maxSegmentsPerArc - 1);
-      let previousIndex = startIndex;
+      const aliasStart=buffer.endpointAliasBase==null?startIndex:buffer.endpointAliasBase+arc*2;
+      const aliasEnd=buffer.endpointAliasBase==null?endIndex:aliasStart+1;
+      if(buffer.endpointAliasBase!=null)for(let axis=0;axis<3;axis++){
+        buffer.positions[aliasStart*3+axis]=buffer.positions[startIndex*3+axis]!;
+        buffer.positions[aliasEnd*3+axis]=buffer.positions[endIndex*3+axis]!;
+      }
+      let previousIndex = aliasStart;
       for (let point = 1; point <= segmentCount; point++) {
-        const nextIndex = point === segmentCount ? endIndex : interiorBase + point - 1;
+        const nextIndex = point === segmentCount ? aliasEnd : interiorBase + point - 1;
         if (point !== segmentCount) {
           if (screen) {
             const at = (point - 1) * 3;
@@ -395,6 +407,19 @@ export function updateSphericalArcBuffer(buffer: SphericalArcBuffer, options: Sp
   result.indexCount = indexCursor;
   if (screen) result.pixelErrorStatus = result.budgetExceededArcCount ? 'budget-exceeded' : result.unmeasurableArcCount || !result.screenTestedSegmentCount ? 'unmeasurable' : 'sampled-within-tolerance';
   return result;
+}
+
+/** One static scalar for every vertex of an arc, including its private endpoint aliases. */
+export function createSphericalArcScalarAttribute(buffer:SphericalArcBuffer,values:ArrayLike<number>):Float32Array {
+  if(buffer.endpointAliasBase==null||values.length!==buffer.arcCount)throw new RangeError('逐弧属性需要端点别名与完整弧值。');
+  const attribute=new Float32Array(buffer.positions.length/3);
+  for(let arc=0;arc<buffer.arcCount;arc++){
+    const value=values[arc]!;if(!Number.isFinite(value))throw new RangeError('逐弧属性须为有限数值。');
+    const interior=buffer.starCount+arc*(buffer.maxSegmentsPerArc-1);
+    attribute.fill(value,interior,interior+buffer.maxSegmentsPerArc-1);
+    attribute.fill(value,buffer.endpointAliasBase+arc*2,buffer.endpointAliasBase+arc*2+2);
+  }
+  return attribute;
 }
 
 /** Copy only already-generated ordinary indices. Selection never creates samples or geometry. Call again after any arc update. */

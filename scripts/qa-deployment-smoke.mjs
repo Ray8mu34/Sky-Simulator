@@ -7,6 +7,16 @@ const url=process.env.SKY_DEPLOY_URL ?? 'https://sky.zjuaaa.cn/';
 const out=process.env.SKY_DEPLOY_QA_OUT ?? '_local-archive/deployment-20261005/browser';
 await mkdir(out,{recursive:true});
 const capture=JSON.parse(await readFile('media/screenshots/capture-manifest.json','utf8'));
+// New releases can be verified against their locally tested build, without
+// rewriting the immutable v0.1.0 promotional capture manifest.
+if(process.env.SKY_DEPLOY_EXPECTED_DIR){
+  const root=process.env.SKY_DEPLOY_EXPECTED_DIR;
+  const html=await readFile(root+'/index.html','utf8');
+  capture.buildId=html.match(/name="sky-build-id" content="([^"]+)"/)?.[1];
+  capture.moduleName=html.match(/src="\.\/assets\/([^"]+\.js)"/)?.[1];
+  assert.ok(capture.buildId&&capture.moduleName,'Expected build identity must be present');
+  capture.moduleSha256=createHash('sha256').update(await readFile(root+'/assets/'+capture.moduleName)).digest('hex');
+}
 const scene=capture.captures.find(c=>c.file==='overview-ground.png').state;
 const report={url,buildId:capture.buildId,scope:'Public HTTPS deployment smoke; not a performance, device or full scientific matrix.',errors:[],views:[],browserClosed:false};
 const browser=await chromium.launch({channel:'chrome',headless:false});

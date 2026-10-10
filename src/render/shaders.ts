@@ -1,4 +1,5 @@
 import { getRefractionShaderChunk } from '../core/refraction';
+import { STAR_VISIBILITY_GLSL } from './star-visibility';
 const refractionChunk=getRefractionShaderChunk();
 export const directionVertex = `${refractionChunk}
 uniform mat3 uFrame;
@@ -37,6 +38,7 @@ vec4 directionPosition(vec3 p) {
 }`;
 
 export const starVertex = `${directionVertex}
+${STAR_VISIBILITY_GLSL}
 attribute float magnitude;
 attribute vec3 starColor;
 uniform float uDpr;
@@ -47,14 +49,14 @@ varying float vAlpha;
 varying float vBright;
 void main() {
   gl_Position = directionPosition(position);
-  float visibility = 1.0 - smoothstep(uLimit - .25, uLimit + .1, magnitude);
-  vAlpha = visibility * uVisibility * vHemisphere * clamp(pow(10.0, -.07 * (magnitude - 1.0)), .62, 1.0);
+  vAlpha = skyFinalStarAlpha(magnitude,uLimit,uVisibility,vHemisphere);
   vBright = 1.0 - smoothstep(.0, 1.7, magnitude);
   gl_PointSize = max(2.1 * uDpr, (5.0 - .50 * magnitude) * uDpr);
   vColor = starColor;
 }`;
 
 export const starFragment = `
+${STAR_VISIBILITY_GLSL}
 uniform float uGround;
 uniform float uTerrain;
 varying vec3 vDirection;
@@ -66,7 +68,7 @@ void main() {
   float hill=.010+.007*sin(az*7.0+1.4)+.008*sin(az*3.0-1.0)+.003*sin(az*13.0);
   if(uGround>.5 && uTerrain>.5 && d.y<hill) discard;
   float r = length(gl_PointCoord - .5) * 2.0;
-  if (r > 1.0 || vAlpha < .005) discard;
+  if (r > 1.0 || vAlpha < STAR_ALPHA_DISCARD) discard;
   float core = 1.0 - smoothstep(.50, .92, r);
   float halo = exp(-r * r * 7.0) * .20 * vBright;
   gl_FragColor = vec4(vColor * 1.12, vAlpha * max(core, halo));
@@ -74,6 +76,14 @@ void main() {
 }`;
 
 export const lineVertex = `${directionVertex}
+#ifdef CONSTELLATION_VISIBILITY
+${STAR_VISIBILITY_GLSL}
+attribute float arcMagnitude;
+uniform float uLimit;
+uniform float uVisibility;
+uniform float uApplyStarVisibility;
+varying float vArcAlpha;
+#endif
 #ifndef UNIFORM_LINE_COLOR
 attribute vec3 lineColor;
 #endif
@@ -81,6 +91,9 @@ uniform float uUseTint;
 uniform vec3 uTint;
 varying vec3 vColor;
 void main() { gl_Position = directionPosition(position);
+  #ifdef CONSTELLATION_VISIBILITY
+  vArcAlpha=uApplyStarVisibility>.5?skyFinalStarAlpha(arcMagnitude,uLimit,uVisibility,1.0):1.0;
+  #endif
   #ifdef UNIFORM_LINE_COLOR
   vColor=uTint;
   #else
@@ -89,6 +102,11 @@ void main() { gl_Position = directionPosition(position);
 }
 `;
 export const lineFragment = `
+#ifdef CONSTELLATION_VISIBILITY
+${STAR_VISIBILITY_GLSL}
+uniform float uApplyStarVisibility;
+varying float vArcAlpha;
+#endif
 uniform float uAlpha;
 uniform float uGround;
 uniform float uTerrain;
@@ -109,6 +127,10 @@ void main() {
     float rim=mix(1.0,mix(.22,1.0,smoothstep(.015,.35,abs(facing))),uRimFade);
     alpha=(facing<0.0 ? uBackAlpha : 1.0)*rim;
   }
+  #ifdef CONSTELLATION_VISIBILITY
+  alpha*=vArcAlpha;
+  if(uApplyStarVisibility>.5&&alpha<STAR_ALPHA_DISCARD)discard;
+  #endif
   gl_FragColor = vec4(vColor, uAlpha * alpha);
   #include <colorspace_fragment>
 }`;

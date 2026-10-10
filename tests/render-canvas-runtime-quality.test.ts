@@ -10,6 +10,8 @@ import { createPointerGesture, reducePointerGesture } from '../src/render/Pointe
 import { sameRuntimeRenderQuality } from '../src/render/RenderQuality';
 import { cappedPixelRatio } from '../src/render/coordinates';
 import { applyMatrix } from '../src/core/math';
+import { finalStarAlpha, STAR_ALPHA_DISCARD } from '../src/render/star-visibility';
+import { canvasStarSymbol } from '../src/render/CanvasOverviewLayout';
 
 class FakeContext {
   transform = [1, 0, 0, 1, 0, 0];
@@ -56,11 +58,11 @@ const compiled = ts.transpileModule(`class Subject{${members.map(member => membe
   { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.None } }).outputText;
 let selectedKind: 'star' | 'body' = 'star';
 const Subject = new Function('sameRuntimeRenderQuality', 'canvasRuntimeRaster', 'CANVAS_RUNTIME_QUALITY_CAPABILITIES', 'reducePointerGesture', 'document',
-  'renderBudgetClass', 'cappedPixelRatio', 'window', 'resolveObjectDetails', 'resolveDisplayDirectionEqj', 'resolveCatalogStar', 'catalog', 'applyMatrix', compiled)
+  'renderBudgetClass', 'cappedPixelRatio', 'window', 'resolveObjectDetails', 'resolveDisplayDirectionEqj', 'resolveCatalogStar', 'catalog', 'applyMatrix', 'finalStarAlpha', 'STAR_ALPHA_DISCARD', 'canvasStarSymbol', compiled)
   (sameRuntimeRenderQuality, canvasRuntimeRaster, CANVAS_RUNTIME_QUALITY_CAPABILITIES, reducePointerGesture, document,
     renderBudgetClass, cappedPixelRatio, window,
     () => ({ id: selectedKind === 'star' ? 'hip:1' : 'body:Moon', kind: selectedKind, label: 'SELECTED', magnitude: 1 }),
-    () => [0, 0, 1], () => ({ nameEn: 'REQUESTED-SELECTED-SECONDARY' }), {}, applyMatrix);
+    () => [0, 0, 1], () => ({ nameEn: 'REQUESTED-SELECTED-SECONDARY' }), {}, applyMatrix, finalStarAlpha, STAR_ALPHA_DISCARD, canvasStarSymbol);
 const stubRenderer = (fields: Record<string, unknown>): Record<string, any> => Object.assign(new Subject(), fields);
 
 test('Canvas quality lowers only main backing density and keeps baseline label/HUD density for every pixel tier', () => {
@@ -172,7 +174,7 @@ test('actual Canvas resize uses the shared 720/coarse budget class while pixel-o
 });
 
 test('actual Canvas selected label preserves requested star secondary and body direction explanation under reductions', () => {
-  const renderer = stubRenderer({ context: new FakeContext(), appearance: { limitingMagnitude: 6.5, starVisibility: 1 },
+  const renderer = stubRenderer({ context: new FakeContext(), appearance: { limitingMagnitude: 6.5, starVisibility: 1 }, viewport: { radius: 200 },
     projectDirection: () => ({ x: 0, y: 0, radius: 0 }), pixel: () => ({ x: 100, y: 100 }), blocks: [], focusRequestedFor: null,
     runtimeQuality: { ...DEFAULT_RUNTIME_RENDER_QUALITY, hideOrdinarySecondaryLabels: true, ordinaryLabelBudgetScale: 0 } });
   const snapshot = { eqjToHorizontalGeometric: [[1, 0, 0], [0, 1, 0], [0, 0, 1]] };

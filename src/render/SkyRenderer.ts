@@ -20,7 +20,8 @@ import type { RefractedDisc } from './RefractedDisc';
 import { queueBufferUpdate } from './BufferUpdates';
 import { createArcProjector } from './ArcProjection';
 import { ArcKnotsCache } from './ArcKnotsCache';
-import { createSphericalArcBuffer,updateSphericalArcBuffer,writeConstellationHighlight,minorArcAltitudeCrossings,createMinorArcSampler,minorArcDirectionAt } from './SphericalArcBuffer';
+import { createSphericalArcBuffer,createSphericalArcScalarAttribute,updateSphericalArcBuffer,writeConstellationHighlight,minorArcAltitudeCrossings,createMinorArcSampler,minorArcDirectionAt } from './SphericalArcBuffer';
+import {finalStarAlpha,STAR_ALPHA_DISCARD} from './star-visibility';
 import type { SkyAppearance } from '../core/sky-appearance';
 import { earthDayUrl, earthNightUrl, earthCloudsUrl } from '../data/textures';
 import { moonColorUrl } from '../data/moon';
@@ -75,7 +76,9 @@ export class SkyRenderer {
   private readonly lineMaterial: THREE.ShaderMaterial;
   private readonly constellationLines: THREE.LineSegments;
   private readonly selectionLines: THREE.LineSegments;
-  private readonly arcBuffer=createSphericalArcBuffer({starCount:catalog.stars.length,lineIndices:catalog.lineIndices,figures:catalog.constellations,maxSegmentsPerArc:128,maxExtraKnotsPerArc:8});
+  private readonly arcBuffer=createSphericalArcBuffer({starCount:catalog.stars.length,lineIndices:catalog.lineIndices,figures:catalog.constellations,maxSegmentsPerArc:128,maxExtraKnotsPerArc:8,endpointAliases:true});
+  private readonly arcWeakMagnitudes=Float32Array.from({length:this.arcBuffer.arcCount},(_,arc)=>Math.max(catalog.magnitudes[catalog.lineIndices[arc*2]!]!,catalog.magnitudes[catalog.lineIndices[arc*2+1]!]!));
+  private readonly arcMagnitudes=createSphericalArcScalarAttribute(this.arcBuffer,this.arcWeakMagnitudes);
   private lastArcKey='';
   private readonly arcKnots=new ArcKnotsCache(catalog.lineIndices);
   private readonly arcPositionShadow=new Float32Array(this.arcBuffer.positions.length);
@@ -140,7 +143,6 @@ export class SkyRenderer {
   private gestureView:ViewMode|null=null;
   private readonly capturedPointers=new Set<number>();
   private contextLost=false;
-  private projectedStars: { id: ObjectId; x: number; y: number; magnitude: number }[] = [];
   private selectedLabelAnchorPixel:{x:number;y:number}|null=null;
   private selectionMarkerPixel:{x:number;y:number}|null=null;
   private readonly starDirections = this.arcBuffer.starDirections;
@@ -184,16 +186,20 @@ export class SkyRenderer {
     // All view modes and constellation segments share the original typed position buffer.
     const lineGeometry = new THREE.BufferGeometry();
     lineGeometry.setAttribute('position', geometry.getAttribute('position'));
+    const arcMagnitudeAttribute=new THREE.BufferAttribute(this.arcMagnitudes,1);
+    lineGeometry.setAttribute('arcMagnitude',arcMagnitudeAttribute);
     lineGeometry.setIndex(new THREE.BufferAttribute(this.arcBuffer.ordinaryIndex, 1).setUsage(THREE.DynamicDrawUsage));
     lineGeometry.setDrawRange(0,0);
-    this.lineMaterial = new THREE.ShaderMaterial({ defines:{UNIFORM_LINE_COLOR:1},vertexShader: lineVertex, fragmentShader: lineFragment, uniforms: { ...this.sharedUniforms, uAlpha: { value: .45 }, uUseTint: {value:1}, uTint:{value:new THREE.Vector3(.19,.23,.27)} }, transparent: true, depthWrite: false });
+    const lineVisibilityUniforms={uLimit:this.starMaterial.uniforms.uLimit!,uVisibility:this.starMaterial.uniforms.uVisibility!,uApplyStarVisibility:{value:0}};
+    this.lineMaterial = new THREE.ShaderMaterial({ defines:{UNIFORM_LINE_COLOR:1,CONSTELLATION_VISIBILITY:1},vertexShader: lineVertex, fragmentShader: lineFragment, uniforms: { ...this.sharedUniforms,...lineVisibilityUniforms, uAlpha: { value: .42 }, uUseTint: {value:1}, uTint:{value:new THREE.Vector3(.19,.23,.27)} }, transparent: true, depthWrite: false });
     this.constellationLines = new THREE.LineSegments(lineGeometry, this.lineMaterial);
     this.constellationLines.frustumCulled = false; this.constellationLines.renderOrder = 2; this.scene.add(this.constellationLines);
     const highlightGeometry = new THREE.BufferGeometry();
     highlightGeometry.setAttribute('position',geometry.getAttribute('position'));
+    highlightGeometry.setAttribute('arcMagnitude',arcMagnitudeAttribute);
     highlightGeometry.setIndex(new THREE.BufferAttribute(this.arcBuffer.highlightIndex,1).setUsage(THREE.DynamicDrawUsage));
     highlightGeometry.setDrawRange(0,0);
-    this.selectionLines = new THREE.LineSegments(highlightGeometry,new THREE.ShaderMaterial({defines:{UNIFORM_LINE_COLOR:1},vertexShader:lineVertex,fragmentShader:lineFragment,uniforms:{...this.sharedUniforms,uAlpha:{value:.85},uUseTint:{value:1},uTint:{value:new THREE.Vector3(.34,.48,.60)}},transparent:true,depthWrite:false}));
+    this.selectionLines = new THREE.LineSegments(highlightGeometry,new THREE.ShaderMaterial({defines:{UNIFORM_LINE_COLOR:1,CONSTELLATION_VISIBILITY:1},vertexShader:lineVertex,fragmentShader:lineFragment,uniforms:{...this.sharedUniforms,...lineVisibilityUniforms,uAlpha:{value:.85},uUseTint:{value:1},uTint:{value:new THREE.Vector3(.34,.48,.60)}},transparent:true,depthWrite:false}));
     this.selectionLines.frustumCulled=false;this.selectionLines.renderOrder=3;this.selectionLines.visible=false;this.scene.add(this.selectionLines);
 
     const refs = new THREE.BufferGeometry();
@@ -377,7 +383,7 @@ export class SkyRenderer {
     this.starMaterial.uniforms.uLimit!.value = appearance.limitingMagnitude;
     this.constellationLines.visible = state.layers.constellationLines;
     this.selectionLines.visible = !!this.canonicalSelected?.startsWith('constellation:') && this.selectionLines.geometry.drawRange.count>0;
-    this.lineMaterial.uniforms.uAlpha!.value = .42 * (state.presentation === 'explanation' ? 1 : Math.max(.03, skyVisibility));
+    this.lineMaterial.uniforms.uApplyStarVisibility!.value=appearance.visibilityApplied?1:0;
     const background = (this.background.material as THREE.ShaderMaterial).uniforms;
     background.uCameraRotation!.value.setFromMatrix4(this.camera.matrixWorld);
     background.uAspect!.value = this.width / this.height; background.uTanFov!.value = Math.tan(this.camera.fov * RAD / 2);
@@ -468,8 +474,9 @@ export class SkyRenderer {
     // Unused fixed interior slots are neither written by the curve module nor referenced
     // by current indices. If a later arc grows, its newly active slots are compared then.
     for(let arc=0;arc<this.arcBuffer.arcCount;arc++){
-      const count=this.arcBuffer.arcSegmentCounts[arc]!;if(count<=1)continue;
-      const from=(this.arcBuffer.starCount+arc*(this.arcBuffer.maxSegmentsPerArc-1))*3;compare(from,from+(count-1)*3);
+      const count=this.arcBuffer.arcSegmentCounts[arc]!;if(count===0)continue;
+      const from=(this.arcBuffer.starCount+arc*(this.arcBuffer.maxSegmentsPerArc-1))*3;if(count>1)compare(from,from+(count-1)*3);
+      if(this.arcBuffer.endpointAliasBase!=null){const alias=(this.arcBuffer.endpointAliasBase+arc*2)*3;compare(alias,alias+6);}
     }
     if(positionFirst>=0){queueBufferUpdate(positionAttribute,positionFirst,positionLast-positionFirst+1);this.arcUploadBytes+=(positionLast-positionFirst+1)*4;}
     const indexAttribute=this.constellationLines.geometry.index!;let first=-1,last=-1;
@@ -693,38 +700,42 @@ export class SkyRenderer {
   }
 
   private drawLabels(state: SimulationState, snapshot: ScienceSnapshot, skyVisibility: number): void {
-    const candidates: LabelCandidate[] = []; this.projectedStars = [];this.projectedBodies=[];this.selectedLabelAnchorPixel=null;this.selectionMarkerPixel=null;
+    const candidates: LabelCandidate[] = [];this.projectedBodies=[];this.selectedLabelAnchorPixel=null;this.selectionMarkerPixel=null;
     this.qualityBackLabelsSkipped=0;this.qualitySecondaryLabelsOmitted=0;
     const secondary=(id:string,selected:boolean,value:string|undefined):string|undefined=>{
       const result=runtimeLabelSecondary({id,selected},value,this.runtimeQuality);if(value&&!result)this.qualitySecondaryLabelsOmitted++;return result;
     };
-    const add = (id: string, text: string, eqj: Vec3, priority: number, secondary?: string, color?: string): void => {
+    const add = (id: string, text: string, eqj: Vec3, priority: number, secondary?: string, color?: string,visibility=1): void => {
       const p = this.projectDirection(eqj, state, id.startsWith('direction:'), id.startsWith('pole:') || id.startsWith('direction:')); if (!p) return;
       const selected=this.canonicalSelected===id;
       if(runtimeLabelIsHiddenBack({id,selected},p.facing,this.finite,this.runtimeQuality)){this.qualityBackLabelsSkipped++;return;}
       if(this.finite&&!selected&&!id.startsWith('direction:')&&!id.startsWith('pole:')&&Math.abs(p.facing)<.16) return;
       const effectiveSecondary=runtimeLabelSecondary({id,selected},secondary,this.runtimeQuality);if(secondary&&!effectiveSecondary)this.qualitySecondaryLabelsOmitted++;
-      candidates.push({ id, text, secondary:effectiveSecondary, x: p.x, y: p.y, priority:priority+(this.finite?p.facing*2:0), color, alpha: selected?Math.max(.6,p.alpha):p.alpha, selected });
+      candidates.push({ id, text, secondary:effectiveSecondary, x: p.x, y: p.y, priority:priority+(this.finite?p.facing*2:0), color, alpha: selected?Math.max(.6,p.alpha):p.alpha*visibility, selected });
       if(selected)this.selectedLabelAnchorPixel={x:p.x,y:p.y};
     };
     const limit = this.starMaterial.uniforms.uLimit!.value as number;
     for (const star of catalog.stars) {
       const selected = this.canonicalSelected === star.id;
-      if(!selected&&(!state.layers.brightStarNamesZh||!star.nameZh||star.magnitude>=3.5||star.magnitude>limit||skyVisibility<.05)) continue;
+      if(!selected&&(!state.layers.brightStarNamesZh||!star.nameZh||star.magnitude>=3.5)) continue;
+      const peakAlpha=finalStarAlpha(catalog.magnitudes[star.index]!,limit,skyVisibility);
+      if(!selected&&peakAlpha<STAR_ALPHA_DISCARD)continue;
       const eqj: Vec3 = [this.starDirections[star.index * 3]!, this.starDirections[star.index * 3 + 1]!, this.starDirections[star.index * 3 + 2]!];
       const p = this.projectDirection(eqj, state); if (!p) continue;
-      this.projectedStars.push({ id: star.id, x: p.x, y: p.y, magnitude: star.magnitude });
+      const visibleAlpha=peakAlpha*p.alpha,visible=visibleAlpha>=STAR_ALPHA_DISCARD;
+      if(!selected&&!visible)continue;
       if (selected || state.layers.brightStarNamesZh && star.nameZh && star.magnitude < 3.5) {
         if(runtimeLabelIsHiddenBack({id:star.id,selected},p.facing,this.finite,this.runtimeQuality)){this.qualityBackLabelsSkipped++;continue;}
         if(this.finite&&!selected&&Math.abs(p.facing)<.16) continue;
-        candidates.push({ id: star.id, text: star.nameZh || star.nameEn || star.id.toUpperCase(), secondary: secondary(star.id,selected,state.layers.secondaryNames ? star.nameEn : undefined), x: p.x, y: p.y, priority: selected ? 100 : 35 - star.magnitude, color: selected ? '#c8dfed' : '#b8bdc0', alpha: selected?Math.max(.6,p.alpha):p.alpha, selected });
+        candidates.push({ id: star.id, text: star.nameZh || star.nameEn || star.id.toUpperCase(), secondary: !visible&&selected?'仅作定位方向 · 当前模型隐藏星点':secondary(star.id,selected,state.layers.secondaryNames ? star.nameEn : undefined), x: p.x, y: p.y, priority: selected ? 100 : 35 - star.magnitude, color: selected ? '#c8dfed' : '#b8bdc0', alpha: selected?Math.max(.6,p.alpha):this.skyAppearance!.visibilityApplied?visibleAlpha:p.alpha, selected });
         if(selected)this.selectedLabelAnchorPixel={x:p.x,y:p.y};
       }
     }
     for (const c of catalog.constellations) {
       const selected=this.canonicalSelected===`constellation:${c.id}`;
       const direction=this.constellationDirections.get(c.id);
-      if(direction&&(selected||state.layers.constellationLabels&&(skyVisibility>.1||state.presentation==='explanation'))) add(`constellation:${c.id}`, c.nameZh, direction, selected ? 100 : 45, state.layers.secondaryNames ? c.nameEn : undefined,selected?'#c8dfed':undefined);
+      const visibility=this.constellationLabelVisibility(c);
+      if(direction&&(selected||state.layers.constellationLabels&&visibility>=STAR_ALPHA_DISCARD)) add(`constellation:${c.id}`, c.nameZh, direction, selected ? 100 : 45,selected&&visibility<STAR_ALPHA_DISCARD?'仅作定位方向 · 当前模型隐藏连线':state.layers.secondaryNames ? c.nameEn : undefined,selected?'#c8dfed':undefined,visibility);
     }
     for (const body of snapshot.bodies.filter(body => body.id === 'Sun' || body.id === 'Moon')) {
       const id=`body:${body.id}` as ObjectId,direction=resolveDisplayDirectionEqj(catalog,id,snapshot,state.viewMode)!;
@@ -759,6 +770,13 @@ export class SkyRenderer {
       const context = this.labels.canvas.getContext('2d')!; context.strokeStyle = '#c8dfed'; context.lineWidth = 1;
       context.beginPath(); context.arc(selected.x, selected.y, 7, 0, Math.PI * 2); context.stroke();
     }
+  }
+
+  private constellationLabelVisibility(figure:{lineStart:number,lineCount:number}):number {
+    if(!this.skyAppearance!.visibilityApplied)return 1;
+    let alpha=0;
+    for(let arc=figure.lineStart;arc<figure.lineStart+figure.lineCount;arc++)alpha=Math.max(alpha,finalStarAlpha(this.arcWeakMagnitudes[arc]!,this.skyAppearance!.limitingMagnitude,this.skyAppearance!.starVisibility));
+    return alpha;
   }
 
   getInteractionDiagnostics() {
@@ -830,7 +848,17 @@ export class SkyRenderer {
         nearHemisphere:this.finite?sphereFacing(worldDirection.toArray(),this.camera.position.toArray())>0:null,
         visible:!!(this.state&&this.projectDirection(eqj,this.state))};
     });
+    let magnitudeVisibleSourceArcCount=0,selectedMagnitudeVisibleSourceArcCount=0;
+    const selectedFigure=this.canonicalSelected?.startsWith('constellation:')?catalog.constellations.find(figure=>figure.id===this.canonicalSelected!.slice(14)):undefined;
+    for(let arc=0;arc<this.arcBuffer.arcCount;arc++){
+      const alpha=this.lineMaterial.uniforms.uApplyStarVisibility!.value===1?finalStarAlpha(this.arcWeakMagnitudes[arc]!,this.starMaterial.uniforms.uLimit!.value as number,this.starMaterial.uniforms.uVisibility!.value as number):1;
+      if(alpha>=STAR_ALPHA_DISCARD){magnitudeVisibleSourceArcCount++;if(selectedFigure&&arc>=selectedFigure.lineStart&&arc<selectedFigure.lineStart+selectedFigure.lineCount)selectedMagnitudeVisibleSourceArcCount++;}
+    }
     return {utDaysJ2000:this.snapshot?.utDaysJ2000??null,model:this.skyAppearance,refraction:this.refractionBridge.getDiagnostics(),
+      constellationVisibility:{applied:this.lineMaterial.uniforms.uApplyStarVisibility!.value===1,alphaDiscardThreshold:STAR_ALPHA_DISCARD,magnitudeVisibleSourceArcCount,selectedMagnitudeVisibleSourceArcCount,
+        countScope:'source endpoint magnitude alpha only; not screen or terrain visibility',magnitudeAttributeBytes:this.arcMagnitudes.byteLength,
+        magnitudeAttributeId:this.referenceId(this.constellationLines.geometry.getAttribute('arcMagnitude')),magnitudeAttributeVersion:(this.constellationLines.geometry.getAttribute('arcMagnitude') as THREE.BufferAttribute).version,
+        magnitudeAttributeShared:this.constellationLines.geometry.getAttribute('arcMagnitude')===this.selectionLines.geometry.getAttribute('arcMagnitude'),endpointAliasBytes:this.arcBuffer.arcCount*2*3*4},
       uniforms:{limitingMagnitude:this.starMaterial.uniforms.uLimit!.value as number,starVisibility:this.starMaterial.uniforms.uVisibility!.value as number,
         milkyWayContrast:uniforms.uMilkyWayContrast!.value as number,backgroundLinearRgb:(uniforms.uBackgroundLinearRgb!.value as THREE.Vector3).toArray(),horizonGlowLinearRgb:(uniforms.uHorizonGlowLinearRgb!.value as THREE.Vector3).toArray()},
       milkyWayEnabled:uniforms.uMilkyWayEnabled!.value===1,textureLoaded:uniforms.uHasMilkyWay!.value===1,
@@ -848,9 +876,8 @@ export class SkyRenderer {
   private pickStarAt(x:number,y:number):ObjectId|null {
     if(!this.state)return null;
     const limit=this.starMaterial.uniforms.uLimit!.value as number,visibility=this.starMaterial.uniforms.uVisibility!.value as number;
-    if(visibility<.05)return null;
     let hit:ObjectId|null=null,best=10;
-    for(const star of catalog.stars){if(star.magnitude>limit)continue;const i=star.index*3,p=this.projectDirection([this.starDirections[i]!,this.starDirections[i+1]!,this.starDirections[i+2]!],this.state);if(!p)continue;const distance=Math.hypot(p.x-x,p.y-y);if(distance<best){best=distance;hit=star.id;}}
+    for(const star of catalog.stars){const peakAlpha=finalStarAlpha(catalog.magnitudes[star.index]!,limit,visibility);if(peakAlpha<STAR_ALPHA_DISCARD)continue;const i=star.index*3,p=this.projectDirection([this.starDirections[i]!,this.starDirections[i+1]!,this.starDirections[i+2]!],this.state);if(!p||peakAlpha*p.alpha<STAR_ALPHA_DISCARD)continue;const distance=Math.hypot(p.x-x,p.y-y);if(distance<best){best=distance;hit=star.id;}}
     return hit;
   }
   private pickBodyAt(x:number,y:number):ObjectId|null {
@@ -962,7 +989,7 @@ export class SkyRenderer {
     const heap = (performance as Performance & { memory?: { usedJSHeapSize: number } }).memory?.usedJSHeapSize ?? null;
     return { samplingWindowSeconds: 0, frameMs: { p50: percentile(.5), p95: percentile(.95), p99: percentile(.99) }, drawCallsPerFrame: this.renderer.info.render.calls,
       visibleLabelCount: this.labels.visibleCount, textureCount: this.renderer.info.memory.textures, geometryCount: this.renderer.info.memory.geometries,
-      appOwnedGpuBytesEstimate: Math.round(textureBytes + this.canvas.width * this.canvas.height * 8 + this.arcBuffer.positions.byteLength + catalog.magnitudes.byteLength + catalog.colors.byteLength + this.arcBuffer.ordinaryIndex.byteLength + this.arcBuffer.highlightIndex.byteLength + this.referencePositions.byteLength + this.referenceColors.byteLength + this.referenceClasses.byteLength + 1_500_000), mainThreadJsHeapBytes: heap,
+      appOwnedGpuBytesEstimate: Math.round(textureBytes + this.canvas.width * this.canvas.height * 8 + this.arcBuffer.positions.byteLength + this.arcMagnitudes.byteLength + catalog.magnitudes.byteLength + catalog.colors.byteLength + this.arcBuffer.ordinaryIndex.byteLength + this.arcBuffer.highlightIndex.byteLength + this.referencePositions.byteLength + this.referenceColors.byteLength + this.referenceClasses.byteLength + 1_500_000), mainThreadJsHeapBytes: heap,
       measurementNotes: ['frameMs为最近240次render的CPU提交与标签耗时，非GPU帧时间或显示帧间隔。', `WebGL ${this.canvas.width}×${this.canvas.height}；DPR ${this.ratio.toFixed(2)}；GPU估算含纹理mipmap/几何/默认颜色与深度buffer，驱动内部开销未计。`, 'Canvas2D标签画布与至多4MiB glyph位图另计于rendererDiagnostics.labelRasterBytesTotal；不混作实测GPU显存。'] };
   }
   capture(appearance?:SkyAppearance): string {

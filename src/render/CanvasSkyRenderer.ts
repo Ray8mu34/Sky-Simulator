@@ -24,6 +24,7 @@ import { DEFAULT_RUNTIME_RENDER_QUALITY, renderBudgetClass } from '../platform/r
 import type { RuntimeRenderQuality } from '../platform/runtime-quality-contract';
 import { runtimeLabelSecondary, runtimeOrdinaryLabelBudget, sameRuntimeRenderQuality } from './RenderQuality';
 import { CANVAS_RUNTIME_QUALITY_CAPABILITIES, canvasRuntimeRaster } from './CanvasRuntimeQuality';
+import { finalStarAlpha, STAR_ALPHA_DISCARD } from './star-visibility';
 
 interface Viewport { centerX: number; centerY: number; radius: number; width: number; height: number; pixelRatio: number; compactHud: boolean; layoutRegion: Block | null }
 interface HitTarget { id: ObjectId; x: number; y: number; radius: number; magnitude?: number }
@@ -244,35 +245,38 @@ export class CanvasSkyRenderer implements RendererPort {
     ctx.beginPath(); ctx.arc(view.centerX, view.centerY, view.radius, 0, Math.PI * 2); ctx.fillStyle = gradient; ctx.fill();
     ctx.save(); ctx.beginPath(); ctx.arc(view.centerX, view.centerY, view.radius, 0, Math.PI * 2); ctx.clip();
 
-    if (state.layers.constellationLines && model.starVisibility > .0001) this.drawConstellationLines(state, snapshot, model.starVisibility, false);
+    if (state.layers.constellationLines) this.drawConstellationLines(state, snapshot, false);
     // M2 selection is a separate direction overlay, even when ordinary lines are hidden.
-    if (state.selected?.startsWith('constellation:')) this.drawConstellationLines(state, snapshot, 1, true);
+    if (state.selected?.startsWith('constellation:')) this.drawConstellationLines(state, snapshot, true);
     const labels: LabelCandidate[] = [];
     for (const star of catalog.stars) {
-      if (star.magnitude > model.limitingMagnitude || model.starVisibility <= .0001) continue;
+      const symbol = canvasStarSymbol(star.magnitude, view.radius);
+      const visibility = finalStarAlpha(star.magnitude, model.limitingMagnitude, model.starVisibility, 1, symbol.alpha);
+      if (visibility < STAR_ALPHA_DISCARD) continue;
       const projection = this.projectDirection(this.starDirection(star.index), snapshot);
       if (!projection) continue;
       const point = this.pixel(projection);
       if (this.blocked(point.x, point.y)) continue;
-      const symbol = canvasStarSymbol(star.magnitude, view.radius);
       // Symbol contrast is an explicit visual hierarchy, not a calibrated flux model.
-      ctx.globalAlpha = model.starVisibility * symbol.alpha; ctx.fillStyle = this.starCss[star.index]!;
+      ctx.globalAlpha = visibility; ctx.fillStyle = this.starCss[star.index]!;
       ctx.beginPath(); ctx.arc(point.x, point.y, symbol.radius, 0, Math.PI * 2); ctx.fill();
       this.stars.push({ id: star.id, ...point, radius: 11, magnitude: star.magnitude });
       if (state.layers.brightStarNamesZh && star.nameZh) labels.push({ id: star.id, text: starLabel(star),
         secondary: runtimeLabelSecondary({ id: star.id }, state.layers.secondaryNames ? star.nameEn : undefined, this.runtimeQuality), ...point, priority: 30 - star.magnitude,
-        color: '#cbd8e3', alpha: Math.max(.4, model.starVisibility) });
+        color: '#cbd8e3', alpha: model.visibilityApplied ? visibility : 1 });
     }
     ctx.globalAlpha = 1;
-    if (state.layers.constellationLabels && model.starVisibility > .0001) {
+    if (state.layers.constellationLabels) {
       for (const figure of catalog.constellations) {
+        const visibility = this.constellationLabelVisibility(figure, model);
+        if (visibility < STAR_ALPHA_DISCARD) continue;
         const id = `constellation:${figure.id}` as const;
         const direction = resolveDisplayDirectionEqj(catalog, id, snapshot, 'ground');
         const projection = direction ? this.projectDirection(direction, snapshot) : null;
         if (!projection) continue;
         const point = this.pixel(projection);
         if (this.blocked(point.x, point.y)) continue;
-        labels.push({ id, text: constellationLabel(figure), ...point, priority: 45, color: '#afbfce', alpha: Math.max(.4, model.starVisibility) });
+        labels.push({ id, text: constellationLabel(figure), ...point, priority: 45, color: '#afbfce', alpha: visibility });
       }
     }
     if (state.layers.sunMoon) this.drawBodyMarkers(snapshot, labels);
@@ -291,14 +295,29 @@ export class CanvasSkyRenderer implements RendererPort {
     if (this.samples.length > 240) this.samples.shift();
   }
 
-  private drawConstellationLines(state: SimulationState, snapshot: ScienceSnapshot, visibility: number, selectedOnly: boolean): void {
+  /** Constellation names follow the strongest surviving real endpoint pair, without changing their anchor. */
+  private constellationLabelVisibility(figure: { lineStart: number; lineCount: number }, model: SkyAppearance): number {
+    if (!model.visibilityApplied) return 1;
+    let visibility = 0;
+    for (let segment = figure.lineStart; segment < figure.lineStart + figure.lineCount; segment++) {
+      const a = catalog.lineIndices[segment * 2]!, b = catalog.lineIndices[segment * 2 + 1]!;
+      visibility = Math.max(visibility, finalStarAlpha(Math.max(catalog.stars[a]!.magnitude, catalog.stars[b]!.magnitude), model.limitingMagnitude, model.starVisibility));
+    }
+    return visibility;
+  }
+
+  private drawConstellationLines(state: SimulationState, snapshot: ScienceSnapshot, selectedOnly: boolean): void {
     const ctx = this.context;
+    const model = this.appearance!;
     for (const figure of catalog.constellations) {
       const selected = state.selected?.toLowerCase() === `constellation:${figure.id}`.toLowerCase();
       if (selectedOnly && !selected) continue;
-      ctx.strokeStyle = selectedOnly ? '#bbd9ef' : '#546c81'; ctx.lineWidth = selectedOnly ? 1.6 : .7; ctx.globalAlpha = visibility * (selectedOnly ? .85 : .5);
+      ctx.strokeStyle = selectedOnly ? '#bbd9ef' : '#546c81'; ctx.lineWidth = selectedOnly ? 1.6 : .7;
       for (let segment = figure.lineStart; segment < figure.lineStart + figure.lineCount; segment++) {
         const a = catalog.lineIndices[segment * 2]!, b = catalog.lineIndices[segment * 2 + 1]!;
+        const visibility = model.visibilityApplied ? finalStarAlpha(Math.max(catalog.stars[a]!.magnitude, catalog.stars[b]!.magnitude), model.limitingMagnitude, model.starVisibility) : 1;
+        if (visibility < STAR_ALPHA_DISCARD) continue;
+        ctx.globalAlpha = visibility * (selectedOnly ? .85 : .5);
         const arc = clipSampleCanvasSkyArcEnu(applyMatrix(snapshot.eqjToHorizontalGeometric, this.starDirection(a)), applyMatrix(snapshot.eqjToHorizontalGeometric, this.starDirection(b)), this.refractionProfile!);
         this.cappedArcCount += arc.sampling.capLimited ? 1 : 0;
         this.ambiguousArcCount += arc.sampling.ambiguousMinorArc ? 1 : 0;
@@ -345,7 +364,8 @@ export class CanvasSkyRenderer implements RendererPort {
     else if (!details) this.focusReason = '未找到该对象，无法标记方向。';
     else if (!projection) this.focusReason = this.belowHorizonReason(snapshot);
     else if (this.selectedPoint && this.blocked(this.selectedPoint.x, this.selectedPoint.y)) this.focusReason = '所选方向被面板遮挡，请收起面板查看。';
-    else this.focusReason = details.kind === 'star' && (details.magnitude! > this.appearance!.limitingMagnitude || this.appearance!.starVisibility <= .0001)
+    else this.focusReason = details.kind === 'star' && finalStarAlpha(details.magnitude!, this.appearance!.limitingMagnitude, this.appearance!.starVisibility, 1,
+      canvasStarSymbol(details.magnitude!, this.viewport.radius).alpha) < STAR_ALPHA_DISCARD
       ? '所选仅作方向标记；当前可见性模型已隐藏该星点。' : '已标记所选方向；高亮不保证肉眼可见。';
     if (!details || !this.selectedPoint || this.blocked(this.selectedPoint.x, this.selectedPoint.y)) return;
     const ctx = this.context, point = this.selectedPoint;
@@ -488,7 +508,7 @@ export class CanvasSkyRenderer implements RendererPort {
       constellationArcSampling: { desiredMaxAngularStepDeg: this.refractionProfile?.identity === false ? 1 : 3, maxSegmentsPerArc: 64, cappedArcCount: this.cappedArcCount,
         ambiguousArcCount: this.ambiguousArcCount, mandatoryKnotBudgetExceededCount: this.arcKnotBudgetExceededCount, actualMaximumAngularStepDeg: this.maximumArcStepDeg,
         scope: 'Geometric minor-arc sampling; finite angular budget, not a bound on screen-pixel error.' },
-      starSymbolContrast: 'base magnitude contrast × continuous small-chart weak-star alpha × same appearance.starVisibility; qualitative display hierarchy',
+      starSymbolContrast: 'shared magnitude visibility fade × appearance.starVisibility × existing magnitude/small-chart symbol contrast; qualitative display hierarchy',
       starSymbolExamples: [0, 3, 6].map(magnitude => ({ magnitude, ...canvasStarSymbol(magnitude, this.viewport.radius) })), teachingLabelBudget: canvasTeachingLabelBudget(this.viewport.radius, this.budgetMobile()),
       highlightedConstellationIds: this.canonicalSelected?.startsWith('constellation:') ? [this.canonicalSelected.slice(14)] : [],
       activePointerCount: this.gesture.pointers.size, gestureMode: gestureMode(this.gesture), stageInputEnabled: this.stageInputEnabled,

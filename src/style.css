@@ -123,20 +123,22 @@ details:not([open]) > summary { padding-bottom: 0; }
 .layer-toggle { display: flex; align-items: center; gap: 4px; min-height: 24px; color: #c2ccd2; cursor: pointer; line-height: 1.2; }
 .layer-toggle input { accent-color: #839dab; width: 12px; height: 12px; margin: 0; flex: none; }
 .layer-toggle span { font-size: .94em; }
+.layer-toggle-wide { grid-column: 1 / -1; }
 .layer-toggle[hidden] { display: none; }
 .layer-toggle.is-unavailable { color: #6e7e87; cursor: default; }
 .layer-toggle.is-unavailable input { opacity: .45; }
 .advanced-layers { margin-top: 3px; }
 .advanced-layers > summary { font-size: .92em; color: #91a3af; }
-.appearance-controls { margin-top: 4px; }
 .appearance-controls > summary { font-size: .92em; color: #aebcc5; }
+#sky-appearance-state { margin-left: 5px; color: #97a3ac; font-size: .82em; font-weight: 400; }
+.appearance-actions { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4px; margin-top: 4px; }
+.appearance-actions button { font-size: .9em; padding-inline: 2px; }
+#sky-appearance-scope { min-height: 3.1em; }
 .appearance-heading { display: flex; justify-content: space-between; gap: 5px; margin-top: 4px; color: #97a3ac; font-size: .9em; }
 .appearance-heading output { color: #c0cad0; font-variant-numeric: tabular-nums; }
 .appearance-presets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
 .appearance-presets button { padding-inline: 2px; font-size: .9em; }
 #sky-appearance-values { white-space: pre-line; font-variant-numeric: tabular-nums; }
-#sky-observe-appearance { width: 100%; margin-top: 5px; font-size: .9em; }
-#sky-observe-appearance[hidden] { display: none; }
 .appearance-model-details > summary { font-size: .86em; }
 .refraction-controls { margin-top: 4px; }
 .refraction-controls > summary { font-size: .92em; color: #aebcc5; }
