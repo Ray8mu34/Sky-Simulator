@@ -1,17 +1,17 @@
 # sky.zjuaaa.cn 部署与维护
 
-网站：<https://sky.zjuaaa.cn/>。2026-10-10功能更新的Web构建ID为 `8f5e0eb7b50ac016`，入口模块 `index-w03ylnK8.js`，SHA256 `2c09b21b86665420102b3c426f4cb8babcfa3d0e2e6b364e9bc1e004d5338699`。新增肉眼识星与透明地面，详见[功能更新](UPDATES.md)。原v0.1.0冻结发行附件保持不变，服务器保留其构建 `2966df95ea4fbc32` 供回滚。
+网站：<https://sky.zjuaaa.cn/>。2026-10-21更新的Web构建ID为 `d2eae3b97390d5a0`，入口模块 `index-CFbwIdoQ.js`，SHA256 `90b6c109c12b509c1e7686d2368b230b70a7210d33e3ab2c47e4e5510209c8af`。已发布第一至第七批功能；第八批仅保留规划，尚未实施。原v0.1.0冻结发行附件保持不变，服务器保留上一构建 `8f5e0eb7b50ac016` 供回滚。
 
 ## 独立项目边界
 
 |内容|位置或规则|
 |---|---|
-|静态发行目录|`/srv/apps/sky-simulator/releases/8f5e0eb7b50ac016/`|
+|静态发行目录|`/srv/apps/sky-simulator/releases/d2eae3b97390d5a0/`|
 |当前入口|`/srv/apps/sky-simulator/current`，指向上述目录的相对符号链接|
 |Nginx配置|`/etc/nginx/sites-available/sky-simulator`，同名sites-enabled链接|
 |源码配置副本|仓库 `deploy/nginx/sky-simulator.conf`|
 |ACME验证根|`/srv/data/sky-simulator/acme/`|
-|部署记录|`/srv/data/sky-simulator/deployments/20261010/`；初次记录在 `20261005/`|
+|部署记录|`/srv/data/sky-simulator/deployments/20261021/`；历史记录在 `20261010/` 和 `20261005/`|
 |TLS证书|`/etc/letsencrypt/live/sky.zjuaaa.cn/`，禁止公开私钥|
 |日志|`/var/log/nginx/sky-simulator-access.log`、`sky-simulator-error.log`|
 
@@ -52,3 +52,11 @@ HTTP保留本项目 `/.well-known/acme-challenge/` 路由，其他请求301到HT
 新Web包在开发机完成类型检查、构建、55项定向CPU测试和实际浏览器功能检查后，通过SSH上传；包SHA256为 `a20a517845f324b2504da56207b2f516cddf323960b632d47650c85ba0dd7f31`。服务器校验后切换current符号链接，保留上一完整版本及其hash资源；新目录含兼容资源和gzip约14 MiB。
 
 公网Chrome验证入口模块SHA与本地构建一致，四视图正常、UTC保持一致，离线就绪后关闭页面、断网重开返回Service Worker的200与同一build ID。Nginx配置前后hash一致，未重启既有服务。官网与lab保持200；flower在更新前已502，更新后未改变。浏览器证据和静态审计原始结果保存在本地 `_local-archive/sky-visibility-20261010/`，没有上传开发中间材料到站点。
+
+## 2026-10-21：第一至第七批功能部署
+
+生产构建与便携版构建成功，447项自动化测试全部通过。目录扩展、探索工具、课程与设备浏览器检查通过，覆盖WebGL、适用的Canvas回退及便携版离线运行。第八批只包含规划文档，未实施。
+
+部署包SHA256为 `cb563c5f77405966294718f5fa9c54dc42f50fc47a8df7e5e8b17b59ab3d3381`。服务器核对哈希后建立独立release，保留旧hash资源并生成gzip副本，原子切换current；保留完整上一版本。全局及所有站点Nginx配置哈希一致，没有重启其他服务。
+
+公网Chrome确认入口模块SHA256与本地一致，四视图绘制及UTC一致、无页面脚本错误。离线资源就绪后关闭页面并断网重开，Service Worker返回200且构建ID一致。证据位于本地 `_local-archive/deployment-20261021/browser/report.json`。这次检查不代表实体移动设备、完整兼容性矩阵或长时间性能测试通过。

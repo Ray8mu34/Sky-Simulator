@@ -51,7 +51,7 @@ test('resolver sends one frozen canonical M5B astrometry record; unsupported and
   const a = targetFor('hip:11767'), b = targetFor('hyg:11734'); assert.deepEqual(a, b);
   assert.ok(Object.isFrozen(a)); assert.equal(a.kind, 'star');
   if (a.kind === 'star') { assert.ok(Object.isFrozen(a.astrometry)); assert.deepEqual(Object.keys(a.astrometry).sort(), ['decDeg', 'distancePc', 'id', 'pmDecMasYr', 'pmRaCosDecMasYr', 'qualityFlags', 'raHours', 'radialVelocityKmS']); }
-  for (const [id, reason] of [[null, 'no-selection'], ['constellation:UMi', 'constellation'], ['body:Venus', 'undrawn-body'], ['hip:999999', 'unknown-object']] as const) {
+  for (const [id, reason] of [[null, 'no-selection'], ['constellation:UMi', 'constellation'], ['messier:31', 'unknown-object'], ['hip:999999', 'unknown-object']] as const) {
     const result = resolveObjectDayTarget(catalog, id); assert.equal(result.available, false); if (!result.available) assert.equal(result.reason, reason);
   }
   const badCatalog = { ...catalog, stars: [{ ...stars[0]!, decDeg: NaN }] };
@@ -91,7 +91,7 @@ test('one mixed LRU retains one Sun computation, stable frozen views, correct ev
   const fresh = createDayEventService(), sentinel = Error('cancel at yield');
   await assert.rejects(fresh.computeObjectCooperatively(state, moon, async () => { throw sentinel; }), error => error === sentinel);
   assert.equal(fresh.diagnostics().cacheEntries, 0); assert.equal(fresh.diagnostics().computations, 0);
-  assert.throws(() => fresh.computeObject(state, { kind: 'body', id: 'body:Venus' } as unknown as ObjectDayTarget), RangeError);
+  assert.throws(() => fresh.computeObject(state, { kind: 'body', id: 'body:Pluto' } as unknown as ObjectDayTarget), RangeError);
   assert.equal(fresh.diagnostics().cacheEntries, 0);
   assert.throws(() => createDayEventService({ maxEntries: 65 }), RangeError);
 });

@@ -128,7 +128,7 @@ test('Canvas activation failure during context loss is explicit and every unavai
   assert.equal(host.getMoonLoupeDiagnostics(), null); assert.ok(host.getAssetStatus().errors.length);
   assert.doesNotThrow(() => { host.resize(); host.setMoonLoupeViewport(null); host.render(createDefaultState(), {} as Parameters<RendererPort['render']>[1]); host.getMetrics(); });
   assert.equal(host.focusSelection(createDefaultState(), {} as Parameters<RendererPort['render']>[1]), false);
-  assert.throws(() => host.capture(), /二维方位图也暂不可用/);
+  assert.throws(() => host.capture(), /星空画面暂时不可用，请刷新页面重试/);
   env.webgl[0].context?.('restored'); assert.equal(host.status.available, true);
   assert.equal(host.kind, 'webgl2'); assert.equal(env.webgl.length, 1); host.dispose();
 });

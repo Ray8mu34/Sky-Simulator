@@ -102,14 +102,15 @@ test('actual labels and native star pick agree through the soft fade, and terrai
   const mag=2.84,catalog={stars:[{id:'hip:1',index:0,magnitude:mag,nameZh:'测试星'}],magnitudes:new Float32Array([mag]),constellations:[]};
   const hillHeight=(d:THREE.Vector3)=>{const a=Math.atan2(d.x,-d.z);return .010+.007*Math.sin(a*7+1.4)+.008*Math.sin(a*3-1)+.003*Math.sin(a*13);};
   const Subject=members(['displayVector','projectDirection','drawLabels','pickStarAt','constellationLabelVisibility'],{THREE,catalog,displayDirection,asThree:(v:number[])=>new THREE.Vector3(...v),hillHeight,rayHitsSphere,sphereFacing,
-    finalStarAlpha,STAR_ALPHA_DISCARD,runtimeLabelSecondary,runtimeLabelIsHiddenBack,runtimeOrdinaryLabelBudget,resolveDisplayDirectionEqj:()=>null});
+    finalStarAlpha,STAR_ALPHA_DISCARD,runtimeLabelSecondary,runtimeLabelIsHiddenBack,runtimeOrdinaryLabelBudget,resolveDisplayDirectionEqj:()=>null,
+    solarObjects:[],deepSkyObjects:[],readSkyOcclusions:()=>[],landscapeAlpha:()=>0,landscapeState:()=>({current:null}),RAD:Math.PI/180});
   const state=createDefaultState();state.layers.terrain=false;state.layers.horizon=false;state.layers.celestialPoles=false;state.layers.brightStarNamesZh=true;
   const angle=-10*Math.PI/180,direction=[0,Math.cos(angle),Math.sin(angle)],camera=new THREE.PerspectiveCamera(20,1000/720,.01,1000);
   camera.lookAt(0,Math.sin(angle),-Math.cos(angle));camera.updateMatrixWorld();
   let labels:any[]=[];
   const subject=new Subject();Object.assign(subject,{state,camera,width:1000,height:720,finite:false,frame:EQJ_TO_THREE,refractionProfile:deriveRefractionProfile(createRefractionDescriptor({...state.environment,refraction:'none'})),
     starDirections:new Float32Array(direction),canonicalSelected:null,constellationDirections:new Map(),starMaterial:{uniforms:{uLimit:{value:2.8},uVisibility:{value:1}}},skyAppearance:{visibilityApplied:true,limitingMagnitude:2.8,starVisibility:1},
-    runtimeQuality:DEFAULT_RUNTIME_RENDER_QUALITY,budgetClass:'desktop',bodies:new Map(),groundDiscs:new Map(),labels:{draw:(value:any[])=>labels=value}});
+    runtimeQuality:DEFAULT_RUNTIME_RENDER_QUALITY,budgetClass:'desktop',bodies:new Map(),groundDiscs:new Map(),labels:{canvas:{getContext:()=>({})},draw:(value:any[])=>labels=value}});
   const snapshot={bodies:[]};
   const projected=subject.projectDirection(direction,state);assert.ok(projected&&projected.direction.y<0);
   subject.drawLabels(state,snapshot,1);assert.equal(labels.length,1);assert.ok(labels[0].alpha>=STAR_ALPHA_DISCARD);

@@ -5,6 +5,10 @@ import { catalog } from '../data/catalog';
 import { searchObjects } from '../data/search';
 import type { ObjectSearchResult } from '../data/search';
 import { resolveObjectDetails } from '../core/object-details';
+import { resolveDeepSky, deepSkyTypeLabel } from '../data/deep-sky';
+import { deepSkyImages } from '../data/deep-sky-images';
+import { mountExplorationControls } from './exploration-controls';
+import { mountCourseEquipment } from './course-equipment-controls';
 import type { TeachingData } from '../core/teaching';
 import { mountTeachingControls } from './teaching-controls';
 import type { MoonLoupeInfo } from './teaching-controls';
@@ -37,23 +41,31 @@ export function setAvailableViews(views: readonly ViewMode[]): void { availableV
 
 type LayerDefinition = { key: keyof LayerState; label: string; tip: string; views?: readonly ViewMode[]; advanced?: boolean; inverse?: boolean };
 const layerDefinitions: readonly LayerDefinition[] = [
-  { key: 'constellationLines', label: '星座连线', tip: '来自固定星文化版本的方向连线，不表示恒星间的物理连接。' },
-  { key: 'constellationLabels', label: '星座名称', tip: '星座名称与连线锚点；背面与被遮挡标签由渲染器筛选。' },
-  { key: 'brightStarNamesZh', label: '恒星中文名', tip: '经稳定星表编号对应的常用亮星中文名。' },
-  { key: 'sunMoon', label: '太阳 / 月球', tip: '地表为站心，外部视图为地心；日月角径来自同一快照。' },
-  { key: 'milkyWay', label: '银河', tip: '静态J2000银河背景，与恒星共用方向变换；扩展年代不模拟银河自身演化。' },
-  { key: 'atmosphere', label: '大气', tip: '太阳高度驱动的天空明暗与地球薄大气近似，不是天气预报。' },
-  { key: 'terrain', label: '地面透明（看地平线下）', tip: '只移除示意地面的遮挡，不改变天体高度、肉眼可见性或升落预报。地平参考线独立。', views: ['ground'], inverse: true },
-  { key: 'earthClouds', label: '云层', tip: '静态云层纹理，不是实时云图。', views: ['space', 'globe', 'horizon'] },
-  { key: 'earthDay', label: '地球日景', tip: '静态日景贴图；关闭保留受光球体，云层、夜灯与大气独立。', views: ['space', 'globe', 'horizon'] },
-  { key: 'earthNightLights', label: '夜景灯光', tip: '静态地球夜灯，只在背光区域显示。', views: ['space', 'globe', 'horizon'] },
-  { key: 'secondaryNames', label: '外文名称', tip: '外文名称增加标签密度；教学演示建议按需打开。', advanced: true },
-  { key: 'ecliptic', label: '黄道', tip: '太阳周年视运动的参考大圆，不是地球赤道。', advanced: true },
+  { key: 'constellationLines', label: '星座连线', tip: '显示星座轮廓。' },
+  { key: 'constellationLabels', label: '星座名称', tip: '显示星座名称。' },
+  { key: 'brightStarNamesZh', label: '恒星中文名', tip: '显示亮星的常用中文名。' },
+  { key: 'sunMoon', label: '太阳 / 月球', tip: '显示太阳和月球。' },
+  { key: 'planets', label: '五大行星', tip: '显示水星、金星、火星、木星和土星。' },
+  { key: 'deepSky', label: '深空目录', tip: '完整星图显示Messier目录符号；肉眼模式仅标示选中目标。' },
+  { key: 'motionTrack', label: '所选目标轨迹', tip: '地心背景轨迹：行星和太阳前后90天，月球前后3.5天；不表示当地周日运动。' },
+  { key: 'chineseSky', label: '中国星官', tip: '传统中国星官连线与名称，来自Stellarium v24.4。' },
+  { key: 'constellationBoundaries', label: '星座边界', tip: '国际天文学联合会88星座区域边界。', advanced: true },
+  { key: 'equatorialGrid', label: '赤道网格', tip: 'J2000赤道网格，刻度为赤经角度。', advanced: true },
+  { key: 'horizontalGrid', label: '地平网格', tip: '当地几何方位角与高度角网格。', advanced: true },
+  { key: 'eclipticGrid', label: '黄道网格', tip: '当日黄道坐标网格。', advanced: true },
+  { key: 'milkyWay', label: '银河', tip: '显示银河。' },
+  { key: 'atmosphere', label: '大气', tip: '显示日光、月光与光污染对天空亮度的影响。' },
+  { key: 'terrain', label: '地面透明', tip: '透过地面查看地平线下的天体。', views: ['ground'], inverse: true },
+  { key: 'earthClouds', label: '云层', tip: '显示地球云层。', views: ['space', 'globe', 'horizon'] },
+  { key: 'earthDay', label: '地球日景', tip: '显示地球表面。', views: ['space', 'globe', 'horizon'] },
+  { key: 'earthNightLights', label: '夜景灯光', tip: '显示地球夜半球的城市灯光。', views: ['space', 'globe', 'horizon'] },
+  { key: 'secondaryNames', label: '外文名称', tip: '显示外文名称。', advanced: true },
+  { key: 'ecliptic', label: '黄道', tip: '太阳在天球上一年运行的路径。', advanced: true },
   { key: 'celestialEquator', label: '天赤道', tip: '地球赤道在天球上的投影。', advanced: true },
-  { key: 'celestialPoles', label: '天极 / 地轴', tip: '地球自转轴方向。当地天顶只有在极点才与天极重合。', advanced: true },
+  { key: 'celestialPoles', label: '天极 / 地轴', tip: '显示地球自转轴及南北天极。', advanced: true },
   { key: 'horizon', label: '地平参考', tip: '垂直当地天顶的平面；方位北0°、东90°。', advanced: true },
   { key: 'meridian', label: '子午圈', tip: '通过南北方向、天顶与天极的参考大圆。', advanced: true },
-  { key: 'backHemisphere', label: '背面半球', tip: '显示远侧半球星点与细线；远侧文字仍需要遮挡控制。', views: ['globe', 'horizon'], advanced: true },
+  { key: 'backHemisphere', label: '背面半球', tip: '显示天球另一侧的恒星与参考线。', views: ['globe', 'horizon'], advanced: true },
 ];
 
 function layerHtml(layer: LayerDefinition): string {
@@ -62,7 +74,6 @@ function layerHtml(layer: LayerDefinition): string {
 function pad(n: number): string { return String(n).padStart(2, '0'); }
 function yearText(n: number): string { return n < 0 ? `-${String(-n).padStart(4, '0')}` : String(n).padStart(4, '0'); }
 function degrees(n: number | undefined): string { return n === undefined || !Number.isFinite(n) ? '—' : `${n.toFixed(1)}°`; }
-function bytes(n: number | null | undefined): string { return n == null ? '未测' : `${(n / 1048576).toFixed(1)} MiB`; }
 
 export interface Controls {
   update(snapshot: ScienceSnapshot, metrics?: Partial<RuntimeMetrics>, teaching?: TeachingData): void;
@@ -98,33 +109,34 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
         <section class="control-section">
           <div id="sky-graphics-notice" role="status" aria-live="polite" hidden><p class="graphics-message tiny-note"></p><p class="graphics-boundary tiny-note"></p><button id="sky-retry-3d" type="button" data-action="retry-3d">重试三维</button></div>
           <div class="view-switch" role="group" aria-label="视角">${availableViews.map((mode) => `<button type="button" data-view="${mode}">${viewNames[mode]}</button>`).join('')}</div>
-          <div class="presentation-row"><label for="sky-presentation">显示</label><select id="sky-presentation"><option value="observation">观察模式</option><option value="explanation">原理模式</option></select><select id="sky-density" aria-label="界面密度"><option value="teaching">教学</option><option value="reference">参考</option></select></div>
+          <div class="presentation-row"><label for="sky-presentation">显示</label><select id="sky-presentation"><option value="observation">肉眼星空</option><option value="explanation">完整星图</option></select><select id="sky-density" aria-label="界面密度"><option value="teaching">教学</option><option value="reference">参考</option></select></div>
           <div class="reference-lock-row" hidden><label for="sky-reference-lock">参考系</label><select id="sky-reference-lock" aria-label="外部视角参考系"></select></div>
           <p class="mode-note" aria-live="polite"></p>
         </section>
         <section class="control-section object-section" aria-label="搜索与选中对象">
-          <form id="sky-search-form" role="search"><input id="sky-search" type="search" autocomplete="off" placeholder="搜索 · 名称 / HIP" aria-label="搜索恒星、星座、太阳或月球" aria-controls="sky-search-results" aria-expanded="false"></form>
+          <form id="sky-search-form" role="search" novalidate><input id="sky-search" type="search" autocomplete="off" placeholder="搜索 · 名称 / HIP / M31" aria-label="搜索恒星、星座、日月、行星或Messier天体" aria-controls="sky-search-results" aria-expanded="false"><button id="sky-clear-search" type="button" aria-label="清空搜索" hidden>×</button></form>
           <div id="sky-search-results" class="search-results" role="listbox" aria-label="搜索结果" hidden></div><p class="search-empty tiny-note" hidden>未找到匹配对象。</p>
           <div class="selected-object" hidden>
             <div class="object-heading"><strong class="object-label"></strong><button type="button" data-action="clear-selection" aria-label="取消选择">×</button></div>
             <p class="object-epoch tiny-note"></p>
-            <dl class="object-coordinates"><dt>RA</dt><dd class="object-ra"></dd><dt>Dec</dt><dd class="object-dec"></dd><dt title="地点站心几何高度">几何高</dt><dd class="object-alt"></dd><dt title="地点站心视高度，所选折射近似">视高度</dt><dd class="object-apparent-alt"></dd><dt>方位</dt><dd class="object-az"></dd></dl><p class="object-observer-scope tiny-note" hidden></p>
+            <dl class="object-coordinates"><dt>RA</dt><dd class="object-ra"></dd><dt>Dec</dt><dd class="object-dec"></dd><dt title="天体与当地地平线的夹角">几何高</dt><dd class="object-alt"></dd><dt title="计入大气折射后的高度">视高度</dt><dd class="object-apparent-alt"></dd><dt>方位</dt><dd class="object-az"></dd></dl><p class="object-observer-scope tiny-note" hidden></p>
             <p class="object-magnitude tiny-note"></p><p class="object-visibility tiny-note"></p>
-            <div class="object-actions"><button type="button" data-action="focus-selection" title="定位到可见区域；地表地景仍可能遮挡低于地平的对象" aria-label="定位到可见区域">定位</button><details class="object-notes-details"><summary>说明</summary><p class="object-notes tiny-note"></p></details></div>
+            <p class="object-catalog-data tiny-note" hidden></p>
+            <details class="object-image-details" hidden><summary>观测图像</summary><figure class="object-image"><img alt="" loading="lazy"><figcaption class="tiny-note"></figcaption></figure></details>
+            <div class="object-actions"><button type="button" data-action="focus-selection" title="将天体移至视野中央" aria-label="定位到可见区域">定位</button><details class="object-notes-details"><summary>说明</summary><p class="object-notes tiny-note"></p></details></div>
           </div>
         </section>
         <section class="control-section time-section"></section>
         <section class="control-section observer-section">
           <div class="section-heading"><h2>观测地点</h2><span>东经为正</span></div>
           <select id="sky-city" aria-label="地点预设">${cities.map((city, i) => `<option value="${i}">${city.name}</option>`).join('')}<option value="custom">自定义</option></select>
-          <p class="tiny-note city-zone-policy">城市只换地点；显示时区由时间栏设置。</p>
-          <details class="custom-observer"><summary>经纬度 / 海拔</summary><form id="sky-observer-form" class="observer-form"><label for="sky-latitude">纬度 °</label><input id="sky-latitude" type="number" min="-90" max="90" step="any" required><label for="sky-longitude">东经 °</label><input id="sky-longitude" type="number" min="-180" max="180" step="any" required><label for="sky-height">海拔 m</label><input id="sky-height" type="number" min="-500" max="100000" step="any" required><button type="submit">应用地点</button></form><p class="tiny-note">地点与时区分别设置。</p></details>
+          <p class="tiny-note city-zone-policy">时区：在时间设置中调整。</p>
+          <details class="custom-observer"><summary>经纬度 / 海拔</summary><form id="sky-observer-form" class="observer-form" novalidate><label for="sky-latitude">纬度 °</label><input id="sky-latitude" type="number" min="-90" max="90" step="any" required><label for="sky-longitude">东经 °</label><input id="sky-longitude" type="number" min="-180" max="180" step="any" required><label for="sky-height">海拔 m</label><input id="sky-height" type="number" min="-500" max="100000" step="any" required><button type="submit">应用地点</button></form></details>
           <div class="body-readouts"><span class="sun-readout">太阳 几何 — · 视高度 —</span><span class="moon-readout">月球 几何 — · 视高度 —</span><span class="phase-readout">月面照亮 —</span></div>
         </section>
-        <details class="control-section layer-section" open><summary>显示图层</summary><p id="sky-layer-capabilities" class="tiny-note" hidden>2D中灰色图层不可用；方位与地平边界固定显示。</p><div class="layer-grid">${layerDefinitions.filter((layer) => !layer.advanced).map(layerHtml).join('')}</div><p id="sky-ground-transparency-note" class="tiny-note"></p><details class="advanced-layers"><summary>参考线 / 名称</summary><div class="layer-grid">${layerDefinitions.filter((layer) => layer.advanced).map(layerHtml).join('')}</div><p class="tiny-note">连线是方向图样；云层与灯光为静态素材。</p></details></details>
+        <details class="control-section layer-section" open><summary>显示图层</summary><p id="sky-layer-capabilities" class="tiny-note" hidden>2D中灰色图层不可用；方位与地平边界固定显示。</p><div class="layer-grid">${layerDefinitions.filter((layer) => !layer.advanced).map(layerHtml).join('')}</div><p id="sky-ground-transparency-note" class="tiny-note"></p><details class="advanced-layers"><summary>参考线 / 名称</summary><div class="layer-grid">${layerDefinitions.filter((layer) => layer.advanced).map(layerHtml).join('')}</div></details></details>
         <details class="control-section scene-section"></details>
-        <details class="control-section performance-section"><summary>运行数据</summary><dl class="metrics"><dt>帧间隔 p50 / p95 / p99</dt><dd class="metric-frame">未测</dd><dt>绘制 / 标签 / 待处理</dt><dd class="metric-calls">未测</dd><dt>纹理 / 几何</dt><dd class="metric-resources">未测</dd><dt>应用 GPU 估算</dt><dd class="metric-gpu">未测</dd><dt>主线程 / Worker 堆</dt><dd class="metric-heap">未测</dd></dl><p class="metric-notes tiny-note">浏览器与驱动内存另计。</p></details>
-        <details class="control-section help-section"><summary>操作与科学口径</summary><p class="gesture-help">拖动调整视线，滚轮缩放。</p><p>时间、地点和图层在视角间共用；切换视角保留各自相机。控件区可上下滚动，触摸不会转动天空。</p><p>方位从北向东增加。几何高度不含折射，视高度使用所选近似；两者都是观测地点读数。外部三视图保持几何方向，近地平现场大气可能与近似显著不同。</p><p>天文纪年 0 是公元前1年，−1 是公元前2年。使用前推格里高利历；范围 −2000 至 +4000，扩展年代仅作近似探索。</p><p>天球半径是方向模型，太阳标记表示方向；显示比例不用于科学距离。</p></details>
+        <details class="control-section help-section"><summary>使用帮助</summary><p class="gesture-help">拖动调整视线，滚轮缩放。</p><p>搜索天体后点击“定位”查看。播放可观察天象变化，复位可回到当前场景的起点。</p><p>方位以北为0°、东为90°。几何高度表示天体与地平线的夹角，视高度计入大气折射。</p><p>日期范围：−2000 至 4000年。0年为公元前1年，−1年为公元前2年。</p></details>
         <p class="science-notice tiny-note" aria-live="polite"></p><p class="ui-message" role="status" aria-live="polite" hidden></p>
       </div>
       <footer class="panel-footer"><span class="playback-status">已暂停</span><button type="button" data-action="reset" title="恢复当前场景起点并暂停">复位</button><button type="button" data-action="pause">暂停</button></footer>
@@ -142,6 +154,7 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
   let lastSnapshot: ScienceSnapshot | undefined;
   let searchResults: ObjectSearchResult[] = [];
   let activeSearchIndex = -1;
+  let composingSearch = false;
   let referenceSignature = '';
   let graphicsStatus: GraphicsStatus | undefined;
   let offlineSignature = '';
@@ -156,6 +169,8 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
     timeControls.cancelSession(true); change('time-event');
   });
   const sceneControls = mountSceneControls(container.querySelector<HTMLElement>('.scene-section')!, state, (reason, seed) => { observerDraft.clear(); refractionControls.clearDraft(); teachingControls.setMoonPhaseSeed(seed); timeControls.cancelSession(true); closeSearch(); change(reason); });
+  const explorationControls = mountExplorationControls(container.querySelector<HTMLElement>('.panel-scroll')!, state, reason => { timeControls.cancelSession(true); change(reason); });
+  const courseEquipment = mountCourseEquipment(container.querySelector<HTMLElement>('.panel-scroll')!, state, reason => { timeControls.cancelSession(true); change(reason); });
 
   function message(value: string, error = false) {
     if (disposed) return;
@@ -165,6 +180,7 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
     if (!error && value) messageTimer = setTimeout(() => { el.hidden = true; }, 5000);
   }
   function change(reason: string) {
+    courseEquipment.notify();
     message('');
     const explicitScienceChange = reason.startsWith('time') || reason === 'observer' || reason === 'import';
     const clockChangedUt = reason === 'clock' && lastSnapshot?.utDaysJ2000 !== state.time.utDaysJ2000;
@@ -191,6 +207,7 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
   function selectObject(id: ObjectId) { state.selected = id; closeSearch(); change('selection'); }
   function renderSearch() {
     const query = input('sky-search').value.trim();
+    container.querySelector<HTMLButtonElement>('#sky-clear-search')!.hidden = input('sky-search').value.length === 0;
     const results = container.querySelector<HTMLElement>('#sky-search-results')!;
     searchResults = query ? searchObjects(catalog, query, 12).slice(0, 12) : [];
     activeSearchIndex = -1; input('sky-search').removeAttribute('aria-activedescendant');
@@ -217,24 +234,44 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
     text('.object-label', details?.label ?? state.selected);
     const focus = container.querySelector<HTMLButtonElement>('[data-action="focus-selection"]')!;
     focus.textContent = graphicsStatus?.capabilities.observerOverview ? '标示' : '定位';
-    focus.title = graphicsStatus?.capabilities.observerOverview ? '在固定方位图中标示；当前显示地平以下不标示。' : '定位到可见区域；地表地景仍可能遮挡视高度低于地平的对象';
+    focus.title = graphicsStatus?.capabilities.observerOverview ? '在方位图中高亮天体' : '将天体移至视野中央';
     focus.setAttribute('aria-label', graphicsStatus?.capabilities.observerOverview ? '在方位图中标示选中对象' : '定位到可见区域');
     focus.disabled = details === null || graphicsStatus?.available === false;
-    text('.object-epoch', details?.coordinateEpochLabel ?? (pairedSnapshot ? '当前数据中没有该对象的坐标。' : '正在更新天体读数…'));
+    text('.object-epoch', details ? details.kind === 'body' ? '当日赤道坐标' : 'J2000 赤道坐标' : pairedSnapshot ? '暂无坐标数据' : '正在更新…');
     text('.object-ra', details?.raHours != null && Number.isFinite(details.raHours) ? `${details.raHours.toFixed(3)}h` : details ? '—（无定义）' : '—');
     text('.object-dec', details ? degrees(details.decDeg) : '—');
     text('.object-alt', details ? degrees(details.geometricAltitudeDeg) : '—');
     text('.object-apparent-alt', details ? degrees(details.apparentAltitudeDeg) : '—');
     text('.object-az', details?.azimuthDeg == null ? details ? '—（无定义）' : '—' : degrees(details.azimuthDeg));
-    const kind = details?.kind === 'star' ? '恒星' : details?.kind === 'constellation' ? '星座方向锚点' : details?.kind === 'body' ? '太阳系天体' : pairedSnapshot ? '未识别对象' : '读数待更新';
-    text('.object-magnitude', `${kind} · ${details?.magnitude == null ? '星等不适用 / 缺失' : `星等 ${details.magnitude.toFixed(2)}`}`);
-    text('.object-visibility', details ? `${details.visibilityText}；非升落预报` : pairedSnapshot ? '不推测未知对象的位置。' : '天体读数正在更新。');
+    const kind = details?.kind === 'star' ? '恒星' : details?.kind === 'deep-sky' ? '深空目录' : details?.kind === 'constellation' ? '星座' : details?.kind === 'body' ? '太阳系天体' : pairedSnapshot ? '未识别对象' : '读数待更新';
+    text('.object-magnitude', `${kind}${details?.magnitude == null ? '' : ` · 星等 ${details.magnitude.toFixed(2)}`}`);
+    text('.object-visibility', details ? details.visibilityText : pairedSnapshot ? '暂无坐标数据' : '正在更新…');
     const observerScope = container.querySelector<HTMLElement>('.object-observer-scope')!;
     observerScope.hidden = state.viewMode === 'ground' || !!graphicsStatus?.capabilities.observerOverview;
-    observerScope.textContent = details?.kind === 'body' ? '高度是地点站心读数；外部日月图形为地心几何方向。' : '高度是观测地点读数；外部图形保持几何方向。';
-    const notes = [...(details?.notes ?? [])];
-    if (details?.kind === 'body' && state.viewMode !== 'ground' && !graphicsStatus?.capabilities.observerOverview) notes.push('外部日月为地心方向；Alt/Az为观测地点站心。');
-    if (details?.kind === 'body' && graphicsStatus?.capabilities.observerOverview) notes.push('2D日月仅为站心方向标记，不表示真实角径或月面。');
+    observerScope.textContent = '高度与方位以观测地点为准。';
+    const notes = details?.kind === 'constellation' ? ['坐标取星座连线的中心方向。'] : [];
+    const deepSky = details?.kind === 'deep-sky' ? resolveDeepSky(details.id) : null;
+    const catalogData = container.querySelector<HTMLElement>('.object-catalog-data')!;
+    catalogData.hidden = !deepSky && details?.kind !== 'body';
+    if (deepSky) {
+      const size = deepSky.majorArcmin === null ? '角尺寸未收录' : `角尺寸 ${deepSky.majorArcmin.toFixed(1)}′${deepSky.minorArcmin === null ? '' : ` × ${deepSky.minorArcmin.toFixed(1)}′`}`;
+      catalogData.textContent = `${deepSky.catalogName} · ${deepSkyTypeLabel(deepSky.type)} · ${size}${deepSky.magnitude === null ? ' · V星等未收录' : ''}`;
+      notes.push('符号标示目录中心，不表示肉眼可见或真实角尺寸。', '目录星等为V波段总星等。', deepSky.note);
+    } else if (details?.kind === 'body') {
+      const body = pairedSnapshot?.bodies.find(body => `body:${body.id}` === details.id);
+      catalogData.textContent = body ? `角直径 ${(body.angularDiameterDeg*3600).toFixed(1)}″${body.illuminatedFraction === null ? '' : ` · 照亮 ${(body.illuminatedFraction*100).toFixed(1)}%`}` : '';
+    }
+    const imageData = deepSky ? deepSkyImages[deepSky.number] : undefined;
+    const imageDetails = container.querySelector<HTMLDetailsElement>('.object-image-details')!;
+    imageDetails.hidden = !imageData;
+    const image = imageDetails.querySelector<HTMLImageElement>('img')!;
+    if (imageData) {
+      if (image.getAttribute('src') !== imageData.url) { image.src = imageData.url; imageDetails.open = false; }
+      image.alt = imageData.caption;
+      imageDetails.querySelector('figcaption')!.textContent = `${imageData.caption}。${imageData.credit}。观测合成图，非肉眼外观。`;
+    } else { image.removeAttribute('src'); imageDetails.open = false; }
+    if (details?.kind === 'star') notes.push('赤经、赤纬采用J2000参考系，包含恒星自行。');
+    if (details?.kind === 'body') notes.push('赤经、赤纬采用当前日期的赤道坐标。');
     text('.object-notes', notes.join('；'));
     container.querySelector<HTMLElement>('.object-notes-details')!.hidden = notes.length === 0;
   }
@@ -283,7 +320,7 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
     const graphicsNotice = container.querySelector<HTMLElement>('#sky-graphics-notice')!;
     graphicsNotice.hidden = !overview && !unavailable;
     text('.graphics-message', overview || unavailable ? graphicsStatus?.message || '三维模式不可用，已切换2D方位总览。' : '');
-    text('.graphics-boundary', overview ? '全天方位图 · 北上东左；日月仅方向标记，无银河、月面或地球图层。' : '');
+    text('.graphics-boundary', overview ? '方位图：北上、东左。' : '');
     container.querySelector<HTMLButtonElement>('#sky-retry-3d')!.disabled = !graphicsStatus?.retry3dAvailable;
     text('#sky-retry-3d', graphicsStatus?.contextLost ? '等待三维恢复' : '重试三维');
     text('.gesture-help', overview ? '全天方位图固定朝向：北上东左。点击可选择；不拖动或缩放相机。' : '单指转向／轨道旋转，双指缩放；鼠标拖动与滚轮亦可。');
@@ -292,21 +329,20 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
       const control = inputByLayer(layer.key);
       const unsupported = graphicsStatus?.capabilities.unsupportedLayers.includes(layer.key) ?? false;
       const inactiveGroundControl = layer.key === 'terrain' && (overview || state.viewMode !== 'ground');
-      control.checked = layer.inverse ? !state.layers[layer.key] : state.layers[layer.key]; control.disabled = unsupported || inactiveGroundControl;
+      control.checked = layer.inverse ? !state.layers[layer.key] : ['planets','deepSky'].includes(layer.key) ? state.layers[layer.key] !== false : !!state.layers[layer.key]; control.disabled = unsupported || inactiveGroundControl;
       const row = container.querySelector<HTMLElement>(`[data-layer-row="${layer.key}"]`)!;
       row.hidden = !overview && !!layer.views && !layer.views.includes(state.viewMode);
       row.classList.toggle('is-unavailable', unsupported || inactiveGroundControl);
-      row.title = unsupported ? '2D方位图不支持此图层；三维模式恢复后可用。' : overview && layer.key === 'sunMoon' ? '日月仅为站心方向符号，固定图示大小，非真实角径或月面。' : layer.tip;
+      row.title = unsupported ? '2D方位图不支持此图层；三维模式恢复后可用。' : overview && layer.key === 'sunMoon' ? '显示太阳和月球的位置。' : layer.tip;
     }
     const transparencyNote = container.querySelector<HTMLElement>('#sky-ground-transparency-note')!;
-    transparencyNote.hidden = !overview && state.viewMode !== 'ground';
-    transparencyNote.textContent = overview ? '2D方位图不展示地平线下；地面透明仅适用于三维地表。'
-      : '透明仅移除地面遮挡；地平线与可见性、升落预报各自独立。';
+    transparencyNote.hidden = !overview;
+    transparencyNote.textContent = overview ? '地面透明可在三维地表视角中使用。' : '';
     appearanceControls.sync();
     refractionControls.sync();
     syncPlayback();
-    const note = !overview && state.viewMode !== 'ground' ? '几何方向示意：忽略当地可见性' : state.presentation === 'explanation' ? '示意：忽略肉眼可见性' : !state.layers.atmosphere ? '大气关闭：不模拟可见性衰减' : '观察：日光、月光与光污染影响可见性';
-    const modeNote = `${overview ? '2D · ' : '3D · '}${note}` + (!overview && state.illustration.bodySizeScale !== 1 ? ` · 日月放大 ${state.illustration.bodySizeScale}×` : '') + (!overview && state.illustration.distanceCompressed ? ' · 距离已压缩' : '');
+    const note = (overview || state.viewMode === 'ground') && state.presentation === 'observation' && !state.layers.atmosphere ? '大气已关闭' : '';
+    const modeNote = [note, !overview && state.illustration.bodySizeScale !== 1 ? `日月放大 ${state.illustration.bodySizeScale}×` : ''].filter(Boolean).join(' · ');
     text('.mode-note', modeNote);
     text('.compact-mode-note', modeNote);
     if (lastSnapshot) updateScience(lastSnapshot);
@@ -315,6 +351,7 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
       text('.phase-readout', '月面照亮 —'); text('.lst-readout', '当地恒星时 —'); text('.science-notice', '');
     }
     updateSelection();
+    explorationControls.update();
     if (notifyObjectVisibility) objectDayControls.notifyVisibility();
   }
   function inputByLayer(key: keyof LayerState): HTMLInputElement { return container.querySelector<HTMLInputElement>(`[data-layer="${key}"]`)!; }
@@ -337,8 +374,7 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
     text('.sun-readout', `太阳 几何 ${degrees(refractionReady ? sun?.geometricAltitudeDeg : undefined)} · 视高度 ${degrees(refractionReady ? sun?.apparentAltitudeDeg : undefined)}`);
     text('.moon-readout', `月球 几何 ${degrees(refractionReady ? moon?.geometricAltitudeDeg : undefined)} · 视高度 ${degrees(refractionReady ? moon?.apparentAltitudeDeg : undefined)}`);
     text('.phase-readout', `月面照亮 ${moon?.illuminatedFraction == null ? '—' : `${(moon.illuminatedFraction * 100).toFixed(1)}%`}`);
-    const accuracy = snapshot.accuracyTier === 'extended-exploration' ? '扩展年代：长期近似探索' : snapshot.accuracyTier === 'unvalidated' ? '科学计算：未完成独立验证' : '';
-    text('.science-notice', [accuracy, ...snapshot.warnings].filter(Boolean).join('；'));
+    text('.science-notice', snapshot.accuracyTier === 'extended-exploration' ? '当前日期超出1900–2100年，天体位置精度降低。' : '');
   }
   for (const type of ['pointerdown', 'pointermove', 'pointerup', 'pointercancel', 'wheel']) listen(container, type, (event) => {
     event.stopPropagation();
@@ -375,6 +411,12 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
   });
   listen(container.querySelector('#sky-observer-form')!, 'submit', (event) => {
     event.preventDefault(); tryAction(() => {
+      for (const [id, label, min, max] of [['sky-latitude', '纬度', -90, 90], ['sky-longitude', '经度', -180, 180], ['sky-height', '海拔', -500, 100000]] as const) {
+        const field = input(id);
+        if (!Number.isFinite(field.valueAsNumber) || field.valueAsNumber < min || field.valueAsNumber > max) {
+          field.focus(); throw new Error(`${label}请输入${min}至${max}之间的数值。`);
+        }
+      }
       const incoming = { ...state, observer: { ...state.observer, name: '自定义地点', latitudeDeg: input('sky-latitude').valueAsNumber, longitudeDegEast: input('sky-longitude').valueAsNumber, heightMeters: input('sky-height').valueAsNumber } };
       applyState(state, incoming); observerDraft.clear(); change('observer');
     });
@@ -394,15 +436,22 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
       if (el.id === 'sky-reference-lock' && state.viewMode !== 'ground' && graphicsStatus?.capabilities.referenceLock !== false) { state.cameras[state.viewMode].referenceLock = el.value as 'inertial' | 'earth-fixed' | 'local-horizon'; change('reference-lock'); }
     });
   });
-  listen(input('sky-search'), 'input', renderSearch);
+  listen(container.querySelector('#sky-clear-search')!, 'click', () => {
+    input('sky-search').value = ''; renderSearch(); input('sky-search').focus();
+  });
+  listen(input('sky-search'), 'compositionstart', () => { composingSearch = true; closeSearch(); });
+  listen(input('sky-search'), 'compositionend', () => { composingSearch = false; renderSearch(); });
+  listen(input('sky-search'), 'input', () => { if (!composingSearch) renderSearch(); });
   listen(container.querySelector('#sky-search-form')!, 'submit', (event) => {
     event.preventDefault();
+    if (composingSearch) return;
     if (container.querySelector<HTMLElement>('#sky-search-results')!.hidden) renderSearch();
     const result = searchResults[Math.max(0, activeSearchIndex)];
     if (result) selectObject(result.id);
   });
   listen(input('sky-search'), 'keydown', (event) => {
     const keyboard = event as KeyboardEvent;
+    if (composingSearch || keyboard.isComposing) return;
     if (keyboard.key === 'Escape') { event.preventDefault(); closeSearch(); return; }
     if (keyboard.key !== 'ArrowDown' && keyboard.key !== 'ArrowUp') return;
     event.preventDefault();
@@ -416,8 +465,8 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
   listen(input('sky-import-file'), 'change', async () => {
     const file = input('sky-import-file').files?.[0];
     if (!file) return;
-    try { if (file.size > 100000) throw new Error('场景文件过大；最大 100 KB。'); const next = parseState(await file.text()); if (disposed) return; if (!availableViews.includes(next.viewMode)) throw new Error('此场景视角尚未在本轮实现。'); applyState(state, next); observerDraft.clear(); refractionControls.clearDraft(); sceneControls.rememberCurrent(file.name); teachingControls.setMoonPhaseSeed(null); timeControls.cancelSession(true); change('import'); message('已导入完整场景。'); }
-    catch (error) { message(error instanceof Error ? error.message : String(error), true); }
+    try { if (file.size > 100000) throw new Error('场景文件过大；最大 100 KB。'); const next = parseState(await file.text()); if (disposed) return; if (!availableViews.includes(next.viewMode)) throw new Error('当前版本不支持此场景的视角。'); applyState(state, next); observerDraft.clear(); refractionControls.clearDraft(); sceneControls.rememberCurrent(file.name); teachingControls.setMoonPhaseSeed(null); timeControls.cancelSession(true); change('import'); message('已导入完整场景。'); }
+    catch (error) { console.error('场景导入失败', error); message('无法导入场景，请选择本应用导出的场景文件（最大100 KB）。', true); }
     finally { if (!disposed) input('sky-import-file').value = ''; }
   });
   const mobileMedia = window.matchMedia(MOBILE_CONTROLS_QUERY);
@@ -435,17 +484,9 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
   syncDock();
   sync();
   return {
-    update(snapshot, metrics, teaching) {
+    update(snapshot, _metrics, teaching) {
       if (disposed) return;
-      lastSnapshot = snapshot; refractionControls.update(snapshot); teachingControls.update(teaching, snapshot); objectDayControls.update(teaching); sync();
-      if (metrics) {
-        text('.metric-frame', metrics.frameMs && metrics.samplingWindowSeconds !== 0 ? `${metrics.frameMs.p50.toFixed(1)} / ${metrics.frameMs.p95.toFixed(1)} / ${metrics.frameMs.p99.toFixed(1)} ms` : '未测（暂停空闲）');
-        text('.metric-calls', `${metrics.drawCallsPerFrame ?? '未测'} / ${metrics.visibleLabelCount ?? '未测'} / ${metrics.pendingLatestRequestCount ?? '未测'}`);
-        text('.metric-resources', `${metrics.textureCount ?? '未测'} / ${metrics.geometryCount ?? '未测'}`);
-        text('.metric-gpu', bytes(metrics.appOwnedGpuBytesEstimate));
-        text('.metric-heap', `${bytes(metrics.mainThreadJsHeapBytes)} / ${bytes(metrics.workerHeapBytes)}`);
-        text('.metric-notes', (metrics.measurementNotes ?? ['浏览器与驱动内存另计。']).join(' '));
-      }
+      lastSnapshot = snapshot; refractionControls.update(snapshot); teachingControls.update(teaching, snapshot); objectDayControls.update(teaching); courseEquipment.update(snapshot); sync();
     },
     updateSkyAppearance(appearance) { appearanceControls.update(appearance); },
     syncPlayback,
@@ -458,6 +499,6 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
     isTeachingVisible() { return teachingControls.isVisible(); },
     getMoonLoupeViewport() { return teachingControls.getMoonLoupeViewport(); },
     setMoonLoupeAvailability(status, message, info) { teachingControls.setMoonLoupeAvailability(status, message, info); },
-    dispose() { disposed = true; objectDayControls.dispose(); observerDraft.dispose(); sceneControls.dispose(); timeControls.dispose(); appearanceControls.dispose(); refractionControls.dispose(); teachingControls.dispose(); listeners.forEach((remove) => remove()); if (messageTimer) clearTimeout(messageTimer); container.innerHTML = ''; },
+    dispose() { disposed = true; courseEquipment.dispose(); explorationControls.dispose(); objectDayControls.dispose(); observerDraft.dispose(); sceneControls.dispose(); timeControls.dispose(); appearanceControls.dispose(); refractionControls.dispose(); teachingControls.dispose(); listeners.forEach((remove) => remove()); if (messageTimer) clearTimeout(messageTimer); container.innerHTML = ''; },
   };
 }

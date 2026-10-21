@@ -4,6 +4,7 @@ import { applyMatrix, cross, DEG_TO_RAD, dot, horizontalToVector, mod, multiplyM
 import { parseCivilInput, utToDate } from './time';
 import { makeObserver } from './observer';
 import { moonFixedToEqj } from './moon';
+import { solarRadiusKm } from '../data/solar-objects';
 import { computeSolarDayEvents } from './solar-events';
 import { frameFromEngineTime, fromEngineRotation } from './observer-frame';
 import { createRefractionDescriptor, deriveRefractionProfile, refractEnuDirection } from './refraction';
@@ -17,7 +18,7 @@ export { fromEngineRotation } from './observer-frame';
 export const ENGINE_VERSION = '2.1.19';
 const bodies: readonly SolarBody[] = ['Sun', 'Moon', 'Mercury', 'Venus', 'Mars', 'Jupiter', 'Saturn'];
 /** Nominal/mean spherical radii for angular-size illustrations, km; rings excluded. */
-const radiusKm: Record<SolarBody, number> = { Sun: 695700, Moon: 1737.4, Mercury: 2439.7, Venus: 6051.8, Mars: 3389.5, Jupiter: 69911, Saturn: 58232 };
+const radiusKm = solarRadiusKm;
 const toTuple = (v: { x: number; y: number; z: number }): Vec3 => [v.x, v.y, v.z];
 const engineBody = (id: SolarBody): Engine.Body => Engine.Body[id];
 

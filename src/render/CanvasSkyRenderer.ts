@@ -1,5 +1,9 @@
 import type { ExternalCamera, ObjectId, RuntimeMetrics, ScienceSnapshot, SimulationState, Vec3 } from '../contracts';
 import { catalog } from '../data/catalog';
+import { solarObjects, isPlanet } from '../data/solar-objects';
+import { deepSkyObjects } from '../data/deep-sky';
+import { drawDeepSkySymbol, drawPlanetSymbol } from './CatalogMarkers';
+import { TeachingOverlays } from './TeachingOverlays';
 import { constellationLabel, resolveCatalogStar, starLabel } from '../data/search';
 import { writeStarDirectionBuffer } from './StarDirectionBuffer';
 import { ASTROMETRY_MODEL_VERSION, deriveStarMotionModel } from '../core/stars';
@@ -36,6 +40,7 @@ const cssRgb = (color: Vec3): string => `rgb(${color.map(value => linearChannel(
 
 /** Fixed observer overview. Owns no clock, worker, ephemeris or WebGL resources. */
 export class CanvasSkyRenderer implements RendererPort {
+  private readonly teachingOverlays = new TeachingOverlays();
   readonly canvas: HTMLCanvasElement;
   readonly capabilities = CANVAS_CAPABILITIES;
   private readonly context: CanvasRenderingContext2D;
@@ -178,10 +183,9 @@ export class CanvasSkyRenderer implements RendererPort {
       { text: v.compactHud ? '北上东左 · 固定仰视' : `北上东左 · 天顶在中心 · 仅${refracted ? '视' : '几何'}地平线上方`, font: '10px "Microsoft YaHei",sans-serif', color: '#a6b8c7' },
     ], titleY, 18, 14, null);
     const footerLines = [
-      { text: v.compactHud ? '日月仅方向标记' : '日月仅方向标记 · 不表示真实角径或月相', font: '10px "Microsoft YaHei",sans-serif', color: '#a6b8c7' },
-      { text: v.compactHud ? '点击选择 · 不缩放' : '点击选择 · 定位只高亮 · 不拖动缩放', font: '10px "Microsoft YaHei",sans-serif', color: '#a6b8c7' },
+      { text: '点击天体查看详情', font: '10px "Microsoft YaHei",sans-serif', color: '#a6b8c7' },
     ];
-    if (this.state?.selected) footerLines.push({ text: v.compactHud ? (this.selectedAboveHorizon ? '定位只高亮方向' : '所选在地平线下') : this.focusReason,
+    if (this.state?.selected) footerLines.push({ text: v.compactHud ? (this.selectedAboveHorizon ? '已高亮选中天体' : '所选天体在地平线下') : this.focusReason,
       font: '10px "Microsoft YaHei",sans-serif', color: '#bed5e7' });
     this.footer = place(footerLines, footerY, 16, 12, this.header.box);
     const captionBox = (caption: Caption) => caption.box ? [caption.box.left, caption.box.top, caption.box.right - caption.box.left, caption.box.bottom - caption.box.top] : [0, 0, 0, 0];
@@ -279,8 +283,21 @@ export class CanvasSkyRenderer implements RendererPort {
         labels.push({ id, text: constellationLabel(figure), ...point, priority: 45, color: '#afbfce', alpha: visibility });
       }
     }
-    if (state.layers.sunMoon) this.drawBodyMarkers(snapshot, labels);
+    this.drawBodyMarkers(snapshot, labels);
+    if (state.layers.deepSky !== false) for (const object of deepSkyObjects) {
+      const selected = state.selected === object.id;
+      if (model.visibilityApplied && !selected) continue;
+      const projection = this.projectDirection(object.directionEqj,snapshot);
+      if (!projection) continue;
+      const point = this.pixel(projection);
+      if (this.blocked(point.x,point.y)) continue;
+      drawDeepSkySymbol(ctx,point.x,point.y,object.type,selected);
+      this.bodies.push({id:object.id,...point,radius:10});
+      labels.push({id:object.id,text:`M${object.number}`,...point,priority:selected?100:20,color:'#9eb8b5'});
+    }
     this.drawSelection(state, snapshot, labels);
+    if (state.selected?.startsWith('chinese:') || Object.entries(state.layers).some(([key,value])=>value&&['motionTrack','equatorialGrid','horizontalGrid','eclipticGrid','constellationBoundaries','chineseSky'].includes(key)))
+      this.teachingOverlays.draw(ctx,state,snapshot,catalog,v=>{const p=this.projectDirection(v,snapshot);return p?this.pixel(p):null;},this.width,this.height,(x,y)=>this.blocked(x,y));
     ctx.restore();
     this.drawGridAndExplanation();
     const uniqueLabels = new Map<string, LabelCandidate>();
@@ -335,13 +352,25 @@ export class CanvasSkyRenderer implements RendererPort {
 
   private drawBodyMarkers(snapshot: ScienceSnapshot, labels: LabelCandidate[]): void {
     const ctx = this.context;
-    for (const [name, label, color] of [['Sun', '太阳', '#f7d17b'], ['Moon', '月球', '#d8e1eb']] as const) {
+    for (const { body:name, label, color } of solarObjects) {
+      const planet = isPlanet(name);
+      if (planet ? this.state!.layers.planets === false : !this.state!.layers.sunMoon) continue;
       const id = `body:${name}` as const;
       const direction = resolveDisplayDirectionEqj(catalog, id, snapshot, 'ground');
       const projection = direction ? this.projectDirection(direction, snapshot) : null;
       if (!projection) continue;
       const point = this.pixel(projection);
       if (this.blocked(point.x, point.y)) continue;
+      if (planet) {
+        const body = snapshot.bodies.find(body=>body.id===name);
+        if (!body) continue;
+        const alpha=finalStarAlpha(body.visualMagnitude,this.appearance!.limitingMagnitude,this.appearance!.starVisibility);
+        if (alpha<STAR_ALPHA_DISCARD) continue;
+        drawPlanetSymbol(ctx,point.x,point.y,body.visualMagnitude,color,alpha);
+        this.bodies.push({id,...point,radius:10});
+        labels.push({id,text:label,...point,priority:78,color,alpha});
+        continue;
+      }
       const radius = name === 'Sun' ? 6 : 5;
       ctx.lineWidth = 1.7; ctx.strokeStyle = color; ctx.beginPath(); ctx.arc(point.x, point.y, radius, 0, Math.PI * 2); ctx.stroke();
       if (name === 'Sun') {
@@ -366,7 +395,7 @@ export class CanvasSkyRenderer implements RendererPort {
     else if (this.selectedPoint && this.blocked(this.selectedPoint.x, this.selectedPoint.y)) this.focusReason = '所选方向被面板遮挡，请收起面板查看。';
     else this.focusReason = details.kind === 'star' && finalStarAlpha(details.magnitude!, this.appearance!.limitingMagnitude, this.appearance!.starVisibility, 1,
       canvasStarSymbol(details.magnitude!, this.viewport.radius).alpha) < STAR_ALPHA_DISCARD
-      ? '所选仅作方向标记；当前可见性模型已隐藏该星点。' : '已标记所选方向；高亮不保证肉眼可见。';
+      ? '当前天空亮度下，该恒星较难看清。' : '已高亮选中天体';
     if (!details || !this.selectedPoint || this.blocked(this.selectedPoint.x, this.selectedPoint.y)) return;
     const ctx = this.context, point = this.selectedPoint;
     ctx.globalAlpha = 1; ctx.strokeStyle = '#d3eafa'; ctx.lineWidth = 1.7;

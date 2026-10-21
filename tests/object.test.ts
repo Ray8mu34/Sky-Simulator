@@ -94,14 +94,14 @@ test('search limits bound public output and reject empty, non-finite and oversiz
   for (const query of ['', '  \n ', 'a'.repeat(513)]) assert.deepEqual(searchObjects(catalog, query), []);
 });
 
-test('only the displayed Sun and Moon are searchable and resolvable solar bodies', () => {
+test('all seven displayed solar bodies are searchable and resolvable', () => {
   const catalog = namedCatalog();
   for (const query of ['太阳', 'Sun', 'BODY:SUN']) assert.equal(searchObjects(catalog, query)[0]?.id, 'body:Sun');
   for (const query of ['月亮', '月球', 'Moon', 'body:Moon']) assert.equal(searchObjects(catalog, query)[0]?.id, 'body:Moon');
-  for (const query of ['Mars', '火星', 'body:Mars', 'Venus', '木星']) assert.deepEqual(searchObjects(catalog, query), []);
+  for (const [query,id] of [['Mars','body:Mars'], ['火星','body:Mars'], ['body:Mars','body:Mars'], ['Venus','body:Venus'], ['木星','body:Jupiter']]) assert.equal(searchObjects(catalog, query!)[0]?.id,id);
   const snapshot = computeSnapshot(scienceState(), 1);
-  assert.equal(resolveObjectDetails(catalog, 'body:Mars', snapshot), null);
-  assert.equal(resolveDisplayDirectionEqj(catalog, 'body:Mars', snapshot, 'space'), null);
+  assert.equal(resolveObjectDetails(catalog, 'body:Mars', snapshot)?.kind, 'body');
+  assert.ok(resolveDisplayDirectionEqj(catalog, 'body:Mars', snapshot, 'space'));
 });
 
 test('star details use actual snapshot proper-motion time and truthful coordinate epoch labels', () => {

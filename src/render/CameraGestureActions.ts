@@ -19,7 +19,7 @@ export function applyCameraPan(state:SimulationState,dx:number,dy:number,viewpor
 export function applyCameraZoom(state:SimulationState,scale:number):boolean {
   if(!(scale>0&&Number.isFinite(scale))||scale===1)return false;
   if(state.viewMode==='ground'){
-    const camera=state.cameras.ground,previous=camera.verticalFovDeg;camera.verticalFovDeg=clamp(previous*scale,20,100);return previous!==camera.verticalFovDeg;
+    const camera=state.cameras.ground,previous=camera.verticalFovDeg;camera.verticalFovDeg=clamp(previous*scale,.05,100);return previous!==camera.verticalFovDeg;
   }
   const camera=state.cameras[state.viewMode],limits=EXTERNAL_CAMERA_LIMITS[state.viewMode],previous=camera.distanceDisplayUnits;
   camera.distanceDisplayUnits=clamp(previous*scale,limits.minDistance,limits.maxDistance);return previous!==camera.distanceDisplayUnits;

@@ -8,6 +8,12 @@ import { catalog } from '../data/catalog';
 import { cachedStarEpoch, writeStarDirectionBuffer, STAR_CACHE_STEP_DAYS, STAR_MOTION_CACHE_BOUND_ARCSEC, STAR_FLOAT32_DIRECTION_BOUND_ARCSEC, STAR_CACHE_DIRECTION_BOUND_ARCSEC } from './StarDirectionBuffer';
 import { ASTROMETRY_MODEL_VERSION, deriveStarMotionModel } from '../core/stars';
 import { resolveCatalogStar } from '../data/search';
+import { solarObjects, isPlanet } from '../data/solar-objects';
+import { deepSkyObjects } from '../data/deep-sky';
+import { drawDeepSkySymbol, drawPlanetSymbol } from './CatalogMarkers';
+import { TeachingOverlays } from './TeachingOverlays';
+import { EquipmentOverlay } from './EquipmentOverlay';
+import {landscapeAlpha,landscapeState} from '../platform/landscape';
 import { resolveDisplayDirectionEqj, resolveObjectDetails, resolveObjectDirectionEqj } from '../core/object-details';
 import { resolveLunarAppearance } from '../core/moon';
 import { deriveSkyAppearance } from '../core/sky-appearance';
@@ -59,6 +65,8 @@ function hillHeight(direction: THREE.Vector3): number {
 
 /** Owns the only WebGL context. The application owns scheduling; no internal RAF. */
 export class SkyRenderer {
+  private readonly teachingOverlays = new TeachingOverlays();
+  private readonly equipmentOverlay = new EquipmentOverlay();
   readonly canvas: HTMLCanvasElement;
   private readonly renderer: THREE.WebGLRenderer;
   private readonly scene = new THREE.Scene();
@@ -372,7 +380,7 @@ export class SkyRenderer {
     this.sharedUniforms.uFrame.value.copy(matrix3(this.frame));
     this.sharedUniforms.uFinite.value = this.finite ? 1 : 0;
     this.sharedUniforms.uGround.value = state.viewMode === 'ground' ? 1 : 0;
-    this.sharedUniforms.uTerrain.value = state.layers.terrain ? 1 : 0;
+    this.sharedUniforms.uTerrain.value = state.layers.terrain && !landscapeState().current?.enabled ? 1 : 0;
     this.sharedUniforms.uBackAlpha.value = state.layers.backHemisphere ? .28 : .13;
     this.updateCamera(state);
     this.updateArcs(state,snapshot);this.updateSelection(this.canonicalSelected);
@@ -393,7 +401,7 @@ export class SkyRenderer {
     background.uDaylightStrength!.value=appearance.daylightStrength;
     background.uViewProjection!.value.copy(this.camera.projectionMatrix).multiply(this.camera.matrixWorldInverse);
     this.galaxyNear.visible=this.finite&&state.layers.milkyWay&&background.uHasMilkyWay!.value===1&&appearance.milkyWayContrast>0;
-    background.uTerrain!.value = state.layers.terrain ? 1 : 0;
+    background.uTerrain!.value = state.layers.terrain && !landscapeState().current?.enabled ? 1 : 0;
     background.uGround!.value = state.viewMode === 'ground' ? 1 : 0;
 
     this.earthGroup.visible = state.viewMode !== 'ground';
@@ -498,7 +506,7 @@ export class SkyRenderer {
     this.clearGesture();
     const details=resolveObjectDetails(catalog,state.selected,snapshot);
     if(details?.kind==='constellation')this.updateStarEpoch(snapshot);
-    const direction=details?.kind==='constellation'?this.constellationDirections.get(details.id.slice(14))??null:resolveDisplayDirectionEqj(catalog,state.selected,snapshot,state.viewMode);
+    const direction=details?.id.startsWith('constellation:')?this.constellationDirections.get(details.id.slice(14))??null:resolveDisplayDirectionEqj(catalog,state.selected,snapshot,state.viewMode);
     if(!direction) return false;
     const profile=getDisplayRefractionProfile(snapshot,state.viewMode),frame=cameraFrameForState(state,snapshot);
     const cameraDirection=profile.identity?direction:multiplyVector(transpose(frame),displayDirection(direction,frame,profile));
@@ -561,7 +569,7 @@ export class SkyRenderer {
       if(this.finite&&facing<=0&&!state.layers.backHemisphere){mesh.visible=false;continue;}
       const rim=this.finite?THREE.MathUtils.lerp(.22,1,THREE.MathUtils.smoothstep(Math.abs(facing),.015,.35)):1;
       mesh.material.uniforms.uVisibility!.value=(facing<=0?.28:1)*rim;
-      if (state.viewMode === 'ground' && !this.groundDiscs.has(id)&&state.layers.terrain && direction.y + Math.sin(diameter * RAD / 2) < hillHeight(direction)) mesh.visible = false;
+      if (state.viewMode === 'ground' && !this.groundDiscs.has(id)&&state.layers.terrain && !landscapeState().current?.enabled && direction.y + Math.sin(diameter * RAD / 2) < hillHeight(direction)) mesh.visible = false;
     }
   }
 
@@ -683,7 +691,8 @@ export class SkyRenderer {
 
   private projectDirection(eqj: Vec3, state: SimulationState, ignoreTerrain = false, referenceDirection = false): { x: number; y: number; direction: THREE.Vector3; alpha: number;facing:number } | null {
     const direction = this.displayVector(eqj,referenceDirection&&ignoreTerrain);
-    if (!ignoreTerrain && state.viewMode === 'ground' && state.layers.terrain && direction.y < hillHeight(direction)) return null;
+    if(!ignoreTerrain&&state.viewMode==='ground'&&state.layers.terrain&&landscapeAlpha(Math.atan2(direction.x,-direction.z)/RAD,Math.asin(direction.y)/RAD)>.5)return null;
+    if (!ignoreTerrain && state.viewMode === 'ground' && state.layers.terrain && !landscapeState().current?.enabled && direction.y < hillHeight(direction)) return null;
     const facing=this.finite?sphereFacing(direction.toArray(),this.camera.position.toArray()):1;
     const back = this.finite && facing <= 0;
     if (back && !state.layers.backHemisphere && !referenceDirection) return null;
@@ -701,6 +710,10 @@ export class SkyRenderer {
 
   private drawLabels(state: SimulationState, snapshot: ScienceSnapshot, skyVisibility: number): void {
     const candidates: LabelCandidate[] = [];this.projectedBodies=[];this.selectedLabelAnchorPixel=null;this.selectionMarkerPixel=null;
+    const symbols: Array<() => void> = [];
+    const ctx = this.labels.canvas.getContext('2d')!;
+    const occlusions = readSkyOcclusions(this.container);
+    const blocked = (x:number,y:number) => occlusions.some(r=>x>=r.left-6&&x<=r.right+6&&y>=r.top-6&&y<=r.bottom+6);
     this.qualityBackLabelsSkipped=0;this.qualitySecondaryLabelsOmitted=0;
     const secondary=(id:string,selected:boolean,value:string|undefined):string|undefined=>{
       const result=runtimeLabelSecondary({id,selected},value,this.runtimeQuality);if(value&&!result)this.qualitySecondaryLabelsOmitted++;return result;
@@ -727,7 +740,7 @@ export class SkyRenderer {
       if (selected || state.layers.brightStarNamesZh && star.nameZh && star.magnitude < 3.5) {
         if(runtimeLabelIsHiddenBack({id:star.id,selected},p.facing,this.finite,this.runtimeQuality)){this.qualityBackLabelsSkipped++;continue;}
         if(this.finite&&!selected&&Math.abs(p.facing)<.16) continue;
-        candidates.push({ id: star.id, text: star.nameZh || star.nameEn || star.id.toUpperCase(), secondary: !visible&&selected?'仅作定位方向 · 当前模型隐藏星点':secondary(star.id,selected,state.layers.secondaryNames ? star.nameEn : undefined), x: p.x, y: p.y, priority: selected ? 100 : 35 - star.magnitude, color: selected ? '#c8dfed' : '#b8bdc0', alpha: selected?Math.max(.6,p.alpha):this.skyAppearance!.visibilityApplied?visibleAlpha:p.alpha, selected });
+        candidates.push({ id: star.id, text: star.nameZh || star.nameEn || star.id.toUpperCase(), secondary: !visible&&selected?'当前天空亮度下较难看清':secondary(star.id,selected,state.layers.secondaryNames ? star.nameEn : undefined), x: p.x, y: p.y, priority: selected ? 100 : 35 - star.magnitude, color: selected ? '#c8dfed' : '#b8bdc0', alpha: selected?Math.max(.6,p.alpha):this.skyAppearance!.visibilityApplied?visibleAlpha:p.alpha, selected });
         if(selected)this.selectedLabelAnchorPixel={x:p.x,y:p.y};
       }
     }
@@ -735,7 +748,7 @@ export class SkyRenderer {
       const selected=this.canonicalSelected===`constellation:${c.id}`;
       const direction=this.constellationDirections.get(c.id);
       const visibility=this.constellationLabelVisibility(c);
-      if(direction&&(selected||state.layers.constellationLabels&&visibility>=STAR_ALPHA_DISCARD)) add(`constellation:${c.id}`, c.nameZh, direction, selected ? 100 : 45,selected&&visibility<STAR_ALPHA_DISCARD?'仅作定位方向 · 当前模型隐藏连线':state.layers.secondaryNames ? c.nameEn : undefined,selected?'#c8dfed':undefined,visibility);
+      if(direction&&(selected||state.layers.constellationLabels&&visibility>=STAR_ALPHA_DISCARD)) add(`constellation:${c.id}`, c.nameZh, direction, selected ? 100 : 45,selected&&visibility<STAR_ALPHA_DISCARD?'当前天空亮度下连线已淡出':state.layers.secondaryNames ? c.nameEn : undefined,selected?'#c8dfed':undefined,visibility);
     }
     for (const body of snapshot.bodies.filter(body => body.id === 'Sun' || body.id === 'Moon')) {
       const id=`body:${body.id}` as ObjectId,direction=resolveDisplayDirectionEqj(catalog,id,snapshot,state.viewMode)!;
@@ -762,7 +775,35 @@ export class SkyRenderer {
       if (this.finite) add('pole:S', '南天极', pole.map(v => -v) as unknown as Vec3, 88, undefined, '#9dbad2');
     }
     const baseBudget=this.budgetClass==='mobile' ? (state.density==='reference'?24:18) : state.density==='reference'?60:40;
+    for (const metadata of solarObjects.filter(object => isPlanet(object.body))) {
+      const id = `body:${metadata.body}` as ObjectId, selected = this.canonicalSelected === id;
+      const body = snapshot.bodies.find(body => body.id === metadata.body);
+      if (!body) continue;
+      const direction = resolveDisplayDirectionEqj(catalog,id,snapshot,state.viewMode)!;
+      const p = this.projectDirection(direction,state);
+      const alpha = finalStarAlpha(body.visualMagnitude,limit,skyVisibility);
+      if (p && !blocked(p.x,p.y) && state.layers.planets !== false && alpha >= STAR_ALPHA_DISCARD) {
+        symbols.push(()=>drawPlanetSymbol(ctx,p.x,p.y,body.visualMagnitude,metadata.color,alpha*p.alpha));
+        this.projectedBodies.push({id,x:p.x,y:p.y,radius:9});
+      }
+      if (selected || state.layers.planets !== false && alpha >= STAR_ALPHA_DISCARD)
+        add(id,metadata.label,direction,selected?100:78,state.layers.secondaryNames?metadata.english:undefined,metadata.color,alpha);
+    }
+    for (const object of deepSkyObjects) {
+      const selected = this.canonicalSelected === object.id;
+      const shown = state.layers.deepSky !== false && (!this.skyAppearance!.visibilityApplied || selected);
+      if (!shown && !selected) continue;
+      const p = this.projectDirection(object.directionEqj,state);
+      if (shown && p && !blocked(p.x,p.y)) {
+        symbols.push(()=>{ctx.save();ctx.globalAlpha=p.alpha;drawDeepSkySymbol(ctx,p.x,p.y,object.type,selected);ctx.restore();});
+        this.projectedBodies.push({id:object.id,x:p.x,y:p.y,radius:9});
+      }
+      add(object.id,`M${object.number}`,object.directionEqj,selected?100:20,selected?object.nameZh||'目录中心':undefined,'#9eb8b5');
+    }
     this.labels.draw(candidates, state.density === 'reference',baseBudget,runtimeOrdinaryLabelBudget(baseBudget,this.runtimeQuality));
+    for (const draw of symbols) draw();
+    if (state.selected?.startsWith('chinese:') || Object.entries(state.layers).some(([key,value])=>value&&['motionTrack','equatorialGrid','horizontalGrid','eclipticGrid','constellationBoundaries','chineseSky'].includes(key)))
+      this.teachingOverlays.draw(ctx,state,snapshot,catalog,v=>this.projectDirection(v,state),this.width,this.height,blocked);
     const selectedDirection=this.canonicalSelected?.startsWith('constellation:')?this.constellationDirections.get(this.canonicalSelected.slice(14))??null:resolveDisplayDirectionEqj(catalog,this.canonicalSelected,snapshot,state.viewMode);
     const selected=selectedDirection?this.projectDirection(selectedDirection,state):null;
     if (selected) {
@@ -770,6 +811,7 @@ export class SkyRenderer {
       const context = this.labels.canvas.getContext('2d')!; context.strokeStyle = '#c8dfed'; context.lineWidth = 1;
       context.beginPath(); context.arc(selected.x, selected.y, 7, 0, Math.PI * 2); context.stroke();
     }
+    if(state.instrument?.mode && state.instrument.mode!=='off'||landscapeState().current?.enabled)this.equipmentOverlay.draw(ctx,state,this.camera,this.width,this.height);
   }
 
   private constellationLabelVisibility(figure:{lineStart:number,lineCount:number}):number {
@@ -888,12 +930,12 @@ export class SkyRenderer {
       // it does not turn a conservative rectangle or max radius into the physical mask.
       for(const [dx,dy] of [[0,0],[4,0],[-4,0],[0,4],[0,-4]]){
         for(const [id,{disc,bounds}] of [...this.groundDiscs].reverse()){if(!bounds||!this.bodies.get(id)?.visible)continue;
-          const ray=cameraRay(x+dx!,y+dy!);if(this.state.layers.terrain&&ray.y<hillHeight(ray))continue;
+          const ray=cameraRay(x+dx!,y+dy!);if(this.state.layers.terrain&&(landscapeState().current?.enabled?landscapeAlpha(Math.atan2(ray.x,-ray.z)/RAD,Math.asin(ray.y)/RAD)>.5:ray.y<hillHeight(ray)))continue;
           const p=inverseDiscCoordinates(ray.toArray(),disc);if(p&&p[0]*p[0]+p[1]*p[1]<=1)return `body:${id}` as ObjectId;
         }
-      }return null;
+      }
     }
-    return [...this.projectedBodies].reverse().find(body=>Math.hypot(body.x-x,body.y-y)<body.radius)?.id??null;
+    return [...this.projectedBodies].reverse().find(body=>!this.groundDiscs.has(body.id.slice(5))&&Math.hypot(body.x-x,body.y-y)<body.radius)?.id??null;
   }
 
   private readonly onPointerDown = (event: PointerEvent): void => {
@@ -961,7 +1003,7 @@ export class SkyRenderer {
       camera.azimuthDegNorthEast = ((camera.azimuthDegNorthEast % 360) + 360) % 360;
       if (event.key === 'ArrowUp') camera.altitudeDeg = Math.min(90, camera.altitudeDeg + 5);
       if (event.key === 'ArrowDown') camera.altitudeDeg = Math.max(-90, camera.altitudeDeg - 5);
-      if (event.key === '+' || event.key === '-') camera.verticalFovDeg = THREE.MathUtils.clamp(camera.verticalFovDeg * (event.key === '+' ? .9 : 1.1), 20, 100);
+      if (event.key === '+' || event.key === '-') camera.verticalFovDeg = THREE.MathUtils.clamp(camera.verticalFovDeg * (event.key === '+' ? .9 : 1.1), .05, 100);
     } else {
       const camera = this.state.cameras[this.state.viewMode];
       const q = new THREE.Quaternion().fromArray(camera.orientationQuaternion);
@@ -999,7 +1041,7 @@ export class SkyRenderer {
     if(this.loupeViewport&&this.loupeDiameter){
       const bounds=this.canvas.getBoundingClientRect(),rect=this.loupeViewport,diag=this.getMoonLoupeDiagnostics();
       context.save();context.scale(output.width/this.width,output.height/this.height);context.font='10px "Microsoft YaHei",sans-serif';context.fillStyle='#c8dfed';context.textAlign='center';
-      context.fillText(`教学 ×${diag.magnificationRelativeToMain?.toFixed(1)} · 视场中心角比例`,rect.left-bounds.left+rect.width/2,rect.top-bounds.top+rect.height-4);context.restore();
+      context.fillText(`月相放大 ×${diag.magnificationRelativeToMain?.toFixed(1)}`,rect.left-bounds.left+rect.width/2,rect.top-bounds.top+rect.height-4);context.restore();
     }
     return output.toDataURL('image/png');
   }

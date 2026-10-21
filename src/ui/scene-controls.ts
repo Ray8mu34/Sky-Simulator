@@ -17,9 +17,9 @@ export interface SceneControls {
 /** One validated state and the platform's one scene library; all user strings use DOM values. */
 export function mountSceneControls(section: HTMLElement, state: SimulationState,
   onLoad: (reason: string, phaseSeed: number | null) => void): SceneControls {
-  section.innerHTML = `<summary>场景 / 输出</summary><label class="scene-preset-label" for="sky-preset">教学场景</label><select id="sky-preset" aria-label="选择教学场景"></select><button id="sky-load-preset" type="button">载入教学场景</button><p class="preset-description tiny-note"></p><p class="preset-time-place tiny-note"></p><p class="current-scene-label tiny-note"></p>
-    <details class="scene-library-section"><summary>我的场景 · 本地保存</summary><label for="sky-scene-name">名称</label><input id="sky-scene-name" type="text" autocomplete="off" aria-label="本地场景名称，最多80字"><button id="sky-save-scene" type="button">另存新场景</button><select id="sky-saved-scenes" aria-label="我的本地场景"></select><div class="scene-library-actions"><button id="sky-load-saved-scene" type="button">载入</button><button id="sky-update-saved-scene" type="button">覆盖选中</button><button id="sky-remove-saved-scene" type="button">删除选中</button></div><p class="scene-library-status tiny-note" role="status" aria-live="polite"></p></details>
-    <div class="utility-grid"><button type="button" data-action="export">导出场景</button><button type="button" data-action="import">导入场景</button><button type="button" data-action="capture">截图</button><button type="button" id="sky-share-scene">分享</button><button type="button" id="sky-reset-default">全局默认</button></div><input id="sky-import-file" type="file" accept="application/json,.json" hidden><div class="share-result" hidden><p class="share-message tiny-note" role="status"></p><textarea id="sky-share-value" readonly aria-label="可手动复制的场景分享内容"></textarea><button id="sky-select-share" type="button">全选内容</button></div><p class="tiny-note">场景保存时间、地点、图层、选择和全部相机。复位恢复已载入场景的起点并暂停。</p>`;
+  section.innerHTML = `<summary>场景与分享</summary><label class="scene-preset-label" for="sky-preset">教学场景</label><select id="sky-preset" aria-label="选择教学场景"></select><button id="sky-load-preset" type="button">载入教学场景</button><p class="preset-description tiny-note"></p><p class="preset-time-place tiny-note"></p><p class="current-scene-label tiny-note"></p>
+    <details class="scene-library-section"><summary>我的场景 · 本地保存</summary><label for="sky-scene-name">名称</label><input id="sky-scene-name" type="text" autocomplete="off" aria-label="本地场景名称，最多80字"><button id="sky-save-scene" type="button">保存新场景</button><select id="sky-saved-scenes" aria-label="我的本地场景"></select><div class="scene-library-actions"><button id="sky-load-saved-scene" type="button">载入</button><button id="sky-update-saved-scene" type="button">更新场景</button><button id="sky-remove-saved-scene" type="button">删除场景</button></div><p class="scene-library-status tiny-note" role="status" aria-live="polite"></p></details>
+    <div class="utility-grid"><button type="button" data-action="export">导出场景</button><button type="button" data-action="import">导入场景</button><button type="button" data-action="capture">截图</button><button type="button" id="sky-share-scene">分享</button><button type="button" id="sky-reset-default">默认场景</button></div><input id="sky-import-file" type="file" accept="application/json,.json" hidden><div class="share-result" hidden><p class="share-message tiny-note" role="status"></p><textarea id="sky-share-value" readonly aria-label="可手动复制的场景分享内容"></textarea><button id="sky-select-share" type="button">全选内容</button></div>`;
   const query = <T extends HTMLElement>(selector: string) => section.querySelector<T>(selector)!;
   const presetSelect = query<HTMLSelectElement>('#sky-preset');
   const savedSelect = query<HTMLSelectElement>('#sky-saved-scenes');
@@ -60,11 +60,11 @@ export function mountSceneControls(section: HTMLElement, state: SimulationState,
   listen(query('#sky-load-preset'), 'click', () => tryAction(() => {
     const preset = getPreset(presetSelect.value); if (!preset) throw new Error('请选择有效教学场景。');
     load(loadPreset(preset.id), preset.title, preset.moonPhaseSeedUtDaysJ2000, 'time-scene');
-    status(`已载入“${preset.title}”；复位可恢复这一场景起点。`);
+    status(`已载入“${preset.title}”。`);
   }));
   listen(query('#sky-save-scene'), 'click', () => tryAction(() => {
     const record = sceneLibrary.save(query<HTMLInputElement>('#sky-scene-name').value, state);
-    refreshLibrary(record.id); status(`已另存“${record.name}”。`);
+    refreshLibrary(record.id); status(`已保存“${record.name}”。`);
   }));
   listen(savedSelect, 'change', () => {
     const record = summaries.find(summary => summary.id === savedSelect.value);
@@ -73,18 +73,18 @@ export function mountSceneControls(section: HTMLElement, state: SimulationState,
   });
   listen(query('#sky-load-saved-scene'), 'click', () => tryAction(() => {
     const record = summaries.find(summary => summary.id === savedSelect.value); if (!record) return;
-    load(sceneLibrary.load(record.id), record.name, null, 'import'); status(`已载入“${record.name}”，保留保存的播放设置。`);
+    load(sceneLibrary.load(record.id), record.name, null, 'import'); status(`已载入“${record.name}”。`);
   }));
   listen(query('#sky-update-saved-scene'), 'click', () => tryAction(() => {
     if (!savedSelect.value) return;
     const record = sceneLibrary.save(query<HTMLInputElement>('#sky-scene-name').value, state, savedSelect.value);
-    refreshLibrary(record.id); status(`已明确覆盖“${record.name}”。`);
+    refreshLibrary(record.id); status(`已更新“${record.name}”。`);
   }));
   listen(query('#sky-remove-saved-scene'), 'click', () => tryAction(() => {
     const record = summaries.find(summary => summary.id === savedSelect.value); if (!record) return;
     sceneLibrary.remove(record.id); refreshLibrary(''); status(`已删除“${record.name}”。`);
   }));
-  listen(query('#sky-reset-default'), 'click', () => { load(createDefaultState(), '全局默认', null, 'time-reset'); status('已恢复全局默认并暂停。'); });
+  listen(query('#sky-reset-default'), 'click', () => { load(createDefaultState(), '默认场景', null, 'time-reset'); status('已恢复默认场景并暂停。'); });
   listen(query('#sky-share-scene'), 'click', () => { window.dispatchEvent(new CustomEvent('sky:share')); });
   listen(query('#sky-select-share'), 'click', () => { const value = query<HTMLTextAreaElement>('#sky-share-value'); value.focus(); value.select(); });
   listen(section, 'toggle', () => { if ((section as HTMLDetailsElement).open) tryAction(() => refreshLibrary()); });

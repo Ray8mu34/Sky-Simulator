@@ -6,6 +6,8 @@ import { applyMatrix, mod, normalize, RAD_TO_DEG, vectorToHorizontal } from './m
 import { deriveStarMotionModel, propagateStarDirection } from './stars';
 import type { StarMotionModelInfo } from './stars';
 import { deriveRefractionProfile } from './refraction';
+import { resolveDeepSky, deepSkyLabel } from '../data/deep-sky';
+import { resolveChineseFigure } from '../data/chinese-sky';
 
 export interface ObjectDetails {
   id: ObjectId;
@@ -46,6 +48,13 @@ function finish(snapshot: ScienceSnapshot, data: Omit<ObjectDetails, 'geometricA
 /** Detail coordinates share one snapshot and one direction model; this function performs no ephemeris search. */
 export function resolveObjectDetails(catalog: StarCatalog, id: ObjectId | null, snapshot: ScienceSnapshot): ObjectDetails | null {
   if (id === null || !Number.isFinite(snapshot.utDaysJ2000)) return null;
+  const deepSky = resolveDeepSky(id);
+  const chinese=resolveChineseFigure(id);
+  if(chinese){const angles=equatorialAngles(chinese.directionEqj);return finish(snapshot,{id:chinese.objectId,label:chinese.name??chinese.english??chinese.id,kind:'constellation',directionEqj:chinese.directionEqj,raHours:angles.raHours,decDeg:angles.decDeg,coordinateEpochLabel:'J2000 星官连线锚点',magnitude:null,notes:['传统中国星官；固定J2000连线示意，中心仅用于定位。']});}
+  if (deepSky) return finish(snapshot, { id: deepSky.id, label: deepSkyLabel(deepSky), kind: 'deep-sky',
+    directionEqj: deepSky.directionEqj, raHours: deepSky.raHours, decDeg: deepSky.decDeg,
+    coordinateEpochLabel: 'J2000 赤道参考系（固定目录中心）', magnitude: deepSky.magnitude,
+    notes: ['OpenNGC目录中心；未建模深空天体自行。星等为目录V波段总星等，不等于表面亮度。', deepSky.note].filter(Boolean) });
   const drawnBody = drawnSolarObjects.find(body => body.id === id);
   if (drawnBody) {
     const body = snapshot.bodies.find(body => body.id === drawnBody.body);
@@ -54,7 +63,7 @@ export function resolveObjectDetails(catalog: StarCatalog, id: ObjectId | null, 
       return finish(snapshot, { id: drawnBody.id, label: drawnBody.label, kind: 'body', directionEqj: normalize(body.topocentricDirectionEqj),
         raHours: mod(body.raHoursOfDate, 24), decDeg: body.decDegOfDate, coordinateEpochLabel: '当日真赤道（站心视位置）',
         magnitude: Number.isFinite(body.visualMagnitude) ? body.visualMagnitude : null,
-        notes: ['日月详情是当前观测地点的站心读数；太空与外部天球图形采用地心方向展示。', '日月方向包含内核的光行时与光行差处理。'] });
+         notes: ['太阳系天体详情是当前观测地点的站心读数；太空与外部天球图形采用地心方向展示。', '方向包含内核的光行时与光行差处理。'] });
     } catch { return null; }
   }
   const star = resolveCatalogStar(catalog, id);

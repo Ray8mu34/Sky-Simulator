@@ -23,7 +23,7 @@
 | Select/Listbox | 控件模块中的原生select | 状态值与对应模块 | native：接受平台弹出层；搜索使用现有结果列表 | 既有浏览器QA，本轮未新增select |
 | Date | `src/ui/time-controls.ts` | core时间API与displayZone | typed：显式应用，整表草稿 | 既有时间与草稿QA，本轮不改 |
 | Form | `src/ui/form-draft.ts`和各模块提交校验 | `src/state.ts`及core输入校验 | 显式应用；失败保留草稿 | 既有草稿QA；历史静态差异不以本文件豁免 |
-| Scrollbar | `src/style.css`的既有滚动区域 | 运行时CSS | 面板及有界列表独立滚动 | 本轮不改滚动规范；全局基线缺口另记 |
+| Scrollbar | `src/style.css`的全局滚动条基线 | `:root`滚动条变量、标准属性与WebKit回退 | 面板及有界列表独立滚动 | 桌面与窄屏滚动检查 |
 | Toast | `controls.ts`中的message | 同一role=status区域 | 正常短反馈 / 持续错误 | 既有反馈；本轮状态说明使用同区局部文本 |
 | CRUD | `scene-controls.ts` + sceneLibrary | 本地库单一格式与完整状态 | 显式保存 / 覆盖 / 删除 / 载入 | 既有场景库QA，本轮不改 |
 
@@ -35,7 +35,7 @@
 |---|---|---|---|---|---|---|---|
 | 模拟肉眼星空 | `#sky-observe-appearance` | 清旧模型数值 | 同一页面，3D切地表；2D保留已保存视角 | 已开启及当前生效说明 | 无新求解器；沿用主应用错误状态 | 按钮保留焦点 | 当前需求 / SkyAppearance |
 | 完整星图 | `#sky-full-star-map` | 清旧模型数值 | 同页原理模式 | 污染未生效，设置保留 | 沿用主应用错误状态 | 按钮保留焦点 | 当前需求 |
-| 编辑人工亮度 / 月光 | range、预设、月光checkbox | 清旧模型数值 | 同页即时更新 | 当前值、当前是否生效、模型星限 | 忽略非有限或越界range值 | 原控件 | 既有环境字段与唯一模型 |
+| 编辑光污染 / 月光 | range、预设、月光checkbox | 清旧模型数值 | 同页即时更新 | 当前值、开启状态、可见极限 | 忽略非有限或越界range值 | 原控件 | 既有环境字段与唯一模型 |
 | 地面透明 | 唯一 `input[data-layer=terrain]` | 无额外科学请求 | 同页移除或恢复地面遮挡 | checkbox与独立口径说明 | 2D或外部视图不接受该动作 | 原控件 | terrain boolean / GraphicsStatus |
 
 ## Observable state contract
@@ -44,7 +44,7 @@
 - “完整星图”只设 `presentation=explanation`，保留污染、月光、大气和视角。它取消肉眼衰减，不声称包含未收录的所有天体。
 - 以上动作不更改UTC、地点、显示时区、四相机、密度、选择或播放速率。
 - 人工亮度与月光沿用 `environment-appearance` reason；模式动作使用既有view/presentation reason，地形使用layers reason。不创建新时钟、星历请求、缓存格式或状态字段。
-- 星限、银河对比与底亮只显示主应用提供的SkyAppearance数值。改变时间/地点或显示口径后清除旧模型数值，等待共同的新结果。
+- 可见极限只显示主应用提供的SkyAppearance数值，完整星图模式隐藏此数值。改变时间/地点或显示方式后清除旧数值，等待共同的新结果。
 - `terrain`原值true表示地面遮挡。唯一复选框checked表示“地面透明”，所以写入 `terrain=!checked`，同步同样反向；导入、预设、重置、API载入都走相同同步路径。
 - 透明仅3D ground有效。2D禁用并明确不展示地平线下；外部视图隐藏该操作并保留原字段。`horizon`开关独立，不因透明而改变。
 - 天体高度、当前地平上下、肉眼模型与升落事件都不因地面透明而重解释。
@@ -57,4 +57,6 @@
 
 ## Verification
 
-本轮限定只改两个UI模块、局部CSS与设计上下文；不改schema、科学/渲染/主时钟，不build或部署，不启动浏览器或大测试。先执行typecheck、premium静态审计与官方DESIGN lint；原始输出保存在 `_local-archive/sky-visibility-20261010`。静态审计中的既有页面缺口如不属于此改动则如实保留，不扩范围修复或改契约掩盖。后续由root统一验证真实3D/2D与窄屏入口及状态保持。
+前端文案以用户操作为准：控件名称、观测结果、简短帮助和可恢复的错误。开发诊断、科学验证进度、算法版本、模型原始notes不进入产品界面。详细科学与性能数据继续由skyApp开发接口提供；显示方式统一称为“肉眼星空 / 完整星图”。
+
+文案修改需要执行typecheck、相关状态与平台测试、正式构建，并在浏览器检查桌面、窄屏、二维回退和离线入口。搜索清空按钮保留焦点；中文输入法组合期间不提前选择天体。错误保留输入，提示修正方法；导入错误不显示内部字段或异常堆栈。

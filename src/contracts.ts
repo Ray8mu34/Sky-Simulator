@@ -9,7 +9,7 @@ export type ViewDensity = 'reference' | 'teaching';
 export type Vec3 = readonly [number, number, number];
 export type Mat3 = readonly [Vec3, Vec3, Vec3];
 export type SolarBody = 'Sun' | 'Moon' | 'Mercury' | 'Venus' | 'Mars' | 'Jupiter' | 'Saturn';
-export type ObjectId = `hip:${number}` | `hyg:${number}` | `body:${SolarBody}` | `constellation:${string}`;
+export type ObjectId = `hip:${number}` | `hyg:${number}` | `body:${SolarBody}` | `constellation:${string}` | `messier:${number}` | `chinese:${string}`;
 
 export interface TimeState {
   /** Days from JD 2451545.0 on the adapter's UT1≈UTC convention. Not TT. */
@@ -37,6 +37,15 @@ export interface LayerState {
   secondaryNames: boolean;
   milkyWay: boolean;
   sunMoon: boolean;
+  /** Optional in schema-1 legacy scenes; defaults to enabled. */
+  planets?: boolean;
+  deepSky?: boolean;
+  motionTrack?: boolean;
+  equatorialGrid?: boolean;
+  horizontalGrid?: boolean;
+  eclipticGrid?: boolean;
+  constellationBoundaries?: boolean;
+  chineseSky?: boolean;
   ecliptic: boolean;
   celestialEquator: boolean;
   celestialPoles: boolean;
@@ -81,6 +90,7 @@ export interface ExternalCamera {
   referenceLock: 'inertial' | 'earth-fixed' | 'local-horizon';
 }
 export interface SimulationState {
+  instrument?: import('./core/instruments').InstrumentSettings;
   schemaVersion: 1;
   time: TimeState;
   observer: ObserverState;

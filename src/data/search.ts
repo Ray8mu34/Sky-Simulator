@@ -1,7 +1,10 @@
 import type { ObjectId } from '../contracts';
 import type { ConstellationMeta, StarCatalog, StarMeta } from './types';
+import { solarObjects } from './solar-objects';
+import { deepSkyObjects, deepSkyLabel, deepSkyTypeLabel } from './deep-sky';
+import { chineseFigures } from './chinese-sky';
 
-export type ObjectKind = 'star' | 'body' | 'constellation';
+export type ObjectKind = 'star' | 'body' | 'constellation' | 'deep-sky';
 export interface ObjectSearchResult {
   id: ObjectId;
   label: string;
@@ -10,10 +13,8 @@ export interface ObjectSearchResult {
 }
 
 /** Only bodies already displayed by this milestone are searchable and locatable. */
-export const drawnSolarObjects = [
-  { id: 'body:Sun' as const, body: 'Sun' as const, label: '太阳', english: 'Sun', aliases: ['太阳', 'Sun', '日'] },
-  { id: 'body:Moon' as const, body: 'Moon' as const, label: '月球', english: 'Moon', aliases: ['月球', '月亮', 'Moon', '月'] },
-] as const;
+export const drawnSolarObjects = solarObjects.map(object => ({ ...object, id: `body:${object.body}` as const,
+  aliases: [object.label, object.english, ...object.aliases] }));
 
 const MAX_RESULTS = 64;
 const key = (text: string): string => text.normalize('NFKC').toLowerCase().replace(/\s+/gu, '');
@@ -43,7 +44,7 @@ export function resolveCatalogConstellation(catalog: StarCatalog, id: string): C
 }
 
 type RankedResult = { result: ObjectSearchResult; score: number; magnitude: number; number: number };
-const kindOrder: Record<ObjectKind, number> = { body: 0, star: 1, constellation: 2 };
+const kindOrder: Record<ObjectKind, number> = { body: 0, star: 1, constellation: 2, 'deep-sky': 3 };
 function compareRank(a: RankedResult, b: RankedResult): number {
   return a.score - b.score || kindOrder[a.result.kind] - kindOrder[b.result.kind] || a.magnitude - b.magnitude ||
     compareText(a.result.id.split(':')[0]!, b.result.id.split(':')[0]!) || a.number - b.number || compareText(a.result.id, b.result.id);
@@ -94,6 +95,17 @@ export function searchObjects(catalog: StarCatalog, query: string, limit = 12): 
     if (numbered || bareNumber !== null) continue;
     const match = score([`constellation:${figure.id}`, figure.id], [figure.nameZh, figure.nameEn]);
     if (match !== null) retain({ result: { id: `constellation:${figure.id}`, kind: 'constellation', label: constellationLabel(figure), secondary: [figure.nameEn, figure.id].filter(Boolean).join(' · ') }, score: match, magnitude: 0, number: 0 });
+  }
+  if (!numbered && bareNumber === null) for (const object of deepSkyObjects) {
+    const match = score([object.id, `M${object.number}`, `Messier${object.number}`, object.catalogName],
+      [object.nameZh, ...object.aliases, deepSkyTypeLabel(object.type)]);
+    if (match !== null) retain({ result: { id: object.id, kind: 'deep-sky', label: deepSkyLabel(object),
+      secondary: `${object.catalogName} · ${deepSkyTypeLabel(object.type)}` }, score: match,
+      magnitude: object.magnitude ?? Infinity, number: object.number });
+  }
+  if (!numbered && bareNumber === null) for (const figure of chineseFigures) {
+    const match=score([figure.objectId],[figure.name??'',figure.english??'']);
+    if(match!==null)retain({result:{id:figure.objectId,kind:'constellation',label:figure.name??figure.english??figure.id,secondary:'中国星官'},score:match,magnitude:0,number:Number(figure.id)});
   }
   return ranked.map(entry => entry.result);
 }

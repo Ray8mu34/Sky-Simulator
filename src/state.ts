@@ -3,6 +3,7 @@ import { dateToUt, utToDate } from './core/time';
 import acceptanceInput from './ui/acceptance-scenes.json';
 import skyTeachingInput from './ui/sky-teaching-scenes.json';
 import { EXTERNAL_CAMERA_LIMITS } from './camera-limits';
+import { validateInstrument } from './core/instruments';
 
 /** One mutable state is shared by the clock, renderer and controls. */
 export function createDefaultState(): SimulationState {
@@ -23,7 +24,7 @@ export function createDefaultState(): SimulationState {
     viewMode: 'ground', presentation: 'explanation', density: 'teaching',
     layers: {
       constellationLines: true, constellationLabels: true, brightStarNamesZh: true,
-      secondaryNames: false, milkyWay: true, sunMoon: true, ecliptic: false,
+      secondaryNames: false, milkyWay: true, sunMoon: true, planets: true, deepSky: true, ecliptic: false,
       celestialEquator: false, celestialPoles: false, horizon: true, meridian: false,
       atmosphere: true, terrain: true, earthDay: true, earthNightLights: true, earthClouds: true,
       backHemisphere: false,
@@ -90,7 +91,8 @@ function fields(value: Dict, required: readonly string[], path: string): void {
 /** Validate the entire contract before applying any imported field. No silent clamping. */
 export function validateState(value: unknown): asserts value is SimulationState {
   const root = record(value, '场景');
-  fields(root, ['schemaVersion', 'time', 'observer', 'viewMode', 'presentation', 'density', 'layers', 'environment', 'selected', 'cameras', 'illustration'], '场景');
+  fields(root, ['schemaVersion', 'time', 'observer', 'viewMode', 'presentation', 'density', 'layers', 'environment', 'selected', 'cameras', 'illustration',...(Object.hasOwn(root,'instrument')?['instrument']:[])], '场景');
+  if(Object.hasOwn(root,'instrument'))validateInstrument(root.instrument);
   if (root.schemaVersion !== 1) throw new StateValidationError('场景版本不受支持；本版本只接受 schemaVersion 1。');
   const time = record(root.time, 'time');
   fields(time, ['utDaysJ2000', 'rateSimSecondsPerRealSecond', 'running', 'mode', 'calendar', 'eraNumbering'], 'time');
@@ -124,6 +126,7 @@ export function validateState(value: unknown): asserts value is SimulationState 
   oneOf(root.density, 'density', ['reference', 'teaching']);
   const layers = record(root.layers, 'layers');
   const layerNames = ['constellationLines', 'constellationLabels', 'brightStarNamesZh', 'secondaryNames', 'milkyWay', 'sunMoon', 'ecliptic', 'celestialEquator', 'celestialPoles', 'horizon', 'meridian', 'atmosphere', 'terrain', 'earthDay', 'earthNightLights', 'earthClouds', 'backHemisphere'];
+  for (const optional of ['planets', 'deepSky', 'motionTrack', 'equatorialGrid', 'horizontalGrid', 'eclipticGrid', 'constellationBoundaries', 'chineseSky']) if (Object.hasOwn(layers, optional)) layerNames.push(optional);
   fields(layers, layerNames, 'layers');
   for (const name of layerNames) boolean(layers[name], `layers.${name}`);
   const environment = record(root.environment, 'environment');
@@ -134,7 +137,7 @@ export function validateState(value: unknown): asserts value is SimulationState 
   boolean(environment.moonlightEnabled, 'moonlightEnabled');
   number(environment.pressureHpa, '气压 / hPa', 0, 1200);
   number(environment.temperatureC, '温度 / °C', -100, 80);
-  if (root.selected !== null && (typeof root.selected !== 'string' || !/^(?:(?:hip|hyg):[1-9]\d*|body:(?:Sun|Moon|Mercury|Venus|Mars|Jupiter|Saturn)|constellation:[A-Za-z][A-Za-z0-9_-]{0,29})$/.test(root.selected))) {
+  if (root.selected !== null && (typeof root.selected !== 'string' || !/^(?:(?:hip|hyg):[1-9]\d*|body:(?:Sun|Moon|Mercury|Venus|Mars|Jupiter|Saturn)|chinese:\d{3}|messier:(?:[1-9]|[1-9]\d|10\d|110)|constellation:[A-Za-z][A-Za-z0-9_-]{0,29})$/.test(root.selected))) {
     throw new StateValidationError('selected 不是可识别的天体或星座标识符。');
   }
   const cameras = record(root.cameras, 'cameras');
@@ -144,7 +147,7 @@ export function validateState(value: unknown): asserts value is SimulationState 
   oneOf(ground.kind, 'ground.kind', ['ground']);
   number(ground.azimuthDegNorthEast, '地表方位 / °', 0, 360);
   number(ground.altitudeDeg, '地表高度 / °', -90, 90);
-  number(ground.verticalFovDeg, '地表视场 / °', 20, 100);
+  number(ground.verticalFovDeg, '地表视场 / °', 0.05, 100);
   for (const mode of ['space', 'globe', 'horizon'] as const) {
     const camera = record(cameras[mode], `cameras.${mode}`);
     fields(camera, ['kind', 'orientationQuaternion', 'distanceDisplayUnits', 'verticalFovDeg', 'referenceLock'], `cameras.${mode}`);
@@ -189,6 +192,7 @@ export function serializeState(state: SimulationState): string {
 /** Preserve the top-level identity used by the renderer and clock. */
 export function applyState(target: SimulationState, incoming: unknown): void {
   const validated = parseState(incoming);
+  if(!validated.instrument)delete target.instrument;
   Object.assign(target, validated);
 }
 

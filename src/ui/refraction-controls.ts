@@ -23,15 +23,15 @@ export function mountRefractionControls(parent: HTMLElement, state: SimulationSt
   onChange: (reason: string) => void): RefractionControls {
   const section = document.createElement('details');
   section.className = 'refraction-controls'; section.id = 'sky-refraction';
-  section.innerHTML = `<summary><span class="refraction-heading">画面折射</span></summary>
+  section.innerHTML = `<summary><span class="refraction-heading">大气折射</span></summary>
     <form id="sky-refraction-form" class="refraction-form" novalidate>
-      <label for="sky-refraction-mode">口径</label><select id="sky-refraction-mode"><option value="none">几何 · 无折射</option><option value="standard">标准折射近似</option></select>
+      <label for="sky-refraction-mode">模式</label><select id="sky-refraction-mode"><option value="none">关闭</option><option value="standard">标准大气</option></select>
       <label for="sky-pressure">气压 hPa</label><input id="sky-pressure" type="number" min="0" max="1200" step="any" required>
       <label for="sky-temperature">温度 °C</label><input id="sky-temperature" type="number" min="-100" max="80" step="any" required>
       <button id="sky-apply-refraction" type="submit">应用折射设置</button>
     </form>
     <p id="sky-refraction-scope" class="tiny-note"></p><p id="sky-refraction-status" class="tiny-note" role="status" aria-live="polite"></p>
-    <p class="tiny-note">经验大气近似，非现场天气；气压为0时无改正。折射与背景大气图层独立，低于−1°仅作连续数值延拓。升落预报仍用独立34′标准事件口径，不随此设置改变。</p>`;
+    <p class="tiny-note">调整气压与温度，观察大气折射对天体视高度的影响。</p>`;
   parent.append(section);
   const query = <T extends HTMLElement>(selector: string) => section.querySelector<T>(selector)!;
   const form = query<HTMLFormElement>('#sky-refraction-form');
@@ -49,14 +49,14 @@ export function mountRefractionControls(parent: HTMLElement, state: SimulationSt
   function sync() {
     if (disposed) return;
     const local = observerOverview || state.viewMode === 'ground';
-    heading.textContent = `画面折射 · ${state.environment.refraction === 'none' ? '几何' : local ? '标准近似' : '外部保持几何'}`;
+    heading.textContent = `大气折射 · ${state.environment.refraction === 'none' ? '关闭' : local ? '已开启' : '地表视角适用'}`;
     if (!draft.isDirty()) {
       mode.value = state.environment.refraction;
       pressure.value = String(state.environment.pressureHpa);
       temperature.value = String(state.environment.temperatureC);
     }
-    scope.textContent = local ? `${observerOverview ? '2D方位图' : '地表'}采用所选口径；几何与视高度均保留。`
-      : '外部图形保持几何方向；折射设置保留，供地表或2D当地观察。详情高度是观测地点站心读数。';
+    scope.textContent = local ? ''
+      : '切换到地表视角可查看折射效果。';
     status.textContent = error || (hasMatchingRefraction(snapshot, state.environment) ? '' : '正在更新视高度…');
     status.classList.toggle('is-error', !!error);
     section.dataset.refractionStatus = error ? 'error' : hasMatchingRefraction(snapshot, state.environment) ? 'ready' : 'pending';
@@ -64,6 +64,12 @@ export function mountRefractionControls(parent: HTMLElement, state: SimulationSt
   function submit(event: SubmitEvent) {
     event.preventDefault();
     try {
+      if (!Number.isFinite(pressure.valueAsNumber) || pressure.valueAsNumber < 0 || pressure.valueAsNumber > 1200) {
+        pressure.focus(); throw new Error('气压请输入0至1200 hPa。');
+      }
+      if (!Number.isFinite(temperature.valueAsNumber) || temperature.valueAsNumber < -100 || temperature.valueAsNumber > 80) {
+        temperature.focus(); throw new Error('温度请输入−100至80 °C。');
+      }
       applyState(state, { ...state, environment: { ...state.environment,
         refraction: mode.value, pressureHpa: pressure.valueAsNumber, temperatureC: temperature.valueAsNumber } });
       draft.clear(); error = ''; snapshot = undefined; sync(); onChange('environment-refraction');

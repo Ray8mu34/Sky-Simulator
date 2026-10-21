@@ -35,7 +35,6 @@ const state = createDefaultState();
 const stage = document.querySelector<HTMLElement>('#sky-stage')!;
 const panel = document.querySelector<HTMLElement>('#controls')!;
 const status = document.querySelector<HTMLElement>('#runtime-status')!;
-let offlineStatus = '';
 let offlineInfo: OfflineStatus | null = null;
 let offlineController: OfflineController | null = null;
 let shareRequest = 0;
@@ -110,7 +109,6 @@ let qualityEffects: Readonly<RuntimeRenderQuality> = DEFAULT_RUNTIME_RENDER_QUAL
 const qualitySampler = new RuntimeQualitySampler(qualityGeneration, performance.now());
 let qualityPreviousDrawMs: number | null = null;
 let qualityLastReason = 'initial';
-let qualityStatus = '';
 let qualitySamplingWorkMs = 0;
 let qualityEventComputeRevision = 0;
 let transitionGeneration = 0;
@@ -121,15 +119,14 @@ const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
 function updateStatus(): void {
   const assetStatus = renderer?.getAssetStatus();
-  const nextStatus = lastError || [stage.dataset.assetWarning, stage.dataset.graphicsWarning, offlineStatus, actionStatus, qualityStatus,
-    science?.mode === 'main-thread-budgeted' ? '计算回退已限频' : '', !ready ? '正在计算天空…' : '',
+  const nextStatus = lastError || [stage.dataset.assetWarning ? '部分星空图像加载失败，请刷新重试。' : '', actionStatus, !ready ? '正在加载星空…' : '',
     assetStatus?.pending.length ? '天空素材正在加载…' : ''].filter(Boolean).join(' · ');
   if (status.textContent !== nextStatus) status.textContent = nextStatus;
 }
 
 if (location.hash.startsWith('#scene=')) {
   try { applyState(state, parseState(decodeURIComponent(location.hash.slice(7)))); }
-  catch (error) { lastError = error instanceof Error ? error.message : String(error); }
+  catch { lastError = '场景链接无效，请重新导入场景。'; }
 }
 clock.rebase(state.time.utDaysJ2000, state.time.rateSimSecondsPerRealSecond, state.time.running && !hidden, performance.now());
 resetInteractionIntents();
@@ -144,11 +141,12 @@ try {
     onChange('selection');
   });
 } catch (error) {
-  lastError = '天空绘图不可用；保留同一天文内核的时间地点与日月读数。';
+  console.error('天空绘图初始化失败', error);
+  lastError = '星空画面加载失败，请刷新页面重试。';
   const fallback = document.createElement('div');
   fallback.className = 'sky-fallback';
   fallback.style.cssText = 'position:absolute;inset:25% 8% 8% 32%;color:#e7e5dc;padding:24px;border:1px solid #33424c;background:#0b1219;';
-  fallback.textContent = `${lastError} ${error instanceof Error ? error.message : ''}`;
+  fallback.textContent = lastError;
   stage.append(fallback);
 }
 
@@ -187,7 +185,8 @@ science = new SnapshotService((next, inputSignature) => {
 }, message => {
   cancelViewTransition('science-error');
   resetRuntimeQuality('science-error');
-  lastError = `天文计算失败：${message}`;
+  console.error('天文计算失败', message);
+  lastError = '天文计算失败，请调整时间或地点后重试。';
   state.time.running = false;
   if (snapshot) state.time.utDaysJ2000 = snapshot.utDaysJ2000;
   clock.rebase(state.time.utDaysJ2000, state.time.rateSimSecondsPerRealSecond, false, performance.now());
@@ -391,11 +390,6 @@ function applyRuntimeQuality(next: Readonly<RuntimeRenderQuality>): void {
     && next.omitOptionalInvisibleStars === qualityEffects.omitOptionalInvisibleStars) return;
   qualityEffects = next;
   renderer?.setRuntimeQuality(next);
-  const reduced = [next.hideOrdinarySecondaryLabels || next.ordinaryLabelBudgetScale < 1 ? '减少次要标签' : '',
-    next.reduceVerifiedDecoration ? '简化装饰细节' : '', next.pixelScale < 1 ? '降低绘图分辨率' : '',
-    next.omitOptionalInvisibleStars ? '省略无贡献的额外暗星' : ''].filter(Boolean);
-  qualityStatus = reduced.length ? `为保持流畅，已${reduced.join('、')}` : '';
-  updateStatus();
   // Display-only dirty; no clock/science request, no new RAF chain.
   invalidate();
 }
@@ -493,7 +487,7 @@ function frame(nowMs: number): void {
         resetRuntimeQuality('range-stop', nowMs);
         state.time.running = false;
         clock.rebase(state.time.utDaysJ2000, state.time.rateSimSecondsPerRealSecond, false, nowMs);
-        lastError = '已到支持日期范围边界（天文纪年 −2000 至 4000）；播放已暂停，保留最后有效天空。';
+        lastError = '已到日期范围边界（−2000 至 4000年），播放已暂停。';
         updateControls();
         lastUiMs = nowMs;
         updateStatus();
@@ -656,7 +650,7 @@ function downloadCapture(): void {
   } catch (error) { lastError = error instanceof Error ? error.message : String(error); updateStatus(); }
 }
 function shareHash(): string {
-  if (__SKY_PORTABLE__ || location.protocol === 'file:') throw new Error('便携版请导出场景 JSON；本机文件地址不是可分享网址。');
+  if (__SKY_PORTABLE__ || location.protocol === 'file:') throw new Error('请导出场景文件进行分享。');
   const hash = `#scene=${encodeURIComponent(JSON.stringify(parseState(serializeState(state))))}`;
   try { history.replaceState(null, '', hash); } catch { /* file URL history may be restricted. */ }
   return `${location.href.split('#')[0]}${hash}`;
@@ -671,7 +665,7 @@ window.addEventListener('sky:layout-change', invalidate);
 window.addEventListener('sky:share', async () => {
   const request = ++shareRequest;
   if (__SKY_PORTABLE__ || location.protocol === 'file:') {
-    controls.showShareResult({ mode: 'portable', json: serializeState(state), copied: false, message: '便携版提供场景 JSON；请导出或手动复制，不分享本机文件地址。' });
+    controls.showShareResult({ mode: 'portable', json: serializeState(state), copied: false, message: '导出场景文件，或复制以下内容分享。' });
     return;
   }
   const url = shareHash();
@@ -810,5 +804,5 @@ const appApi = {
 science.request(state);
 invalidate();
 updateStatus();
-void registerOffline(info => { if (disposed) return; offlineInfo = info; offlineStatus = info.message; controls.setOfflineStatus(info); updateStatus(); })
+void registerOffline(info => { if (disposed) return; offlineInfo = info; controls.setOfflineStatus(info); updateStatus(); })
   .then(controller => { if (disposed) controller.dispose(); else offlineController = controller; });

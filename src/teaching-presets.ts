@@ -30,7 +30,7 @@ export const teachingPresetTopics: readonly Readonly<{ id: TeachingPresetTopic; 
   { id: 'polar', title: '极昼极夜' }, { id: 'season', title: '季节星空' },
   { id: 'earth-sun', title: '日地关系' }, { id: 'moon-phase', title: '月相' },
   { id: 'ecliptic', title: '黄道' }, { id: 'light-pollution', title: '光污染' },
-  { id: 'birthday', title: '生日天空示例' },
+  { id: 'birthday', title: '生日星空' },
 ].map(topic => Object.freeze(topic) as Readonly<{ id: TeachingPresetTopic; title: string }>));
 
 type Definition = Omit<TeachingPresetMetadata, 'timePlaceNote' | 'moonPhaseSeedUtDaysJ2000'> & {
@@ -75,46 +75,46 @@ function seasonPreset(utc: string): SimulationState {
 const legacyNotes: Record<AcceptanceSceneId, {
   topic: TeachingPresetTopic; description: string; variants: readonly TeachingPresetId[];
 }> = {
-  V01: { topic: 'diurnal', description: '杭州固定朝北视野。加载时暂停；播放或步进时间，恒星日周位置由当地恒星时更新，相机不自动追星。', variants: ['V01', 'T01'] },
-  V02: { topic: 'earth-sun', description: '从地球外观察真实太阳方向产生的昼夜分界。日景、夜灯、云层和大气可分别开关；天球与地球的显示尺寸不表示恒星距离。', variants: ['V02'] },
-  V03: { topic: 'ecliptic', description: '外部天球为方向模型。与黄道场景对比，辨认天赤道、黄道与天极；球壳半径不是恒星距离。', variants: ['V03', 'T08'] },
-  V04: { topic: 'latitude', description: '杭州的天顶与地轴方向分离。切换南北纬对比，观察当地地平和可见天极的变化；参考系切换不改变UTC。', variants: ['V04', 'T02', 'T03'] },
-  S05: { topic: 'polar', description: '北纬70°六月夏至附近，完整当地日应连续日照。极昼是升落事件状态，不以午夜强制变为黑夜。', variants: polarVariants },
-  S06: { topic: 'polar', description: '北纬70°十二月冬至附近全天无日出，但中午仍可能有晨昏光；不把极夜全部称为天文黑夜。', variants: polarVariants },
-  S07: { topic: 'polar', description: '同一十二月日期改为南纬70°，南半球处于夏季极昼；与北纬70°同日对照。', variants: polarVariants },
-  S09: { topic: 'moon-phase', description: '使用2026-09-01 UTC明确种子搜索四个相邻月相事件，再跳转实际UT。月相来自日月观察者几何，照亮比例不是农历日期。', variants: ['S09'] },
-  S16: { topic: 'moon-phase', description: '与月相教学配套比较农历民用日期：本地固定历表采用UTC+8日界，独立于所在地显示时区及月面照亮比例。', variants: ['S16', 'S09'] },
+  V01: { topic: 'diurnal', description: '朝向杭州的北方天空，播放时间，观察恒星绕北天极转动。', variants: ['V01', 'T01'] },
+  V02: { topic: 'earth-sun', description: '从太空观察地球的昼夜分界，切换日景、夜灯和云层。', variants: ['V02'] },
+  V03: { topic: 'ecliptic', description: '从外部观察天球，辨认天赤道、黄道与南北天极。', variants: ['V03', 'T08'] },
+  V04: { topic: 'latitude', description: '对比南北纬，观察地平线、天顶和可见天极的变化。', variants: ['V04', 'T02', 'T03'] },
+  S05: { topic: 'polar', description: '北纬70°的夏至前后，观察太阳整日停留在地平线上方。', variants: polarVariants },
+  S06: { topic: 'polar', description: '北纬70°的冬至前后，太阳整日位于地平线下，中午仍可见暮光。', variants: polarVariants },
+  S07: { topic: 'polar', description: '将同一天的地点切换到南纬70°，对比南北半球的极昼与极夜。', variants: polarVariants },
+  S09: { topic: 'moon-phase', description: '查看新月、上弦、满月和下弦的时刻，跳转观察月面变化。', variants: ['S09'] },
+  S16: { topic: 'moon-phase', description: '对照农历日期与月相变化。农历按北京时间显示。', variants: ['S16', 'S09'] },
 };
 
 const definitions: readonly Definition[] = [
   ...acceptanceScenes.map(scene => ({
-    id: scene.id, title: scene.title, ...legacyNotes[scene.id],
+    id: scene.id, title: ({ V01: '杭州北方夜空', V02: '太空中的地球', V03: '天球与星座', V04: '地平线与天极', S05: '北极圈极昼', S06: '北极圈极夜', S07: '南北半球的极昼极夜', S09: '四种月相', S16: '农历与月相' })[scene.id], ...legacyNotes[scene.id],
     source: 'acceptance-input' as const,
     sourceNote: '复用原04验收包固定输入；是可复现场景，不代表原视频的已知拍摄时间或验收已通过。',
     create: () => loadAcceptanceScene(scene.id),
   })),
   ...skyTeachingScenes.map(scene => ({
-    id: scene.id, title: scene.title, topic: 'light-pollution' as const,
-    description: '同一杭州夜空、同一视野，太阳与月球在几何地平下；三个预设仅人工天空亮度为0、0.5、1，用于定性比较暗夜、郊外与城市。',
+    id: scene.id, title: scene.title.replace(/^新增 · /, '').replace('示例', '星空'), topic: 'light-pollution' as const,
+    description: '对比同一片夜空在暗夜、郊外和城市中的变化，寻找逐渐隐去的暗星与银河。',
     source: 'm3-input' as const,
     sourceNote: '复用M3新增G场景固定输入；滑条是视觉示意，不能当作SQM、Bortle等级或当地实测天气。',
     variants: pollutionVariants, create: () => loadSkyTeachingScene(scene.id),
   })),
   {
     id: 'T01', title: '日周运动：固定地平参考', topic: 'diurnal',
-    description: '杭州地平锁定天球，显示天极、天赤道与子午圈。播放或步进观察恒星绕天极的日周变化，比较地平锁定与惯性锁定，再比较太阳日与恒星日。',
+    description: '播放时间，观察恒星绕天极转动；切换参考系，对比地球自转与星空运动。',
     source: 'm4b-derived', sourceNote: '从V04完整状态派生的教学示例；时间、地点与参考系均可修改。',
     variants: ['T01', 'V01'], create: () => derive('V04', state => { state.layers.celestialEquator = true; }),
   },
   {
     id: 'T02', title: '南北纬对比：北纬30°', topic: 'latitude',
-    description: '同一UTC、同一经度与显示时区的北纬30°示例，北天极约高30°，南天极在地平下；与南纬30°对照。',
+    description: '北纬30°，北天极高约30°。与南纬30°对照，观察可见天空的差异。',
     source: 'm4b-derived', sourceNote: '从V04派生的假想地理对比点，经度0°、显示时区固定UTC；不是政治时区推断。',
     variants: ['T02', 'T03'], create: () => latitudePreset(30),
   },
   {
     id: 'T03', title: '南北纬对比：南纬30°', topic: 'latitude',
-    description: '保持UTC、经度与时区，改为南纬30°，观察南天极约高30°、北天极在地平下，与北纬30°的可见天空对照。',
+    description: '南纬30°，南天极高约30°。与北纬30°对照，观察可见天空的差异。',
     source: 'm4b-derived', sourceNote: '从V04派生的假想地理对比点，经度0°、显示时区固定UTC；不是政治时区推断。',
     variants: ['T02', 'T03'], create: () => latitudePreset(-30),
   },
@@ -125,13 +125,13 @@ const definitions: readonly Definition[] = [
     ['T07', '冬季夜空', '2026-12-21T14:00:00Z'],
   ] as const).map(([id, title, utc]) => ({
     id, title: `季节比较：${title}`, topic: 'season' as const,
-    description: '杭州当地22:00、同一朝南视野，比较四季可见恒星与太阳周年方向。日期在分至附近，不宣称是精确分至时刻；月光随真实日期自然变化。',
+    description: '在杭州晚上22:00朝南观看，对比春夏秋冬的星座与银河。',
     source: 'm4b-derived' as const, sourceNote: '从V01完整状态派生的固定夜空示例；同地点、固定UTC+8、同相机，不轮播不同星图。',
     variants: seasonVariants, create: () => seasonPreset(utc),
   })),
   {
     id: 'T08', title: '黄道：太阳与天赤道', topic: 'ecliptic',
-    description: '十二月冬至附近的太阳位于黄道方向，黄道与天赤道不同面。更改日期后太阳位置由星历更新；太阳位置与显示尺寸分别说明。',
+    description: '观察冬至前后的太阳位置，比较黄道与天赤道的夹角。更改日期，追踪太阳的周年运动。',
     source: 'm4b-derived', sourceNote: '从V03完整状态派生的方向教学示例；球壳不是太阳或恒星真实距离。',
     variants: ['T08', 'V03'], create: () => derive('V03', state => {
       atUtc(state, '2026-12-21T14:00:00Z');
@@ -140,8 +140,8 @@ const definitions: readonly Definition[] = [
     }),
   },
   {
-    id: 'B01', title: '生日天空：明确时刻示例', topic: 'birthday',
-    description: '示例：2026-09-14，杭州22:00，固定UTC+8。请按需要设置日期、时刻、地点和时区；未提供时刻时，本示例采用22:00。',
+    id: 'B01', title: '生日星空', topic: 'birthday',
+    description: '选择生日、时间和地点，重现那一刻的星空。初始时间为杭州晚上22:00。',
     source: 'm4b-derived', sourceNote: '从V01完整状态派生的生日天空输入示例；22:00是明确选择的演示时刻，不是个人出生资料。',
     variants: ['B01'], create: () => derive('V01', () => {}),
   },
@@ -151,7 +151,7 @@ function describeTimePlace(state: SimulationState): string {
   const observer = state.observer, zone = observer.displayZone;
   const zoneNote = zone.kind === 'fixed'
     ? `固定UTC${zone.offsetMinutes >= 0 ? '+' : ''}${zone.offsetMinutes / 60}`
-    : `${zone.name}（${zone.versionNote}）`;
+    : zone.name;
   return `${formatCivil(state.time.utDaysJ2000, zone)}，${zoneNote}；${observer.name}，纬度${observer.latitudeDeg}°、东经${observer.longitudeDegEast}°、海拔${observer.heightMeters}米`;
 }
 

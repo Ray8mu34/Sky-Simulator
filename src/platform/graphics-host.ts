@@ -124,14 +124,14 @@ export class GraphicsHost implements RendererPort {
       if (this.lost) return;
       this.lost = true; this.losses++;
       this.reason = 'context-lost';
-      this.message = '三维图形上下文已丢失；暂用二维方位图，时间与科学读数继续保留。';
+      this.message = '三维画面暂时中断，已切换为二维星图。';
       try {
         this.fallback ??= this.createSurface('canvas2d');
         this.activate(this.fallback);
       } catch (error) {
         this.active = null; this.disposeFallback();
         if (this.webgl) { this.webgl.element.style.visibility = 'hidden'; this.webgl.element.style.pointerEvents = 'none'; }
-        this.message = `三维上下文已丢失，二维方位图也暂不可用；科学读数仍保留。${error instanceof Error ? error.message : ''}`;
+        this.message = '星空画面暂时不可用，请刷新页面重试。';
         this.container.dataset.activeGraphics = 'unavailable';
         this.syncWarnings(); this.onInvalidate();
       }
@@ -144,7 +144,7 @@ export class GraphicsHost implements RendererPort {
         this.disposeFallback(); this.syncWarnings();
       } catch (error) {
         this.lost = false; this.reason = 'restore-failed';
-        this.message = `三维恢复失败；${this.fallback ? '继续使用二维方位图' : '保留科学读数'}。${error instanceof Error ? error.message : ''}`;
+        this.message = this.fallback ? '三维画面恢复失败，继续显示二维星图。' : '星空画面恢复失败，请刷新页面重试。';
         this.syncWarnings(); this.onInvalidate();
       }
     }

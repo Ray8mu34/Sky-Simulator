@@ -196,7 +196,7 @@ test('birthday is a complete, explicitly chosen example rather than inferred per
   assert.equal(utToDate(state.time.utDaysJ2000).toISOString(), '2026-09-14T14:00:00.000Z');
   assert.deepEqual(localCivilParts(state.time.utDaysJ2000, state.observer.displayZone), { year: 2026, month: 9, day: 14, hour: 22, minute: 0, second: 0 });
   assert.equal(state.observer.name, '杭州教学预设');
-  assert.match(metadata.description, /未提供时刻时，本示例采用22:00/); assert.match(metadata.description, /22:00/);
-  assert.match(metadata.description, /UTC\+8/); assert.match(metadata.sourceNote, /示例/);
+  assert.match(metadata.description, /初始时间为杭州晚上22:00/);
+  assert.match(metadata.timePlaceNote, /UTC\+8/); assert.match(metadata.sourceNote, /示例/);
   assert.ok(body(state, 'Sun').geometricAltitudeDeg < -18);
 });

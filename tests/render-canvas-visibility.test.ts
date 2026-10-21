@@ -31,7 +31,7 @@ const resolveDirection = (_catalog: unknown, id: string | null) => id?.startsWit
   : id?.startsWith('constellation:') ? horizontalToVector(35, 15) : null;
 const resolveDetails = (_catalog: unknown, id: string | null) => { const star = stars.find(star => star.id === id);
   return star ? { id: star.id, kind: 'star', magnitude: star.magnitude, label: star.nameZh } : null; };
-const dependencies = { catalog, getDisplayRefractionProfile, projectCanvasEqjToSkyDisk, clipSampleCanvasSkyArcEnu, applyMatrix,
+const dependencies = { catalog, deepSkyObjects: [], getDisplayRefractionProfile, projectCanvasEqjToSkyDisk, clipSampleCanvasSkyArcEnu, applyMatrix,
   deriveSkyAppearance, canvasStarSymbol, canvasTeachingLabelBudget, runtimeLabelSecondary, runtimeOrdinaryLabelBudget,
   finalStarAlpha, STAR_ALPHA_DISCARD, starMagnitudeVisibility, reducePointerGesture, cssRgb: () => '#000',
   starLabel: (star: { nameZh: string }) => star.nameZh, constellationLabel: (figure: { id: string }) => figure.id,
@@ -60,7 +60,7 @@ function renderer() {
   const subject = Object.assign(new Subject(), { disposed: false, context, canvas, viewport: { centerX: 250, centerY: 250, radius: 200 }, width: 500, height: 500, ratio: 1,
     starDirections: Float64Array.from(directions.flat()), starCss: stars.map(() => '#fff'), blocks: [], lastInteractionSignature: '', samples: [],
     gesture: createPointerGesture(), stageInputEnabled: true, resetPointerGestures() {}, resize() {}, updateStarDirections() {},
-    drawGridAndExplanation() {}, drawFixedTextOverlay() {}, budgetMobile: () => false, runtimeQuality: DEFAULT_RUNTIME_RENDER_QUALITY,
+    drawGridAndExplanation() {}, drawFixedTextOverlay() {}, drawBodyMarkers() {}, budgetMobile: () => false, runtimeQuality: DEFAULT_RUNTIME_RENDER_QUALITY,
     labels: { draw(labels: Record<string, any>[]) { candidates.splice(0, candidates.length, ...labels); }, hitTest: () => null },
     onSelect: (id: string | null) => picks.push(id), focusRequestedFor: null, belowHorizonReason: () => 'below horizon' });
   return { subject, context, candidates, picks };
@@ -125,10 +125,10 @@ test('Canvas retains an explicit selected direction marker without claiming its 
   const state = observationState(), frame = snapshot(state), { subject, candidates } = renderer();
   state.selected = 'hip:2'; subject.render(state, frame, observation);
   assert.equal(subject.stars.some((star: { id: string }) => star.id === state.selected), false);
-  assert.match(subject.focusReason, /当前可见性模型已隐藏该星点/);
+  assert.match(subject.focusReason, /当前天空亮度下，该恒星较难看清/);
   assert.equal(candidates.find(label => label.id === state.selected)!.selected, true);
   state.selected = 'hip:3'; subject.render(state, frame, observation);
-  assert.match(subject.focusReason, /高亮不保证肉眼可见/);
+  assert.match(subject.focusReason, /已高亮选中天体/);
   assert.equal(subject.stars.some((star: { id: string }) => star.id === state.selected), true);
 });
 

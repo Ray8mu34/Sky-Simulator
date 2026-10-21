@@ -1,5 +1,5 @@
 import * as Engine from 'astronomy-engine';
-import type { SimulationState, SolarDayEvents } from '../contracts';
+import type { SimulationState, SolarDayEvents, SolarBody } from '../contracts';
 import type { StarAstrometry, StarMotionModelInfo } from './stars';
 import { ASTROMETRY_MODEL_VERSION, deriveStarMotionModel, propagateStarDirection, STAR_MOTION_POLICY_VERSION, validateStarAstrometry } from './stars';
 import { applyMatrix, RAD_TO_DEG, vectorToHorizontal } from './math';
@@ -14,7 +14,7 @@ import { precisionNoteForDay } from './day-event-time';
 
 export type EventStarId = `hip:${number}` | `hyg:${number}`;
 export type ObjectDayTarget =
-  | { readonly kind: 'body'; readonly id: 'body:Sun' | 'body:Moon' }
+  | { readonly kind: 'body'; readonly id: `body:${SolarBody}` }
   | { readonly kind: 'star'; readonly id: EventStarId; readonly astrometry: Readonly<StarAstrometry>; readonly astrometrySourceVersion: string };
 export type ObjectDayTargetResolution =
   | { readonly available: true; readonly target: ObjectDayTarget }
@@ -49,7 +49,7 @@ export const OBJECT_EVENT_DEFINITION_VERSION = 'point-or-upper-limb-density34-ex
 export function validateObjectDayTarget(target: ObjectDayTarget): void {
   if (!target || typeof target !== 'object') throw new RangeError('日事件目标须为明确的科学记录。');
   if (target.kind === 'body') {
-    if (target.id !== 'body:Sun' && target.id !== 'body:Moon') throw new RangeError('本版事件仅支持已绘制Sun/Moon。');
+    if (!/^body:(Sun|Moon|Mercury|Venus|Mars|Jupiter|Saturn)$/.test(target.id)) throw new RangeError('不支持的太阳系目标。');
     return;
   }
   if (target.kind !== 'star' || typeof target.id !== 'string' || !/^(?:hip|hyg):[1-9]\d*$/.test(target.id) || !Number.isSafeInteger(Number(target.id.split(':')[1]))) throw new RangeError('恒星目标须有canonical HIP/HYG编号。');
@@ -108,12 +108,14 @@ export function* objectDaySteps(state: SimulationState, target: ObjectDayTarget)
   yield;
   const { startUt, endUt, dateLocal } = yield* localDayBoundsSteps(state.time.utDaysJ2000, state.observer.displayZone);
   const bounds = { startUtDaysJ2000: startUt, endUtDaysJ2000: endUt, displayZone: { ...state.observer.displayZone } };
+  const body = target.kind === 'body' ? Engine.Body[target.id.slice(5) as SolarBody] : null;
   const evaluate = (ut: number): DayTrackSample => {
     let altitude: number, radius = 0;
     if (target.kind === 'body') {
-      const equatorial = Engine.Equator(Engine.Body.Moon, ut, observer, true, true);
+      const equatorial = Engine.Equator(body!, ut, observer, true, true);
       altitude = Engine.Horizon(ut, observer, equatorial.ra, equatorial.dec).altitude;
-      radius = Math.asin(1737.4 / (equatorial.dist * Engine.KM_PER_AU)) * RAD_TO_DEG;
+      // Match Astronomy Engine SearchRiseSet: planets are point centres; Moon uses its upper limb.
+      radius = target.id === 'body:Moon' ? Math.asin(1737.4 / (equatorial.dist * Engine.KM_PER_AU)) * RAD_TO_DEG : 0;
     } else {
       const frame = frameFromEngineTime(new Engine.AstroTime(ut), observer);
       altitude = vectorToHorizontal(applyMatrix(frame.eqjToHorizontalGeometric, propagateStarDirection(target.astrometry, ut))).altitudeDeg;
@@ -124,7 +126,7 @@ export function* objectDaySteps(state: SimulationState, target: ObjectDayTarget)
   if (target.kind === 'body') for (const hourAngle of [0, 12]) {
     let cursor = startUt;
     for (let index = 0; index < 4; index++) {
-      const event = Engine.SearchHourAngle(Engine.Body.Moon, observer, hourAngle, cursor);
+      const event = Engine.SearchHourAngle(body!, observer, hourAngle, cursor);
       yield;
       if (event.time.ut >= endUt) break;
       if (event.time.ut >= startUt) knots.push(event.time.ut);
@@ -142,13 +144,13 @@ export function* objectDaySteps(state: SimulationState, target: ObjectDayTarget)
     for (const direction of [1, -1]) {
       let cursor = startUt;
       for (let count = 0; count < 8; count++) {
-        const time = Engine.SearchRiseSet(Engine.Body.Moon, observer, direction, cursor, endUt - cursor, 0);
+        const time = Engine.SearchRiseSet(body!, observer, direction, cursor, endUt - cursor, 0);
         if (!time || time.ut >= endUt) break;
         if (time.ut < cursor - 0.2 / 86400) { complete = false; incompleteReason = '内核升落搜索未向前进展。'; break; }
         if (time.ut >= startUt) found.push({ kind: direction === 1 ? 'rise' : 'set', utDaysJ2000: time.ut });
         cursor = time.ut + 0.2 / 86400; yield;
         if (cursor >= endUt) break;
-        if (count === 7) { complete = false; incompleteReason = '月球升落数量超出有限搜索预算。'; }
+        if (count === 7) { complete = false; incompleteReason = '天体升落数量超出有限搜索预算。'; }
       }
       yield;
     }
@@ -174,12 +176,12 @@ export function* objectDaySteps(state: SimulationState, target: ObjectDayTarget)
   const starMotion = target.kind === 'star' ? deriveStarMotionModel(target.astrometry) : undefined;
   const notes = ['本地升落预报采用34′标准折射按海拔大气密度缩放、当地水平地平、相对地面眼高0m；独立于画面折射/天气/图层/可见性效果。',
     '完整当地日[start,end)保留所有升落；日界端点纳入连续高度范围。极值细化0.1ms只针对本批缓变轨迹，不证明任意振荡函数无事件。',
-    target.kind === 'body' ? '月球使用站心中心与实际角半径，已含月视差；圆盘上边缘可能未被照亮，月相与教学放大不改变事件。' : '恒星按同一J2000运动策略在各求值时刻推进；点目标没有圆盘半径。',
+    target.kind === 'body' ? target.id === 'body:Moon' ? '月球使用站心中心与实际角半径，已含月视差；圆盘上边缘可能未被照亮，月相与教学放大不改变事件。' : '行星采用站心中心过标准事件地平的时刻；图形大小不改变事件。' : '恒星按同一J2000运动策略在各求值时刻推进；点目标没有圆盘半径。',
     precisionNoteForDay(startUt, endUt)];
   if (starMotion) notes.push(...starMotion.notes);
   if (annotated.some(crossing => !crossing.jumpAllowed)) notes.push('完整民用日部分超出场景可编辑范围；相应事件保留但跳转禁用。');
   return { id: target.id, kind: target.kind, key: objectDayKey(state, target), dateLocal, bounds, definitionVersion: OBJECT_EVENT_DEFINITION_VERSION,
-    definition: `${OBJECT_EVENT_DEFINITION_VERSION}：${target.kind === 'body' ? '月球站心圆盘上边缘' : '恒星点目标'}，34′海拔密度缩放标准折射，当地水平地平，眼高相对地面0m。`,
+    definition: `${OBJECT_EVENT_DEFINITION_VERSION}：${target.kind === 'body' ? target.id === 'body:Moon' ? '月球站心圆盘上边缘' : '行星站心中心' : '恒星点目标'}，34′海拔密度缩放标准折射，当地水平地平，眼高相对地面0m。`,
     astrometryModelVersion: starMotion?.modelVersion ?? null, ...(starMotion ? { starMotion } : {}), crossings: annotated, state: status,
     geometricAltitudeRangeDeg: { minimum: analysis.geometricAltitude.minimum.valueDeg, maximum: analysis.geometricAltitude.maximum.valueDeg },
     clearanceRangeDeg: { minimum, maximum }, extremaTimes: { minimumUtDaysJ2000: analysis.geometricAltitude.minimum.utDaysJ2000, maximumUtDaysJ2000: analysis.geometricAltitude.maximum.utDaysJ2000 },

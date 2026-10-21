@@ -18,14 +18,14 @@ export async function registerOffline(onStatus: (status: OfflineStatus) => void)
     onStatus({ ...current });
   };
   const emit = () => {
-    if (waiting?.complete) publish('update-ready', '新版已缓存；下课后保存场景，关闭本应用所有页面后重新打开更新');
-    else if (waiting && !waiting.complete) publish('update-failed', '新版离线缓存不完整；继续当前版本，可使用便携 HTML');
-    else if (failure) publish(active?.complete ? 'update-failed' : 'error', active?.complete ? '新版离线缓存未完成；当前旧版仍可离线使用' : '离线缓存未完成；可使用便携 HTML');
-    else if (registration?.installing) publish('installing', active?.complete ? '新版正在缓存；当前教学继续使用旧版' : '正在缓存离线资源…');
-    else if (registration?.waiting) publish('installing', '正在确认新版离线资源；当前版本保持运行');
+    if (waiting?.complete) publish('update-ready', '新版已就绪。保存场景后，关闭所有应用页面并重新打开即可更新。');
+    else if (waiting && !waiting.complete) publish('update-failed', '新版下载未完成，请联网后重新打开应用。');
+    else if (failure) publish(active?.complete ? 'update-failed' : 'error', active?.complete ? '新版下载未完成，当前版本可继续离线使用。' : '离线资源下载未完成，请联网后重试。');
+    else if (registration?.installing) publish('installing', active?.complete ? '正在下载新版…' : '正在缓存离线资源…');
+    else if (registration?.waiting) publish('installing', '正在检查更新…');
     else if (active?.complete && active.buildId === expected) publish('ready', '离线资源已就绪');
-    else if (active && !active.complete) publish('error', '离线缓存不完整；可使用便携 HTML');
-    else if (active?.complete) publish('installing', '当前页面与离线包版本不同；下课后关闭所有应用页面再重新打开');
+    else if (active && !active.complete) publish('error', '离线资源不完整，请联网后重试。');
+    else if (active?.complete) publish('installing', '保存场景后，关闭所有应用页面并重新打开以完成更新。');
     else publish('installing', '正在确认离线资源…');
   };
   const probe = (worker: ServiceWorker, scope: string): Promise<WorkerStatus> => new Promise((resolve, reject) => {
@@ -104,10 +104,10 @@ export async function registerOffline(onStatus: (status: OfflineStatus) => void)
       for (const cancel of [...cancelProbes]) cancel();
     },
   };
-  if (__SKY_PORTABLE__ || location.protocol === 'file:') { publish('portable', '便携离线版 · 资源已内联'); return controller; }
+  if (__SKY_PORTABLE__ || location.protocol === 'file:') { publish('portable', '离线版'); return controller; }
   if (import.meta.env.DEV) { publish('development', '本地开发'); return controller; }
   if (!('serviceWorker' in navigator) || !window.isSecureContext) { publish('unsupported', '当前环境不支持离线缓存'); return controller; }
-  if (!expected || !/^[a-f0-9]{16}$/.test(expected)) { publish('error', '离线版本标识缺失；可使用便携 HTML'); return controller; }
+  if (!expected || !/^[a-f0-9]{16}$/.test(expected)) { publish('error', '离线模式暂不可用，请联网使用或打开离线版。'); return controller; }
   publish('installing', '正在缓存离线资源…');
   try {
     registration = await navigator.serviceWorker.register('./sw.js', { scope: './' });

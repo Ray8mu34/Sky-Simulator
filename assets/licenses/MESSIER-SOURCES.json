@@ -1,0 +1,20 @@
+{
+  "source": "OpenNGC",
+  "author": "Mattia Verga and contributors",
+  "url": "https://github.com/mattiaverga/OpenNGC",
+  "license": "CC-BY-SA-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "retrieved": "2026-10-21",
+  "modifications": "Messier subset; M102 = NGC5866 (disputed identification); decimal J2000 coordinates; Chinese names; preserve null V magnitudes and angular sizes.",
+  "files": [
+    {
+      "path": "tmp/opengnc.csv",
+      "sha256": "54abea0b57b0a103831bfc7a8e3a99a23acfbf4bb581fcf3d8af539cbb826c84"
+    },
+    {
+      "path": "tmp/opengnc-addendum.csv",
+      "sha256": "c93f983dda6780b76b7b2e9271a856a892627710148a982ee98101a54c642fdd"
+    }
+  ],
+  "upstreamAcknowledgments": "NASA/IPAC Extragalactic Database (NED); HyperLEDA; SIMBAD (CDS, Strasbourg); HEASARC; Harold Corwin NGC/IC positions and notes."
+}

@@ -16,7 +16,7 @@ export function mountObjectDayControls(parent: HTMLElement, state: SimulationSta
   onJump: (utDaysJ2000: number) => void): ObjectDayControls {
   const section = document.createElement('details');
   section.id = 'sky-object-day'; section.className = 'object-day-section'; section.open = true;
-  section.innerHTML = `<summary>本日升落</summary><p class="object-day-heading tiny-note"></p><p class="object-day-status tiny-note" role="status" aria-live="polite"></p><div class="object-day-events event-grid"></div><p class="object-day-reason tiny-note"></p><details class="object-day-definition-details" hidden><summary>事件口径</summary><p class="object-day-definition tiny-note"></p><p class="object-day-range tiny-note"></p><p class="object-day-notes tiny-note"></p></details>`;
+  section.innerHTML = `<summary>本日升落</summary><p class="object-day-heading tiny-note"></p><p class="object-day-status tiny-note" role="status" aria-live="polite"></p><div class="object-day-events event-grid"></div><p class="object-day-reason tiny-note"></p><details class="object-day-definition-details" hidden><summary>升落说明</summary><p class="object-day-definition tiny-note"></p><p class="object-day-range tiny-note"></p><p class="object-day-notes tiny-note"></p></details>`;
   parent.append(section);
   const query = <T extends HTMLElement>(selector: string) => section.querySelector<T>(selector)!;
   const put = (selector: string, value: string) => { const element = query<HTMLElement>(selector); if (element.textContent !== value) element.textContent = value; };
@@ -47,10 +47,10 @@ export function mountObjectDayControls(parent: HTMLElement, state: SimulationSta
     if (disposed) return;
     const status = data?.objectDayStatus;
     const day = data && status === 'ready' && data.objectDay?.key === data.objectDayKey ? data.objectDay : undefined;
-    const message = status === 'error' ? data?.objectDayError || '本日升落计算失败。'
-      : status === 'unsupported' ? data?.objectDayUnsupportedReason || '此对象不提供整体升落事件。'
-      : status === 'pending' || status === 'ready' ? '正在计算当前对象、地点与当地日；旧结果已清除。'
-      : '展开后计算所选对象的本日升落。';
+    const message = status === 'error' ? '升落时刻计算失败，请重新选择日期或地点。'
+      : status === 'unsupported' ? data?.objectDayUnsupportedReason || '请选择恒星、太阳或月球查看升落时刻。'
+      : status === 'pending' || status === 'ready' ? '正在计算本日升落…'
+      : '展开查看升落时刻。';
     if (!day) {
       const emptyStatus = status === 'ready' ? 'pending' : status ?? '';
       if (renderedDay || renderedStatus !== emptyStatus || renderedMessage !== message) clear(emptyStatus, message);
@@ -63,12 +63,12 @@ export function mountObjectDayControls(parent: HTMLElement, state: SimulationSta
     const rises = day.crossings.filter(event => event.kind === 'rise').length;
     const sets = day.crossings.length - rises;
     const stateText = day.state === 'events' ? rises && sets ? `本日升落 · ${day.crossings.length}次` : rises ? '本日仅有升起事件' : sets ? '本日仅有落下事件' : '本日未列出升落事件'
-      : day.state === 'always-above' ? day.kind === 'star' ? '本日周极：始终在事件地平以上' : '本日始终在事件地平以上'
+      : day.state === 'always-above' ? day.kind === 'star' ? '本日始终在地平线上方' : '本日始终在地平线上方'
       : day.state === 'always-below' ? '本日终日不升'
-      : day.state === 'grazing' ? '本日接近相切；大气微扰可能改变事件'
-      : '事件搜索未完成；不能据此判断本日不升或不落';
+      : day.state === 'grazing' ? '本日掠过地平线'
+      : '暂未算出完整升落时刻，请重新选择日期。';
     put('.object-day-status', stateText);
-    put('.object-day-reason', day.noEventReason ?? '');
+    put('.object-day-reason', day.state === 'events' && (!rises || !sets) ? '另一次升落在相邻日期。' : '');
     const events = query('.object-day-events'); events.replaceChildren();
     for (const event of day.crossings) {
       const item = document.createElement('div'); item.className = 'object-day-event';
@@ -84,9 +84,9 @@ export function mountObjectDayControls(parent: HTMLElement, state: SimulationSta
       events.append(item);
     }
     query<HTMLElement>('.object-day-definition-details').hidden = false;
-    put('.object-day-definition', day.definition);
+    put('.object-day-definition', '升落时刻按标准大气计算。点击时刻可跳转查看。');
     put('.object-day-range', `全天中心几何高度 ${day.geometricAltitudeRangeDeg.minimum.toFixed(1)}° 至 ${day.geometricAltitudeRangeDeg.maximum.toFixed(1)}°`);
-    put('.object-day-notes', [...day.notes, '事件采用标准大气地平口径；画面折射、地景与光污染不改变升落时刻。'].join('；'));
+    put('.object-day-notes', '');
   }
   listen(section, 'toggle', () => notifyVisibility(true));
   listen(section, 'click', event => {
@@ -98,10 +98,10 @@ export function mountObjectDayControls(parent: HTMLElement, state: SimulationSta
     try { onJump(crossing.utDaysJ2000); }
     catch (error) { put('.object-day-status', error instanceof Error ? error.message : String(error)); }
   });
-  clear('', '展开后计算所选对象的本日升落。');
+  clear('', '展开查看升落时刻。');
   return {
     update, isVisible, notifyVisibility,
-    invalidate() { if (!disposed) clear('pending', '正在更新当前对象、地点与当地日；旧结果已清除。'); },
+    invalidate() { if (!disposed) clear('pending', '正在更新升落时刻…'); },
     dispose() { disposed = true; listeners.forEach(remove => remove()); section.remove(); },
   };
 }

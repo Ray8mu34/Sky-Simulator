@@ -1,0 +1,56 @@
+{
+  "source": "Stellarium v24.4",
+  "url": "https://github.com/Stellarium/stellarium/tree/v24.4",
+  "license": "CC-BY-SA-4.0",
+  "credit": "Karrie Berglund (Digitalis Education Solutions); Sun Shuwei; Stellarium contributors and Chinese translators; HYG 4.1 David Nash / Astronexus",
+  "modifications": "Chinese line endpoints matched to full HYG4.1 HIP catalogue at fixed J2000; boundary J2000 RA(hours)/Dec(degrees) preserved; Chinese PO translations. Six upstream figures have zero line segments and are not drawn.",
+  "figures": 318,
+  "drawnFigures": 312,
+  "missingSegments": 3,
+  "missingPairs": [
+    {
+      "figure": "179",
+      "hip": [
+        55219,
+        55203
+      ]
+    },
+    {
+      "figure": "271",
+      "hip": [
+        78727,
+        78207
+      ]
+    },
+    {
+      "figure": "290",
+      "hip": [
+        115404,
+        115125
+      ]
+    }
+  ],
+  "boundaryArcs": 782,
+  "files": [
+    {
+      "path": "tmp/chinese-lines.txt",
+      "sha256": "34cd7637eaa9a0ae18d9250713e38942cc12f2dc220fe19e69a28f9742152a9f"
+    },
+    {
+      "path": "tmp/chinese-names.txt",
+      "sha256": "ce36d74282659dfe7a943a6d8ef591f18f650312f198cc6b5884e319622f473f"
+    },
+    {
+      "path": "tmp/boundaries.txt",
+      "sha256": "d74f83e1b2d00876836436d02d63a41f7adbe73a13993535ffea73756d23db02"
+    },
+    {
+      "path": "assets/source/stellarium244/po/stellarium-skycultures/zh_CN.po",
+      "sha256": "a6cb7bf3baee828f2d19dd614646de16e88820ed3009f8e4438ecd089e7bc7be"
+    },
+    {
+      "path": "assets/source/hyg/hyg/CURRENT/hygdata_v41.csv",
+      "sha256": "d9f69fd86bbf90a4e4d52b4c5c53eacfa6dfc0bfdef85bfd94f095e0bebe4ebd"
+    }
+  ]
+}
