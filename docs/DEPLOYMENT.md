@@ -1,17 +1,17 @@
 # sky.zjuaaa.cn 部署与维护
 
-网站：<https://sky.zjuaaa.cn/>。2026-10-25的v0.2.0 Web构建ID为 `6d8747c4a64b157b`，入口模块 `index-ClEdBHyl.js`，SHA256 `19e9ddeeed8d8b8f04980bff27c7be3035e22f99a650555d886055d2709c5011`。已发布第一至第七批功能及课程/地景保存、版本提示改进；第八批仅保留规划，尚未实施。旧v0.1.0发行附件保留原样，服务器保留上一构建 `d2eae3b97390d5a0` 供回滚。
+网站：<https://sky.zjuaaa.cn/>。2026-10-25的v0.3.0 Web构建ID为 `7813a8cd8a083076`，入口模块 `index-YGXjtNJF.js`，SHA256 `f68a1023518327bd2a773e7ebf0bd08fa450a5a25ce7eaca592743073096b054`。第八批已交付10等HYG星表与星图深度控制；其他扩展继续按独立功能推进。历史发行附件保留，服务器保留上一构建 `6d8747c4a64b157b` 供回滚。
 
 ## 独立项目边界
 
 |内容|位置或规则|
 |---|---|
-|静态发行目录|`/srv/apps/sky-simulator/releases/6d8747c4a64b157b/`|
+|静态发行目录|`/srv/apps/sky-simulator/releases/7813a8cd8a083076/`|
 |当前入口|`/srv/apps/sky-simulator/current`，指向上述目录的相对符号链接|
 |Nginx配置|`/etc/nginx/sites-available/sky-simulator`，同名sites-enabled链接|
 |源码配置副本|仓库 `deploy/nginx/sky-simulator.conf`|
 |ACME验证根|`/srv/data/sky-simulator/acme/`|
-|部署记录|`/srv/data/sky-simulator/deployments/20261025/`；历史记录在 `20261021/`、`20261010/` 和 `20261005/`|
+|部署记录|`/srv/data/sky-simulator/deployments/20261025-v030/`；历史记录在 `20261025/`、`20261021/`、`20261010/` 和 `20261005/`|
 |TLS证书|`/etc/letsencrypt/live/sky.zjuaaa.cn/`，禁止公开私钥|
 |日志|`/var/log/nginx/sky-simulator-access.log`、`sky-simulator-error.log`|
 
@@ -68,3 +68,11 @@ Web及便携版构建、465项自动化测试、Chrome/Edge与窄屏/便携版�
 部署包SHA256为 `28ea9c1d5f9d9ea6e877366abe2b4ca5a1bb92c6bca145eb4fdf708d21d43acc`。服务器校验后预置独立release、保留旧hash资产及gzip副本，等待最终持续测试通过才原子切换current。旧release `d2eae3b97390d5a0`完整保留；全局及所有站点Nginx配置hash一致，无服务重启。
 
 公网Chrome确认v0.2.0及实际入口模块SHA256与本地包一致。四视图绘制和UTC一致，离线资源就绪，关闭页面后断网重开由Service Worker返回200。通过实际控件建立的测试课程及未录入讲解，在公网刷新和离线重开后均正确恢复。原始报告为 `_local-archive/deployment-20261025/browser/report.json`，无页面错误，测试浏览器已关闭。
+
+## 2026-10-25：v0.3.0扩展星表
+
+增加99,150颗HYG恒星，合计108,071颗。类型检查、Web与便携构建通过；Chrome155、Edge156及390px浏览器窄屏完成10等显示、暗星搜索/详情/定位、相机视场和肉眼模式复原。单次关键流程约5秒，无页面脚本错误；便携HTML直接打开确认完整目录。记录在 `qa/extended-stars/report.json`，本轮未重复长测或实体移动设备检查。
+
+功能提交 `b7f1a51` 已推送，GitHub构建检查 [40167804741](https://github.com/Ray8mu34/Sky-Simulator/actions/runs/40167804741) 成功。部署包SHA256为 `ba7c6b526e06593a803388b26843665655d9f840677a09429e88bda32ff33dd1`。服务器核对后原子切换current，旧release和旧hash资源保留，Nginx全局及站点配置hash未改变，无服务重启。
+
+公网HTTPS首页返回v0.3.0和构建 `7813a8cd8a083076`；从开发机实际下载入口JS返回200，SHA256与本地构建及服务器文件三方一致。公网浏览器复核脚本的资源等待发生30秒超时，本次不声称公网浏览器流程通过；浏览器功能结果来自上述本机构建检查。部署与下载原始材料保存在 `_local-archive/deployment-v030/`。
