@@ -1,17 +1,17 @@
 # sky.zjuaaa.cn 部署与维护
 
-网站：<https://sky.zjuaaa.cn/>。2026-10-21更新的Web构建ID为 `d2eae3b97390d5a0`，入口模块 `index-CFbwIdoQ.js`，SHA256 `90b6c109c12b509c1e7686d2368b230b70a7210d33e3ab2c47e4e5510209c8af`。已发布第一至第七批功能；第八批仅保留规划，尚未实施。原v0.1.0冻结发行附件保持不变，服务器保留上一构建 `8f5e0eb7b50ac016` 供回滚。
+网站：<https://sky.zjuaaa.cn/>。2026-10-25的v0.2.0 Web构建ID为 `6d8747c4a64b157b`，入口模块 `index-ClEdBHyl.js`，SHA256 `19e9ddeeed8d8b8f04980bff27c7be3035e22f99a650555d886055d2709c5011`。已发布第一至第七批功能及课程/地景保存、版本提示改进；第八批仅保留规划，尚未实施。旧v0.1.0发行附件保留原样，服务器保留上一构建 `d2eae3b97390d5a0` 供回滚。
 
 ## 独立项目边界
 
 |内容|位置或规则|
 |---|---|
-|静态发行目录|`/srv/apps/sky-simulator/releases/d2eae3b97390d5a0/`|
+|静态发行目录|`/srv/apps/sky-simulator/releases/6d8747c4a64b157b/`|
 |当前入口|`/srv/apps/sky-simulator/current`，指向上述目录的相对符号链接|
 |Nginx配置|`/etc/nginx/sites-available/sky-simulator`，同名sites-enabled链接|
 |源码配置副本|仓库 `deploy/nginx/sky-simulator.conf`|
 |ACME验证根|`/srv/data/sky-simulator/acme/`|
-|部署记录|`/srv/data/sky-simulator/deployments/20261021/`；历史记录在 `20261010/` 和 `20261005/`|
+|部署记录|`/srv/data/sky-simulator/deployments/20261025/`；历史记录在 `20261021/`、`20261010/` 和 `20261005/`|
 |TLS证书|`/etc/letsencrypt/live/sky.zjuaaa.cn/`，禁止公开私钥|
 |日志|`/var/log/nginx/sky-simulator-access.log`、`sky-simulator-error.log`|
 
@@ -60,3 +60,11 @@ HTTP保留本项目 `/.well-known/acme-challenge/` 路由，其他请求301到HT
 部署包SHA256为 `cb563c5f77405966294718f5fa9c54dc42f50fc47a8df7e5e8b17b59ab3d3381`。服务器核对哈希后建立独立release，保留旧hash资源并生成gzip副本，原子切换current；保留完整上一版本。全局及所有站点Nginx配置哈希一致，没有重启其他服务。
 
 公网Chrome确认入口模块SHA256与本地一致，四视图绘制及UTC一致、无页面脚本错误。离线资源就绪后关闭页面并断网重开，Service Worker返回200且构建ID一致。证据位于本地 `_local-archive/deployment-20261021/browser/report.json`。这次检查不代表实体移动设备、完整兼容性矩阵或长时间性能测试通过。
+
+## 2026-10-25：v0.2.0教学资料与版本更新
+
+Web及便携版构建、465项自动化测试、Chrome/Edge与窄屏/便携版教学资料流程、实际旧版缓存升级均通过。最终Web构建另完成30分钟Chrome加速时间与四视角持续运行，共31个检查点，无脚本或控制台错误；预热后同视角纹理/几何计数没有增长。完整范围见[本轮验证](USABILITY-20261025.md)。
+
+部署包SHA256为 `28ea9c1d5f9d9ea6e877366abe2b4ca5a1bb92c6bca145eb4fdf708d21d43acc`。服务器校验后预置独立release、保留旧hash资产及gzip副本，等待最终持续测试通过才原子切换current。旧release `d2eae3b97390d5a0`完整保留；全局及所有站点Nginx配置hash一致，无服务重启。
+
+公网Chrome确认v0.2.0及实际入口模块SHA256与本地包一致。四视图绘制和UTC一致，离线资源就绪，关闭页面后断网重开由Service Worker返回200。通过实际控件建立的测试课程及未录入讲解，在公网刷新和离线重开后均正确恢复。原始报告为 `_local-archive/deployment-20261025/browser/report.json`，无页面错误，测试浏览器已关闭。

@@ -70,7 +70,13 @@ async function editField(page, selector, value) {
 }
 async function newPage(target) {
   const page = await context.newPage(); page.on('pageerror', error => report.pageErrors.push({ url: target, message: error.message }));
-  await page.goto(target); await ready(page); return page;
+  await page.goto(target); await ready(page);
+  if (target.startsWith('http:')) {
+    const actual = await page.evaluate(() => document.querySelector('meta[name="sky-build-id"]')?.content ?? null);
+    if (report.webBuildId) assert.equal(actual, report.webBuildId, 'Every web context in one run must use the same build.');
+    else report.webBuildId = actual;
+  }
+  return page;
 }
 async function visibleState(page) {
   return { title: await page.locator('.course-title').inputValue(), progress: await text(page, '.course-progress'),
@@ -278,6 +284,68 @@ async function unavailableStorageRecovery() {
   await page.screenshot({ path: resolve(out, 'storage-recovery-conflict.png') });
   await context.close(); context = null; await browser.close(); browser = null;
 }
+async function quotaTransactionRecovery() {
+  browser = await chromium.launch({ channel: 'chrome', headless: true });
+  context = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+  const page = await newPage(url), entry = { scenario: 'quota-transaction-failure-and-retry', passed: [],
+    fault: 'Isolated IDBObjectStore.put throws QuotaExceededError for course-draft; no disk is filled and no production hooks are used.' };
+  report.cases.push(entry); await teaching(page);
+  await editField(page, '.course-title', '配额失败前旧稿');
+  await editField(page, '.step-text', '原有未录入讲解');
+  await page.locator('[data-ce="record"]').click(); await saved(page, '.course-save-status');
+  const readDraft = () => page.evaluate(async () => new Promise((resolve, reject) => {
+    const request = indexedDB.open('panoramic-night-sky-teaching', 1);
+    request.onerror = () => reject(request.error);
+    request.onsuccess = () => {
+      const database = request.result, transaction = database.transaction('records'), record = transaction.objectStore('records').get('course-draft');
+      record.onsuccess = () => resolve(record.result); record.onerror = () => reject(record.error);
+      transaction.oncomplete = () => database.close();
+    };
+  }));
+  const originalRecord = await readDraft();
+  await page.evaluate(() => {
+    window.__qaOriginalTeachingPut = IDBObjectStore.prototype.put;
+    IDBObjectStore.prototype.put = function(value, key) {
+      if (this.name === 'records' && key === 'course-draft') throw new DOMException('QA simulated storage quota', 'QuotaExceededError');
+      return window.__qaOriginalTeachingPut.call(this, value, key);
+    };
+  });
+  await editField(page, '.course-title', '配额不足仍保留的新草稿');
+  await editField(page, '.step-text', '事务失败后仍需保留的未录入讲解');
+  await page.waitForFunction(() => /存储空间不足/.test(document.querySelector('.course-save-status')?.textContent ?? ''));
+  entry.failureMessage = await text(page, '.course-save-status');
+  assert.doesNotMatch(entry.failureMessage, /已保存/);
+  assert.equal(await page.locator('.course-title').inputValue(), '配额不足仍保留的新草稿');
+  assert.equal(await page.locator('.step-text').inputValue(), '事务失败后仍需保留的未录入讲解');
+  assert.deepEqual(await readDraft(), originalRecord);
+  entry.passed.push('quota-error-is-visible-and-draft-remains-editable', 'aborted-transaction-preserves-exact-old-record-and-revision');
+  const backup = await downloadJson(page, '[data-ce="course-draft-export"]');
+  assert.equal(backup.value.draft.course.title, '配额不足仍保留的新草稿');
+  assert.equal(backup.value.draft.stepText, '事务失败后仍需保留的未录入讲解');
+  entry.passed.push('unsaved-quota-draft-can-still-be-exported');
+  const dialogPromise = page.waitForEvent('dialog', { timeout: 10000 });
+  const navigationAttempt = page.reload({ timeout: 10000 }).catch(error => error.message);
+  const dialog = await dialogPromise;
+  assert.equal(dialog.type(), 'beforeunload'); await dialog.dismiss(); await navigationAttempt;
+  assert.equal(await page.locator('.course-title').inputValue(), '配额不足仍保留的新草稿');
+  assert.deepEqual(await readDraft(), originalRecord);
+  entry.passed.push('native-beforeunload-warning-can-cancel-navigation-and-preserve-dirty-draft');
+  await page.screenshot({ path: resolve(out, 'quota-unsaved-warning.png') });
+  await page.evaluate(() => { IDBObjectStore.prototype.put = window.__qaOriginalTeachingPut; });
+  await page.locator('[data-ce="course-save-retry"]').click(); await saved(page, '.course-save-status');
+  const committed = await readDraft();
+  assert.equal(committed.revision, originalRecord.revision + 1);
+  assert.equal(committed.value.course.title, '配额不足仍保留的新草稿');
+  assert.equal(committed.value.stepText, '事务失败后仍需保留的未录入讲解');
+  await page.reload(); await ready(page); await teaching(page);
+  assert.equal(await page.locator('.course-title').inputValue(), '配额不足仍保留的新草稿');
+  assert.equal(await page.locator('.step-text').inputValue(), '事务失败后仍需保留的未录入讲解');
+  assert.deepEqual(await readDraft(), committed);
+  entry.passed.push('retry-after-restoring-storage-commits-once-and-exact-new-draft-survives-reload');
+  entry.oldRevision = originalRecord.revision; entry.newRevision = committed.revision;
+  await page.screenshot({ path: resolve(out, 'quota-recovered.png') });
+  await context.close(); context = null; await browser.close(); browser = null;
+}
 try {
   const scenarios = [
     { channel: 'chrome', narrow: false, portable: false },
@@ -285,11 +353,15 @@ try {
     { channel: 'msedge', narrow: false, portable: false },
     { channel: 'chrome', narrow: false, portable: true },
   ];
-  for (const scenario of scenarios) {
-    console.log(`Running ${JSON.stringify(scenario)}`); await userFlow(scenario);
-    await writeFile(resolve(out, 'report.json'), JSON.stringify(report, null, 2));
+  assert.ok(!process.env.SKY_QA_ONLY || process.env.SKY_QA_ONLY === 'quota', 'SKY_QA_ONLY supports only quota or the complete default suite.');
+  if (process.env.SKY_QA_ONLY !== 'quota') {
+    for (const scenario of scenarios) {
+      console.log(`Running ${JSON.stringify(scenario)}`); await userFlow(scenario);
+      await writeFile(resolve(out, 'report.json'), JSON.stringify(report, null, 2));
+    }
+    await unavailableStorageRecovery();
   }
-  await unavailableStorageRecovery();
+  await quotaTransactionRecovery();
   assert.deepEqual(report.pageErrors, []); report.status = 'passed-teaching-resilience';
 } catch (error) {
   report.status = 'failed'; report.failure = error.stack; process.exitCode = 1;

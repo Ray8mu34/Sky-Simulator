@@ -13,13 +13,14 @@ if(process.env.SKY_DEPLOY_EXPECTED_DIR){
   const root=process.env.SKY_DEPLOY_EXPECTED_DIR;
   const html=await readFile(root+'/index.html','utf8');
   capture.buildId=html.match(/name="sky-build-id" content="([^"]+)"/)?.[1];
+  capture.version=html.match(/name="sky-version" content="([^"]+)"/)?.[1];
   capture.moduleName=html.match(/src="\.\/assets\/([^"]+\.js)"/)?.[1];
   assert.ok(capture.buildId&&capture.moduleName,'Expected build identity must be present');
   capture.moduleSha256=createHash('sha256').update(await readFile(root+'/assets/'+capture.moduleName)).digest('hex');
 }
 const scene=capture.captures.find(c=>c.file==='overview-ground.png').state;
 const report={url,buildId:capture.buildId,scope:'Public HTTPS deployment smoke; not a performance, device or full scientific matrix.',errors:[],views:[],browserClosed:false};
-const browser=await chromium.launch({channel:'chrome',headless:false});
+const browser=await chromium.launch({channel:'chrome',headless:process.env.SKY_DEPLOY_HEADED!=='1'});
 let context;
 try {
   context=await browser.newContext({viewport:{width:1280,height:800}});
@@ -32,9 +33,26 @@ try {
   report.moduleSha256=createHash('sha256').update(await response.body()).digest('hex');
   assert.equal(report.moduleSha256,capture.moduleSha256);
   assert.equal(await page.locator('meta[name="sky-build-id"]').getAttribute('content'),capture.buildId);
+  if(capture.version){
+    report.version=await page.locator('meta[name="sky-version"]').getAttribute('content');
+    assert.equal(report.version,capture.version);
+    assert.ok((await page.locator('#sky-app-version').textContent()).includes(`v${capture.version}`));
+  }
   await page.waitForFunction(()=>window.skyApp.offlineStatus?.phase==='ready',null,{timeout:90000});
   report.online=await page.evaluate(()=>({secureContext:isSecureContext,offline:window.skyApp.offlineStatus,graphics:window.skyApp.diagnostics.graphics.activeKind}));
   assert.equal(report.online.secureContext,true);assert.equal(report.online.graphics,'webgl2');
+  if(capture.version){
+    await page.locator('.course-equipment > summary').click();
+    await page.locator('.course-tools > summary').click();
+    await page.locator('[data-ce="demo"]').click();
+    await page.locator('.course-title').fill('部署验证课');
+    await page.locator('.step-text').fill('刷新及离线重开后应保留的草稿。');
+    await page.waitForFunction(()=>document.querySelector('.course-save-status')?.textContent.includes('已保存在此设备'));
+    await page.reload();await ready(page);
+    await page.waitForFunction(()=>document.querySelector('.course-title')?.value==='部署验证课');
+    assert.equal(await page.locator('.step-text').inputValue(),'刷新及离线重开后应保留的草稿。');
+    report.teachingDraftSurvivesReload=true;
+  }
   for(const mode of ['ground','space','globe','horizon']) {
     await page.locator(`[data-view="${mode}"]`).click();await ready(page);
     report.views.push(await page.evaluate(()=>({mode:window.skyApp.state.viewMode,drawn:window.skyApp.diagnostics.lastRenderedMode,ut:window.skyApp.state.time.utDaysJ2000})));
@@ -45,6 +63,11 @@ try {
   const navigation=await page.goto(url,{timeout:30000});await ready(page);
   report.offline={status:navigation.status(),fromServiceWorker:navigation.fromServiceWorker(),buildId:await page.locator('meta[name="sky-build-id"]').getAttribute('content')};
   assert.equal(report.offline.fromServiceWorker,true);assert.equal(report.offline.status,200);assert.equal(report.offline.buildId,capture.buildId);
+  if(capture.version){
+    await page.waitForFunction(()=>document.querySelector('.course-title')?.value==='部署验证课');
+    assert.equal(await page.locator('.step-text').inputValue(),'刷新及离线重开后应保留的草稿。');
+    report.teachingDraftSurvivesOfflineReopen=true;
+  }
   await page.locator('[data-view="space"]').click();await ready(page);
   await page.waitForFunction(()=>window.skyApp.diagnostics.viewTransition?.phase==='idle');
   await page.screenshot({path:out+'/offline-space.png'});
