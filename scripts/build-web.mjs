@@ -2,7 +2,7 @@ import { build } from 'vite';
 import { readFile, writeFile, readdir, stat } from 'node:fs/promises';
 import { join, relative, resolve } from 'node:path';
 import { createHash } from 'node:crypto';
-import { copyAttribution, packageSizes } from './build-evidence.mjs';
+import { copyAttribution, packageSizes, stampReleaseVersion } from './build-evidence.mjs';
 import { bundleWorkerSources, workerEvidence } from './build-workers.mjs';
 import { createOfflineWorker } from './build-offline-worker.mjs';
 
@@ -29,7 +29,7 @@ async function walk(dir) {
 }
 await writeFile(join(outDir, 'manifest.webmanifest'), JSON.stringify({ name: '三维全景夜空', short_name: '全景夜空', start_url: './', scope: './', display: 'standalone', background_color: '#020407', theme_color: '#020407', icons: [{ src: './icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' }] }));
 await writeFile(join(outDir, 'icon.svg'), '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><rect width="192" height="192" fill="#020407"/><circle cx="96" cy="100" r="45" fill="#244559"/><path d="M144 25v20m-10-10h20M34 62v12m-6-6h12" stroke="#E7E5DC" stroke-width="3"/></svg>');
-const html = await readFile(join(outDir, 'index.html'), 'utf8');
+const html = await stampReleaseVersion(await readFile(join(outDir, 'index.html'), 'utf8'));
 await writeFile(join(outDir, 'index.html'), html.replace('</head>', `<link rel="manifest" href="./manifest.webmanifest" />${testTag ? `<meta name="sky-qa-build" content="${testTag}" />` : ''}</head>`));
 const files = (await walk(outDir)).sort();
 const digest = createHash('sha256');

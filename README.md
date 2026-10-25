@@ -2,9 +2,9 @@
 
 在地表、地球与天球之间切换，探索星空、日月运动和观测地点的关系。面向课堂演示、天文入门和自主学习，提供中文界面及可直接打开的离线单文件。
 
-**v0.1.0 是公开预览版。** 已完成本机 Windows 范围内的功能与科学参考检查；尚不承诺跨设备稳定性或全时空精度。Firefox 有一次未复现的交互超时，详见下方限制。
+**v0.2.0 是公开预览版。** 包含第一至第七批功能，以及课程/地景保存和版本更新体验改进。已完成本机 Windows 范围内的功能与科学参考检查；尚不承诺跨设备稳定性或全时空精度。Firefox 有一次未复现的交互超时，详见下方限制。
 
-[在线体验](https://sky.zjuaaa.cn/) · [下载 v0.1.0 预览版](https://github.com/Ray8mu34/Sky-Simulator/releases/tag/v0.1.0) · [项目介绍 PDF](media/Sky-Simulator-Overview.pdf) · [发布说明](docs/RELEASE-NOTES-v0.1.0.md) · [科学模型](docs/SCIENCE-MODEL.md)
+[在线体验](https://sky.zjuaaa.cn/) · [下载 v0.2.0 预览版](https://github.com/Ray8mu34/Sky-Simulator/releases/tag/v0.2.0) · [项目介绍 PDF（v0.1.0）](media/Sky-Simulator-Overview.pdf) · [发布说明](docs/RELEASE-NOTES-v0.2.0.md) · [科学模型](docs/SCIENCE-MODEL.md)
 
 [详细功能与甲方审查报告 PDF](media/Sky-Simulator-Client-Review-Report.pdf)：28页A4报告，涵盖各功能、操作流程、教学场景、交付方式、验证范围和建议审查清单。报告日期为2026年10月5日，审查产品版本为v0.1.0公开预览版。
 
@@ -30,6 +30,7 @@
 - **日月食教学**：当地/全球日食、月食搜索，接触时刻跳转与独立盘面几何模拟；可跳转到全球中心食食甚地点。
 - **天球图层**：中国传统星官名称与连线、星官搜索和定位、IAU星座边界，以及赤道/地平/黄道网格。
 - **课程与设备**：课程步骤记录、JSON导入导出、自动播放和退出恢复；相机取景框、目镜倍率/视场及0.05°小视场缩放；透明全景地景导入、方位校准与独立地景包。
+- **教学资料保存**：课程草稿及地景自动保存在当前设备，刷新后恢复；课程包可携带一份地景。保存失败、跨页面编辑冲突提供明确提示及导出备份入口。
 - **日月教学**：月相放大镜、相邻四月相时刻、太阳/月球/所选恒星的当地日升落事件，以及三种晨昏与极昼极夜说明。
 - **时间与历法**：播放、倒播、日期步进与民用时间滑条；固定 UTC 偏移或 IANA 时区；固定 UTC+8 的农历日期。
 - **观察与示意**：银河背景、日光、月光及人工天空亮度的定性对比；地表可切换几何方向与按气压、温度设置的折射近似。
@@ -48,7 +49,9 @@
 
 Web 发行包适合静态服务器部署。**不要用 `file:` 打开 Web 包里的 `index.html` 来替代便携版。** PWA 安装与离线缓存需要 HTTPS 或 localhost 安全上下文，且受浏览器支持与缓存策略影响。
 
-新版完整缓存后，应用会提示先保存场景、关闭本应用所有页面，再重新打开；不会在教学中强制替换当前版本。便携版分享请使用场景 JSON，不是本机文件路径。
+“版本与离线”显示当前版本，提供“检查更新”。新版完整缓存后，应用会提示先保存场景、关闭本应用所有页面（含独立窗口），再重新打开；不会在教学中强制替换当前版本。便携版分享请使用场景 JSON 或课程包，不是本机文件路径。
+
+课程草稿和地景保存于当前浏览器/站点，清除站点数据会删除它们。换浏览器、换设备或移动便携文件时，请先导出备份；本地保存不等同云端同步。使用与验证范围见 [课程、设备与地景](docs/COURSES-EQUIPMENT.md) 和 [本轮验证](docs/USABILITY-20261025.md)。
 
 ## 从源码开发
 
@@ -104,6 +107,6 @@ pnpm exec vite preview --host 127.0.0.1 --port 4173 --strictPort
 
 ## English summary
 
-Sky Simulator is a Chinese-language astronomy teaching preview with four synchronized views, star search, Moon-phase teaching, local rise/set events, qualitative sky brightness, and a real Canvas2D fallback. Download the self-contained offline HTML from [Releases](https://github.com/Ray8mu34/Sky-Simulator/releases/tag/v0.1.0), or build the static Web version with Node.js 24 and pnpm 11.
+Sky Simulator is a Chinese-language astronomy teaching preview with four synchronized views, star search, planets and Messier objects, Moon-phase teaching, rise/set events, eclipses, course playback, instrument fields and a real Canvas2D fallback. Version 0.2.0 adds local course/landscape recovery and clear update status. Download the self-contained offline HTML from [Releases](https://github.com/Ray8mu34/Sky-Simulator/releases/tag/v0.2.0), or build the static Web version with Node.js 24 and pnpm 11.
 
-Version 0.1.0 is a public preview, not a claim of cross-device stability or full-domain scientific accuracy. Windows Chrome/Edge are the main verified targets; Firefox has an unresolved intermittent submission/black-canvas observation. Physical mobile devices and macOS Safari remain unverified. Original code is MIT; third-party assets retain their separate licenses and attribution.
+Version 0.2.0 is a public preview, not a claim of cross-device stability or full-domain scientific accuracy. Windows Chrome/Edge are the main verified targets; Firefox has an unresolved intermittent submission/black-canvas observation. Physical mobile devices and macOS Safari remain unverified. Original code is MIT; third-party assets retain their separate licenses and attribution.

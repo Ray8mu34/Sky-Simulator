@@ -6,7 +6,7 @@ const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
 
 /** Private localhost server: change actual package roots, never alter cached resources. */
 export async function startUpdateServer(packages) {
-  const scopes = new Map(), requests = [];
+  const scopes = new Map(), requests = [], holds = new Map();
   let closing;
   const server = createServer(async (request, response) => {
     const url = new URL(request.url, 'http://127.0.0.1');
@@ -26,6 +26,8 @@ export async function startUpdateServer(packages) {
     const log = { at: new Date().toISOString(), scope, version: selected.version, path: url.pathname, local, method: request.method, fault: selected.fault === local };
     requests.push(log);
     if (log.fault) { log.status = 404; response.writeHead(404, { 'Cache-Control': 'no-store' }); response.end('Deliberate failed download in controlled QA'); return; }
+    const held = holds.get(`${scope}${local}`);
+    if (held) { log.held = true; await held.promise; }
     try {
       const body = await readFile(target);
       log.status = 200;
@@ -41,6 +43,13 @@ export async function startUpdateServer(packages) {
       if (!/^\/[a-z0-9-]+\/$/.test(scope) || !Object.hasOwn(packages, version)) throw new Error('Unknown QA scope/package');
       scopes.set(scope, { version, fault });
     },
-    close: () => closing ??= new Promise((done, reject) => server.close(error => error ? reject(error) : done())),
+    hold(scope, local) {
+      const key = `${scope}${local}`;
+      if (!scopes.has(scope) || holds.has(key)) throw new Error('Unknown scope or already held resource');
+      let release;
+      const promise = new Promise(done => { release = () => { holds.delete(key); done(); }; });
+      holds.set(key, { promise, release }); return release;
+    },
+    close: () => { for (const held of holds.values()) held.release(); return closing ??= new Promise((done, reject) => server.close(error => error ? reject(error) : done())); },
   };
 }

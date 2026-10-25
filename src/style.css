@@ -285,3 +285,15 @@ details:not([open]) > summary { padding-bottom: 0; }
 :root .course-equipment input:not([type=checkbox]), :root .course-equipment select, :root .course-equipment textarea { max-width: 100%; width: 100%; box-sizing: border-box; }
 :root .course-equipment textarea { min-height: 70px; background: #121d26; color: #e7e5dc; border: 1px solid #2d3b45; font: inherit; }
 :root .course-narration { white-space: pre-wrap; line-height: 1.6; }
+.offline-version { margin: 6px 0; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+#sky-check-update { width: 100%; }
+.offline-build-details { margin-top: 6px; font-size: .85em; }
+.offline-build-details dl { margin-block: 5px 0; }
+.offline-build-details dd { margin: 0 0 5px; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.offline-notice > p { margin: 0; }
+.offline-notice-actions { display: flex; gap: 6px; margin-top: 6px; }
+.offline-notice-actions button { flex: 1; }
+.offline-notice-actions button[hidden] { display: none; }
+@media (max-width: 640px), (pointer: coarse) and (max-height: 600px) {
+  .offline-notice-actions button { min-height: 44px; }
+}

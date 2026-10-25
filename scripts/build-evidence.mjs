@@ -3,6 +3,12 @@ import { join } from 'node:path';
 import { gzipSync } from 'node:zlib';
 import { createHash } from 'node:crypto';
 
+export async function stampReleaseVersion(html) {
+  const { version } = JSON.parse(await readFile('package.json', 'utf8'));
+  if (!/^\d+\.\d+\.\d+(?:-[a-zA-Z0-9.-]+)?$/.test(version)) throw new Error('Invalid release version');
+  return html.replace('</head>', `<meta name="sky-version" content="${version}" /></head>`);
+}
+
 export async function attribution() {
   const sections = [];
   try { sections.push(['assets/assets-manifest.json', await readFile('assets/assets-manifest.json', 'utf8')]); } catch { /* data generation may still be in progress */ }

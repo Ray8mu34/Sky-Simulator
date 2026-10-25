@@ -15,7 +15,8 @@ import type { MoonLoupeInfo } from './teaching-controls';
 import { mountAppearanceControls } from './appearance-controls';
 import type { SkyAppearance } from '../core/sky-appearance';
 import type { GraphicsStatus } from '../platform/renderer-port';
-import type { OfflineStatus } from '../platform/offline-status';
+import type { OfflineController, OfflineStatus } from '../platform/offline-status';
+import { mountOfflineControls } from './offline-controls';
 import { mountTimeControls } from './time-controls';
 import { mountSceneControls } from './scene-controls';
 import { trackFormDraft } from './form-draft';
@@ -82,6 +83,7 @@ export interface Controls {
   invalidateSkyAppearance(): void;
   setGraphicsStatus(status: GraphicsStatus): void;
   setOfflineStatus(status: OfflineStatus): void;
+  setOfflineController(controller: OfflineController): void;
   showShareResult(result: ShareResult): void;
   rememberCurrentScene(name?: string): void;
   isObjectDayVisible(): boolean;
@@ -137,10 +139,11 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
         <details class="control-section layer-section" open><summary>显示图层</summary><p id="sky-layer-capabilities" class="tiny-note" hidden>2D中灰色图层不可用；方位与地平边界固定显示。</p><div class="layer-grid">${layerDefinitions.filter((layer) => !layer.advanced).map(layerHtml).join('')}</div><p id="sky-ground-transparency-note" class="tiny-note"></p><details class="advanced-layers"><summary>参考线 / 名称</summary><div class="layer-grid">${layerDefinitions.filter((layer) => layer.advanced).map(layerHtml).join('')}</div></details></details>
         <details class="control-section scene-section"></details>
         <details class="control-section help-section"><summary>使用帮助</summary><p class="gesture-help">拖动调整视线，滚轮缩放。</p><p>搜索天体后点击“定位”查看。播放可观察天象变化，复位可回到当前场景的起点。</p><p>方位以北为0°、东为90°。几何高度表示天体与地平线的夹角，视高度计入大气折射。</p><p>日期范围：−2000 至 4000年。0年为公元前1年，−1年为公元前2年。</p></details>
+        <details class="control-section offline-section" open></details>
         <p class="science-notice tiny-note" aria-live="polite"></p><p class="ui-message" role="status" aria-live="polite" hidden></p>
       </div>
       <footer class="panel-footer"><span class="playback-status">已暂停</span><button type="button" data-action="reset" title="恢复当前场景起点并暂停">复位</button><button type="button" data-action="pause">暂停</button></footer>
-    </aside><p id="sky-offline-notice" class="offline-notice" data-sky-occlusion role="status" hidden></p>`;
+    </aside><div id="sky-offline-notice" class="offline-notice" data-sky-occlusion hidden></div>`;
 
   const panel = container.querySelector<HTMLElement>('.sky-control-panel')!;
   const drawer = container.querySelector<HTMLButtonElement>('.controls-drawer-toggle')!;
@@ -157,7 +160,6 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
   let composingSearch = false;
   let referenceSignature = '';
   let graphicsStatus: GraphicsStatus | undefined;
-  let offlineSignature = '';
   const observerDraft = trackFormDraft(container.querySelector<HTMLFormElement>('#sky-observer-form')!);
   const teachingControls = mountTeachingControls(container.querySelector<HTMLElement>('.observer-section')!, state, reason => { if (reason === 'time-event') timeControls.cancelSession(true); change(reason ?? 'teaching'); }, () => { if (window.matchMedia(MOBILE_CONTROLS_QUERY).matches) setDrawer(false); });
   const appearanceControls = mountAppearanceControls(container.querySelector<HTMLElement>('.layer-section')!, state, (reason) => change(reason ?? 'environment-appearance'));
@@ -171,6 +173,12 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
   const sceneControls = mountSceneControls(container.querySelector<HTMLElement>('.scene-section')!, state, (reason, seed) => { observerDraft.clear(); refractionControls.clearDraft(); teachingControls.setMoonPhaseSeed(seed); timeControls.cancelSession(true); closeSearch(); change(reason); });
   const explorationControls = mountExplorationControls(container.querySelector<HTMLElement>('.panel-scroll')!, state, reason => { timeControls.cancelSession(true); change(reason); });
   const courseEquipment = mountCourseEquipment(container.querySelector<HTMLElement>('.panel-scroll')!, state, reason => { timeControls.cancelSession(true); change(reason); });
+  const offlineControls = mountOfflineControls(container.querySelector<HTMLElement>('.offline-section')!, container.querySelector<HTMLElement>('#sky-offline-notice')!, () => {
+    setDrawer(true);
+    container.querySelector<HTMLDetailsElement>('.scene-section')!.open = true;
+    container.querySelector<HTMLDetailsElement>('.scene-library-section')!.open = true;
+    const name = input('sky-scene-name'); name.scrollIntoView({ block: 'center' }); name.focus({ preventScroll: true });
+  });
 
   function message(value: string, error = false) {
     if (disposed) return;
@@ -492,13 +500,14 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
     syncPlayback,
     invalidateSkyAppearance() { appearanceControls.invalidate(); },
     setGraphicsStatus(status) { if (disposed) return; if (graphicsStatus?.kind !== status.kind) appearanceControls.invalidate(); graphicsStatus = status; appearanceControls.setObserverOverview(status.capabilities.observerOverview); refractionControls.setObserverOverview(status.capabilities.observerOverview); teachingControls.setMoonLoupeCapability(status.available && status.capabilities.moonLoupe); sync(); },
-    setOfflineStatus(status) { if (disposed) return; const signature = `${status.phase}:${status.message}`; if (signature === offlineSignature) return; offlineSignature = signature; const notice = container.querySelector<HTMLElement>('#sky-offline-notice')!; notice.textContent = status.message; notice.dataset.phase = status.phase; notice.hidden = !['update-ready', 'update-failed', 'error'].includes(status.phase); window.dispatchEvent(new CustomEvent('sky:layout-change')); },
+    setOfflineStatus(status) { if (!disposed) offlineControls.update(status); },
+    setOfflineController(controller) { if (!disposed) offlineControls.setController(controller); },
     showShareResult(result) { if (disposed) return; setDrawer(true); container.querySelector<HTMLDetailsElement>('.scene-section')!.open = true; sceneControls.showShareResult(result); },
     rememberCurrentScene(name = '载入场景') { if (disposed) return; lastSnapshot = undefined; objectDayControls.invalidate(); observerDraft.clear(); refractionControls.clearDraft(); sceneControls.rememberCurrent(name); timeControls.cancelSession(true); },
     isObjectDayVisible() { return objectDayControls.isVisible(); },
     isTeachingVisible() { return teachingControls.isVisible(); },
     getMoonLoupeViewport() { return teachingControls.getMoonLoupeViewport(); },
     setMoonLoupeAvailability(status, message, info) { teachingControls.setMoonLoupeAvailability(status, message, info); },
-    dispose() { disposed = true; courseEquipment.dispose(); explorationControls.dispose(); objectDayControls.dispose(); observerDraft.dispose(); sceneControls.dispose(); timeControls.dispose(); appearanceControls.dispose(); refractionControls.dispose(); teachingControls.dispose(); listeners.forEach((remove) => remove()); if (messageTimer) clearTimeout(messageTimer); container.innerHTML = ''; },
+    dispose() { disposed = true; offlineControls.dispose(); courseEquipment.dispose(); explorationControls.dispose(); objectDayControls.dispose(); observerDraft.dispose(); sceneControls.dispose(); timeControls.dispose(); appearanceControls.dispose(); refractionControls.dispose(); teachingControls.dispose(); listeners.forEach((remove) => remove()); if (messageTimer) clearTimeout(messageTimer); container.innerHTML = ''; },
   };
 }

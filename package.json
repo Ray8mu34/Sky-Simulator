@@ -1,6 +1,6 @@
 {
   "name": "panoramic-night-sky",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@11.0.9",
@@ -33,6 +33,9 @@
     "qa:lifecycle": "node scripts/qa-lifecycle.mjs",
     "qa:day-budget": "node scripts/qa-day-event-budget.mjs",
     "qa:updates": "node scripts/qa-updates.mjs",
+    "qa:version-update": "node scripts/qa-version-update.mjs",
+    "qa:teaching": "node scripts/qa-teaching-resilience.mjs",
+    "qa:sustained": "node scripts/qa-sustained-runtime.mjs",
     "qa:performance": "node scripts/qa-browser.mjs performance",
     "qa:recording": "node scripts/qa-browser.mjs recording"
   },

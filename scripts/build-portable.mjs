@@ -1,7 +1,7 @@
 import { build } from 'esbuild';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { resolve, extname } from 'node:path';
-import { attribution } from './build-evidence.mjs';
+import { attribution, stampReleaseVersion } from './build-evidence.mjs';
 import { gzipSync } from 'node:zlib';
 import { createHash } from 'node:crypto';
 import { bundleWorkerSources, workerEvidence } from './build-workers.mjs';
@@ -23,7 +23,7 @@ const output = await build({
 const js = output.outputFiles.find(f => f.path.endsWith('.js'))?.text;
 const css = output.outputFiles.find(f => f.path.endsWith('.css'))?.text ?? '';
 if (!js) throw new Error('便携构建没有JavaScript输出');
-const source = await readFile('index.html', 'utf8');
+const source = await stampReleaseVersion(await readFile('index.html', 'utf8'));
 const credits = await attribution();
 const entryTag = /<script type="module" src="\/src\/main\.ts"><\/script>/;
 if (!entryTag.test(source)) throw new Error('未找到便携构建源入口');

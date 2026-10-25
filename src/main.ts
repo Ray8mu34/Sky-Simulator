@@ -805,4 +805,4 @@ science.request(state);
 invalidate();
 updateStatus();
 void registerOffline(info => { if (disposed) return; offlineInfo = info; controls.setOfflineStatus(info); updateStatus(); })
-  .then(controller => { if (disposed) controller.dispose(); else offlineController = controller; });
+  .then(controller => { if (disposed) controller.dispose(); else { offlineController = controller; controls.setOfflineController(controller); } });

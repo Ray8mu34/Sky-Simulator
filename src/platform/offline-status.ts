@@ -6,6 +6,10 @@ export interface OfflineStatus {
   expectedBuildId: string | null;
   activeBuildId: string | null;
   waitingBuildId: string | null;
+  /** A completed update request is separate from an installation or cache probe. */
+  updateCheck: 'idle' | 'checking' | 'current' | 'failed';
+  lastCheckedAt: number | null;
+  canCheckForUpdate: boolean;
 }
 export interface OfflineController {
   getStatus(): OfflineStatus;
