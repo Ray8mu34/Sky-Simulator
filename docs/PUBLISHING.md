@@ -1,6 +1,6 @@
 # 构建与发布
 
-仓库：<https://github.com/Ray8mu34/Sky-Simulator>。当前发行目标为 **v0.2.0 GitHub prerelease / 公开预览版**，旧v0.1.0附件保留原样，CI不自动部署网站。网站为 <https://sky.zjuaaa.cn/>，见[部署与维护](DEPLOYMENT.md)。
+仓库：<https://github.com/Ray8mu34/Sky-Simulator>。当前发行目标为 **v0.3.0 GitHub prerelease / 公开预览版**，历史发行附件保留原样，CI不自动部署网站。网站为 <https://sky.zjuaaa.cn/>，见[部署与维护](DEPLOYMENT.md)。
 
 ## 构建输入
 
@@ -26,11 +26,11 @@ pnpm build:portable
 
 ## Release 文件
 
-发布维护者应固定提交与 `v0.2.0` tag，并使用 [发布说明](RELEASE-NOTES-v0.2.0.md) 创建 prerelease。附件至少包含便携 HTML、完整 Web 包压缩文件及对应 SHA256 清单；不要只上传 Web 的 `index.html`。`package.json`的版本由共享构建函数写入Web与便携HTML的`sky-version`元信息，Web另有内容哈希构建ID。项目介绍 PDF 与原真实应用截图保留在 `media/`，明确代表v0.1.0。
+发布维护者应固定提交与 `v0.3.0` tag，并使用 [发布说明](RELEASE-NOTES-v0.3.0.md) 创建 prerelease。附件至少包含便携 HTML、完整 Web 包压缩文件及对应 SHA256 清单；不要只上传 Web 的 `index.html`。`package.json`的版本由共享构建函数写入Web与便携HTML的`sky-version`元信息，Web另有内容哈希构建ID。项目介绍 PDF 与原真实应用截图保留在 `media/`，明确代表v0.1.0。
 
 上传前核对包的实际哈希、文件大小和署名资料，确认压缩包只包含计划发布的文件。不把本机路径、私有参考材料、原始大图、浏览器缓存、node_modules 或历史调试日志加入发布附件。源码仓库保留构建所需运行素材、固定锁文件、许可证及必要科学测试夹具。
 
-现有预览版与历史失败记录不能被新的构建结果混称；Release 说明应保留 Firefox 未确认、真实移动设备/Safari 未验等限制。v0.2.0的30分钟Windows Chrome长测已完成，实际范围见[验证记录](USABILITY-20261025.md)。CI成功不是其他设备或无限期稳定性的证据。
+按会内使用需求，后续每批以功能交付为主，完成类型检查、构建和Chrome、Edge及浏览器窄屏关键流程即可上线，问题持续迭代；不将长测、实体手机或其他浏览器验证作为每次发布前提。v0.2.0的历史持续检查见[验证记录](USABILITY-20261025.md)，不能当作后续版本的检查结果。v0.3.0新增星表后，Web压缩包预算为6.5MB，原始资源12MB、便携HTML16MB。
 
 ## 静态部署与更新
 

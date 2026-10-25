@@ -1,11 +1,11 @@
 import type { ExternalCamera, ObjectId, RuntimeMetrics, ScienceSnapshot, SimulationState, Vec3 } from '../contracts';
-import { catalog } from '../data/catalog';
+import { baseStarCount, catalog } from '../data/catalog';
 import { solarObjects, isPlanet } from '../data/solar-objects';
 import { deepSkyObjects } from '../data/deep-sky';
 import { drawDeepSkySymbol, drawPlanetSymbol } from './CatalogMarkers';
 import { TeachingOverlays } from './TeachingOverlays';
 import { constellationLabel, resolveCatalogStar, starLabel } from '../data/search';
-import { writeStarDirectionBuffer } from './StarDirectionBuffer';
+import { cachedStarEpoch, STAR_CACHE_STEP_DAYS, writeStarDirectionBuffer } from './StarDirectionBuffer';
 import { ASTROMETRY_MODEL_VERSION, deriveStarMotionModel } from '../core/stars';
 import { resolveDisplayDirectionEqj, resolveObjectDetails } from '../core/object-details';
 import { applyMatrix } from '../core/math';
@@ -56,6 +56,7 @@ export class CanvasSkyRenderer implements RendererPort {
     catalog.colors[star.index * 3]!, catalog.colors[star.index * 3 + 1]!, catalog.colors[star.index * 3 + 2]!,
   ]));
   private lastStarUt = NaN;
+  private lastExtendedStarEpoch = NaN;
   private width = 1;
   private height = 1;
   private ratio = 1;
@@ -222,7 +223,12 @@ export class CanvasSkyRenderer implements RendererPort {
   }
   private updateStarDirections(ut: number): void {
     if (ut === this.lastStarUt) return;
-    writeStarDirectionBuffer(catalog.stars, ut, this.starDirections);
+    writeStarDirectionBuffer(catalog.stars, ut, this.starDirections, 0, baseStarCount);
+    const epoch = cachedStarEpoch(ut);
+    if (epoch !== this.lastExtendedStarEpoch) {
+      writeStarDirectionBuffer(catalog.stars, epoch, this.starDirections, baseStarCount);
+      this.lastExtendedStarEpoch = epoch;
+    }
     this.lastStarUt = ut;
   }
 
@@ -254,6 +260,7 @@ export class CanvasSkyRenderer implements RendererPort {
     if (state.selected?.startsWith('constellation:')) this.drawConstellationLines(state, snapshot, true);
     const labels: LabelCandidate[] = [];
     for (const star of catalog.stars) {
+      if (star.magnitude > model.limitingMagnitude + .1) continue;
       const symbol = canvasStarSymbol(star.magnitude, view.radius);
       const visibility = finalStarAlpha(star.magnitude, model.limitingMagnitude, model.starVisibility, 1, symbol.alpha);
       if (visibility < STAR_ALPHA_DISCARD) continue;
@@ -508,6 +515,7 @@ export class CanvasSkyRenderer implements RendererPort {
   getInteractionDiagnostics() {
     const cache = this.labels?.getCacheMetrics();
     const selectedStar = this.state?.selected ? resolveCatalogStar(catalog, this.state.selected) : null;
+    const extendedSelection = !!selectedStar && selectedStar.index >= baseStarCount;
     const cachedDirection = selectedStar && Number.isFinite(this.lastStarUt) ? this.starDirection(selectedStar.index) : null;
     const cachedProjection = cachedDirection && this.snapshot ? this.projectDirection(cachedDirection, this.snapshot) : null;
     return { rendererKind: 'canvas2d', projection: 'zenith-centered azimuthal equidistant; north-up east-left',
@@ -526,11 +534,14 @@ export class CanvasSkyRenderer implements RendererPort {
       visibleBodyIds: this.bodies.map(body => body.id), labelHitBoxes: this.labels?.getVisibleHitBoxes() ?? [], labelOcclusionRects: this.labels?.getBlockedRects() ?? [],
       fixedHudCaptions: { header: structuredClone(this.header), footer: structuredClone(this.footer) },
       starMotion: { consumerModelVersion: ASTROMETRY_MODEL_VERSION, selectedModel: selectedStar ? deriveStarMotionModel(selectedStar) : null,
-        cachedUtDaysJ2000: Number.isFinite(this.lastStarUt) ? this.lastStarUt : null, snapshotUtDaysJ2000: this.snapshot?.utDaysJ2000 ?? null, cacheStepDays: 0,
+        cachedUtDaysJ2000: Number.isFinite(this.lastStarUt) ? extendedSelection ? this.lastExtendedStarEpoch : this.lastStarUt : null,
+        snapshotUtDaysJ2000: this.snapshot?.utDaysJ2000 ?? null, cacheStepDays: extendedSelection ? STAR_CACHE_STEP_DAYS : 0,
         cachedSelectedDirectionEqj: cachedDirection, cachedSelectedPixel: cachedProjection ? this.pixel(cachedProjection) : null,
         constellationAnchorUtDaysJ2000: Number.isFinite(this.lastStarUt) ? this.lastStarUt : null, directionBufferBytes: this.starDirections.byteLength,
-        motionCacheBoundArcsec: 0, float32DirectionBoundArcsec: 0, combinedDirectionBoundArcsec: 0,
-        boundScope: 'Float64 actual-UT directions; no temporal bucket or Float32 upload; excludes source/scientific and pixel projection error' },
+        motionCacheBoundArcsec: extendedSelection ? null : 0, float32DirectionBoundArcsec: 0, combinedDirectionBoundArcsec: extendedSelection ? null : 0,
+        extendedCatalogCacheStepDays: STAR_CACHE_STEP_DAYS, extendedCatalogCachedUt: this.lastExtendedStarEpoch,
+        baseStarCount, catalogStarCount: catalog.stars.length,
+        boundScope: 'Base stars use Float64 actual-UT directions. Supplement uses 30-day buckets without a certified cache bound; selected marker/details use actual UT. Excludes source/scientific and pixel projection error.' },
       labelCache: cache ?? null, labelRasterBytesTotal: cache?.labelRasterBytesTotal ?? 0,
       canvasRasterBytes: this.canvas.width * this.canvas.height * 4,
       sampledConstellationSegments: this.segmentCount, sampledConstellationPointCount: this.segmentPointCount,

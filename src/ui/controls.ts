@@ -438,7 +438,11 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
         else { state.observer = { ...cities[Number(el.value)]!, displayZone: state.observer.displayZone }; observerDraft.clear(); change('observer'); }
       }
       if (el.id === 'sky-rate') { state.time.rateSimSecondsPerRealSecond = Number(el.value) * (state.time.rateSimSecondsPerRealSecond < 0 ? -1 : 1); state.time.mode = 'simulation'; change('clock'); }
-      if (el.id === 'sky-presentation') { state.presentation = el.value as SimulationState['presentation']; change('presentation'); }
+      if (el.id === 'sky-presentation') {
+        state.presentation = el.value as SimulationState['presentation'];
+        if (state.presentation === 'observation') state.environment.darkSkyLimitingMagnitude = 6.5;
+        change('presentation');
+      }
       if (el.id === 'sky-density') { state.density = el.value as SimulationState['density']; change('density'); }
       if (el.id === 'sky-compact-view' && graphicsStatus?.capabilities.observerOverview !== true) { state.viewMode = el.value as ViewMode; change('view'); }
       if (el.id === 'sky-reference-lock' && state.viewMode !== 'ground' && graphicsStatus?.capabilities.referenceLock !== false) { state.cameras[state.viewMode].referenceLock = el.value as 'inertial' | 'earth-fixed' | 'local-horizon'; change('reference-lock'); }

@@ -80,6 +80,55 @@
       "processingCommand": "conda run -n dl_env python scripts/data_build.py"
     },
     {
+      "source": "https://github.com/astronexus/HYG-Database",
+      "revision": "c7f7f883fe678cc7680169a50ccd7dcc49b060ce",
+      "license": "CC-BY-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "credit": "David Nash / Astronexus HYG 4.1; Hipparcos, Yale Bright Star and Gliese catalogs",
+      "coordinateFrame": "right-handed J2000 equatorial (ICRS approximation), X=RA0h Y=RA6h Z=north",
+      "epoch": "J2000.0",
+      "equinox": "J2000.0",
+      "units": {
+        "ra": "hours",
+        "dec": "degrees",
+        "magnitude": "V mag",
+        "pmra": "mu_alpha*cos(dec), mas/year",
+        "pmdec": "mas/year",
+        "dist": "parsec; invalid >=100000 excluded",
+        "velocity": "parsec/year",
+        "rv": "km/s"
+      },
+      "id": "extended-stars",
+      "sourceFiles": [
+        {
+          "id": "hyg/hyg/CURRENT/hygdata_v41.csv",
+          "sourceUrl": "https://raw.githubusercontent.com/astronexus/HYG-Database/c7f7f883fe678cc7680169a50ccd7dcc49b060ce/hyg/CURRENT/hygdata_v41.csv",
+          "revision": "c7f7f883fe678cc7680169a50ccd7dcc49b060ce",
+          "path": "assets/source/hyg/hyg/CURRENT/hygdata_v41.csv",
+          "retrievedAt": "2026-10-04T13:23:36.166309+00:00",
+          "sourceSha256": "d9f69fd86bbf90a4e4d52b4c5c53eacfa6dfc0bfdef85bfd94f095e0bebe4ebd"
+        }
+      ],
+      "outputs": [
+        {
+          "path": "assets/runtime/extended-stars.b64.txt",
+          "sha256": "c400efa36636b2405f24fa9cbf87014c8fb6255031c4f24ae37ea5b135d42864",
+          "bytes": 5288000
+        },
+        {
+          "path": "assets/runtime/extended-star-meta.json",
+          "sha256": "6f15b7ba16f90045ca14c6c158cbcddb908443538491b9d38c10f8c53d7a2abf",
+          "bytes": 514535
+        }
+      ],
+      "selection": "V magnitude <=10 excluding Sun and every HYG id already in the 8921-star base catalog; append in ascending HYG id; existing canonical HIP ids retain priority",
+      "count": 99150,
+      "combinedCount": 108071,
+      "evidenceFile": "assets/extended-stars-evidence.json",
+      "processing": "little endian: uint32 HYG, int32 signed HIP (negative=noncanonical companion), float32 RA hours/Dec degrees/V magnitude/B-V/pmra cosdec mas per year/pmdec mas per year/distance pc/RV km per s; NaN denotes unavailable optional values; sparse source names, variables, components and constellation retained; restrained B-V color mapping matches base catalog",
+      "processingCommand": "conda run -n dl_env python scripts/build-extended-stars.py"
+    },
+    {
       "id": "western-constellations",
       "source": "https://github.com/Stellarium/stellarium/tree/v24.4/skycultures/modern",
       "revision": "ab961cbde42eec8121be0df6ff48292f8d492b54",

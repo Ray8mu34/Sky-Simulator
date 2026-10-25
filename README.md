@@ -2,9 +2,9 @@
 
 在地表、地球与天球之间切换，探索星空、日月运动和观测地点的关系。面向课堂演示、天文入门和自主学习，提供中文界面及可直接打开的离线单文件。
 
-**v0.2.0 是公开预览版。** 包含第一至第七批功能，以及课程/地景保存和版本更新体验改进。已完成本机 Windows 范围内的功能与科学参考检查；尚不承诺跨设备稳定性或全时空精度。Firefox 有一次未复现的交互超时，详见下方限制。
+**v0.3.0 是公开预览版。** 在课程/地景保存和版本更新改进的基础上，星表扩充到108,071颗，新增6.5–10等星图深度控制，方便会内寻星和摄影构图。当前交付以桌面Chrome、Edge和浏览器窄屏可用为准。
 
-[在线体验](https://sky.zjuaaa.cn/) · [下载 v0.2.0 预览版](https://github.com/Ray8mu34/Sky-Simulator/releases/tag/v0.2.0) · [项目介绍 PDF（v0.1.0）](media/Sky-Simulator-Overview.pdf) · [发布说明](docs/RELEASE-NOTES-v0.2.0.md) · [科学模型](docs/SCIENCE-MODEL.md)
+[在线体验](https://sky.zjuaaa.cn/) · [下载 v0.3.0 预览版](https://github.com/Ray8mu34/Sky-Simulator/releases/tag/v0.3.0) · [项目介绍 PDF（v0.1.0）](media/Sky-Simulator-Overview.pdf) · [发布说明](docs/RELEASE-NOTES-v0.3.0.md) · [科学模型](docs/SCIENCE-MODEL.md)
 
 [详细功能与甲方审查报告 PDF](media/Sky-Simulator-Client-Review-Report.pdf)：28页A4报告，涵盖各功能、操作流程、教学场景、交付方式、验证范围和建议审查清单。报告日期为2026年10月5日，审查产品版本为v0.1.0公开预览版。
 
@@ -23,7 +23,7 @@
 
 ## 主要功能
 
-- **星空与搜索**：8,921 颗 HYG 恒星、88 星座连线及中文名称；按中文、英文、HIP/HYG 编号搜索，选择、高亮和定位对象。
+- **星空与搜索**：108,071颗HYG恒星、88星座连线及中文名称；原8,921颗基础星保持索引与编号，新增99,150颗至10等参考星。星图深度默认6.5等，可一键显示至10等；支持名称、HIP/HYG编号搜索、选择、详情和定位。
 - **五大行星**：水星、金星、火星、木星、土星的星点显示、中文/英文搜索、四视图定位、坐标、星等、角直径、照亮比例和当地升落查询；可独立开关。
 - **Messier 深空目录**：110 个对象的分类符号、中文常用名、M/NGC/IC 编号搜索、中心坐标、目录 V 星等和角尺寸。M1、M31、M42 详情内含离线观测图像；完整星图显示目录符号，肉眼模式只标示选中目标。
 - **观测曲线与轨迹**：所选目标的当地日高度曲线、深夜区间与CSV导出；行星/月球相对恒星背景的多日轨迹。
@@ -43,7 +43,7 @@
 
 第三至第五批的新入口、科学口径和验证记录见 [轨迹、日月食与天球图层](docs/EXPLORATION-TOOLS.md)。
 
-第六、第七批见 [课程、设备与地景](docs/COURSES-EQUIPMENT.md)；第八批尚未实施，其数据与架构构想见 [第八批记录](docs/PHASE-8-PLAN.md)。
+第六、第七批见 [课程、设备与地景](docs/COURSES-EQUIPMENT.md)；第八批已交付第一步10等星表，卫星、小天体与更大目录仍在规划，见 [第八批记录](docs/PHASE-8-PLAN.md)。
 
 无需开发环境时，前往 [GitHub Releases](https://github.com/Ray8mu34/Sky-Simulator/releases) 下载便携 HTML，用桌面浏览器直接打开。运行资源已内嵌，首次打开也不需要联网。Chrome、Edge 是当前主要验证浏览器；Firefox 的最终兼容性仍待确认。
 

@@ -33,7 +33,7 @@ export function mountCourseEquipment(parent: HTMLElement, state: SimulationState
     <details class="equipment-tools"><summary>相机与目镜</summary><p class="tiny-note">三维地表视图使用；视场框中心是当前视线。</p>
       <label>模式<select data-instrument="mode"><option value="off">关闭</option><option value="camera">相机取景框</option><option value="eyepiece">目镜视场</option></select></label>
       ${[['focalLengthMm','镜头/望远镜焦距 mm'],['sensorWidthMm','传感器宽 mm'],['sensorHeightMm','传感器高 mm'],['eyepieceMm','目镜焦距 mm'],['apparentFovDeg','目镜表观视场 °'],['rotationDeg','取景框旋转 °']].map(([key,label]) => `<label>${label}<input type="number" step="any" data-instrument="${key}"></label>`).join('')}
-      <div class="event-grid"><button data-ce="instrument">应用设备</button><button data-ce="fit">适配视场</button><button data-ce="wide">恢复广角</button></div><p class="instrument-readout tiny-note"></p><p class="tiny-note">目镜真视场采用表观视场÷倍率近似。星表仍为当前亮星目录。</p>
+      <div class="event-grid"><button data-ce="instrument">应用设备</button><button data-ce="fit">适配视场</button><button data-ce="wide">恢复广角</button></div><p class="instrument-readout tiny-note"></p><p class="tiny-note">目镜真视场采用表观视场÷倍率近似。可在“星空显示 · 光污染”中显示至10等，补充寻星与构图参考星。</p>
     </details>
     <details class="landscape-tools"><summary>自定义全景地景</summary>
       <p class="tiny-note">导入 2:1 等距柱状 PNG/WebP，最大 8 MB、8192×4096，天空区域透明。图像左边缘为北、中央为南；中线为地平。仅三维地表显示，不改变升落计算。</p>

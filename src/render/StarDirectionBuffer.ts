@@ -13,6 +13,7 @@ export function cachedStarEpoch(utDaysJ2000: number): number {
 }
 
 /** Both renderer buffers consume the complete record; motion eligibility belongs only to core. */
-export function writeStarDirectionBuffer(stars: readonly StarAstrometry[], utDaysJ2000: number, target: Float32Array | Float64Array): void {
-  for (let index = 0; index < stars.length; index++) target.set(propagateStarDirection(stars[index]!, utDaysJ2000), index * 3);
+export function writeStarDirectionBuffer(stars: readonly StarAstrometry[], utDaysJ2000: number, target: Float32Array | Float64Array,
+  startIndex = 0, endIndex = stars.length): void {
+  for (let index = startIndex; index < endIndex; index++) target.set(propagateStarDirection(stars[index]!, utDaysJ2000), index * 3);
 }

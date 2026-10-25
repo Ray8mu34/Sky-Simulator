@@ -39,13 +39,15 @@
 |---|---|---|---|---|---|---|---|
 | 模拟肉眼星空 | `#sky-observe-appearance` | 清旧模型数值 | 同一页面，3D切地表；2D保留已保存视角 | 已开启及当前生效说明 | 无新求解器；沿用主应用错误状态 | 按钮保留焦点 | 当前需求 / SkyAppearance |
 | 完整星图 | `#sky-full-star-map` | 清旧模型数值 | 同页原理模式 | 污染未生效，设置保留 | 沿用主应用错误状态 | 按钮保留焦点 | 当前需求 |
+| 星图深度 | range或“显示至10等” | 清旧模型数值 | 同页完整星图 | 当前星等与完整星图状态 | 忽略非有限或超出6.5–10的输入 | 原控件 | 既有暗空极限字段 / HYG星表 |
 | 编辑光污染 / 月光 | range、预设、月光checkbox | 清旧模型数值 | 同页即时更新 | 当前值、开启状态、可见极限 | 忽略非有限或越界range值 | 原控件 | 既有环境字段与唯一模型 |
 | 地面透明 | 唯一 `input[data-layer=terrain]` | 无额外科学请求 | 同页移除或恢复地面遮挡 | checkbox与独立口径说明 | 2D或外部视图不接受该动作 | 原控件 | terrain boolean / GraphicsStatus |
 
 ## Observable state contract
 
-- “模拟肉眼星空”在3D中只设 `viewMode=ground`、`presentation=observation`、`layers.atmosphere=true`。2D实际是当地总览，因此只设观察与大气，不改保存的viewMode。
+- “模拟肉眼星空”在3D中设 `viewMode=ground`、`presentation=observation`、`layers.atmosphere=true`，并将 `environment.darkSkyLimitingMagnitude` 恢复为6.5，避免扩展星图深度影响肉眼模型。2D实际是当地总览，因此设观察、大气和6.5等基准，不改保存的viewMode。
 - “完整星图”只设 `presentation=explanation`，保留污染、月光、大气和视角。它取消肉眼衰减，不声称包含未收录的所有天体。
+- 星图深度复用 `environment.darkSkyLimitingMagnitude`；范围输入以0.5等步长设置6.5–10等，按钮设10等，同时切换完整星图，使用既有presentation reason。HYG扩展用于寻星与构图，说明其不构成完备深空测光星表。
 - 以上动作不更改UTC、地点、显示时区、四相机、密度、选择或播放速率。
 - 人工亮度与月光沿用 `environment-appearance` reason；模式动作使用既有view/presentation reason，地形使用layers reason。不创建新时钟、星历请求、缓存格式或状态字段。
 - 可见极限只显示主应用提供的SkyAppearance数值，完整星图模式隐藏此数值。改变时间/地点或显示方式后清除旧数值，等待共同的新结果。

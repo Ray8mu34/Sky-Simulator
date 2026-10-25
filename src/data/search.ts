@@ -22,6 +22,27 @@ const compareText = (a: string, b: string): number => a < b ? -1 : a > b ? 1 : 0
 export const starLabel = (star: StarMeta): string => star.nameZh?.trim() || star.nameEn?.trim() || star.id.toUpperCase();
 export const constellationLabel = (figure: ConstellationMeta): string => figure.nameZh.trim() || figure.nameEn.trim() || figure.id;
 
+// Catalogs are immutable after construction. Keep numeric lookup proportional to
+// the matching components, even when a scene repeatedly resolves a faint star.
+const starIndexes = new WeakMap<StarCatalog, { ids: Map<string, StarMeta>; hips: Map<number, StarMeta[]>; hyg: Map<number, StarMeta[]> }>();
+function starIndex(catalog: StarCatalog) {
+  let index = starIndexes.get(catalog);
+  if (!index) {
+    index = { ids: new Map(), hips: new Map(), hyg: new Map() };
+    const append = (map: Map<number, StarMeta[]>, number: number, star: StarMeta) => {
+      const entries = map.get(number);
+      if (entries) entries.push(star); else map.set(number, [star]);
+    };
+    for (const star of catalog.stars) {
+      index.ids.set(star.id, star);
+      append(index.hyg, star.hygId, star);
+      if (star.hip !== null) append(index.hips, star.hip, star);
+    }
+    starIndexes.set(catalog, index);
+  }
+  return index;
+}
+
 /** Numeric aliases (including HYG for a HIP-backed record) resolve to the catalog's canonical id. */
 export function resolveCatalogStar(catalog: StarCatalog, id: string): StarMeta | null {
   const match = /^(hip|hyg)\s*:?\s*(\d+)$/iu.exec(id.normalize('NFKC').trim());
@@ -29,9 +50,10 @@ export function resolveCatalogStar(catalog: StarCatalog, id: string): StarMeta |
   const number = Number(match[2]);
   if (!Number.isSafeInteger(number) || number <= 0) return null;
   const namespace = match[1]!.toLowerCase();
-  const canonical = catalog.stars.find(star => star.id === `${namespace}:${number}`);
+  const index = starIndex(catalog);
+  const canonical = index.ids.get(`${namespace}:${number}`);
   if (canonical) return canonical;
-  const matches = catalog.stars.filter(star => namespace === 'hip' ? star.hip === number : star.hygId === number);
+  const matches = (namespace === 'hip' ? index.hips : index.hyg).get(number) ?? [];
   // A shared HIP without an explicitly canonical record cannot select an arbitrary component.
   return matches.length === 1 ? matches[0]! : null;
 }
@@ -81,7 +103,12 @@ export function searchObjects(catalog: StarCatalog, query: string, limit = 12): 
     const match = score([body.id], [...body.aliases]);
     if (match !== null) retain({ result: { id: body.id, kind: 'body', label: body.label, secondary: body.english }, score: match, magnitude: 0, number: 0 });
   }
-  for (const star of catalog.stars) {
+  const index = numbered || bareNumber !== null ? starIndex(catalog) : null;
+  const candidateStars = numbered
+    ? (numbered[1] === 'hip' ? index!.hips : index!.hyg).get(Number(numbered[2])) ?? []
+    : bareNumber !== null ? [...(index!.hips.get(bareNumber) ?? []), ...(index!.hyg.get(bareNumber) ?? [])] : catalog.stars;
+  for (const star of candidateStars) {
+    if (!numbered && bareNumber === null && !star.nameZh && !star.nameEn && !star.variableName && !star.aliases.length) continue;
     const match = numbered
       ? (numbered[1] === 'hip' ? star.hip === Number(numbered[2]) : star.hygId === Number(numbered[2])) ? star.id === `${numbered[1]}:${Number(numbered[2])}` || numbered[1] === 'hyg' ? 0 : 1 : null
       : bareNumber !== null ? star.hip === bareNumber || star.hygId === bareNumber ? star.id === `hip:${bareNumber}` || star.id === `hyg:${bareNumber}` ? 0 : 1 : null

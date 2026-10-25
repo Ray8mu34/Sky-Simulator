@@ -4,7 +4,7 @@ import type { GraphicsContextState } from '../platform/renderer-port';
 import {DEFAULT_RUNTIME_RENDER_QUALITY,renderBudgetClass} from '../platform/runtime-quality-contract';
 import type {RuntimeRenderQuality,RuntimeQualityCapabilities,QualityDeviceClass} from '../platform/runtime-quality-contract';
 import {runtimeLabelSecondary,runtimeLabelIsHiddenBack,runtimeOrdinaryLabelBudget,sameRuntimeRenderQuality,WEBGL_RUNTIME_QUALITY_CAPABILITIES} from './RenderQuality';
-import { catalog } from '../data/catalog';
+import { baseStarCount, catalog } from '../data/catalog';
 import { cachedStarEpoch, writeStarDirectionBuffer, STAR_CACHE_STEP_DAYS, STAR_MOTION_CACHE_BOUND_ARCSEC, STAR_FLOAT32_DIRECTION_BOUND_ARCSEC, STAR_CACHE_DIRECTION_BOUND_ARCSEC } from './StarDirectionBuffer';
 import { ASTROMETRY_MODEL_VERSION, deriveStarMotionModel } from '../core/stars';
 import { resolveCatalogStar } from '../data/search';
@@ -862,8 +862,10 @@ export class SkyRenderer {
         pointLinePositionShared:this.constellationLines.geometry.getAttribute('position')===this.stars.geometry.getAttribute('position'),
         pointHighlightPositionShared:this.selectionLines.geometry.getAttribute('position')===this.stars.geometry.getAttribute('position'),
         constellationAnchorUtDaysJ2000:Number.isFinite(this.lastStarEpoch)?this.lastStarEpoch:null,directionBufferBytes:this.starDirections.byteLength,
-        motionCacheBoundArcsec:STAR_MOTION_CACHE_BOUND_ARCSEC,float32DirectionBoundArcsec:STAR_FLOAT32_DIRECTION_BOUND_ARCSEC,combinedDirectionBoundArcsec:STAR_CACHE_DIRECTION_BOUND_ARCSEC,
-        boundScope:'fixed-source EQJ motion cache plus normalized Float32 rounding; excludes measurement errors, aberration/parallax and pixel projection'},
+        motionCacheBoundArcsec:selectedStar&&selectedStar.index>=baseStarCount?null:STAR_MOTION_CACHE_BOUND_ARCSEC,float32DirectionBoundArcsec:STAR_FLOAT32_DIRECTION_BOUND_ARCSEC,
+        combinedDirectionBoundArcsec:selectedStar&&selectedStar.index>=baseStarCount?null:STAR_CACHE_DIRECTION_BOUND_ARCSEC,
+        baseStarCount,catalogStarCount:catalog.stars.length,
+        boundScope:'Bounds apply to original base stars only. Supplement uses 30-day buckets without a certified cache bound; selected marker/details use actual UT. Excludes source quantization, measurement errors, aberration/parallax and pixel projection.'},
       gesture:{activePointerIds:gestureActiveContacts(this.gesture).map(pointer=>pointer.id),ignoredPointerIds:[...this.gesture.pointers.values()].filter(pointer=>!pointer.active).map(pointer=>pointer.id),
         capturedPointerIds:[...this.capturedPointers].filter(id=>this.canvas.hasPointerCapture(id)),mode:gestureMode(this.gesture),tapSuppressed:this.gesture.tapSuppressed,viewMode:this.gestureView},
       graphicsContextState:this.disposed?'disposed':this.contextLost?'lost':'active',
