@@ -1,17 +1,27 @@
 # sky.zjuaaa.cn 部署与维护
 
-网站：<https://sky.zjuaaa.cn/>。2026-10-25的v0.3.0 Web构建ID为 `7813a8cd8a083076`，入口模块 `index-YGXjtNJF.js`，SHA256 `f68a1023518327bd2a773e7ebf0bd08fa450a5a25ce7eaca592743073096b054`。第八批已交付10等HYG星表与星图深度控制；其他扩展继续按独立功能推进。历史发行附件保留，服务器保留上一构建 `6d8747c4a64b157b` 供回滚。
+网站：<https://sky.zjuaaa.cn/>。2026-10-28发布前端文案精简与场景变更确认，当前v0.3.0 Web构建ID为 `1c8b866cfcd567cc`，入口模块 `index-hKyp8rP4.js`，SHA256 `3e3f6aec4a26a80b2055fd62a768ecf5e05bde83a7ce31bebe2775c91773fb61`。第八批已交付10等HYG星表与星图深度控制；其他扩展继续按独立功能推进。历史发行附件保留，服务器保留上一构建 `7813a8cd8a083076` 供回滚。
+
+## 2026-10-28：精简前端文案
+
+源码提交 [`64bd1cf`](https://github.com/Ray8mu34/Sky-Simulator/commit/64bd1cf49bf5b32dc7ce763d86cbe60b6c685fc1) 已推送main，[GitHub类型检查与构建](https://github.com/Ray8mu34/Sky-Simulator/actions/runs/40641420175)成功。本地123项状态/平台测试、Chrome桌面与320/390px触屏模拟、参考密度、二维回退、离线单文件均通过；发布前补充Edge同一前端流程，结果通过。核查范围与静态审计误报见 [文案核查记录](UI-COPY-REVIEW-20261028.md)。
+
+部署包仅包含网站运行文件及署名，SHA256为 `8cb8dbd568642346574a3b113997382e17b249e2ae5f72d12c05006a818a9b1a`。服务器校验后建立独立release，兼容保留旧hash资源、生成gzip副本，再原子切换current。上一完整release保留；全局及所有站点Nginx配置SHA前后一致，没有重启其他服务。
+
+公网Chrome实际下载入口模块SHA与本地和服务器一致，四视角与UTC保持配对，WebGL2运行、离线资源就绪。课程标题与未录入讲解经刷新保留；关闭页面并断网重开后返回Service Worker的200、构建ID一致，课程草稿继续恢复。无页面脚本错误，验证浏览器已关闭。本地证据：`_local-archive/deployment-20261028/browser/report.json`，Edge检查位于同目录 `edge/`。
+
+此次为网站更新，版本号仍为0.3.0，以构建ID区分更新；没有覆盖既有GitHub Release附件。旧页面完整下载新版本后仍遵循“先保存场景、关闭全部本应用页面再重新打开”的更新流程。
 
 ## 独立项目边界
 
 |内容|位置或规则|
 |---|---|
-|静态发行目录|`/srv/apps/sky-simulator/releases/7813a8cd8a083076/`|
+|静态发行目录|`/srv/apps/sky-simulator/releases/1c8b866cfcd567cc/`|
 |当前入口|`/srv/apps/sky-simulator/current`，指向上述目录的相对符号链接|
 |Nginx配置|`/etc/nginx/sites-available/sky-simulator`，同名sites-enabled链接|
 |源码配置副本|仓库 `deploy/nginx/sky-simulator.conf`|
 |ACME验证根|`/srv/data/sky-simulator/acme/`|
-|部署记录|`/srv/data/sky-simulator/deployments/20261025-v030/`；历史记录在 `20261025/`、`20261021/`、`20261010/` 和 `20261005/`|
+|部署记录|`/srv/data/sky-simulator/deployments/20261028-ui-copy/`；历史记录保留在同级目录|
 |TLS证书|`/etc/letsencrypt/live/sky.zjuaaa.cn/`，禁止公开私钥|
 |日志|`/var/log/nginx/sky-simulator-access.log`、`sky-simulator-error.log`|
 
