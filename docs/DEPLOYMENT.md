@@ -1,6 +1,16 @@
 # sky.zjuaaa.cn 部署与维护
 
-网站：<https://sky.zjuaaa.cn/>。2026-10-28发布前端文案精简与场景变更确认，当前v0.3.0 Web构建ID为 `1c8b866cfcd567cc`，入口模块 `index-hKyp8rP4.js`，SHA256 `3e3f6aec4a26a80b2055fd62a768ecf5e05bde83a7ce31bebe2775c91773fb61`。第八批已交付10等HYG星表与星图深度控制；其他扩展继续按独立功能推进。历史发行附件保留，服务器保留上一构建 `7813a8cd8a083076` 供回滚。
+网站：<https://sky.zjuaaa.cn/>。2026-10-28最新发布设备时间地点与原生日历，当前v0.3.0 Web构建ID为 `b4aca969debfe48f`，入口模块 `index-ClVFzZmN.js`，SHA256 `3be2a1aa0a8e1175da9d58995b59d419fd49e71290b07061dd1d6c1f93b8c7f6`。第八批已交付10等HYG星表与星图深度控制；其他扩展继续按独立功能推进。历史发行附件保留，服务器保留上一构建 `1c8b866cfcd567cc` 供回滚。
+
+## 2026-10-28：设备时间地点与原生日历
+
+源码提交 [`5db42c3`](https://github.com/Ray8mu34/Sky-Simulator/commit/5db42c3265b6979af301d5946eb46e20a4324316) 已推送，[GitHub构建检查](https://github.com/Ray8mu34/Sky-Simulator/actions/runs/40643473184)成功。平台/状态130项、本地Chrome/Edge设备与选择器流程、9组扩展时间场景、7组草稿以及离线回退检查通过，范围见[功能验证记录](DEVICE-CONTEXT-20261028.md)。
+
+运行包SHA256为 `400151fbfca6042a8699deb1b1c5456744e3c4433f4a763fcb69e51cae89380c`。上传校验、独立release、旧hash资源兼容和gzip生成后原子切换current，保留上一完整版本；全局及全部站点Nginx配置SHA一致，没有重启其他服务。
+
+公网Chrome验证入口模块SHA与本地一致，四视角与UTC配对正常、离线资源就绪、课程草稿经刷新和离线重开恢复，Service Worker返回200且构建ID一致，没有页面脚本错误。证据位于 `_local-archive/deployment-device-20261028/browser/report.json`。版本号继续为0.3.0，以build ID识别本次网站更新，历史GitHub发行附件保持原样。
+
+另在公网HTTPS普通入口使用浏览器模拟授权坐标，确认自动读取设备时间与Asia/Shanghai时区、更新观测地点，以及日历/时间控件应用2028-02-29 20:30:45后得到正确UTC。没有读取真实用户坐标；证据为同目录 `public-device.json`，无页面脚本错误。
 
 ## 2026-10-28：精简前端文案
 
@@ -16,12 +26,12 @@
 
 |内容|位置或规则|
 |---|---|
-|静态发行目录|`/srv/apps/sky-simulator/releases/1c8b866cfcd567cc/`|
+|静态发行目录|`/srv/apps/sky-simulator/releases/b4aca969debfe48f/`|
 |当前入口|`/srv/apps/sky-simulator/current`，指向上述目录的相对符号链接|
 |Nginx配置|`/etc/nginx/sites-available/sky-simulator`，同名sites-enabled链接|
 |源码配置副本|仓库 `deploy/nginx/sky-simulator.conf`|
 |ACME验证根|`/srv/data/sky-simulator/acme/`|
-|部署记录|`/srv/data/sky-simulator/deployments/20261028-ui-copy/`；历史记录保留在同级目录|
+|部署记录|`/srv/data/sky-simulator/deployments/20261028-device/`；历史记录保留在同级目录|
 |TLS证书|`/etc/letsencrypt/live/sky.zjuaaa.cn/`，禁止公开私钥|
 |日志|`/var/log/nginx/sky-simulator-access.log`、`sky-simulator-error.log`|
 
