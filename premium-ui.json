@@ -4,7 +4,7 @@
   "locale": "zh-CN",
   "canonicalMap": "UX-CONTRACT.md",
   "requiredCapabilities": ["Select/Listbox", "Date", "Form", "Scrollbar", "Toast", "CRUD"],
-  "ownership": { "Select/Listbox": "native", "Date": "typed" },
+  "ownership": { "Select/Listbox": "native", "Date": "native" },
   "requiredCommands": ["typecheck"],
   "commands": { "typecheck": "pnpm typecheck" }
 }

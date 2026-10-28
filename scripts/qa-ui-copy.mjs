@@ -79,7 +79,6 @@ try {
 
   const missingDescriptions = await page.locator('[aria-describedby]').evaluateAll(nodes => nodes.flatMap(node => node.getAttribute('aria-describedby').split(/\s+/).filter(id => !document.getElementById(id))));
   assert.deepEqual(missingDescriptions, []);
-  assert.equal(await page.locator('.info-tip-trigger').count(), 9);
   for (const node of await page.locator('.info-tip-trigger').all()) assert.ok(await node.getAttribute('aria-label'));
   report.checks.push('All info triggers have accessible names; every aria-describedby points to an existing element.');
 

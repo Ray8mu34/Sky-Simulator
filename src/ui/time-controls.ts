@@ -1,9 +1,10 @@
 import type { DisplayZone, SimulationState } from '../contracts';
-import { formatCivil, formatEraYear, localCivilParts, parseCivilInput, utToDate } from '../core/time';
+import { formatCivil, formatEraYear, localCivilParts, parseCivilInput, utToDate, validateCivil } from '../core/time';
 import { createTimeNavigationWindow, sliderFractionToUt, stepTimeNavigation, shiftTimeNavigationWindow, utToSliderFraction } from '../core/time-navigation';
 import type { TimeAmbiguityPolicy, TimeNavigationSpan, TimeNavigationWindow } from '../core/time-navigation';
 import { applyState } from '../state';
 import { trackFormDraft } from './form-draft';
+import { infoTip } from './info-tip';
 
 const two = (value: number) => String(value).padStart(2, '0');
 const year = (value: number) => value < 0 ? `-${String(-value).padStart(4, '0')}` : String(value).padStart(4, '0');
@@ -18,8 +19,8 @@ export interface TimeControls { sync(): void; cancelSession(resetWindow?: boolea
 export function mountTimeControls(section: HTMLElement, state: SimulationState,
   onChange: (reason: string) => void, onError: (message: string) => void): TimeControls {
   section.innerHTML = `<div class="section-heading"><h2>时间</h2><span class="input-zone-label"></span></div>
-    <form id="sky-time-form" class="time-form" novalidate><label for="sky-date">日期</label><input id="sky-date" type="text" autocomplete="off" aria-label="当前时区日期，天文纪年" title="0为公元前1年；−1为公元前2年；前推格里高利历"><label for="sky-time">时刻</label><input id="sky-time" type="text" inputmode="numeric" autocomplete="off" aria-label="当前时区时分秒"><button type="submit" class="apply-time">应用时间</button></form>
-    <p class="time-controls-status tiny-note" role="status" aria-live="polite"></p><details class="time-zone-settings"><summary>时区设置</summary><form id="sky-zone-form" class="zone-form" novalidate><label for="sky-zone-kind">规则</label><select id="sky-zone-kind"><option value="fixed">固定偏移</option><option value="iana">命名时区</option></select><label class="fixed-zone-field" for="sky-zone-offset">UTC偏移</label><input class="fixed-zone-field" id="sky-zone-offset" type="text" autocomplete="off" placeholder="+08:00" aria-label="固定UTC偏移，正负小时和分钟"><label class="iana-zone-field" for="sky-zone-name" hidden>时区名称</label><input class="iana-zone-field" id="sky-zone-name" type="text" autocomplete="off" placeholder="America/New_York" aria-label="IANA时区名称" hidden><button type="submit">应用时区</button></form><p class="iana-zone-note tiny-note" hidden>命名时区适用于1900–2100年，其他日期请使用固定偏移。</p></details>
+    <form id="sky-time-form" class="time-form" novalidate><label for="sky-date">日期</label><input id="sky-date" type="date" min="0001-01-01" max="4000-12-31" required autocomplete="off" aria-label="当前时区日期" aria-describedby="sky-time-input-status"><label for="sky-time">时刻</label><input id="sky-time" type="time" step="1" required autocomplete="off" aria-label="当前时区时分秒" aria-describedby="sky-time-input-status"><button type="submit" class="apply-time">应用时间</button></form>
+    <p id="sky-time-input-status" class="time-controls-status tiny-note" role="status" aria-live="polite"></p><details class="time-zone-settings"><summary>时区 / 纪年</summary><div class="field-heading"><label class="calendar-mode"><input id="sky-astronomical-date" type="checkbox">天文纪年输入</label>${infoTip('sky-year-help', '天文纪年说明', '公元前日期使用文本输入：0年为公元前1年，−1年为公元前2年。支持−2000至4000年；1900–2100以外请使用固定UTC偏移。')}</div><form id="sky-zone-form" class="zone-form" novalidate><label for="sky-zone-kind">规则</label><select id="sky-zone-kind"><option value="fixed">固定偏移</option><option value="iana">命名时区</option></select><label class="fixed-zone-field" for="sky-zone-offset">UTC偏移</label><input class="fixed-zone-field" id="sky-zone-offset" type="text" autocomplete="off" placeholder="+08:00" aria-label="固定UTC偏移，正负小时和分钟"><label class="iana-zone-field" for="sky-zone-name" hidden>时区名称</label><input class="iana-zone-field" id="sky-zone-name" type="text" autocomplete="off" placeholder="America/New_York" aria-label="IANA时区名称" hidden><button type="submit">应用时区</button></form><p class="iana-zone-note tiny-note" hidden>命名时区适用于1900–2100年，其他日期请使用固定偏移。</p></details>
     <label class="time-ambiguity-row" hidden for="sky-time-ambiguity">重复时刻<select id="sky-time-ambiguity"><option value="reject">拒绝</option><option value="earlier">早一次</option><option value="later">晚一次</option></select></label>
     <div class="time-navigation-heading"><label for="sky-time-span">跨度</label><select id="sky-time-span" aria-label="时间滑条跨度"><option value="hour">一小时</option><option value="day">一天</option><option value="month">一个月</option></select></div>
     <input id="sky-day-slider" type="range" min="0" max="1" step="any" aria-label="当前固定时间窗口滑条"><p class="time-window-label tiny-note"></p>
@@ -31,6 +32,9 @@ export function mountTimeControls(section: HTMLElement, state: SimulationState,
   const kind = query<HTMLSelectElement>('#sky-zone-kind');
   const spanControl = query<HTMLSelectElement>('#sky-time-span');
   const ambiguity = query<HTMLSelectElement>('#sky-time-ambiguity');
+  const dateInput = query<HTMLInputElement>('#sky-date');
+  const timeInput = query<HTMLInputElement>('#sky-time');
+  const astronomical = query<HTMLInputElement>('#sky-astronomical-date');
   const draft = trackFormDraft(query<HTMLFormElement>('#sky-time-form'));
   const listeners: Array<() => void> = [];
   let span: TimeNavigationSpan = 'day', window: TimeNavigationWindow | null = null, session: TimeNavigationWindow | null = null;
@@ -40,6 +44,11 @@ export function mountTimeControls(section: HTMLElement, state: SimulationState,
   function setValue(element: HTMLInputElement | HTMLSelectElement, value: string) { if (element.value !== value) element.value = value; }
   function put(selector: string, value: string) { const element = query<HTMLElement>(selector); if (element.textContent !== value) element.textContent = value; }
   function tryAction(action: () => void) { try { action(); put('.time-controls-status', ''); } catch (error) { const message = error instanceof Error ? error.message : String(error); put('.time-controls-status', message); onError(message); } }
+  function dateMode() {
+    dateInput.type = astronomical.checked ? 'text' : 'date';
+    dateInput.setAttribute('aria-label', astronomical.checked ? '当前时区日期，天文纪年' : '当前时区日期');
+    dateInput.setAttribute('aria-describedby', astronomical.checked ? 'sky-time-input-status sky-year-help' : 'sky-time-input-status');
+  }
   function zoneFields() {
     for (const element of section.querySelectorAll<HTMLElement>('.fixed-zone-field')) element.hidden = kind.value !== 'fixed';
     for (const element of section.querySelectorAll<HTMLElement>('.iana-zone-field, .iana-zone-note')) element.hidden = kind.value !== 'iana';
@@ -51,6 +60,8 @@ export function mountTimeControls(section: HTMLElement, state: SimulationState,
     const nextZoneSignature = JSON.stringify(zone);
     if (nextZoneSignature !== zoneSignature) draft.clear();
     if (!draft.isDirty()) {
+      if (civil.year <= 0) astronomical.checked = true;
+      dateMode();
       setValue(query<HTMLInputElement>('#sky-date'), `${year(civil.year)}-${two(civil.month)}-${two(civil.day)}`);
       setValue(query<HTMLInputElement>('#sky-time'), `${two(civil.hour)}:${two(civil.minute)}:${two(civil.second)}`);
     }
@@ -84,12 +95,34 @@ export function mountTimeControls(section: HTMLElement, state: SimulationState,
   }
   function cancelSession(resetWindow = false) { session = null; if (resetWindow) { window = null; draft.clear(); } sync(); }
   function setUt(ut: number, reason: string) { applyState(state, { ...state, time: { ...state.time, utDaysJ2000: ut, running: false, mode: 'simulation' } }); draft.clear(); onChange(reason); }
+  // Opening an OS picker is already an edit session; playback must not move its selected date.
+  listen(dateInput, 'focus', () => draft.markDirty());
+  listen(timeInput, 'focus', () => draft.markDirty());
+  listen(astronomical, 'change', () => {
+    const value = dateInput.value;
+    tryAction(() => {
+      if (!astronomical.checked) {
+        try {
+          const match = /^(\d{1,4})-(\d{1,2})-(\d{1,2})$/.exec(value);
+          if (!match || Number(match[1]) < 1 || Number(match[1]) > 4000) throw new Error();
+          validateCivil({ astronomicalYear: Number(match[1]), month: Number(match[2]), day: Number(match[3]), hour: 0, minute: 0, second: 0 });
+          dateMode(); dateInput.value = `${year(Number(match[1]))}-${two(Number(match[2]))}-${two(Number(match[3]))}`;
+        } catch { astronomical.checked = true; throw new Error('请先填写公元1至4000年的有效日期，再切换日历。'); }
+      } else { dateMode(); dateInput.value = value; }
+    });
+  });
   listen(query('#sky-time-form'), 'submit', event => {
     event.preventDefault(); tryAction(() => {
+      dateInput.removeAttribute('aria-invalid'); timeInput.removeAttribute('aria-invalid');
       const date = /^(-?\d{1,6})-(\d{1,2})-(\d{1,2})$/.exec(query<HTMLInputElement>('#sky-date').value.trim());
       const time = /^(\d{1,2}):(\d{1,2})(?::(\d{1,2}(?:\.\d+)?))?$/.exec(query<HTMLInputElement>('#sky-time').value.trim());
-      if (!date || !time) throw new Error('日期用年-月-日，时刻用时:分:秒；公元前1年填0。');
-      const ut = parseCivilInput({ astronomicalYear: Number(date[1]), month: Number(date[2]), day: Number(date[3]), hour: Number(time[1]), minute: Number(time[2]), second: Number(time[3] ?? 0), zone: state.observer.displayZone, ambiguousTime: policy() });
+      if (!date || !time) {
+        const field = !date ? dateInput : timeInput; field.setAttribute('aria-invalid', 'true'); field.focus();
+        throw new Error(!date ? astronomical.checked ? '日期请输入年-月-日；公元前1年填0。' : '请选择完整日期。' : '请选择完整时刻。');
+      }
+      let ut: number;
+      try { ut = parseCivilInput({ astronomicalYear: Number(date[1]), month: Number(date[2]), day: Number(date[3]), hour: Number(time[1]), minute: Number(time[2]), second: Number(time[3] ?? 0), zone: state.observer.displayZone, ambiguousTime: policy() }); }
+      catch (error) { dateInput.setAttribute('aria-invalid', 'true'); timeInput.setAttribute('aria-invalid', 'true'); dateInput.focus(); throw error; }
       session = null; window = null; setUt(ut, 'time-input');
     });
   });

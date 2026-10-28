@@ -36,7 +36,7 @@ button, input, select { font: inherit; }
 button, input, select, summary { -webkit-tap-highlight-color: transparent; }
 button { cursor: pointer; }
 button:disabled { opacity: .45; cursor: default; }
-button, select, input[type="text"], input[type="number"] {
+button, select, input[type="text"], input[type="number"], input[type="date"], input[type="time"] {
   color: #e7e5dc;
   background: #121d26;
   border: 1px solid #2d3b45;
@@ -110,10 +110,14 @@ button:focus-visible, select:focus-visible, input:focus-visible, summary:focus-v
 .object-day-definition-details[hidden] { display: none; }
 .mode-note { font-size: .85em; line-height: 1.4; color: #c6b38d; margin: 5px 0 0; }
 .mode-note:empty, .compact-mode-note:empty, .tiny-note:empty { display: none; }
-.time-form { display: grid; grid-template-columns: 2em minmax(0, 1fr) 4.5em; gap: 4px; align-items: center; color: #97a3ac; }
-.time-form #sky-date { grid-column: 2 / 4; width: 100%; }
+.time-form { display: grid; grid-template-columns: 2em minmax(0, 1fr); gap: 4px; align-items: center; color: #97a3ac; }
+.time-form #sky-date { width: 100%; }
 .time-form input { width: 100%; letter-spacing: .02em; font-variant-numeric: tabular-nums; }
-.time-form .apply-time { padding-inline: 2px; white-space: nowrap; }
+.time-form .apply-time { grid-column: 2; padding-inline: 2px; white-space: nowrap; }
+.calendar-mode { display: flex; align-items: center; gap: 4px; font-size: .9em; }
+input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webkit-calendar-picker-indicator { cursor: pointer; }
+#sky-use-device { width: 100%; margin-top: 4px; }
+#sky-device-location-status.is-error { color: #e4a498; }
 .time-zone-settings { margin-top: 3px; }
 .zone-form { display: grid; grid-template-columns: 4.4em minmax(0, 1fr); gap: 4px; align-items: center; margin-top: 4px; color: #97a3ac; }
 .zone-form input, .zone-form select { width: 100%; }

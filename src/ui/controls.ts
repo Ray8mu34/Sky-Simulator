@@ -21,6 +21,7 @@ import { mountTimeControls } from './time-controls';
 import { mountSceneControls } from './scene-controls';
 import { trackFormDraft } from './form-draft';
 import { infoTip, mountInfoTips } from './info-tip';
+import { createDeviceLocation, deviceObserver, useDeviceTime } from '../platform/device-context';
 import { mountObjectDayControls } from './object-day-controls';
 import { hasMatchingRefraction, mountRefractionControls } from './refraction-controls';
 import type { ShareResult } from './scene-controls';
@@ -78,6 +79,8 @@ function yearText(n: number): string { return n < 0 ? `-${String(-n).padStart(4,
 function degrees(n: number | undefined): string { return n === undefined || !Number.isFinite(n) ? '—' : `${n.toFixed(1)}°`; }
 
 export interface Controls {
+  locateDevice(): void;
+  cancelDeviceLocation(): void;
   update(snapshot: ScienceSnapshot, metrics?: Partial<RuntimeMetrics>, teaching?: TeachingData): void;
   syncPlayback(): void;
   updateSkyAppearance(appearance: SkyAppearance): void;
@@ -131,8 +134,9 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
         </section>
         <section class="control-section time-section"></section>
         <section class="control-section observer-section">
-          <div class="section-heading"><h2>观测地点</h2>${infoTip('sky-observer-help', '观测地点与时区说明', '东经、北纬为正，西经、南纬为负。切换地点不改变时区；时区在时间设置中调整。')}</div>
+          <div class="section-heading"><h2>观测地点</h2>${infoTip('sky-observer-help', '观测地点与时区说明', '东经、北纬为正，西经、南纬为负。地点预设不改变时区；“此刻与当前位置”使用设备时区，定位需允许浏览器访问位置。')}</div>
           <select id="sky-city" aria-label="地点预设">${cities.map((city, i) => `<option value="${i}">${city.name}</option>`).join('')}<option value="custom">自定义</option></select>
+          <button id="sky-use-device" type="button">此刻与当前位置</button><p id="sky-device-location-status" class="tiny-note" role="status" aria-live="polite"></p>
           <details class="custom-observer"><summary>经纬度 / 海拔</summary><form id="sky-observer-form" class="observer-form" novalidate><label for="sky-latitude">纬度 °</label><input id="sky-latitude" type="number" min="-90" max="90" step="any" required><label for="sky-longitude">东经 °</label><input id="sky-longitude" type="number" min="-180" max="180" step="any" required><label for="sky-height">海拔 m</label><input id="sky-height" type="number" min="-500" max="100000" step="any" required><button type="submit">应用地点</button></form></details>
           <div class="body-readouts"><span class="sun-readout">太阳 几何 — · 视高度 —</span><span class="moon-readout">月球 几何 — · 视高度 —</span><span class="phase-readout">月面照亮 —</span></div>
         </section>
@@ -180,6 +184,33 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
     const name = input('sky-scene-name'); name.scrollIntoView({ block: 'center' }); name.focus({ preventScroll: true });
   });
   const disposeInfoTips = mountInfoTips(container);
+  const deviceButton = container.querySelector<HTMLButtonElement>('#sky-use-device')!;
+  const locationStatus = container.querySelector<HTMLElement>('#sky-device-location-status')!;
+  const deviceLocation = createDeviceLocation(navigator.geolocation, position => {
+    const result = deviceObserver(position.coords, state.observer.displayZone);
+    applyState(state, { ...state, observer: result.observer });
+    useDeviceTime(state); observerDraft.clear(); timeControls.cancelSession(true);
+    change('time-device-location'); sceneControls.rememberCurrent('当前设备');
+    return [result.accuracy !== null ? `定位精度约${Math.round(result.accuracy)} m` : '已使用当前位置', result.altitudeEstimated ? '海拔未返回，按0 m计算' : ''].filter(Boolean).join(' · ');
+  }, status => {
+    deviceButton.disabled = status.phase === 'pending';
+    deviceButton.setAttribute('aria-busy', String(status.phase === 'pending'));
+    locationStatus.textContent = status.message;
+    locationStatus.classList.toggle('is-error', status.phase === 'error');
+  }, window.isSecureContext);
+  function locateDevice() {
+    if (disposed || deviceButton.disabled) return;
+    useDeviceTime(state); timeControls.cancelSession(true); change('time-device');
+    sceneControls.rememberCurrent('当前设备时间'); deviceLocation.request();
+  }
+  listen(deviceButton, 'click', locateDevice);
+  // Draft edits and selecting Custom count as newer intent, even before Apply.
+  listen(container, 'input', event => {
+    if ((event.target as Element).closest('#sky-time-form, #sky-zone-form, #sky-observer-form, #sky-city')) deviceLocation.cancel();
+  });
+  listen(container, 'focusin', event => {
+    if ((event.target as Element).closest('#sky-time-form, #sky-zone-form, #sky-observer-form')) deviceLocation.cancel();
+  });
 
   function message(value: string, error = false) {
     if (disposed) return;
@@ -310,7 +341,8 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
     const rate = select('sky-rate');
     if (![...rate.options].some((option) => Number(option.value) === absRate)) rate.add(new Option(`${absRate}×`, String(absRate)));
     setValue(rate, String(absRate)); setValue(select('sky-presentation'), state.presentation); setValue(select('sky-density'), state.density);
-    const cityIndex = cities.findIndex((city) => Math.abs(city.latitudeDeg - state.observer.latitudeDeg) < 0.000001 && Math.abs(city.longitudeDegEast - state.observer.longitudeDegEast) < 0.000001 && city.heightMeters === state.observer.heightMeters);
+    const cityIndex = state.observer.name === '设备当前位置' ? -1 : cities.findIndex((city) => Math.abs(city.latitudeDeg - state.observer.latitudeDeg) < 0.000001 && Math.abs(city.longitudeDegEast - state.observer.longitudeDegEast) < 0.000001 && city.heightMeters === state.observer.heightMeters);
+    select('sky-city').querySelector<HTMLOptionElement>('option[value="custom"]')!.textContent = state.observer.name === '设备当前位置' ? '当前位置' : '自定义';
     setValue(select('sky-city'), cityIndex === -1 ? 'custom' : String(cityIndex));
     if (!observerDraft.isDirty()) { input('sky-latitude').value = String(state.observer.latitudeDeg); input('sky-longitude').value = String(state.observer.longitudeDegEast); input('sky-height').value = String(state.observer.heightMeters); }
     for (const el of container.querySelectorAll<HTMLButtonElement>('[data-view]')) {
@@ -405,7 +437,7 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
         case 'pause': state.time.running = false; change('clock'); break;
         case 'compact-play':
         case 'play': state.time.running = !state.time.running; if (state.time.mode === 'realtime' && state.time.running) { state.time.utDaysJ2000 = dateToUt(new Date()); timeControls.cancelSession(true); } change('clock'); break;
-        case 'realtime': state.time.utDaysJ2000 = dateToUt(new Date()); state.time.running = true; state.time.mode = 'realtime'; state.time.rateSimSecondsPerRealSecond = 1; timeControls.cancelSession(true); change('clock'); break;
+        case 'realtime': useDeviceTime(state, true); timeControls.cancelSession(true); change('time-realtime'); break;
         case 'reverse': state.time.mode = 'simulation'; state.time.rateSimSecondsPerRealSecond = -(state.time.rateSimSecondsPerRealSecond || 1); change('clock'); break;
         case 'reset': sceneControls.reset(); break;
         case 'capture': window.dispatchEvent(new CustomEvent('sky:capture')); break;
@@ -435,6 +467,7 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
     tryAction(() => {
       if (el.dataset.layer && !(el as HTMLInputElement).disabled) { state.layers[el.dataset.layer as keyof LayerState] = el.dataset.layerInverse === 'true' ? !(el as HTMLInputElement).checked : (el as HTMLInputElement).checked; change('layers'); }
       if (el.id === 'sky-city') {
+        deviceLocation.cancel();
         if (el.value === 'custom') { container.querySelector<HTMLDetailsElement>('.custom-observer')!.open = true; input('sky-latitude').focus(); }
         else { state.observer = { ...cities[Number(el.value)]!, displayZone: state.observer.displayZone }; observerDraft.clear(); change('observer'); }
       }
@@ -513,6 +546,8 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
     isTeachingVisible() { return teachingControls.isVisible(); },
     getMoonLoupeViewport() { return teachingControls.getMoonLoupeViewport(); },
     setMoonLoupeAvailability(status, message, info) { teachingControls.setMoonLoupeAvailability(status, message, info); },
-    dispose() { disposed = true; disposeInfoTips(); offlineControls.dispose(); courseEquipment.dispose(); explorationControls.dispose(); objectDayControls.dispose(); observerDraft.dispose(); sceneControls.dispose(); timeControls.dispose(); appearanceControls.dispose(); refractionControls.dispose(); teachingControls.dispose(); listeners.forEach((remove) => remove()); if (messageTimer) clearTimeout(messageTimer); container.innerHTML = ''; },
+    locateDevice,
+    cancelDeviceLocation() { deviceLocation.cancel(); },
+    dispose() { disposed = true; deviceLocation.dispose(); disposeInfoTips(); offlineControls.dispose(); courseEquipment.dispose(); explorationControls.dispose(); objectDayControls.dispose(); observerDraft.dispose(); sceneControls.dispose(); timeControls.dispose(); appearanceControls.dispose(); refractionControls.dispose(); teachingControls.dispose(); listeners.forEach((remove) => remove()); if (messageTimer) clearTimeout(messageTimer); container.innerHTML = ''; },
   };
 }

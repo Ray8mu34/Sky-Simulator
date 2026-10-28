@@ -4,6 +4,7 @@ import { mountControls, setAvailableViews } from './ui/controls';
 import { applyState, createDefaultState, parseState, serializeState } from './state';
 import type { ExternalCamera, MoonPhaseSequence, ObjectId, RuntimeMetrics, ScienceSnapshot, SimulationState, SolarDayEvents, ViewMode } from './contracts';
 import { SimulationClock } from './platform/clock';
+import { useDeviceTime } from './platform/device-context';
 import { requestEnvironmentSnapshot } from './platform/environment-refresh';
 import { snapshotNeedsImmediateUi, uiCadenceDue } from './platform/ui-cadence';
 import { SnapshotService } from './platform/snapshot-service';
@@ -127,7 +128,7 @@ function updateStatus(): void {
 if (location.hash.startsWith('#scene=')) {
   try { applyState(state, parseState(decodeURIComponent(location.hash.slice(7)))); }
   catch { lastError = '场景链接无效，请重新导入场景。'; }
-}
+} else useDeviceTime(state);
 clock.rebase(state.time.utDaysJ2000, state.time.rateSimSecondsPerRealSecond, state.time.running && !hidden, performance.now());
 resetInteractionIntents();
 
@@ -528,6 +529,8 @@ function frame(nowMs: number): void {
 }
 function onChange(reason = 'state'): void {
   if (disposed) return;
+  if (reason !== 'time-device' && reason !== 'time-device-location' &&
+    (reason.startsWith('time') || ['import', 'observer', 'display-zone', 'clock', 'play', 'pause', 'state'].includes(reason))) controls.cancelDeviceLocation();
   resetRuntimeQuality(reason === 'view' ? 'view' : state.time.running ? 'input' : 'pause');
   renderer?.resetPointerGestures();
   if (reason === 'import' || reason === 'time-scene' || reason === 'time-reset') {
@@ -804,5 +807,6 @@ const appApi = {
 science.request(state);
 invalidate();
 updateStatus();
+if (!location.hash.startsWith('#scene=')) controls.locateDevice();
 void registerOffline(info => { if (disposed) return; offlineInfo = info; controls.setOfflineStatus(info); updateStatus(); })
   .then(controller => { if (disposed) controller.dispose(); else { offlineController = controller; controls.setOfflineController(controller); } });

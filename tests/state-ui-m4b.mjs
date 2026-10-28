@@ -1,10 +1,11 @@
 import { chromium } from '@playwright/test';
 import assert from 'node:assert/strict';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 
 const out = process.env.SKY_UI_QA_OUT_DIR ?? 'qa/m4b-ui/development';
 const qaUrl = process.env.SKY_QA_URL ?? 'http://127.0.0.1:5173/';
 const stage = process.env.SKY_UI_QA_STAGE ?? 'development';
+const initialScene = JSON.parse(await readFile('media/screenshots/capture-manifest.json', 'utf8')).captures[0].state;
 await mkdir(out, { recursive: true });
 const browser = await chromium.launch({ channel: 'chrome', headless: true });
 const errors = [], assertions = [];
@@ -15,7 +16,7 @@ const reveal = (page, selector) => page.locator(selector).scrollIntoViewIfNeeded
 try {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, acceptDownloads: true });
   page = await context.newPage(); page.on('pageerror', error => errors.push(error.message));
-  await page.goto(qaUrl); await paired(page);
+  await page.goto(qaUrl + '#scene=' + encodeURIComponent(JSON.stringify(initialScene))); await paired(page);
   assert.equal(await page.locator('#sky-control-panel').isVisible(), false);
   for (const selector of ['.compact-time', '.compact-play', '.compact-reset', '#sky-compact-view', '.compact-search']) {
     const box = await page.locator(selector).boundingBox(); assert.ok(box.width >= 44 && box.height >= 44, selector);
@@ -149,6 +150,8 @@ try {
     assert.equal(await page.locator('#sky-date').inputValue(), '2026-02-28'); assert.equal(await page.locator('#sky-time').inputValue(), '22:00:00');
     await page.locator('#sky-date').fill('2024-01-31'); await page.locator('#sky-time-form button').click(); await paired(page);
     await page.locator('[data-time-step="1"]').click(); await paired(page); assert.equal(await page.locator('#sky-date').inputValue(), '2024-02-29');
+    await page.locator('.time-zone-settings').evaluate(el => { el.open = true; });
+    await page.locator('#sky-astronomical-date').check();
     await page.locator('#sky-date').fill('0-01-01'); await page.locator('#sky-time-form button').click(); await paired(page);
     assert.match(await page.locator('.era-readout').textContent(), /公元前 1 年/);
     await page.screenshot({ path: `${out}/390-year-zero-input.png` });

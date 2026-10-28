@@ -4,7 +4,7 @@
 
 中文天文教学与天空探索工具；主任务是在同一时刻、地点下切视角、比较科学读数与显示效果。视觉规范见 [DESIGN.md](DESIGN.md)。运行时样式为规范源，原生控件负责键盘语义与平台弹出行为，手机主要操作目标为44px。WCAG 2.2 AA是目标，不将静态审计解释为完整认证。
 
-时间显示使用场景的 displayZone，农历独立使用UTC+8；地点与时区独立。不存在账户权限、收费、服务端同步或本轮新增外部副作用。
+时间显示使用场景的 displayZone，农历独立使用UTC+8；地点预设与时区独立。普通入口和“此刻与当前位置”明确同时采用设备时间及设备时区，定位通过浏览器权限控制。不增加账户、收费或服务端位置存储。
 
 ## Business-context sources
 
@@ -23,7 +23,7 @@
 | Capability | Canonical owner | Source of truth | Allowed variants | Verification |
 |---|---|---|---|---|
 | Select/Listbox | 控件模块中的原生select | 状态值与对应模块 | native：接受平台弹出层；搜索使用现有结果列表 | 既有浏览器QA，本轮未新增select |
-| Date | `src/ui/time-controls.ts` | core时间API与displayZone | typed：显式应用，整表草稿 | 既有时间与草稿QA，本轮不改 |
+| Date | `src/ui/time-controls.ts` | core时间API与displayZone | native date/time；天文纪年typed；显式应用，整表草稿 | `qa-device-context.mjs`及时间/草稿QA |
 | Form | `src/ui/form-draft.ts`和各模块提交校验 | `src/state.ts`及core输入校验 | 显式应用；失败保留草稿 | 既有草稿QA；历史静态差异不以本文件豁免 |
 | Scrollbar | `src/style.css`的全局滚动条基线 | `:root`滚动条变量、标准属性与WebKit回退 | 面板及有界列表独立滚动 | 桌面与窄屏滚动检查 |
 | Toast | `controls.ts`中的message | 同一role=status区域 | 正常短反馈 / 持续错误 | 既有反馈；本轮状态说明使用同区局部文本 |
@@ -31,6 +31,7 @@
 | Offline update | `platform/offline.ts` + `ui/offline-controls.ts` | 当前页面、active和waiting构建身份 | 检查 / 下载 / 待重开；不强制激活 | 版本更新浏览器测试 |
 | Teaching persistence | `ui/course-equipment-controls.ts` + platform教学存储 | 单份当前草稿及独立地景，版本化本地记录 | 自动保存 / 导出 / 冲突恢复 | 存储单测与刷新、跨页浏览器测试 |
 | Supplementary help | `ui/info-tip.ts` | AGENTS.md的文案原则 | 非交互tooltip，鼠标/键盘/触屏 | `scripts/qa-ui-copy.mjs` |
+| Device context | `platform/device-context.ts` + `ui/controls.ts` | 设备Date/Intl与浏览器Geolocation | 单次定位；显式重试；拒绝时保留地点 | platform-device-context单测及qa-device-context浏览器验证 |
 
 新增能力不创建重复实现：肉眼模拟与污染编辑由 `appearance-controls.ts` 唯一拥有；地形复选框由 `controls.ts` 的图层定义、同步与change处理唯一拥有。
 
@@ -63,6 +64,16 @@
 选中对象与搜索草稿不因污染或透明动作清空。时间、地点和折射整表草稿沿用既有机制，不为此功能刷新。能力不可用用原生disabled及可见说明表达，不只靠灰色或hover。
 
 ## Verification
+
+### 设备信息与日期选择（2026-10-28）
+
+- 普通入口以设备当前时间、设备IANA时区（不可用时退回设备UTC偏移）初始化，1倍速且暂停，随后请求一次设备定位。教学预设工厂仍保持可重现的固定数据；含`#scene=`的分享入口不触发设备读取来覆盖场景。
+- “此刻与当前位置”立即使用设备当前时间/时区，再请求单次位置；成功后再次取当前时刻并应用经纬度。“实时”使用设备时钟和时区，1倍速连续播放，但不请求定位或改地点。
+- 使用浏览器位置授权，不调用IP定位或反向地理编码，不后台追踪，不自动持久化位置。用户主动保存、导出或分享场景仍按既有场景协议包含经纬度。
+- 定位拒绝、超时、不支持均展示可恢复提示并保留原地点；时间仍可独立使用。未返回有效海拔时显式按0 m计算，不沿用杭州的20 m。精度来自设备报告，不作为实测保证。
+- 手动编辑时间/地点草稿、切换预设、导入场景、改变时区或播放状态会使待返回定位失效；旧请求、已超时请求和卸载后的回调均不能覆盖较新操作。定位全程20秒上限，浏览器求解15秒上限。
+- 公元1至4000年使用原生date，时刻使用原生time（含秒）；选择只改草稿，“应用时间”才转为UTC并暂停。浏览器/OS拥有弹层外观和语言。打开选择器即冻结整表草稿，播放更新不能覆盖未提交选择。
+- “时区 / 纪年”中的天文纪年输入支持−2000至4000及0年；载入公元前场景自动启用。切回日历前必须提供有效正年份，不能静默清空公元前输入。IANA仍限1900–2100民用输入，其他年代用固定偏移；夏令时重叠/缺失校验沿用core。
 
 ### 精简文案与后果提示（2026-10-28）
 
