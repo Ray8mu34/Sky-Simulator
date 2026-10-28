@@ -30,6 +30,7 @@
 | CRUD | `scene-controls.ts` + sceneLibrary | 本地库单一格式与完整状态 | 显式保存 / 覆盖 / 删除 / 载入 | 既有场景库QA，本轮不改 |
 | Offline update | `platform/offline.ts` + `ui/offline-controls.ts` | 当前页面、active和waiting构建身份 | 检查 / 下载 / 待重开；不强制激活 | 版本更新浏览器测试 |
 | Teaching persistence | `ui/course-equipment-controls.ts` + platform教学存储 | 单份当前草稿及独立地景，版本化本地记录 | 自动保存 / 导出 / 冲突恢复 | 存储单测与刷新、跨页浏览器测试 |
+| Supplementary help | `ui/info-tip.ts` | AGENTS.md的文案原则 | 非交互tooltip，鼠标/键盘/触屏 | `scripts/qa-ui-copy.mjs` |
 
 新增能力不创建重复实现：肉眼模拟与污染编辑由 `appearance-controls.ts` 唯一拥有；地形复选框由 `controls.ts` 的图层定义、同步与change处理唯一拥有。
 
@@ -62,6 +63,14 @@
 选中对象与搜索草稿不因污染或透明动作清空。时间、地点和折射整表草稿沿用既有机制，不为此功能刷新。能力不可用用原生disabled及可见说明表达，不只靠灰色或hover。
 
 ## Verification
+
+### 精简文案与后果提示（2026-10-28）
+
+- 补充说明统一通过 info 图标按需打开，不增加每区常驻教学文案；继续保留表单名称、单位、读数、能力限制和恢复提示。
+- Tooltip 使用原生 button、可访问名称和 aria-describedby；悬停可移入提示，聚焦或触屏点击可打开，Escape只关闭提示并保留焦点。顶层定位随面板滚动更新，入口滚出可视区域或所属区块关闭后收起。
+- 删除/覆盖本地场景前显示具体名称、影响和不可恢复后果，默认聚焦取消。确认后才修改存储；取消、Escape、修改选择或收起区块均不修改存储。覆盖使用请求确认时捕获的状态，避免运行中的时钟改变待保存内容。
+- 确认操作与课程草稿替换沿用就地确认方式，不新增全站弹窗或通知系统。
+- 本轮证据：`scripts/qa-ui-copy.mjs` 和 `docs/UI-COPY-REVIEW-20261028.md`。
 
 ### 课程与版本更新补充（2026-10-25）
 

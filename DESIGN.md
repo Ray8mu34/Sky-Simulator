@@ -84,6 +84,7 @@ components:
 | 地面透明 | `src/ui/controls.ts` 唯一 `data-layer="terrain"` 复选框，局部 `.layer-toggle-wide` |
 | 版本与离线 | `src/ui/offline-controls.ts` 展示 `platform/offline` 的唯一状态；版本号来自构建时的 `package.json` |
 | 课程与地景保存 | `src/ui/course-equipment-controls.ts` 的原生details、按钮及局部持久状态文字 |
+| 补充说明 | `src/ui/info-tip.ts` 的共享信息按钮与 tooltip；`src/style.css` 的 `.info-tip-*` |
 
 开启按钮、完整星图按钮和预设均复用现有 hover、键盘焦点与 `aria-pressed` 状态。禁用使用原生 `disabled`，并显示能力解释。范围输入保留原生键盘操作，显示当前值、0–1边界和定性含义；命名预设提供非拖动操作。
 
@@ -95,6 +96,9 @@ components:
 
 ## Do's and Don'ts
 
+- 前端文案遵循项目 [AGENTS.md](AGENTS.md)：先删冗余说明，再以布局、分组和清楚的操作名称补足理解。默认不加口号、教学段落或每区帮助文案。
+- 必要的格式、概念说明使用信息图标与按需 tooltip。复用现有深色控件底色、边框和3px圆角；提示在顶层显示，避开滚动容器裁切。桌面入口至少24px，窄屏沿用44px触控目标；键盘焦点、悬停和点击均可打开，Escape关闭并保留焦点。
+- 表单标签、单位、有效状态、错误恢复及科学口径保留。删除和覆盖本地场景使用就地后果提示与明确确认按钮，初始焦点放在取消；不可把后果藏进 tooltip。
 - 用简短、直接的成品文案。删除自我辩护、开发阶段、验收进度和重复免责声明；必要的科学含义写成按需查看的简短帮助。
 - 正常状态保持安静，加载时说明正在做什么，失败时给出恢复方法。完整错误保留在控制台及开发接口。
 - 保留天空主导、现有密度、低圆角和单一滚动面板。

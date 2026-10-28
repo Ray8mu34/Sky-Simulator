@@ -162,9 +162,10 @@ try {
     await page.locator('#sky-saved-scenes').selectOption(id); await page.locator('#sky-load-saved-scene').click(); await paired(page);
     assert.deepEqual(await current(page), preset);
     await page.locator('#sky-scene-name').fill('明确改名'); await page.locator('#sky-update-saved-scene').click();
+    await page.locator('[data-scene-confirm="apply"]').click();
     assert.equal(await page.locator('#sky-saved-scenes option:checked').textContent(), '明确改名');
     assert.equal(await page.locator('#sky-saved-scenes option').count(), 2);
-    await page.locator('#sky-remove-saved-scene').click(); assert.equal(await page.locator('#sky-saved-scenes option').count(), 1);
+    await page.locator('#sky-remove-saved-scene').click(); await page.locator('[data-scene-confirm="apply"]').click(); assert.equal(await page.locator('#sky-saved-scenes option').count(), 1);
     assertions.push('Named full scenes survive a page reload; overwrite and delete target the explicit selected id and never silently create or clear unrelated records.');
   }
   assert.deepEqual(errors, []);

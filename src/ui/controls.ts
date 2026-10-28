@@ -20,6 +20,7 @@ import { mountOfflineControls } from './offline-controls';
 import { mountTimeControls } from './time-controls';
 import { mountSceneControls } from './scene-controls';
 import { trackFormDraft } from './form-draft';
+import { infoTip, mountInfoTips } from './info-tip';
 import { mountObjectDayControls } from './object-day-controls';
 import { hasMatchingRefraction, mountRefractionControls } from './refraction-controls';
 import type { ShareResult } from './scene-controls';
@@ -130,9 +131,8 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
         </section>
         <section class="control-section time-section"></section>
         <section class="control-section observer-section">
-          <div class="section-heading"><h2>观测地点</h2><span>东经为正</span></div>
+          <div class="section-heading"><h2>观测地点</h2>${infoTip('sky-observer-help', '观测地点与时区说明', '东经、北纬为正，西经、南纬为负。切换地点不改变时区；时区在时间设置中调整。')}</div>
           <select id="sky-city" aria-label="地点预设">${cities.map((city, i) => `<option value="${i}">${city.name}</option>`).join('')}<option value="custom">自定义</option></select>
-          <p class="tiny-note city-zone-policy">时区：在时间设置中调整。</p>
           <details class="custom-observer"><summary>经纬度 / 海拔</summary><form id="sky-observer-form" class="observer-form" novalidate><label for="sky-latitude">纬度 °</label><input id="sky-latitude" type="number" min="-90" max="90" step="any" required><label for="sky-longitude">东经 °</label><input id="sky-longitude" type="number" min="-180" max="180" step="any" required><label for="sky-height">海拔 m</label><input id="sky-height" type="number" min="-500" max="100000" step="any" required><button type="submit">应用地点</button></form></details>
           <div class="body-readouts"><span class="sun-readout">太阳 几何 — · 视高度 —</span><span class="moon-readout">月球 几何 — · 视高度 —</span><span class="phase-readout">月面照亮 —</span></div>
         </section>
@@ -179,6 +179,7 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
     container.querySelector<HTMLDetailsElement>('.scene-library-section')!.open = true;
     const name = input('sky-scene-name'); name.scrollIntoView({ block: 'center' }); name.focus({ preventScroll: true });
   });
+  const disposeInfoTips = mountInfoTips(container);
 
   function message(value: string, error = false) {
     if (disposed) return;
@@ -512,6 +513,6 @@ export function mountControls(container: HTMLElement, state: SimulationState, on
     isTeachingVisible() { return teachingControls.isVisible(); },
     getMoonLoupeViewport() { return teachingControls.getMoonLoupeViewport(); },
     setMoonLoupeAvailability(status, message, info) { teachingControls.setMoonLoupeAvailability(status, message, info); },
-    dispose() { disposed = true; offlineControls.dispose(); courseEquipment.dispose(); explorationControls.dispose(); objectDayControls.dispose(); observerDraft.dispose(); sceneControls.dispose(); timeControls.dispose(); appearanceControls.dispose(); refractionControls.dispose(); teachingControls.dispose(); listeners.forEach((remove) => remove()); if (messageTimer) clearTimeout(messageTimer); container.innerHTML = ''; },
+    dispose() { disposed = true; disposeInfoTips(); offlineControls.dispose(); courseEquipment.dispose(); explorationControls.dispose(); objectDayControls.dispose(); observerDraft.dispose(); sceneControls.dispose(); timeControls.dispose(); appearanceControls.dispose(); refractionControls.dispose(); teachingControls.dispose(); listeners.forEach((remove) => remove()); if (messageTimer) clearTimeout(messageTimer); container.innerHTML = ''; },
   };
 }

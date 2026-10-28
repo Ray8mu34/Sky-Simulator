@@ -30,8 +30,7 @@ export function mountRefractionControls(parent: HTMLElement, state: SimulationSt
       <label for="sky-temperature">温度 °C</label><input id="sky-temperature" type="number" min="-100" max="80" step="any" required>
       <button id="sky-apply-refraction" type="submit">应用折射设置</button>
     </form>
-    <p id="sky-refraction-scope" class="tiny-note"></p><p id="sky-refraction-status" class="tiny-note" role="status" aria-live="polite"></p>
-    <p class="tiny-note">调整气压与温度，观察大气折射对天体视高度的影响。</p>`;
+    <p id="sky-refraction-scope" class="tiny-note"></p><p id="sky-refraction-status" class="tiny-note" role="status" aria-live="polite"></p>`;
   parent.append(section);
   const query = <T extends HTMLElement>(selector: string) => section.querySelector<T>(selector)!;
   const form = query<HTMLFormElement>('#sky-refraction-form');

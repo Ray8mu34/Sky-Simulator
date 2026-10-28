@@ -9,6 +9,7 @@ import type { PreparedLandscape } from '../platform/landscape';
 import { LANDSCAPE_MAX_BYTES, parseLandscape } from '../platform/landscape-data';
 import { createLocalDraft, teachingStorage } from '../platform/teaching-storage';
 import type { LocalSaveStatus } from '../platform/teaching-storage';
+import { infoTip } from './info-tip';
 
 export function mountCourseEquipment(parent: HTMLElement, state: SimulationState, onChange: (reason: string) => void) {
   const root = document.createElement('details'); root.className = 'control-section course-equipment';
@@ -16,28 +17,25 @@ export function mountCourseEquipment(parent: HTMLElement, state: SimulationState
   root.innerHTML = `<summary>课程 / 设备与地景</summary>
     <details class="course-tools"><summary>课程演示</summary>
       <label>课程标题<input class="course-title" aria-label="课程标题" value="我的天文课" maxlength="120"></label>
-      <label>步骤标题<input class="step-title" aria-label="步骤标题" placeholder="步骤标题" maxlength="120"></label>
-      <label>步骤讲解<textarea class="step-text" aria-label="步骤讲解" placeholder="步骤讲解" maxlength="4000" style="resize: none" rows="4"></textarea></label>
+      <label>步骤标题<input class="step-title" aria-label="步骤标题" maxlength="120"></label>
+      <label>步骤讲解<textarea class="step-text" aria-label="步骤讲解" maxlength="4000" style="resize: none" rows="4"></textarea></label>
       <label>停留秒数<input class="step-duration" type="number" value="8" min="2" max="600" aria-describedby="course-input-error"></label>
       <div class="event-grid"><button data-ce="record">记录当前场景</button><button data-ce="demo">载入示例课程</button><button data-ce="previous">上一步</button><button data-ce="next">下一步</button><button data-ce="play">自动播放</button><button data-ce="pause">暂停课程</button><button data-ce="exit">退出并恢复</button><button data-ce="export">导出课程</button></div>
       <label><input class="course-include-landscape" type="checkbox">课程携带地景</label>
       <button data-ce="course-landscape">采用当前地景</button><p class="course-landscape-name tiny-note"></p>
-      <label>导入课程或草稿 JSON<input class="course-file" type="file" accept="application/json,.json"></label>
+      <div class="field-heading"><label for="sky-course-file">导入课程或草稿 JSON</label>${infoTip('sky-course-format-help', '课程文件格式说明', '课程最多100步、2 MB；含地景的课程包最多14 MB。')}</div><input id="sky-course-file" class="course-file" type="file" accept="application/json,.json" aria-describedby="sky-course-format-help">
       <div class="course-replace" hidden><p class="course-replace-message tiny-note" role="status"></p><div class="event-grid"><button data-ce="course-draft-export">备份当前草稿</button><button data-ce="course-replace-cancel">保留当前</button><button data-ce="course-replace-confirm">替换当前草稿</button></div></div>
-      <p class="tiny-note">课程最多 100 步、2 MB；含地景的课程包最多 14 MB。</p>
       <p class="course-save-status tiny-note" role="status" aria-live="polite" style="min-height: 2.8em"></p>
-      <div class="event-grid"><button data-ce="course-draft-export">备份草稿</button><button data-ce="course-save-retry">重试保存课程</button></div>
-      <p class="tiny-note">草稿自动保存在此设备；清除网站数据会删除本地保存。备份文件可在其他设备导入。</p>
+      <div class="field-heading"><button data-ce="course-draft-export">备份草稿</button>${infoTip('sky-course-backup-help', '本地保存与备份说明', '草稿保存在此设备，清除网站数据会删除本地保存。导出备份后可在其他设备导入。')}</div><button data-ce="course-save-retry">重试保存课程</button>
       <p class="course-progress tiny-note" role="status"></p><p class="course-narration"></p>
     </details>
-    <details class="equipment-tools"><summary>相机与目镜</summary><p class="tiny-note">三维地表视图使用；视场框中心是当前视线。</p>
+    <details class="equipment-tools"><summary>相机与目镜</summary><p class="tiny-note">仅三维地表视角适用。</p>
       <label>模式<select data-instrument="mode"><option value="off">关闭</option><option value="camera">相机取景框</option><option value="eyepiece">目镜视场</option></select></label>
       ${[['focalLengthMm','镜头/望远镜焦距 mm'],['sensorWidthMm','传感器宽 mm'],['sensorHeightMm','传感器高 mm'],['eyepieceMm','目镜焦距 mm'],['apparentFovDeg','目镜表观视场 °'],['rotationDeg','取景框旋转 °']].map(([key,label]) => `<label>${label}<input type="number" step="any" data-instrument="${key}"></label>`).join('')}
-      <div class="event-grid"><button data-ce="instrument">应用设备</button><button data-ce="fit">适配视场</button><button data-ce="wide">恢复广角</button></div><p class="instrument-readout tiny-note"></p><p class="tiny-note">目镜真视场采用表观视场÷倍率近似。可在“星空显示 · 光污染”中显示至10等，补充寻星与构图参考星。</p>
+      <div class="event-grid"><button data-ce="instrument">应用设备</button><button data-ce="fit">适配视场</button><button data-ce="wide">恢复广角</button></div><div class="field-heading"><p class="instrument-readout tiny-note"></p>${infoTip('sky-instrument-help', '设备视场说明', '视场框中心是当前视线。目镜真视场采用表观视场÷倍率近似；寻星与构图可使用10等完整星图。')}</div>
     </details>
     <details class="landscape-tools"><summary>自定义全景地景</summary>
-      <p class="tiny-note">导入 2:1 等距柱状 PNG/WebP，最大 8 MB、8192×4096，天空区域透明。图像左边缘为北、中央为南；中线为地平。仅三维地表显示，不改变升落计算。</p>
-      <label>选择全景图片<input class="landscape-file" type="file" accept="image/png,image/webp"></label>
+      <div class="field-heading"><label for="sky-landscape-file">导入透明全景 PNG/WebP</label>${infoTip('sky-landscape-format-help', '全景地景格式说明', '使用2:1等距柱状图，最大8 MB、8192×4096，天空区域透明。左边缘为北、中央为南、中线为地平。仅三维地表显示，不改变升落计算。')}</div><input id="sky-landscape-file" class="landscape-file" type="file" accept="image/png,image/webp" aria-describedby="sky-landscape-format-help">
       <label><input class="landscape-enabled" type="checkbox">显示自定义地景</label>
       <label>方位校准 °<input class="landscape-angle" type="number" min="-360" max="360" value="0" aria-describedby="course-input-error"></label>
       <div class="event-grid"><button data-ce="landscape-export">导出地景包</button><button data-ce="landscape-remove">移除地景</button></div>

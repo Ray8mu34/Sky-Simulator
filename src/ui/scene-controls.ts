@@ -23,6 +23,14 @@ export function mountSceneControls(section: HTMLElement, state: SimulationState,
   const query = <T extends HTMLElement>(selector: string) => section.querySelector<T>(selector)!;
   const presetSelect = query<HTMLSelectElement>('#sky-preset');
   const savedSelect = query<HTMLSelectElement>('#sky-saved-scenes');
+  const confirmation = document.createElement('div');
+  confirmation.className = 'scene-confirm'; confirmation.hidden = true;
+  confirmation.setAttribute('role', 'group'); confirmation.setAttribute('aria-label', '确认更改已保存场景');
+  confirmation.innerHTML = '<p id="sky-scene-consequence"></p><div class="event-grid"><button type="button" data-scene-confirm="cancel">取消</button><button type="button" data-scene-confirm="apply" aria-describedby="sky-scene-consequence"></button></div>';
+  query('.scene-library-actions').after(confirmation);
+  const cancel = confirmation.querySelector<HTMLButtonElement>('[data-scene-confirm="cancel"]')!;
+  const confirm = confirmation.querySelector<HTMLButtonElement>('[data-scene-confirm="apply"]')!;
+  let pending: { kind: 'update' | 'remove'; id: string; name: string; trigger: HTMLButtonElement; candidate: SimulationState; newName: string } | null = null;
   const listeners: Array<() => void> = [];
   let initial = parseState(state), initialName = '初始场景', phaseSeed: number | null = null;
   let summaries: SceneSummary[] = [], disposed = false;
@@ -30,7 +38,36 @@ export function mountSceneControls(section: HTMLElement, state: SimulationState,
   const listen = (target: EventTarget, event: string, handler: EventListener) => { target.addEventListener(event, handler); listeners.push(() => target.removeEventListener(event, handler)); };
   function status(message: string, error = false) { put('.scene-library-status', message); query<HTMLElement>('.scene-library-status').classList.toggle('is-error', error); }
   function tryAction(action: () => void) { try { action(); } catch (error) { status(error instanceof Error ? error.message : String(error), true); } }
+  function dismissConfirmation(restoreFocus = false) {
+    const trigger = pending?.trigger;
+    pending = null; confirmation.hidden = true;
+    if (restoreFocus) trigger?.focus();
+  }
+  function requestConfirmation(kind: 'update' | 'remove', trigger: HTMLButtonElement) {
+    const record = summaries.find(summary => summary.id === savedSelect.value); if (!record) return;
+    pending = { kind, id: record.id, name: record.name, trigger, candidate: parseState(state), newName: query<HTMLInputElement>('#sky-scene-name').value };
+    confirmation.querySelector('p')!.textContent = kind === 'remove'
+      ? `删除“${record.name}”的本地保存，无法撤销。当前天空保持不变。`
+      : `用当前天空和名称覆盖“${record.name}”的本地保存，原记录无法恢复。`;
+    confirm.textContent = kind === 'remove' ? '确认删除场景' : '确认覆盖场景';
+    confirmation.hidden = false; cancel.focus();
+  }
+  listen(cancel, 'click', () => dismissConfirmation(true));
+  listen(confirmation, 'keydown', event => { if ((event as KeyboardEvent).key === 'Escape') { event.stopPropagation(); dismissConfirmation(true); } });
+  listen(confirm, 'click', () => tryAction(() => {
+    if (!pending) return;
+    const action = pending;
+    if (action.kind === 'remove') {
+      sceneLibrary.remove(action.id); refreshLibrary(''); status(`已删除“${action.name}”。`);
+    } else {
+      const record = sceneLibrary.save(action.newName, action.candidate, action.id);
+      refreshLibrary(record.id); status(`已更新“${record.name}”。`);
+    }
+    dismissConfirmation(); savedSelect.focus();
+  }));
+  listen(section, 'input', () => dismissConfirmation());
   function refreshLibrary(selected = savedSelect.value) {
+    dismissConfirmation();
     summaries = sceneLibrary.list();
     savedSelect.replaceChildren(new Option('选择我的场景', ''));
     for (const summary of summaries) savedSelect.add(new Option(summary.name, summary.id));
@@ -43,6 +80,7 @@ export function mountSceneControls(section: HTMLElement, state: SimulationState,
     for (const button of document.querySelectorAll<HTMLElement>('#controls [data-action="reset"]')) button.title = `恢复“${name}”起点并暂停`;
   }
   function load(candidate: SimulationState, name: string, seed: number | null, reason: string, rememberStart = true) {
+    dismissConfirmation();
     applyState(state, candidate);
     if (rememberStart) remember(name, seed);
     onLoad(reason, seed);
@@ -67,6 +105,7 @@ export function mountSceneControls(section: HTMLElement, state: SimulationState,
     refreshLibrary(record.id); status(`已保存“${record.name}”。`);
   }));
   listen(savedSelect, 'change', () => {
+    dismissConfirmation();
     const record = summaries.find(summary => summary.id === savedSelect.value);
     if (record) query<HTMLInputElement>('#sky-scene-name').value = record.name;
     for (const button of section.querySelectorAll<HTMLButtonElement>('.scene-library-actions button')) button.disabled = !record;
@@ -75,19 +114,13 @@ export function mountSceneControls(section: HTMLElement, state: SimulationState,
     const record = summaries.find(summary => summary.id === savedSelect.value); if (!record) return;
     load(sceneLibrary.load(record.id), record.name, null, 'import'); status(`已载入“${record.name}”。`);
   }));
-  listen(query('#sky-update-saved-scene'), 'click', () => tryAction(() => {
-    if (!savedSelect.value) return;
-    const record = sceneLibrary.save(query<HTMLInputElement>('#sky-scene-name').value, state, savedSelect.value);
-    refreshLibrary(record.id); status(`已更新“${record.name}”。`);
-  }));
-  listen(query('#sky-remove-saved-scene'), 'click', () => tryAction(() => {
-    const record = summaries.find(summary => summary.id === savedSelect.value); if (!record) return;
-    sceneLibrary.remove(record.id); refreshLibrary(''); status(`已删除“${record.name}”。`);
-  }));
+  listen(query('#sky-update-saved-scene'), 'click', event => tryAction(() => requestConfirmation('update', event.currentTarget as HTMLButtonElement)));
+  listen(query('#sky-remove-saved-scene'), 'click', event => tryAction(() => requestConfirmation('remove', event.currentTarget as HTMLButtonElement)));
   listen(query('#sky-reset-default'), 'click', () => { load(createDefaultState(), '默认场景', null, 'time-reset'); status('已恢复默认场景并暂停。'); });
   listen(query('#sky-share-scene'), 'click', () => { window.dispatchEvent(new CustomEvent('sky:share')); });
   listen(query('#sky-select-share'), 'click', () => { const value = query<HTMLTextAreaElement>('#sky-share-value'); value.focus(); value.select(); });
-  listen(section, 'toggle', () => { if ((section as HTMLDetailsElement).open) tryAction(() => refreshLibrary()); });
+  listen(section, 'toggle', () => { if ((section as HTMLDetailsElement).open) tryAction(() => refreshLibrary()); else dismissConfirmation(); });
+  listen(query('.scene-library-section'), 'toggle', () => { if (!query<HTMLDetailsElement>('.scene-library-section').open) dismissConfirmation(); });
   tryAction(() => refreshLibrary()); showPreset(); remember(initialName);
   return {
     reset() { if (disposed) return; const candidate = parseState(initial); candidate.time.running = false; load(candidate, initialName, phaseSeed, 'time-reset', false); status(`已恢复“${initialName}”起点并暂停。`); },
